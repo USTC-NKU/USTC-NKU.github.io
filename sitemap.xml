@@ -876,6 +876,13 @@
   </url>
   
   <url>
+    <loc>https://blog.starysky.top/tags/wave-optics/</loc>
+    <lastmod>2022-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.starysky.top/tags/Thermodynamics/</loc>
     <lastmod>2022-10-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -883,7 +890,7 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/wave-optics/</loc>
+    <loc>https://blog.starysky.top/tags/Vector-analysis/</loc>
     <lastmod>2022-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -904,13 +911,6 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Vector-analysis/</loc>
-    <lastmod>2022-10-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.starysky.top/tags/Data-processing-and-analysis/</loc>
     <lastmod>2022-10-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -925,6 +925,13 @@
   </url>
   
   <url>
+    <loc>https://blog.starysky.top/tags/Electric-field/</loc>
+    <lastmod>2022-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.starysky.top/tags/Wave-optics/</loc>
     <lastmod>2022-10-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -932,7 +939,7 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Electric-field/</loc>
+    <loc>https://blog.starysky.top/tags/Fluid-Dynamics/</loc>
     <lastmod>2022-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -953,7 +960,7 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Fluid-Dynamics/</loc>
+    <loc>https://blog.starysky.top/tags/Linear-algebra/</loc>
     <lastmod>2022-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -967,21 +974,7 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Linear-algebra/</loc>
-    <lastmod>2022-10-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.starysky.top/tags/Mechanical-vibration/</loc>
-    <lastmod>2022-10-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.starysky.top/tags/Mechanical-wave/</loc>
     <lastmod>2022-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -995,14 +988,21 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/ProbabilityTheory/</loc>
+    <loc>https://blog.starysky.top/tags/Mechanical-wave/</loc>
     <lastmod>2022-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Magnetic-field/</loc>
+    <loc>https://blog.starysky.top/tags/Summary-of-PTMS/</loc>
+    <lastmod>2022-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.starysky.top/tags/ProbabilityTheory/</loc>
     <lastmod>2022-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1016,7 +1016,7 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Summary-of-PTMS/</loc>
+    <loc>https://blog.starysky.top/tags/Magnetic-field/</loc>
     <lastmod>2022-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1165,6 +1165,13 @@
   </url>
   
   <url>
+    <loc>https://blog.starysky.top/categories/Math/</loc>
+    <lastmod>2022-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.starysky.top/categories/Mathematical-Methods-of-Physics/</loc>
     <lastmod>2022-10-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -1173,13 +1180,6 @@
   
   <url>
     <loc>https://blog.starysky.top/categories/ComputerScience/</loc>
-    <lastmod>2022-10-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.starysky.top/categories/Math/</loc>
     <lastmod>2022-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
