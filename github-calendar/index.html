@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Github-calendar</title>
+    <meta name="viewport",content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no">
+</head>
+<body>
+<div id="github_container"></div>
+<script src="githubcalendar.js"></script>
+
+<!-- 前端禁止右键查询源代码 -->
+<script>
+    function unmouse(){	
+        document.oncontextmenu = new Function("return false;");
+        document.onkeydown = document.onkeyup = document.onkeypress = function(event) {
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if (e && (e.keyCode == 123 || (e.keyCode == 116 && e.type!='keypress'))) 
+            {
+                e.returnValue = false;
+                return (false);
+            }
+        }
+    }
+    unmouse()
+</script>
+ <canvas id="canvas" width="1440" height="960"></canvas>
+ <script type="text/javascript" src="code_rain.js"></script>
+</body>
+</html>

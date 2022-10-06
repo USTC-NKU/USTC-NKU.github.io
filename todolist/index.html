@@ -1,0 +1,389 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head>
+         <meta charset="UTF-8"> 
+         <meta name="viewport",content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+         <meta http-equiv="x-ua-compatible" content="ie=edge">
+         <title>星语心愿</title> 
+         <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script> 
+         <style> 
+            
+            body{ 
+                margin:0;
+                background-color:#fafafa;
+                font:14px 'Helvetica Neue',Helvetica,Arial,sans-serif
+                } 
+            h2{margin:0;font-size:12px} 
+            a{color:#000;text-decoration:none} 
+            input{outline:0} 
+            button{
+                margin:0;
+                padding:0;
+                border:0;
+                background:0;
+                font-size:100%;
+                vertical-align:baseline;
+                font-family:inherit;
+                font-weight:inherit;
+                color:inherit;outline:0
+                } 
+            ul{padding:0;margin:0;list-style:none} 
+            .notice p{text-align: center;}
+            .page-top{
+                width:100%;
+                height:40px;
+                background-color:#3f63db;
+            } 
+            .page-content{
+                width:50%;
+                margin:0 auto;   
+            } 
+            .page-content h2{
+                line-height:40px;
+                font-size:18px;
+                color:#fff;
+                text-align: center;
+            } 
+            .main{
+                width:50%;
+                margin:0 auto;
+                box-sizing:border-box;
+            } 
+            .task-input{width:99%;height:30px;outline:0;border:1px solid rgb(3, 65, 235)}
+            .task-count{display:flex;margin:10px 0} 
+            .task-count li{padding-left:10px;flex:1;color: rgb(3, 65, 235);}
+            .task-count li:nth-child(1){padding:5px 0 0 10px} 
+            .action{text-align:center;display:flex} 
+            .action a{margin:0 10px;flex:1;padding:5px 0;color:rgb(247, 8, 80)}
+            .action a:nth-child(3){margin-right:0} 
+            .active{border-bottom: 2px solid #629A9C} 
+            .tasks{background-color:#fff}
+            .no-task-tip{
+                padding:10px 0 10px 10px;
+                display:block;
+                border-bottom:1px solid #ededed;
+                color:#777
+                }
+            .big-title{color:rgb(241, 12, 222)}
+            .todo-list{
+                margin:0;
+                padding:0;
+                list-style:none
+                } 
+            .todo-list li{ 
+                position:relative; 
+                font-size:16px; 
+                border-left: 5px solid #629A9C;
+                 box-shadow: 0 1px 2px rgba(0,0,0,0.07); 
+                 margin-bottom: 16px; 
+                 } 
+            .todo-list li:hover{background-color:#fafafa} 
+            .todo-list li.editing{border-bottom:0;padding:0;}
+            .todo-list li.editing .edit{
+                display:block;
+                padding:13px 17px 12px 17px;
+                margin:0 0 0 43px
+                } 
+            .todo-list li.editing .view{display:none} 
+            .toggle{ 
+                text-align:center;
+                 width:16px; 
+                 height:16px; 
+                 position:absolute;
+                 top:2px; left: 15px;
+                 bottom:0; margin:auto 0; 
+                 cursor: pointer; 
+                 } 
+            .todo-list li label{ 
+                white-space:pre-line; 
+                word-break:break-all; 
+                padding:15px 60px 15px 15px; 
+                margin-left:45px; 
+                display:block; 
+                line-height:1.2; 
+                transition:color .4s 
+                }
+            .todo-list li.completed label{
+                 color:#d9d9d9;
+                 text-decoration:line-through
+                  } 
+            .todo-list li .destroy{ 
+                display:none; 
+                text-align:center;
+                width:16px; height:16px; 
+                position:absolute; 
+                top:0; 
+                right:15px; 
+                bottom:10px; 
+                margin:auto 0; 
+                cursor: pointer; 
+                font-size:28px; 
+                color:#cc9a9a; 
+                transition:color .2s ease-out
+                 } 
+            .todo-list li .destroy:hover{color:#af5b5e} 
+            .todo-list li .destroy:after{content:'×'} 
+            .todo-list li:hover .destroy{display:block} 
+            .todo-list li .edit{display:none} 
+            .todo-list li.editing:last-child{margin-bottom:-1px}
+            
+            .note.info {
+            background-color: #eef7fa;
+            border-left-color: #428bca;
+            font-size: 1rem;
+            color: #969696;
+            /* font-family: 'Architects Daughter', cursive!important; */
+           }
+          .note {
+            position: relative;
+            padding: 15px;
+            margin-top: -10px;
+            margin-bottom: -15px;
+            border: initial;
+            border-left: 3px solid #eee;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            line-height: 20px;
+          }   
+          .daodile {
+            width:70%;margin:0 auto;box-sizing:border-box;margin-bottom: 30px;
+            text-align: center;
+            font-family: 'Architects Daughter', cursive!important;
+            color: #b9f134;
+            font-size: 1.05rem;
+          }   
+          .return{
+            width:70%;margin:0 auto;box-sizing:border-box;margin-bottom: 30px;
+            text-align: center;
+            font-family: 'Architects Daughter', cursive!important;
+            color: #b9f134;
+            font-size: 1.05rem; 
+          }  
+        /* .bgpics {
+            height: 540px;
+            background: url("/img/background.jpg");
+            -webkit-background-size: cover;
+            -o-background-size: cover;                
+            background-size: cover;
+        } */
+        .captain{
+            background: url("/img/todolist.jpg");
+            -webkit-background-size: cover;
+            -o-background-size: cover;                
+            background-size: cover;
+            z-index: -1;
+            height: 970px;
+            overflow: hidden;
+        }
+        @font-face{
+            font-family:'Panda' ;  /* 字体名自定义即可 */
+            src:url("panda.ttf"); /* 字体文件路径 */
+            font-display : swap;
+            }
+        </style>    
+    </head> 
+    <body> 
+        
+        <div class="page-top"> 
+            <div class="page-content"> 
+                <h2>星语心愿</h2> 
+            </div> 
+        </div> 
+        <div class="note">
+            <p class="note info">
+                    皇榜：
+                    <br>
+                    1. 萍水相逢，各位来客可以在此留下您希望上新的内容
+                    <br>
+                    2. 当然啦~这里也可以留下大家的愿望和Flag
+                    <br>
+                    3. 大家还有什么好点子也可以在此留言奥
+                    <br>
+                    4. (●ˇ∀ˇ●)这里采用的是Local—storage模式,留下的内容只对您开放,私密性可以放心呢！
+            </p>
+        </div>
+        <!-- <div class="bgpics"></div> -->
+        <div class="captain">
+            <div class="main"> 
+                <h3 class="big-title">许个心愿：</h3> 
+                <input 
+                  placeholder="输入你的心愿吧！" 
+                  class="task-input" 
+                  type="text" 
+                  v-on:keyup.enter="enterFn" 
+                  v-model="todo" 
+                  /> 
+                  <ul class="task-count"> 
+                      <li>{{unComplete}}个心愿未实现</li>
+                      <li class="action"> 
+                          <a :class="{active:visibility!=='unCompleted'&&visibility!=='completed'}" href="#all">心愿池</a> 
+                          <a :class="{active:visibility==='unCompleted'}" href="#unCompleted">在路上的心愿</a> 
+                          <a :class="{active:visibility==='completed'}" href="#completed">实现的心愿</a> 
+                        </li> 
+                  </ul> 
+                  <h3 class="big-title">心愿列表：</h3> 
+                  <div class="tasks"> 
+                      <span class="no-task-tip" v-show="!list.length">还没有许下任何心愿</span> 
+                      <ul class="todo-list" v-show="list.length"> 
+                          <li class="todo" v-for="item in filterData" v-bind:class="{completed:item.isComplete,editing:item===edtorTodos}" > 
+                              <div class="view"> 
+                                  <input 
+                                   class="toggle" 
+                                   type="checkbox" 
+                                   v-model="item.isComplete" 
+                                   /> 
+                                   <label @dblclick="edtorTodo(item)">{{item.title}}</label> 
+                                   <button class="destroy" @click="delFn(item)" ></button> 
+                              </div> 
+                              <input 
+                                class="edit" 
+                                type="text" 
+                                v-focus="edtorTodos===item" 
+                                v-model="item.title" 
+                                @blur="edtoEnd(item)" 
+                                @keyup.enter="edtoEnd(item)" 
+                                @keyup.esc="cancelEdit(item)" 
+                                /> 
+                           </li> 
+                       </ul> 
+                    </div> 
+            </div> 
+            <br>
+            <div class="daodile">已经到底啦(゜▽゜*)♪※<div>
+            <br>
+            <div class="return">
+                <a href="/" class="return"> &lt; 返回USTC-NKUの主页</a>
+            </div>
+        </div>
+            <script> 
+            //存取localStorage中的数据 
+            var store = { 
+                save(key,value){ 
+                    window.localStorage.setItem(key,JSON.stringify(value)); 
+                }, 
+                fetch(key){ 
+                    return JSON.parse(window.localStorage.getItem(key))||[];
+                 } 
+                } 
+            //list取出所有的值 
+            var list = store.fetch("storeData"); 
+            var vm = new Vue({ 
+                el:".main", 
+                data:{ 
+                    list, 
+                    todo:'', 
+                    edtorTodos:'',
+                    //记录正在编辑的数据, 
+                    beforeTitle:"",
+                    //记录正在编辑的数据的title
+                     visibility:"all"
+                     //通过这个属性值的变化对数据进行筛选 
+                    }, 
+                    watch:{ 
+                        //下面的这种方法是浅监控 
+                        /*list:function(){
+                            //监控list这个属性，当这个属性对应的值发生变化就会执行函数 
+                            store.save("storeData",this.list); 
+                        }*/ 
+                        //下面的是深度监控 
+                        list:{ 
+                            handler:function(){ 
+                                store.save("storeData",this.list); },
+                                 deep:true 
+                                } 
+                            }, 
+                        methods:{ 
+                            enterFn(ev){
+                                //添加任务 
+                                //向list中添加一项任务 
+                                //事件处理函数中的this指向的是当前这个根实例 
+                                if(this.todo==""){return;} 
+                                this.list.push({ 
+                                    title:this.todo,
+                                     isComplete:false 
+                                    });
+                                     this.todo = ""; 
+                                },
+                                delFn(item){
+                                    //删除任务 
+                                    var index = this.list.indexOf(item); 
+                                    this.list.splice(index,1) 
+                                }, 
+                                edtorTodo(item){
+                                    //编辑任务 
+                                    //编辑任务的时候记录编辑之前的值 
+                                    this.beforeTitle = item.title; 
+                                    this.edtorTodos = item; 
+                                }, 
+                                edtoEnd(item){
+                                    //编辑完成 this.edtorTodos=""; 
+                                    // this.cancelEdit = this.edtorTodos; 
+                                }, 
+                                cancelEdit(item){
+                                    //取消编辑 
+                                    item.title = this.beforeTitle; 
+                                    this.beforeTitle = ''; 
+                                    this.edtorTodos=''; 
+                                } 
+                        }, 
+                        directives:{ 
+                            "focus":{ 
+                                update(el,binding){ 
+                                    if(binding.value){ el.focus(); } 
+                                } 
+                            }
+                         }, 
+                        computed:{ 
+                            unComplete(){ 
+                                return this.list.filter(item=>{ 
+                                    return !item.isComplete }).length 
+                                }, 
+                            filterData(){ 
+                                //过滤的时候有三种情况 all completed unCompleted 
+                                var filter = { 
+                                    all:function(list){ 
+                                        return list;
+                                     }, 
+                                    completed:function(list){ 
+                                         return list.filter(item=>{ 
+                                             return item.isComplete; }) 
+                                            }, 
+                                    unCompleted:function(list){ 
+                                        return list.filter(item=>{ 
+                                            return !item.isComplete; }) 
+                                        } 
+                                } 
+                                //如果找到了过滤函数，就返回过滤后的数据，如果没有找到就返回所有的数据 
+                                return filter[this.visibility]?filter[this.visibility](list):list; 
+                            } 
+                        } 
+                    }); 
+                    function hashFn(){ 
+                        var hash = window.location.hash.slice(1);
+                         vm.visibility = hash; 
+                        } 
+                        hashFn(); 
+                        window.addEventListener('hashchange',hashFn); 
+            </script> 
+<!-- 前端禁止右键查询源代码 -->
+<script>
+    function unmouse(){	
+        document.oncontextmenu = new Function("return false;");
+        document.onkeydown = document.onkeyup = document.onkeypress = function(event) {
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if (e && (e.keyCode == 123 || (e.keyCode == 116 && e.type!='keypress'))) 
+            {
+                e.returnValue = false;
+                return (false);
+            }
+        }
+    }
+    unmouse()
+</script>
+
+
+
+    </body> 
+</html>
+
+

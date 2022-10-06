@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-ch">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Lobster+Two|Open+Sans" rel="stylesheet">
+    <title>星海·USTC-NKU·博客·起点</title>
+    <!-- 灵雀监控中心 -->
+    <script src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous"></script>
+    <script>
+        new LingQue.Monitor().init({id:"JZVTdtaLoErnXrGM"});
+    </script>
+</head>
+<body>
+    <div class="leftarea">
+        <!-- fps id geo-location -->
+        <div id="fps" style="z-index:999;position:fixed;bottom:3px;right:3px;color:#FFF;font-size:10px;"></div> 
+        <script type="text/javascript" src="https://cache.gmit.vip/static/api/js/jquery.min.js"></script>
+        <!-- ping 测试组件 -->
+        <script type="text/javascript" src="https://cache.gmit.vip/static/api/js/ping.min.js"></script>
+        <!--web 弹窗弹层组件 经测试还是cdn好-->
+        <script type="text/javascript" src="https://cache.gmit.vip/static/index/js/layer.js"></script>
+        <!-- fps 函数组件 弹窗信息在fps.js文件里修改-->
+        <script type="text/javascript" src="fps.js"></script>   
+        <!-- end -->
+        <div class="bg">
+            <div class="proflieCard">
+                <div class="logo1">
+                    <img src="img/logo.png" alt="" class="logo2">
+                </div>
+                <p class="name">
+                    星海※高科
+                    <br>
+                    USTC·NKU
+                </p>
+                <div class="type-wrap">
+                    <span class="visually-hidden">Welcome to 2022, HAPPY NEW YEAR!</span>
+		            <span role="presentation" aria-hidden="true"></span>
+                </div>
+                <script src='jquery.min.js'></script>
+                <script src='typed.min.js'></script>
+                <script src="script.js"></script>
+                
+                <div class="slogan" id="slogan">
+                    <p class="slogan2" id="slogan2">科学之光·点亮未来·温暖世界</p>
+                </div>
+                <div class="buttons">
+                    <button class="button1" onclick="aboutMe()">关于我</button>
+                    <button class="button1" title="前往博客" onclick="window.open('https://ustc-nku.github.io/','_self')">传送·主序星</button>
+                    <button class="button1" title="前往母站" onclick="window.open('https://ustc-nku.github.io/USTC-NKU/','_self')">传送·中央星系</button>
+                    <button class="button1" title="个人网站" onclick="window.open('https://ustc-nku.github.io/Personal-main/','_self')">传送·前景星系</button> 
+                </div>
+
+                <footer class="footer">
+                    <p class="footer2">Deployed on <a target="_blank" href="https://github.com/">Github</a></p>
+                    <p class="fotter2">Powered by &nbsp;<a target="_blank" href="/ProfilePage-main/"><strong>USTC-茶糜花开</strong></a></p>
+                </footer>
+
+            </div>
+
+            
+        </div>
+
+        <img src="img/lihui.texb" class="lihui" id="lihui" alt="">
+        <div class="background" id="background"></div>
+        <div class="yinghua" id="yinghua"></div>
+        <div class="background2" id="background2"></div>
+
+        <script src="main.js"></script>
+        <script>
+            window.onload=load2D_bg();
+            window.onload=load2D_bg2();
+            window.onload=load2D_bg2_2();//不写注释一时爽，写完再看火葬场
+            window.onload=load2D_lihui();
+            window.onload=load2D_yinghua();  
+        </script>
+    </div>
+</body>
+</html>
+
+

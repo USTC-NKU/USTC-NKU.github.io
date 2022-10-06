@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Responsive Blog Card Slider </title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel='stylesheet' href='swiper.min.css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="blog-slider">
+  <div class="blog-slider__wrp swiper-wrapper">
+    
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img style="object-fit: cover;" src="https://www.nobelprize.org/uploads/2021/05/announcement-dates-2022-992x656.jpg" alt="">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code">3,Oct,2022 - 10,Oct,2022</span>
+        <div class="blog-slider__title">Nobel Prize, 2022</div>
+        <div class="blog-slider__text">2022年诺奖盛典</div>
+        <a href="https://blog.starysky.top/Personal-main/" target="_parent" class="blog-slider__button"><button class="custom-btn btn-9">Read</button></a>
+      </div>
+    </div>
+
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img src="http://www.gov.cn/govweb/xhtml/2019zhuanti/guoqiguohui20201217V1/images/guoqi.jpg" alt="">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code">15 September 2022</span>
+        <div class="blog-slider__title">小站一周年纪念</div>
+        <div class="blog-slider__text">给旅行者的感谢信</div>
+        <a href="https://blog.starysky.top/1anniversary.html" target="_parent" class="blog-slider__button"><button class="custom-btn btn-4"><span>Read More</span></button></a>
+      </div>
+    </div>
+
+    <!-- <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img src="http://www.gov.cn/govweb/xhtml/2019zhuanti/guoqiguohui20201217V1/images/guoqi.jpg" alt="">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code">25 March 2022</span>
+        <div class="blog-slider__title">旅行地图</div>
+        <div class="blog-slider__text">云蒸霞蔚樱花路，浪漫唯美中国图</div>
+        <a href="https://blog.starysky.top/journey/" target="_parent" class="blog-slider__button"><button class="custom-btn btn-13">Read<div class="dot"></div></button></a>
+      </div>
+    </div>
+
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img src="http://www.gov.cn/govweb/xhtml/2019zhuanti/guoqiguohui20201217V1/images/guoqi.jpg" alt="">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code">04 December 2021</span>
+        <div class="blog-slider__title">总统简报</div>
+        <div class="blog-slider__text">快来看看世界正发生什么大事叭</div>
+        <a href="https://blog.starysky.top/2021/12/04/%E6%80%BB%E7%BB%9F%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5/" target="_parent" class="blog-slider__button"><button class="custom-btn btn-11">Read<div class="dot"></div></button></a>
+      </div>
+    </div>
+    
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img src="http://www.gov.cn/govweb/xhtml/2019zhuanti/guoqiguohui20201217V1/images/guoqi.jpg" alt="">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code">04 February 2022</span>
+        <div class="blog-slider__title">摸鱼日历</div>
+        <div class="blog-slider__text">今天也是适合摸鱼的一天吗</div>
+        <a href="https://blog.starysky.top/2022/02/04/%E6%91%B8%E9%B1%BC%E6%97%A5%E5%8E%86/" target="_parent" Sclass="blog-slider__button"><button class="custom-btn btn-5"><span>Read More</span></button></a>
+      </div>
+    </div> -->
+    
+  </div>
+  <div class="blog-slider__pagination"></div>
+</div>
+<!-- partial -->
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src='https://unpkg.com/swiper@8.0.7/swiper-bundle.js'></script>
+  <script  src="script.js"></script>
+  <script>
+    window.oncontextmenu = function(e){
+      e.preventDefault();
+      return false;
+    }
+  </script>
+</body>
+</html>

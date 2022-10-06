@@ -1,0 +1,3877 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34; >
+<!-- 引入VUE -->
+<script src="https://fastly.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+<!--backup <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script> -->
+<!-- 引入样式 -->
+<script src="https://fastly.jsdelivr.net/npm/element-ui@2.15.6/lib/index.js"></script>
+<!--backup <script src="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/index.js"></script> -->
+<!-- 引入组件库 -->
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css">
+<!--backup <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css"> -->
+<!-- spring 气氛依赖 -->
+<script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js" id="jquery-js"></script>
+<!-- pjax引入 -->
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script> -->
+<!-- 监控二依赖 -->
+<!-- <script src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous"></script> -->
+<!-- <script>
+new LingQue.Monitor().init({
+    id: "JZVTdtaLoErnXrGM"
+});
+</script> -->
+<script>
+    const GLOBAL_CONFIG = {
+        root: '/',
+        algolia: undefined,
+        pjax: true,
+        windowheight: "auto",
+        toc: true,
+        codeLine: true,
+        themeChange: true,
+        headFocus: true,
+        localSearch: {
+            "path": "search.xml",
+            "languages": {
+                "hits_empty": "找不到您查询的内容：${query}"
+            }
+        },
+        translate: {
+            "defaultEncoding": 2,
+            "translateDelay": 0,
+            "msgToTraditionalChinese": "繁",
+            "msgToSimplifiedChinese": "簡"
+        },
+        noticeOutdate: {
+            "limitDay": 200,
+            "position": "top",
+            "messagePrev": "It has been",
+            "messageNext": "days since the last update, the content of the article may be outdated."
+        },
+        highlight: {
+            "plugin": "highlighjs",
+            "highlightCopy": true,
+            "highlightLang": true,
+            "highlightHeightLimit": false
+        },
+        copy: {
+            success: '复制成功',
+            error: '复制错误',
+            noSupport: '浏览器不支持'
+        },
+        relativeDate: {
+            homepage: false,
+            post: false
+        },
+        runtime: '天',
+        date_suffix: {
+            just: '刚刚',
+            min: '分钟前',
+            hour: '小时前',
+            day: '天前',
+            month: '个月前'
+        },
+        copyright: undefined,
+        lightbox: 'fancybox',
+        Snackbar: undefined,
+        source: {
+            jQuery: 'https://fastly.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+            justifiedGallery: {
+                js: 'https://fastly.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+                css: 'https://fastly.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+            },
+            // fancybox: {
+            //     js: 'https://fastly.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+            //     css: 'https://fastly.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+            // }
+        },
+        isPhotoFigcaption: false,
+        islazyload: true,
+        isanchor: false,
+
+    };
+    var Poi = {
+        "pjax": "true",
+        "windowheight": "auto",
+        "ajaxurl": "https://www.morcat.cn",
+        "resBaseUrl": "//cdn.jsdelivr.net/gh/LIlGG/halo-theme-sakura@1.3.1",
+        "formpostion": "bottom",
+        "toc": "true",
+        "codeLine": "true",
+        "themeChange": "true",
+        "headFocus": "true",
+        "bgvideo": "",
+        "tagRandomColorMin": "0.999",
+        "tagRandomColorMax": "1",
+        "nickname": "shen",
+        "sitename": "USTC-茶糜花开",
+        "themeBase": "https://hexo.fluid-dev.com/",
+        "openToast": "true",
+        "toastWidth": 260,
+        "toastHeight": 60,
+        "toastTop": "top",
+        "toastBackground": "#fe9600",
+        "toastColor": "#ffffff",
+        "toastFontSize": 14,
+        "copyMonitor": "true",
+        "copyrightNotice": "true",
+        "photosStyle": "justify",
+        "photosGutter": 10,
+        "tocDepth": 0,
+        "i18n": "auto",
+        "mathjax": "",
+        "coverNum": "5",
+        "rimageUrl": "https://api.lixingyong.com/api/images",
+        "coverOpen": "",
+        "meEmail": "",
+        "defaultTheme": "bg_6",
+        "defaultGroup": "",
+    };
+</script>
+<script>
+    (win => {
+        win.saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0) return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay,
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        }
+
+        win.getScript = url => new Promise((resolve, reject) => {
+            const script = document.createElement('script')
+            script.src = url
+            script.async = true
+            script.onerror = reject
+            script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+            }
+            document.head.appendChild(script)
+        })
+
+        win.activateDarkMode = function() {
+            document.documentElement.setAttribute('data-user-color-scheme', 'dark')
+            if (document.querySelector('meta[name="theme-color"]') !== null) {
+                document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+            }
+        }
+        win.activateLightMode = function() {
+            document.documentElement.setAttribute('data-user-color-scheme', 'light')
+            if (document.querySelector('meta[name="theme-color"]') !== null) {
+                document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+            }
+        }
+        const t = saveToLocal.get('theme')
+
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+
+        const asideStatus = saveToLocal.get('aside-status')
+        if (asideStatus !== undefined) {
+            if (asideStatus === 'hide') {
+                document.documentElement.classList.add('hide-aside')
+            } else {
+                document.documentElement.classList.remove('hide-aside')
+            }
+        }
+
+        const detectApple = () => {
+            if (GLOBAL_CONFIG.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+                document.documentElement.classList.add('apple')
+            }
+        }
+        detectApple()
+        document.addEventListener('pjax:complete', detectApple)
+    })(window)
+</script>
+<script type="text/javascript">
+    var bgConfig = {
+
+        "bg_0": {
+            "id": "0",
+            "name": "white",
+            "desc": "默认是纯洁的白色~",
+            "url": "https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@main/Her_Majesty.png",
+            "strategy": "cover",
+            "isNight": ""
+        },
+
+        "bg_1": {
+            "id": "1",
+            "name": "sakura",
+            "desc": "樱花飞舞~",
+            "url": "https://view.lixingyong.com/images/2020/07/23/695cc3a80b21ee7f18bd731824ab9638.png",
+            "strategy": "none",
+            "isNight": ""
+        },
+
+        "bg_2": {
+            "id": "2",
+            "name": "gribs",
+            "desc": "格子控！",
+            "url": "https://view.lixingyong.com/images/2020/07/23/defc1b6783cd16774900517d3b38ded7.jpg",
+            "strategy": "none",
+            "isNight": ""
+        },
+
+        "bg_3": {
+            "id": "3",
+            "name": "KAdots",
+            "desc": "小点点~",
+            "url": "https://view.lixingyong.com/images/2020/07/23/kyotoanimation.png",
+            "strategy": "none",
+            "isNight": ""
+        },
+
+        "bg_4": {
+            "id": "4",
+            "name": "totem",
+            "desc": "充满力量的橙色",
+            "url": "https://cdn.lixingyong.com/2021/02/08/wallhaven-eyoe5l.jpg",
+            "strategy": "none",
+            "isNight": ""
+        },
+
+        "bg_5": {
+            "id": "5",
+            "name": "pixiv",
+            "desc": "pixiv主题~",
+            "url": "https://cdn.lixingyong.com/2020/07/16/26c4a685f61bab28e637b7fac4451de3.jpg",
+            "strategy": "none",
+            "isNight": ""
+        },
+
+        "bg_6": {
+            "id": "6",
+            "name": "bing",
+            "desc": "必应图片",
+            // "url": "https://api.ixiaowai.cn/api/api.php",
+            "url": "https://api.yimian.xyz/img?type=wallpaper",
+            "strategy": "cover",
+            "isNight": ""
+        },
+
+        "bg_7": {
+            "id": "7",
+            "name": "dark",
+            "desc": "关灯！",
+            "url": "https://api.yimian.xyz/img?type=moe&size=1920x1080",
+            // "url": "https://www.dmoe.cc/random.php",
+            // "url": "https://cdn.lixingyong.com/2020/07/16/6943d4f41793e549c441d6828d91181f.jpg",
+                "strategy": "cover",
+            "isNight": ""
+        },
+
+    };
+</script>
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" contnent="Author: USTC-茶糜花开,Key: USTC-茶糜花开,USTC-NKU,科学之光温暖世界">
+    <!-- <meta name="msvalidate.01" content="700F48CD339DE5F80AD32BCCA1CFB1CE" /> -->
+    <!-- <meta name="bytedance-verification-code" content="tnjvINgQ2S4CiLIGKHev" /> -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/css/post-calendar.css">
+    <!-- fontawesome 动态图标 faa-YYYY -->
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/font-awesome-animation@0.2.1/dist/font-awesome-animation.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- 文章尾部二维码矩阵依赖 -->
+    <link rel="stylesheet" type="text/css" href="/css/coin.css">
+    <!-- pjax -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>  -->
+    <!-- 加载动画依赖 -->
+    <link rel="stylesheet" href="/css/loading.min.css">
+    <!-- 洪哥的link外挂标签css依赖 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/tag-link/tag-link.css">
+    <!-- typed -->
+    <script src="https://fastly.jsdelivr.net/npm/typed.js/lib/typed.min.js"></script>
+    <!-- 进入网站左侧欢迎提示  -->
+    <script type="text/javascript" src="/js/zi_message2.js" charset="utf-8"></script>
+    <!-- 网页预加载动画 -->
+    <!-- <script>
+        var endLoading = function() {
+            document.body.style.overflow = 'auto';
+            document.getElementById('loading-box').classList.add("loaded");
+        }
+        window.addEventListener('load', endLoading);
+    </script> -->
+    <!-- SEO 链接安全跳转页面-->
+    <script src="https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@master/go-jumper.js"></script>
+    <!-- 加载结束 -->
+    <!-- 时间胶囊依赖 -->
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <style>
+      .pace {
+        -webkit-pointer-events: none;
+        pointer-events: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      .pace-inactive {
+        display: none;
+      }
+
+      .pace .pace-progress {
+        background: #e90f92;
+        position: fixed;
+        z-index: 2000;
+        top: 0;
+        right: 100%;
+        width: 100%;
+        height: 2px;
+      }
+
+      .pace .pace-progress-inner {
+        display: block;
+        position: absolute;
+        right: 0px;
+        width: 100px;
+        height: 100%;
+        box-shadow: 0 0 10px #e90f92, 0 0 5px #e90f92;
+        opacity: 1.0;
+        -webkit-transform: rotate(3deg) translate(0px, -4px);
+        -moz-transform: rotate(3deg) translate(0px, -4px);
+        -ms-transform: rotate(3deg) translate(0px, -4px);
+        -o-transform: rotate(3deg) translate(0px, -4px);
+        transform: rotate(3deg) translate(0px, -4px);
+      }
+
+      .pace .pace-activity {
+        display: block;
+        position: fixed;
+        z-index: 2000;
+        top: 15px;
+        right: 15px;
+        width: 14px;
+        height: 14px;
+        border: solid 2px transparent;
+        border-top-color: #e90f92;
+        border-left-color: #e90f92;
+        border-radius: 10px;
+        -webkit-animation: pace-spinner 400ms linear infinite;
+        -moz-animation: pace-spinner 400ms linear infinite;
+        -ms-animation: pace-spinner 400ms linear infinite;
+        -o-animation: pace-spinner 400ms linear infinite;
+        animation: pace-spinner 400ms linear infinite;
+      }
+
+      @-webkit-keyframes pace-spinner {
+        0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+      }
+      @-moz-keyframes pace-spinner {
+        0% { -moz-transform: rotate(0deg); transform: rotate(0deg); }
+        100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
+      }
+      @-o-keyframes pace-spinner {
+        0% { -o-transform: rotate(0deg); transform: rotate(0deg); }
+        100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
+      }
+      @-ms-keyframes pace-spinner {
+        0% { -ms-transform: rotate(0deg); transform: rotate(0deg); }
+        100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
+      }
+      @keyframes pace-spinner {
+        0% { transform: rotate(0deg); transform: rotate(0deg); }
+        100% { transform: rotate(360deg); transform: rotate(360deg); }
+      }
+      /* 在下面修改进度条外观 */
+      .pace .pace-progress {
+        background: #d2f106ec; /*进度条颜色*/
+        height: 3px;/* 进度条厚度 */
+      }
+      .pace .pace-progress-inner {
+        box-shadow: 0 0 10px #e90f92, 0 0 5px #e90f92; /*阴影颜色*/
+      }
+      .pace .pace-activity {
+        border-top-color: #f70713e5;	/*上边框颜色*/
+        border-left-color: #0b17f5ec;	/*左边框颜色*/
+      }
+    </style>
+    <!-- 依赖结束 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
+    <meta name="theme-color" content="#2f4154">
+    <meta name="description" content="  记忆里那只会说话的小狗，那个调皮的墨多多，那个壮硕的虎鲨，那个精通科学的扶幽，那个细心的班长尧婷婷……还有鬼影迷踪创始人兼世界冒险协会雷欧会长、浮空城市长汉森……不会忘记威猛高大的洛基、半人骷髅身的温莎公爵……感谢你们出现在我的童年，我深切地，想念你们">
+    <meta name="author" content="USTC-elbitsiserri">
+    <meta name="keywords" content="科学，USTC-茶糜花开，USTC-NKU">
+    
+    <title>
+    🕯 你好，查理九世 - USTC-茶糜花开
+    </title>
+    
+
+<link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://fastly.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://fastly.jsdelivr.net/npm/highlight.js@10.7.2/styles/dracula.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//fastly.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+<link rel="stylesheet" href="/css/mac.css">
+<link rel="stylesheet" href="/css/articleload.css">
+
+
+
+<script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.starysky.top","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":false,"leancloud":{"app_id":"gEFdjc20oYN3KCeikzvapmha-MdYXbMMI","app_key":"OLxg3tBuNYHF9fjNT1yI7f2H","server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+<script  src="/js/utils.js" ></script>
+<script  src="/js/color-schema.js" ></script>
+<!-- banf12 devtool -->
+
+<script type="module">
+/*! devtools-detect https://github.com/sindresorhus/devtools-detect By Sindre Sorhus MIT License */ const devtools = { isOpen: false, orientation: undefined, }; const threshold = 160; const emitEvent = (isOpen, orientation) => { globalThis.dispatchEvent(
+new globalThis.CustomEvent('devtoolschange', { detail: { isOpen, orientation, }, }) ); }; const main = ({emitEvents = true} = {}) => { const widthThreshold = globalThis.outerWidth - globalThis.innerWidth
+> threshold; const heightThreshold = globalThis.outerHeight - globalThis.innerHeight > threshold; const orientation = widthThreshold ? 'vertical' : 'horizontal'; if ( !(heightThreshold && widthThreshold)
+&& ((globalThis.Firebug && globalThis.Firebug.chrome && globalThis.Firebug.chrome.isInitialized) ||widthThreshold || heightThreshold) ) { if ((!devtools.isOpen || devtools.orientation !== orientation)
+&& emitEvents) { emitEvent(true, orientation); } devtools.isOpen = true; devtools.orientation = orientation; } else { if (devtools.isOpen && emitEvents) { emitEvent(false, undefined); } devtools.isOpen
+= false; devtools.orientation = undefined; } }; main({emitEvents: false}); setInterval(main, 500); export default devtools; if (devtools.isOpen) { window.location.href = "https://blog.starysky.top/banf12"};
+window.addEventListener( 'devtoolschange', event => { if (event.detail.isOpen) { window.location.href = "https://blog.starysky.top/banf12"}; } );
+</script>
+<script disable-devtool-auto src='https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@main/disabled-devtool.min.js'></script>
+
+
+<!-- Clarity tracking code for https://blog.starysky.top/ -->
+<!-- <script>
+(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "bf8ldvh58i");
+</script> -->
+
+                                                <!-- 站长 -->
+                                                <!-- <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script> -->
+                                                <!-- 头条SEO -->
+                                                <!-- <script>
+(function(){
+var el = document.createElement("script");
+el.src = "https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?ee2220bee249cdbccd6457861b7f85f9039e56e2664112f03c7aa81758c242fc65e0a2ada1d5e86b11e7de7c1a83287d04743a02fd1ee8dd8558a8cad50e91cb354f8c6f3f78e5fd97613c481f678e6d";
+el.id = "ttzz";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(el, s);
+})(window)
+</script> -->
+    <!--自定义看板娘,超级版看板娘,这是网站左侧的强大看板娘-->
+    <script src="https://fastly.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="/live2d_models/autoload.js"></script>
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css" />
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@latest/tag_plugins1.css" media="defer" onload="this.media='all'"><script src="https://fastly.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/carousel-touch.min.js"></script><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="USTC-茶糜花开" type="application/atom+xml">
+</head>
+
+
+    <body>
+      
+            <!-- GRADIENT CIRCLE PLANES -->
+            <!-- <div class="spinner-box">
+      <div class="leo-border-1">
+        <div class="leo-core-1"></div>
+      </div> 
+      <div class="leo-border-2">
+        <div class="leo-core-2"></div>
+      </div> 
+      <div class="loading-word">星夜兼程中...</div>
+    </div> -->
+
+            <!-- LOADING DOTS... -->
+            <!-- <div class="spinner-box">
+      <div class="pulse-container">  
+        <div class="pulse-bubble pulse-bubble-1"></div>
+        <div class="pulse-bubble pulse-bubble-2"></div>
+        <div class="pulse-bubble pulse-bubble-3"></div>
+      </div>
+      <div class="loading-word">星夜兼程中...</div>
+    </div> -->
+
+            <!-- SOLAR SYSTEM -->
+            <!-- <div class="spinner-box">
+      <div class="solar-system">
+        <div class="earth-orbit orbit">
+          <div class="planet earth"></div>
+          <div class="venus-orbit orbit">
+            <div class="planet venus"></div>
+            <div class="mercury-orbit orbit">
+              <div class="planet mercury"></div>
+              <div class="sun"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="loading-word">星夜兼程中...</div>
+    </div> -->
+
+            <!-- Three Quarter Spinner -->
+
+            <!-- <div class="spinner-box">
+      <div class="three-quarter-spinner"></div>
+      <div class="loading-word">星夜兼程中...</div>
+    </div> -->
+        </div>
+        <!-- 阅读彩色进度条 -->
+        <!-- <div id="progressbar">
+            <style>
+                #progressbar {
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    height: 3px;
+                    z-index: 99999;
+                    /* background-image: linear-gradient(to right, #00FF72,#00C7FF); */
+                    background-image: linear-gradient(to right, rgb(228, 6, 248), rgb(217, 255, 0));
+                    border-radius: 5px;
+                }
+            </style>
+            <script>
+                //进度条加载显示
+                $(window).scroll(function() {
+                    var a = $(window).scrollTop(),
+                        c = $(document).height(),
+                        b = $(window).height();
+                    scrollPercent = a / (c - b) * 100;
+                    scrollPercent = scrollPercent.toFixed(1);
+                    $("#progressbar").css({
+                        width: scrollPercent + "%"
+                    });
+                }).trigger("scroll");
+            </script>
+        </div> -->
+    <!-- hexo injector body_end start --><script defer src="https://unpkg.zhimg.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.js"></script><script async src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/js/fontawesome.min.js"></script><!-- hexo injector body_end end --></body>
+    
+<script type="text/javascript">
+{
+	const template = `
+		<div id="aDot">
+			<div class="bg"></div>
+			<div class="dot"></div>
+		</div>
+		<style>
+		#aDot{
+			display: flex;
+			position: fixed;
+			right: 20px;
+			top: 50%;
+			width: 60px;
+			height: 60px;
+			justify-content: center;
+			align-items: center;
+			z-index: 1000;
+		}
+		@media screen and (max-width: 768px){
+			#aDot{
+				display: flex;
+			}
+		}
+		#aDot .bg{
+			position: absolute;
+			background-color: rgba(0, 0, 0, 0.6);
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+		}
+		#aDot .dot{
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background-color: rgba(255, 255, 255, 0.6);
+			transition: 0.1s;
+		}
+		</style>
+	`
+	document.body.insertAdjacentHTML('beforeend',template);
+
+	let touchStartTime,
+		touchStartPos;
+	let mouseDown = false;
+	function start(e){
+		touchStartTime = e.timeStamp;
+		touchStartPos = [e.changedTouches[0].clientX,e.changedTouches[0].clientY];
+
+		return false;
+	}
+	function move(e){
+		let currentPos = [e.changedTouches[0].clientX,e.changedTouches[0].clientY];
+		let offset = [currentPos[0]-touchStartPos[0],currentPos[1]-touchStartPos[1]];
+		if(offset[0]**2 + offset[1]**2 > 30**2){
+			const l = Math.sqrt(offset[0]**2+offset[1]**2);
+			offset[0] = 30*offset[0]/l;
+			offset[1] = 30*offset[1]/l;
+		}
+		document.querySelector('#aDot .dot').style.transform = `translate(${offset[0]}px,${offset[1]}px)`
+
+		return false
+	}
+	function end(e){
+		let touchEndTime = e.timeStamp;
+		let touchEndPos = [e.changedTouches[0].clientX,e.changedTouches[0].clientY];
+
+		let offset = [touchEndPos[0]-touchStartPos[0],touchEndPos[1]-touchStartPos[1]];
+		if(offset[0]**2 + offset[1]**2 > 30**2){
+			const l = Math.sqrt(offset[0]**2+offset[1]**2);
+			offset[0] = 30*offset[0]/l;
+			offset[1] = 30*offset[1]/l;
+		}
+		let touchTime = touchEndTime-touchStartTime;
+
+		//判定事件
+		if(touchTime < 300 && offset[0] == 0 && offset[1] == 0){
+			console.log("click")
+			if(document.getElementById('mobile-toc-button')){
+				document.getElementById('mobile-toc-button').click()
+			}
+		}else if(offset[0] == 0 && offset[1] == 0){
+			console.log("longClick")
+			window.location.href = window.location.origin;
+
+		}else if((offset[0]**2+offset[1]**2) < 400){
+			console.log("little=>cancel");
+		}else if(
+			offset[0] > 0 
+			&& (Math.atan(offset[1]/offset[0])/Math.PI*180 < 45) 
+			&& (Math.atan(offset[1]/offset[0])/Math.PI*180 > -45)){
+			console.log("right")
+			window.history.forward();
+		}else if(
+			offset[0] < 0 
+			&& (Math.atan(offset[1]/-offset[0])/Math.PI*180 < 45) 
+			&& (Math.atan(offset[1]/-offset[0])/Math.PI*180 > -45)){
+			console.log("left")
+			window.history.back();
+		}else if(offset[1]<0){
+			console.log("up");
+			$('body,html').animate({
+                scrollTop: 0
+            }, 600);
+		}else if(offset[1]>0){
+			console.log("down");
+			let h;
+			if(document.getElementById("post-comment")){
+				h = document.getElementById('post-comment').offsetTop;
+			}else if(document.getElementById('footer')){
+				h = document.getElementById('footer').offsetTop;
+			}
+			// console.log(h)
+			btf.scrollToDest(h, 500);
+		}else{
+			console.log("???")
+		}
+
+		// console.log("--TouchTime:",touchTime);
+		// console.log("--TouchOffset:",offset[0],offset[1])
+		document.querySelector('#aDot .dot').style.transform = `translate(0px,0px)`
+		return false
+	}
+	$('#aDot .dot').on('touchstart',start);
+	$('#aDot .dot').on('mousedown',function(e){
+		mouseDown=true;console.log("mStart")
+		e.changedTouches = [{clientX:e.clientX,clientY:e.clientY}]
+		start(e)
+		// console.log(e);
+		return false;
+	});
+	$('#aDot .dot').on('touchmove',move);
+	$(window).on('mousemove',function(e){
+		if(mouseDown){
+			console.log("mMove");
+			e.changedTouches = [{clientX:e.clientX,clientY:e.clientY}];
+			move(e);
+			return false;
+		}
+	});
+	$('#aDot .dot').on('touchend',end);
+	$(window).on('mouseup',function(e){
+		if(mouseDown){
+			mouseDown=false;
+			console.log("mEnd")
+			e.changedTouches = [{clientX:e.clientX,clientY:e.clientY}]
+			end(e,this)
+			return false;
+		}
+	});
+	$('#aDot').on('touchcancel',function(e){
+		console.log("cancel",e)
+	})
+}
+</script>
+<!-- butterfly 主体功能迁移 -->
+<!-- butterfly 主体迁移区域 -->
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+const tabsFn = {
+    clickFnOfTabs: function () {
+    document.querySelectorAll('.post-content .tab > button').forEach(function (item) {
+        item.addEventListener('click', function (e) {
+        const $this = this
+        const $tabItem = $this.parentNode
+
+        if (!$tabItem.classList.contains('active')) {
+            const $tabContent = $tabItem.parentNode.nextElementSibling
+            const $siblings = btf.siblings($tabItem, '.active')[0]
+            $siblings && $siblings.classList.remove('active')
+            $tabItem.classList.add('active')
+            const tabId = $this.getAttribute('data-href').replace('#', '')
+            const childList = [...$tabContent.children]
+            childList.forEach(item => {
+            if (item.id === tabId) item.classList.add('active')
+            else item.classList.remove('active')
+            })
+            const $isTabJustifiedGallery = $tabContent.querySelectorAll(`#${tabId} .fj-gallery`)
+            if ($isTabJustifiedGallery.length > 0) {
+            btf.initJustifiedGallery($isTabJustifiedGallery)
+            }
+        }
+        })
+    })
+    },
+    backToTop: () => {
+    document.querySelectorAll('.post-content .tabs .tab-to-top').forEach(function (item) {
+        item.addEventListener('click', function () {
+        btf.scrollToDest(btf.getEleTop(btf.getParents(this, '.tabs')), 300)
+        })
+    })
+    }
+}    
+tabsFn.clickFnOfTabs()
+tabsFn.backToTop()
+})
+</script>
+<body>
+    <!-- 到访通知  -->
+    <!-- 配置文件在底部查阅 -->
+    <div class="notify-container"></div>
+    <!-- end -->
+    <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" title="小U的博客"
+       href="/">&nbsp;<i class="fa fa-gear faa-spin animated" aria-hidden="true"></i><strong>USTC-茶糜花开</strong>&nbsp;
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/journey/">
+                <i class="fa fa-globe"></i>
+                旅行
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/friend/">
+                <i class="iconfont icon-friends"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/envelope/">
+                <i class="iconfont icon-comment"></i>
+                留言
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shuoshuo/">
+                <i class="fa fa-camera"></i>
+                动态
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://travellings.link/">
+                <i class="fa fa-train"""></i>
+                开往
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-switch-fill"></i>
+                聚合
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/USTC-NKU/">
+                    <i class="iconfont icon-docker"></i>
+                    母站
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/ProfilePage-main/">
+                    <i class="iconfont icon-home-fill"></i>
+                    首页
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/Personal-main/">
+                    <i class="iconfont icon-playstation-fill"></i>
+                    小站
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/ylui-master/">
+                    <i class="fa fa-plane"></i>
+                    导航
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-renwensheke"></i>
+                人文
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/globe/">
+                    <i class="iconfont icon-xinwenchuban"></i>
+                    时政新闻
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/essay">
+                    <i class="iconfont icon-1"></i>
+                    沁脾散文
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/historytoday/">
+                    <i class="iconfont icon-lishi"></i>
+                    今日历史
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-book"></i>
+                文章
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/github-calendar/">
+                    <i class="iconfont icon-github-fill"></i>
+                    贡献
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/analysis/">
+                    <i class="iconfont icon-codeforces"></i>
+                    统计分析
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" onclick="switchNightMode()">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+        <li class="nav-item">
+          <div id="he-plugin-simple"></div>
+          <div id="">
+            <canvas id="canvas" style="width:50%;height: 30%;">
+          </div>
+        </li>
+      </ul>
+
+      <!-- 天气预报 -->
+      
+      <script>
+      WIDGET = {
+        "CONFIG": {
+          "modules": "12034",
+          "background": "5",
+          "tmpColor": "FFFFFF",
+          "tmpSize": "16",
+          "cityColor": "FFFFFF",
+          "citySize": "16",
+          "aqiColor": "FFFFFF",
+          "aqiSize": "16",
+          "weatherIconSize": "24",
+          "alertIconSize": "18",
+          "padding": "10px 10px 10px 10px",
+          "shadow": "0",
+          "borderRadius": "5",
+          "language": "auto",
+          "fixed": "false",
+          "vertical": "center",
+          "horizontal": "center",
+          "key": "53f00a07942f4c18a1a956244ec0f5b7"
+        }
+      }
+      </script>
+      <script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
+   
+      <!-- canvas 粒子时钟 -->
+      
+      
+      <!-- 此代码和样式文件为日月切换动画 -->
+      <script>
+        function checkNightMode() {
+          '1' === localStorage.getItem('isDark') ? ($('body').addClass('DarkMode'), $('#changeMode-top').removeClass('fa-moon').addClass('fa-sun'), $('#modeicon').attr('xlink:href', '#icon-sun')) : '0' === localStorage.getItem('isDark') ? $('#modeicon').attr('xlink:href', '#icon-moon') : new Date().getHours() >= 20 || new Date().getHours() < 7 ? ($('body').addClass('DarkMode'), $('#changeMode-top').removeClass('fa-moon').addClass('fa-sun'), $('#modeicon').attr('xlink:href', '#icon-sun')) : matchMedia('(prefers-color-scheme: dark)').matches ? ($('body').addClass('DarkMode'), $('#changeMode-top').removeClass('fa-moon').addClass('fa-sun'), $('#modeicon').attr('xlink:href', '#icon-sun')) : $('#modeicon').attr('xlink:href', '#icon-moon')
+        }
+        function switchNightMode() {
+          $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+            setTimeout(function () {
+              $('body').hasClass('DarkMode') ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#changeMode-top').removeClass('fa-sun').addClass('fa-moon'), $('#modeicon').attr('xlink:href', '#icon-moon')) : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#changeMode-top').removeClass('fa-moon').addClass('fa-sun'), $('#modeicon').attr('xlink:href', '#icon-sun')),
+                setTimeout(function () {
+                  $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                    $(this).remove()
+                  })
+                }, 2e3)
+            })
+            const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+            if (nowMode === 'light') {
+              activateDarkMode()
+              saveToLocal.set('theme', 'dark', 2)
+              GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night)
+              $('#modeicon').attr('xlink:href', '#icon-moon')
+            } else {
+              activateLightMode()
+              saveToLocal.set('theme', 'light', 2)
+              GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day)
+              $('body').addClass('DarkMode'), $('#changeMode-top').removeClass('fa-moon').addClass('fa-sun'), $('#modeicon').attr('xlink:href', '#icon-sun')
+            }
+            // handle some cases
+            typeof utterancesTheme === 'function' && utterancesTheme()
+            typeof FB === 'object' && window.loadFBComment()
+            window.DISQUS && document.getElementById('disqus_thread').children.length && setTimeout(() => window.disqusReset(), 200)
+        }
+        function switchNightModeTop() {
+          $('body').hasClass('DarkMode') ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#changeMode-top').removeClass('fa-sun').addClass('fa-moon'), $('#modeicon').attr('xlink:href', '#icon-moon')) : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#changeMode-top').removeClass('fa-moon').addClass('fa-sun'), $('#modeicon').attr('xlink:href', '#icon-sun'))
+        }
+      </script>
+      <style>
+        .Cuteen_DarkSky,
+        .Cuteen_DarkSky:before {
+          content: '';
+          position: fixed;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          z-index: 88888888;
+        }
+        .Cuteen_DarkSky {
+          background: linear-gradient(#feb8b0, #fef9db);
+        }
+        .Cuteen_DarkSky:before {
+          transition: 2s ease all;
+          opacity: 0;
+          background: linear-gradient(#4c3f6d, #6c62bb, #93b1ed);
+        }
+        .DarkMode .Cuteen_DarkSky:before {
+          opacity: 1;
+        }
+        .Cuteen_DarkPlanet {
+          z-index: 99999999;
+          position: fixed;
+          left: -50%;
+          top: -50%;
+          width: 200%;
+          height: 200%;
+          -webkit-animation: CuteenPlanetMove 2s cubic-bezier(0.7, 0, 0, 1);
+          animation: CuteenPlanetMove 2s cubic-bezier(0.7, 0, 0, 1);
+          transform-origin: center bottom;
+        }
+        @-webkit-keyframes CuteenPlanetMove {
+          0% {
+            transform: rotate(0);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        @keyframes CuteenPlanetMove {
+          0% {
+            transform: rotate(0);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        .Cuteen_DarkPlanet:after {
+          position: absolute;
+          left: 35%;
+          top: 40%;
+          width: 9.375rem;
+          height: 9.375rem;
+          border-radius: 50%;
+          content: '';
+          background: linear-gradient(#fefefe, #fffbe8);
+        }
+        .search span{
+            display: none;
+        }
+        .menus_item a{
+        text-decoration: none!important;
+        }
+        /*深色模式按钮*/
+        .icon-V {
+            border-radius: 6px !important;
+            width: 18px;
+            height: 18px;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            top: 2rem;
+            left: 8rem;
+            transition: 1.3s cubic-bezier(0.53, 0, 0.15, 1.3);
+            z-index: 9999;
+          }
+
+        .icon-V svg{
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            bottom: 0px;
+            margin: auto;
+            right: 1px;
+          }
+      </style>
+    </div>
+  </div>
+
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+        style="background: url('https://images.rsecc.cn/20220104183620.png') no-repeat center center; background-size: cover;">
+        <div class="full-bg-img">
+            <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+                <div class="page-header text-center fade-in-up">
+                    <span class="h2" id="subtitle" title="🕯 你好，查理九世">
+                        
+                    </span>
+
+                    
+                        <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      USTC-elbitsiserri
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-06 20:50" pubdate>
+        2022年3月6日星期日晚上8点50分 +08:00
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      565 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+                    
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <main>
+    
+        
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">🕯 你好，查理九世</h1>
+            <!-- 文章时效性提示 -->
+            
+              <div class='tip warning'>
+                <p class="note note-warning" style="color: crimson;">
+                  <i class="fa fa-bullhorn faa-flash animated faa-slow">请注意，本文最近一次更新于：2022-03-15,文章内容可能已经不具有时效性，请谨慎参考</i>
+                </p> 
+              </div> 
+            
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月15日星期二下午4点09分 +08:00
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>  记忆里那只会说话的小狗，那个调皮的墨多多，那个壮硕的虎鲨，那个精通科学的扶幽，那个细心的班长尧婷婷……还有鬼影迷踪创始人兼世界冒险协会雷欧会长、浮空城市长汉森……不会忘记威猛高大的洛基、半人骷髅身的温莎公爵……感谢你们出现在我的童年，我深切地，想念你们<br>  <span id="more"></span></p>
+<hr>
+<p>刚刚翻起京东准备买书</p>
+<p>偶然想起又是一年过去了</p>
+<p>不知道雷欧幻像出新作了没</p>
+<p>上搜索栏输入“查理九世”</p>
+<p>结果什么索引结果也没有</p>
+<p>才想起来几年前“查理九世”就已经星殒在一帮“脑回路奇特的人手里”，当然随之消失的也还有或许永远不会过审的“查理九世大电影”</p>
+<p>最早接触这一类推理性的阅读书物还要追溯到小学二年级，在园区实小的图书馆，里面收藏了很多类型的书目，凭卡借阅，我们那一帮小伙伴最喜欢的就是《冒险小虎队》，可能很多人都没听过，但该系列发行了很多很多本，灰白的图片配上热印的文字，想必现在都不常见了</p>
+<p>四年级转学后遇到了雷欧幻像的《查理九世》和《怪物大师》，当然本人更多喜欢前者，可惜校图书馆没有，常就是哪个小伙伴买到了就排着队的挂号借阅，也可以坐上半小时公交到友谊书城看上一个下午，到初二都没有停过</p>
+<p>再后来离谱的事儿就发生了，虽然后面仍能以阳光版为名出版，但行文都受条条框框束缚着 这一层枷锁的禁锢直接反映在新书的上映频率上</p>
+<p>不会忘记每本《查理九世》扉页上的话：谨以此书，纪念我的童年，那是一段小有遗憾的幸福时光</p>
+<p>或许，这段话，也是在预测了《查理九世》的命运叭</p>
+<p>谨以此文，致敬我成长中的雷欧幻像，那是一段美好并将永存的回忆</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Dream/">Dream</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Sentiment/">Sentiment</a>
+                    
+                  </div>
+                
+              </div>
+              <div id="tingliu" style="text-align:center; vertical-align: middle; color: #ff1144; font-weight: bold; font-size: x-large;"> 
+                <span class="tingliu2">您阅读这篇文章共花了：</span> 
+                <span class="tingliu3" id="stime"></span> 
+              </div> 
+              <script language="JavaScript">
+                var ss = 0, mm = 0, hh = 0; 
+                function TimeGo() { 
+                  ss++; 
+                  if (ss >= 60) { 
+                    mm += 1; ss = 0 
+                  }
+                  if (mm >= 60) { 
+                    hh += 1; mm = 0 
+                  } 
+                  ss_str = (ss < 10 ? "0" + ss : ss); 
+                  mm_str = (mm < 10 ? "0" + mm : mm); 
+                  tMsg = "" + hh + "小时" + mm_str + "分" + ss_str + "秒"; 
+                  document.getElementById("stime").innerHTML = tMsg; 
+                  setTimeout("TimeGo()", 1000) 
+                } 
+                TimeGo(); 
+              </script> 
+            <!-- 这里是小U自定义的 -->
+            
+    <div class="business-center">
+        <div class="business-card">
+            <div class="business-flip">
+                <div class="business-front">
+                    <div class="business-strip-bottom"></div>
+                    <div class="business-strip-top"></div><img class="business-logo entered loaded" width="80" height="80" data-lazy-src="/assets/cardcode.png" srcset="/img/loading.gif" lazyload alt="cardcode" src=https://ustc-nku.github.io/Personal-main/assets/img/wechat.jpg data-ll-status="loaded">
+                    <div class="business-Invitation">Invitation</div>
+                    <div class="business-chip">
+                        <div class="business-chip-line"></div>
+                        <div class="business-chip-line"></div>
+                        <div class="business-chip-line"></div>
+                        <div class="business-chip-line"></div>
+                        <div class="business-chip-main"></div>
+                    </div>
+                    <svg class="business-wave" viewBox="0 3.71 26.959 38.787" width="26.959" height="38.787" fill="white"><path d="M19.709 3.719c.266.043.5.187.656.406 4.125 5.207 6.594 11.781 6.594 18.938 0 7.156-2.469 13.73-6.594 18.937-.195.336-.57.531-.957.492a.9946.9946 0 0 1-.851-.66c-.129-.367-.035-.777.246-1.051 3.855-4.867 6.156-11.023 6.156-17.718 0-6.696-2.301-12.852-6.156-17.719-.262-.317-.301-.762-.102-1.121.204-.36.602-.559 1.008-.504z"></path><path d="M13.74 7.563c.231.039.442.164.594.343 3.508 4.059 5.625 9.371 5.625 15.157 0 5.785-2.113 11.097-5.625 15.156-.363.422-1 .472-1.422.109-.422-.363-.472-1-.109-1.422 3.211-3.711 5.156-8.551 5.156-13.843 0-5.293-1.949-10.133-5.156-13.844-.27-.309-.324-.75-.141-1.114.188-.367.578-.582.985-.542h.093z"></path><path d="M7.584 11.438c.227.031.438.144.594.312 2.953 2.863 4.781 6.875 4.781 11.313 0 4.433-1.828 8.449-4.781 11.312-.398.387-1.035.383-1.422-.016-.387-.398-.383-1.035.016-1.421 2.582-2.504 4.187-5.993 4.187-9.875 0-3.883-1.605-7.372-4.187-9.875-.321-.282-.426-.739-.266-1.133.164-.395.559-.641.984-.617h.094zM1.178 15.531c.121.02.238.063.344.125 2.633 1.414 4.437 4.215 4.437 7.407 0 3.195-1.797 5.996-4.437 7.406-.492.258-1.102.07-1.36-.422-.257-.492-.07-1.102.422-1.359 2.012-1.075 3.375-3.176 3.375-5.625 0-2.446-1.371-4.551-3.375-5.625-.441-.204-.676-.692-.551-1.165.122-.468.567-.785 1.051-.742h.094z"></path></svg>
+                    <div class="business-card-number">
+                        <div class="business-section">USTC-茶糜花开</div>
+                        <div class="business-section">FeynmanDirac</div>
+                    </div>
+                    <div class="business-end"><span class="business-end-text">created:</span><span class="business-end-date">12/03/2022</span></div>
+                    <div class="business-card-holder">Welcome to USTC-茶糜花开</div>
+                    <div class="business-master">
+                        <div class="business-circle business-master-red"></div>
+                        <div class="business-circle business-master-yellow"></div>
+                    </div>
+                </div>
+                <div class="business-back">
+                    <div class="business-strip-black"></div>
+                    <div class="business-ccv"><label>sitelink</label>
+                        <div><a target="_blank" rel="noopener external nofollow noreferrer" href="https://jq.qq.com/?_wv=1027&amp;k=hGNxNGdb"><a href="https://blog.starysky.top" target="_blank">https://blog.starysky.top</a></a></div>
+                    </div>
+                    <div class="business-terms">
+                        <p>This is an identification card as an honored membership of FeynmanDirac</p>
+                        <p>Happy to see you follow FeynmanDirac, enjoy science together</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            
+              
+              <div class="col-lg-7 mx-auto nopadding-x-md">  
+                <div class="post-reward">
+                  <button class="tip-button reward-button">
+                    <span class="tip-button__text">小U的融媒体矩阵</span>
+                    <div class="coin-wrapper">
+                      <div class="coin">
+                        <div class="coin__middle"></div>
+                        <div class="coin__back"></div>
+                        <div class="coin__front"></div>
+                      </div>
+                    </div>
+                    <div class="reward-main">
+                      <ul class="reward-all">
+                        <li class="reward-item">
+                          <a href="	https://ustc-nku.github.io/Personal-main/assets/img/wechat.jpg" rel="external nofollow noreferrer" target="_blank">
+                            <img class="post-qr-code-img entered loaded" src="	https://ustc-nku.github.io/Personal-main/assets/img/wechat.jpg" srcset="/img/loading.gif" lazyload data-lazy-src="	https://ustc-nku.github.io/Personal-main/assets/img/wechat.jpg" alt="wechat" data-ll-status="loaded">
+                          </a>
+                          <div class="post-qr-code-desc">小Uの公众</div>
+                        </li>
+                        <li class="reward-item">
+                          <a href="/img/profile.png" rel="external nofollow noreferrer" target="_blank">
+                            <img class="post-qr-code-img entered loaded" src="/img/profile.png" srcset="/img/loading.gif" lazyload data-lazy-src="/img/profile.png" alt="mystery" data-ll-status="loaded">
+                          </a>
+                          <div class="post-qr-code-desc">小Uの小屋</div>
+                        </li>
+                      </ul>
+                    </div>
+                  </button>
+                </div>
+              </div>
+                <audio id="coinAudio" src="https://npm.elemecdn.com/akilar-candyassets/audio/Launcher.mp3"></audio>
+                <script type="text/javascript">
+                var tipButtons = document.querySelectorAll('.tip-button')
+
+                  function coinAudio() {
+                    var coinAudio = document.getElementById("coinAudio");
+                    if (coinAudio) {
+                      coinAudio.play();//有音频时播放
+                    }
+                  }
+                  // Loop through all buttons (allows for multiple buttons on page)
+                  tipButtons.forEach((button) => {
+                    var coin = button.querySelector('.coin')
+
+                    // The larger the number, the slower the animation
+                    coin.maxMoveLoopCount = 90
+
+                    button.addEventListener('click', () => {
+                      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true; //媒体选择
+                      if (button.clicked) return
+                      button.classList.add('clicked')
+
+                      // Wait to start flipping th coin because of the button tilt animation
+                      setTimeout(() => {
+                        // Randomize the flipping speeds just for fun
+                        coin.sideRotationCount = Math.floor(Math.random() * 5) * 90
+                        coin.maxFlipAngle = (Math.floor(Math.random() * 4) + 3) * Math.PI
+                        button.clicked = true
+                        flipCoin()
+                        coinAudio()
+                      }, 50)
+                    })
+
+                    var flipCoin = () => {
+                      coin.moveLoopCount = 0
+                      flipCoinLoop()
+                    }
+
+                    var resetCoin = () => {
+                      coin.style.setProperty('--coin-x-multiplier', 0)
+                      coin.style.setProperty('--coin-scale-multiplier', 0)
+                      coin.style.setProperty('--coin-rotation-multiplier', 0)
+                      coin.style.setProperty('--shine-opacity-multiplier', 0.4)
+                      coin.style.setProperty('--shine-bg-multiplier', '50%')
+                      coin.style.setProperty('opacity', 1)
+                      // Delay to give the reset animation some time before you can click again
+                      setTimeout(() => {
+                        button.clicked = false
+                      }, 300)
+                    }
+
+                    var flipCoinLoop = () => {
+                      coin.moveLoopCount++
+                      var percentageCompleted = coin.moveLoopCount / coin.maxMoveLoopCount
+                      coin.angle = -coin.maxFlipAngle * Math.pow((percentageCompleted - 1), 2) + coin.maxFlipAngle
+
+                      // Calculate the scale and position of the coin moving through the air
+                      coin.style.setProperty('--coin-y-multiplier', -11 * Math.pow(percentageCompleted * 2 - 1, 4) + 11)
+                      coin.style.setProperty('--coin-x-multiplier', percentageCompleted)
+                      coin.style.setProperty('--coin-scale-multiplier', percentageCompleted * 0.6)
+                      coin.style.setProperty('--coin-rotation-multiplier', percentageCompleted * coin.sideRotationCount)
+
+                      // Calculate the scale and position values for the different coin faces
+                      // The math uses sin/cos wave functions to similate the circular motion of 3D spin
+                      coin.style.setProperty('--front-scale-multiplier', Math.max(Math.cos(coin.angle), 0))
+                      coin.style.setProperty('--front-y-multiplier', Math.sin(coin.angle))
+
+                      coin.style.setProperty('--middle-scale-multiplier', Math.abs(Math.cos(coin.angle), 0))
+                      coin.style.setProperty('--middle-y-multiplier', Math.cos((coin.angle + Math.PI / 2) % Math.PI))
+
+                      coin.style.setProperty('--back-scale-multiplier', Math.max(Math.cos(coin.angle - Math.PI), 0))
+                      coin.style.setProperty('--back-y-multiplier', Math.sin(coin.angle - Math.PI))
+
+                      coin.style.setProperty('--shine-opacity-multiplier', 4 * Math.sin((coin.angle + Math.PI / 2) % Math.PI) - 3.2)
+                      coin.style.setProperty('--shine-bg-multiplier', -40 * (Math.cos((coin.angle + Math.PI / 2) % Math.PI) - 0.5) + '%')
+
+                      // Repeat animation loop
+                      if (coin.moveLoopCount < coin.maxMoveLoopCount) {
+                        if (coin.moveLoopCount === coin.maxMoveLoopCount - 6) button.classList.add('shrink-landing')
+                        window.requestAnimationFrame(flipCoinLoop)
+                      } else {
+                        button.classList.add('coin-landed')
+                        coin.style.setProperty('opacity', 0)
+                        setTimeout(() => {
+                          button.classList.remove('clicked', 'shrink-landing', 'coin-landed')
+                          setTimeout(() => {
+                            resetCoin()
+                          }, 300)
+                        }, 1500)
+                      }
+                    }
+                  })
+                </script>
+                <style>
+                  :root {
+                    --btn-hover-color: #6842ff;
+                  --btn-color: #fff;
+                  --btn-bg: #ff8080;
+                  --reward-pop: #f5f5f5;
+                  }
+                  .post-reward {
+                  position: relative;
+                  margin-top: 2rem;
+                  width: 100%;
+                  text-align: center
+                  }
+              
+                  .post-reward .reward-button {
+                      display: inline-block;
+                      padding: .2rem 1.2rem;
+                      background: var(--btn-bg);
+                      color: var(--btn-color);
+                      cursor: pointer;
+                      -webkit-transition: all .4s;
+                      -moz-transition: all .4s;
+                      -o-transition: all .4s;
+                      -ms-transition: all .4s;
+                      transition: all .4s
+                  }
+              
+                  .post-reward .reward-button:hover {
+                      -webkit-box-shadow: inset 15em 0 0 0 var(--btn-hover-color);
+                      box-shadow: inset 15em 0 0 0 var(--btn-hover-color)
+                  }
+              
+                  .post-reward .reward-button:hover .reward-main {
+                      display: block
+                  }
+              
+                  .post-reward .reward-button .reward-main {
+                      position: absolute;
+                      bottom: 40px;
+                      left: -25%;
+                      z-index: 100;
+                      display: none;
+                      padding: 0 0 15px;
+                      width: 150%
+                  }
+                  
+                  .post-reward .reward-button .reward-main .reward-all {
+                      display: inline-block;
+                      margin: 0;
+                      padding: 1rem .5rem;
+                      border-radius: 4px;
+                      background: url("https://ustc-nku.github.io/Personal-main/assets/img/app-qr-bg.png");
+                      background-size: contain;
+                  }
+              
+                  .post-reward .reward-button .reward-main .reward-all:before {
+                      position: absolute;
+                      bottom: -10px;
+                      left: 0;
+                      width: 100%;
+                      height: 20px;
+                      content: ''
+                  }
+              
+                  .post-reward .reward-button .reward-main .reward-all:after {
+                      position: absolute;
+                      right: 0;
+                      bottom: 2px;
+                      left: 0;
+                      margin: 0 auto;
+                      width: 0;
+                      height: 0;
+                      border-top: 13px solid var(--reward-pop);
+                      border-right: 13px solid transparent;
+                      border-left: 13px solid transparent;
+                      content: ''
+                  }
+              
+                  .post-reward .reward-button .reward-main .reward-all .reward-item {
+                      display: inline-block;
+                      padding: 0 6px;
+                      list-style-type: none;
+                      vertical-align: top
+                  }
+              
+                  .post-reward .reward-button .reward-main .reward-all .reward-item img {
+                      width: 130px;
+                      height: 130px
+                  }
+              
+                  .post-reward .reward-button .reward-main .reward-all .reward-item .post-qr-code-desc {
+                      padding-top: .4rem;
+                      width: 130px;
+                      color: #858585
+                  }
+                </style>   
+              
+              
+              <div class="em09 muted-3-color">
+                <div>
+                  <span>©</span> 版权声明
+                </div>
+                <div id="minipost">
+    <div class="minipost-copyright">
+        <div class="minipost-copyright__title">
+            <span class="minipost-copyright-info">
+                <h>🕯 你好，查理九世</h>
+            </span>
+        </div>
+        <div class="minipost-copyright__type">
+            <span class="minipost-copyright-info">
+                <a href="https://blog.starysky.top/2022/03/06/%E6%9F%A5%E7%90%86%E4%B9%9D%E4%B8%96/index.html" onclick="copyPageUrl()" data-pjax-state="">链接：传送门</a>
+            </span>
+        </div>
+        <div class="minipost-copyright-m">
+            <div class="minipost-copyright-m-info">
+                <div class="minipost-copyright-a">
+                    <h>作者</h>
+                    <div class="minipost-copyright-cc-info">
+                        <h>USTC-elbitsiserri</h>
+                    </div>
+                </div>
+                <div class="minipost-copyright-c">
+                    <h>创作于</h>
+                    <div class="minipost-copyright-cc-info">
+                        <h>2022-03-06</h>
+                    </div>
+                </div>
+                <div class="minipost-copyright-u">
+                    <h>更新于</h>
+                    <div class="minipost-copyright-cc-info">
+                        <h>2022-03-15</h>
+                    </div>
+                </div>
+                <div class="minipost-copyright-c">
+                    <h>许可协议</h>
+                    <div class="minipost-copyright-cc-info">
+                        <a class="icon" rel="noopener external nofollow noreferrer" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                            <i class="fa fa-creative-commons"></i>
+                        </a>
+                        <a rel="noopener external nofollow noreferrer" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function copyUrl(id) {
+        $("body").after("<input id='copyVal'></input>");
+        var text = id;
+        var input = document.getElementById("copyVal");
+        input.value = text;
+        input.select();
+        input.setSelectionRange(0, input.value.length);   
+        document.execCommand("copy");
+        $("#copyVal").remove();
+    }
+    function copyPageUrl(){
+        var url = window.location.href;
+        copyUrl(url);
+        // btf.snackbarShow('复制本页链接地址成功');
+        $('#rightmenu-wrapper').attr('style','display: none');
+    }
+</script>
+<style>
+    @font-face {
+    font-family: "Font Awesome 5 Brands";
+    font-display: block;
+    font-weight: 400;
+    src: url(https://npm.elemecdn.com/@fortawesome/fontawesome-free@6/webfonts/fa-brands-400.woff2) format("woff2"),url(../webfonts/fa-brands-400.ttf) format("truetype")
+    }
+    #minipost .minipost-copyright {
+    position: relative;
+    margin: 40px 0 10px;
+    padding: 10px 16px;
+    border: 1px solid #4c4948;
+    -webkit-transition: box-shadow .3s ease-in-out;
+    -moz-transition: box-shadow .3s ease-in-out;
+    -o-transition: box-shadow .3s ease-in-out;
+    -ms-transition: box-shadow .3s ease-in-out;
+    transition: box-shadow .3s ease-in-out;
+    overflow: hidden;
+    border-radius: 12px!important;
+    background-color: #eff1f3;
+    }
+    #minipost .minipost-copyright:before {
+    background: rgba(255,128,128,0.1);
+    position: absolute;
+    display: flex;
+    right: -26px;
+    top: -120px;
+    content: '\f25e';
+    font-size: 200px;
+    font-family: 'Font Awesome 5 Brands';
+    opacity: .2
+    }
+    #minipost .minipost-copyright:hover {
+        -webkit-box-shadow: 0 0 8px 0 rgba(232,237,250,.6),0 2px 4px 0 rgba(232,237,250,.5);
+        box-shadow: 0 0 8px 0 rgba(232,237,250,.6),0 2px 4px 0 rgba(232,237,250,.5)
+    }
+    #minipost .minipost-copyright .minipost-copyright-meta {
+        color: #ff8080;
+        font-weight: 700
+    }
+    #minipost .minipost-copyright .minipost-copyright-info {
+        padding-left: 6px
+    }
+    #minipost .minipost-copyright .minipost-copyright-info a {
+        text-decoration: none;
+        word-break: break-word
+    }
+    #minipost .minipost-copyright .minipost-copyright-info a:hover {
+        text-decoration: none
+    }
+    #minipost .minipost-copyright-cc-info {
+        color: #ff8080
+    } 
+    .minipost-copyright-m-info .minipost-copyright-a,.minipost-copyright-m-info .minipost-copyright-c,.minipost-copyright-m-info .minipost-copyright-u {
+    display: inline-block;
+    width: fit-content;
+    padding: 2px 5px
+    }
+    #minipost .minipost-copyright__title {
+        font-size: 22px
+    }
+    #minipost .minipost-copyright__notice {
+        font-size: 15px
+    }
+    #minipost .minipost-copyright {
+        -webkit-box-shadow: 2px 2px 5px;
+        box-shadow: 2px 2px 5px
+    }  
+    .copyright span {
+    vertical-align: super
+    } 
+    .copyright svg {
+    -webkit-animation: butterfly 1s linear infinite alternate;
+    -moz-animation: butterfly 1s linear infinite alternate;
+    -o-animation: butterfly 1s linear infinite alternate;
+    -ms-animation: butterfly 1s linear infinite alternate;
+    animation: butterfly 1s linear infinite alternate
+    }
+</style>
+                <div class="posts-copyright"> <!--网站声明代码start-->
+                <fieldset style=" border: 1.5px dashed #008cff; padding: 10px; border-radius: 5px; line-height: 2em;font-weight: 700;color: var(--key-color);background-color: var(--body-bg-color);">
+                      <legend align="center" style=" margin-bottom: -2px;width: 30%;text-align: center; background-color: #008cff; border-radius: 999px; background-image: linear-gradient(120deg, #eb150e 0%, #e102ff 100%);border: 1.5px dashed #008cff;">
+                        免责声明
+                      </legend>
+                      <span class="btn-info btn-xs"><i class="fa fa-gavel" aria-hidden="true"></i> 1</span> 小站名称：<span style="color: #3333ff"><span style="color: #09ace2; font-size: 18px"><strong>USTC-茶糜花开</strong></span></span><br>
+                      <span class="btn-info btn-xs"><i class="fa fa-gavel" aria-hidden="true"></i> 2</span> 小站网址：<font color="#09ace2"><a href="https://blog.starysky.top">https://blog.starysky.top</a></font><br>
+                      <span class="btn-info btn-xs"><i class="fa fa-gavel" aria-hidden="true"></i> 3</span> 除标注`转载`字样的文章外，小站所发布的文章由小U均由撰写，仅供学习参考，我们尽最大能力保障文章内容的准确性和科学性<br>
+                      <span class="btn-info btn-xs"><i class="fa fa-gavel" aria-hidden="true"></i> 4</span> 小站所转载的文章的内容与观点，不代表`USTC-茶糜花开`的立场，文章所有权归属作者所有<br>
+                      <span class="btn-info btn-xs"><i class="fa fa-gavel" aria-hidden="true"></i> 5</span> 小站将在《中华人民共和国网络安全法》、《中华人民共和国计算机信息系统安全保护条例》等法律法规的框架下依法依规运行<br>
+                      <span class="btn-info btn-xs"><i class="fa fa-gavel" aria-hidden="true"></i> 7</span> 本站文章采用<strong>知识共享署名-相同方式共享 4.0 国际许可协议</strong>进行许可，阅读后请勿用于任何未授权用途<br>
+                    </fieldset>
+                  <!--网站声明代码end-->
+                </div>
+              </div>
+
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/22/my-first-review/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">My First Review</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/03/%E8%A7%86%E8%A7%89%E7%BE%8E%E5%8C%96/">
+                        <span class="hidden-mobile">视觉美化</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+    <div id="vaptchaContainer" title="要先验证才能评论哦 >_< ">
+        <div class="vaptcha-init-main">
+            <div class="vaptcha-init-loading">
+                <img src="https://r.vaptcha.net/public/img/vaptcha-loading.gif" srcset="/img/loading.gif" lazyload />
+                <span class="vaptcha-text">验证码启动中...</span>
+            </div>
+        </div>
+    </div>
+    <div id="Captcha" title="要先验证才能评论哦 >_< "><p id="CaptchaText"><i class="fa fa-shield" aria-hidden="true">备用人机验证</i></p></div>
+    <script src="https://v-cn.vaptcha.com/v3.js"></script>
+    <script>
+        vaptcha({
+            vid: '6209e51fb5b91cdd5d5aa843',
+            type: 'click',
+            container: '#vaptchaContainer',
+        }).then(function(vaptchaObj) {
+            vaptchaObj.listen("pass", function() {
+                document.getElementById("wl-edit").removeAttribute("disabled");
+                document.getElementById("wl-nick").removeAttribute("disabled");
+                document.getElementById("wl-mail").removeAttribute("disabled");
+            });
+            vaptchaObj.render()
+        })
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/april-comment@latest/dist/index.js"></script> -->
+    <style>
+        #vaptchaContainer {
+            width: 100%;
+            height: 36px;
+            vertical-align: middle;
+        }
+        
+        .vaptcha-init-main {
+            display: table;
+            width: 100%;
+            height: 100%;
+            background-color: #eeeeee;
+        }
+        
+        .vaptcha-init-loading {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        
+        .vaptcha-init-loading>a {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: none;
+        }
+        
+        .vaptcha-init-loading>a img {
+            vertical-align: middle;
+        }
+        
+        .vaptcha-init-loading .vaptcha-text {
+            font-family: sans-serif;
+            font-size: 12px;
+            color: #cccccc;
+            vertical-align: middle;
+        }
+        #Captcha {
+            margin-top: 10px;
+            display: -webkit-box!important;
+            display: -ms-flexbox!important;
+            display: flex!important;
+            -webkit-box-align: center!important;
+            -ms-flex-align: center!important;
+            align-items: center!important;
+            border-radius: 5px;
+            width: 100%;
+            height: 36px;
+            background-color: #2113df;
+            user-select: none;
+            transition: all .5s ease-in-out;
+            vertical-align: middle;
+        }
+
+        #CaptchaText {
+            vertical-align: middle;
+            margin-right: auto!important;
+            margin-left: auto!important;
+            margin-top: 10px;
+            word-spacing: 5px;
+            font-size: 13px;
+            color: #fff;
+            display: inline-flex;
+            line-height: 0;
+            align-items: center;
+        }
+    </style>
+    <!-- 第二验证系统 备选 -->
+    <script>
+        let svg_clock = "<svg style='margin-right: 5px; fill: #a9a9a9;' viewBox='0 0 1024 1024' version='1.1' width='15' height='15'><path d='M512 938.666667c235.637333 0 426.666667-191.029333 426.666667-426.666667S747.637333 85.333333 512 85.333333 85.333333 276.362667 85.333333 512s191.029333 426.666667 426.666667 426.666667zM329.376 649.376L480 498.741333V320a32 32 0 0 1 64 0v192a32 32 0 0 1-9.376 22.624l-160 160a32 32 0 1 1-45.248-45.248z'></path></svg>";
+        let svg_coin = "<svg viewBox='0 0 1024 1024' version='1.1' width='15' height='15' style='margin-right:2px;margin-left:15px;'><path d='M512 64a448 448 0 1 1 0 896A448 448 0 0 1 512 64z m0 64a384 384 0 1 0 0 768A384 384 0 0 0 512 128z m155.52 118.144c20.224 0 36.608 14.912 36.608 33.28 0 18.432-16.384 33.344-36.608 33.344H545.28v61.12a210.56 210.56 0 0 1 199.552 197.76l0.384 11.904v44.48a33.28 33.28 0 0 1-66.112 5.952l-0.512-5.952v-44.48a143.936 143.936 0 0 0-123.2-141.888l-10.112-1.152v311.04a33.28 33.28 0 0 1-66.112 5.952l-0.512-6.016V440.512A143.936 143.936 0 0 0 345.728 573.44l-0.384 10.112v44.48a33.28 33.28 0 0 1-66.112 5.952l-0.512-5.952v-44.48a210.56 210.56 0 0 1 187.968-208.704l11.904-0.96v-61.12H350.72c-20.16 0-36.48-14.912-36.48-33.28 0-18.432 16.32-33.28 36.48-33.28h316.8z' fill='#a9a9a9'></path></svg>";
+        let svg_eye = "<svg viewBox='0 0 1024 1024' version='1.1' width='15' height='15' style='margin-right: 2px;'><path d='M512 256C339.2 256 188.8 360.32 128 512c60.8 148.544 211.2 256 384 256s323.2-104.32 384-256c-60.8-148.544-211.2-256-384-256z m0 448.768c-134.4 0-256-75.84-313.6-192.768C256 395.072 377.6 319.232 512 319.232c134.4 0 256 75.84 313.6 192.768-57.6 116.928-179.2 192.768-313.6 192.768z' fill='#a9a9a9' p-id='2575'></path><path d='M512 374.144c-78.976 0-141.44 60.928-141.44 137.856s62.464 137.856 141.44 137.856S653.44 588.928 653.44 512 591.04 374.144 512 374.144z m0 211.584c-42.752 0-75.648-32-75.648-73.728 0-19.2 6.528-38.464 23.04-51.264 13.12-12.8 32.896-22.464 52.608-22.464 42.752 0 75.648 32 75.648 73.728 0 41.664-32.896 73.728-75.648 73.728z' fill='#a9a9a9'></path></svg>";
+        let svg_forks = "<svg height='15' viewBox='0 0 16 16' version='1.1' width='15' style='margin-left: 20px; margin-right: 5px;'><path d='M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z' fill='#a9a9a9'></path></svg>";
+        let svg_like = "<svg viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' width='15' height='15' style='margin-right:2px;margin-left:15px;'><path d='M857.28 344.992h-264.832c12.576-44.256 18.944-83.584 18.944-118.208 0-78.56-71.808-153.792-140.544-143.808-60.608 8.8-89.536 59.904-89.536 125.536v59.296c0 76.064-58.208 140.928-132.224 148.064l-117.728-0.192A67.36 67.36 0 0 0 64 483.04V872c0 37.216 30.144 67.36 67.36 67.36h652.192a102.72 102.72 0 0 0 100.928-83.584l73.728-388.96a102.72 102.72 0 0 0-100.928-121.824zM128 872V483.04c0-1.856 1.504-3.36 3.36-3.36H208v395.68H131.36A3.36 3.36 0 0 1 128 872z m767.328-417.088l-73.728 388.96a38.72 38.72 0 0 1-38.048 31.488H272V476.864a213.312 213.312 0 0 0 173.312-209.088V208.512c0-37.568 12.064-58.912 34.72-62.176 27.04-3.936 67.36 38.336 67.36 80.48 0 37.312-9.504 84-28.864 139.712a32 32 0 0 0 30.24 42.496h308.512a38.72 38.72 0 0 1 38.048 45.888z' fill='#a9a9a9'></path></svg>";
+        let svg_link = "<svg style='margin-right: .3em; fill: white;' viewBox='0 0 24 24' width='17' height='17'><path d='M6.77 17.23c-.905-.904-.94-2.333-.08-3.193l3.059-3.06-1.192-1.19-3.059 3.058c-1.489 1.489-1.427 3.954.138 5.519s4.03 1.627 5.519.138l3.059-3.059-1.192-1.192-3.059 3.06c-.86.86-2.289.824-3.193-.08zm3.016-8.673l1.192 1.192 3.059-3.06c.86-.86 2.289-.824 3.193.08.905.905.94 2.334.08 3.194l-3.059 3.06 1.192 1.19 3.059-3.058c1.489-1.489 1.427-3.954-.138-5.519s-4.03-1.627-5.519-.138L9.786 8.557zm-1.023 6.68c.33.33.863.343 1.177.029l5.34-5.34c.314-.314.3-.846-.03-1.176-.33-.33-.862-.344-1.176-.03l-5.34 5.34c-.314.314-.3.846.03 1.177z'></path></svg>";
+        let svg_star = "<svg viewBox='0 0 1024 1024' version='1.1' width='15' height='15' style='margin-right: 5px;'><path d='M990.001163 397.159462c-8.28878-23.338544-29.716812-40.327474-55.435567-44.030819l-250.637364-36.065404L574.996265 98.200556c-11.404748-22.985504-36.007075-37.652552-62.989613-37.652552-26.925233 0-51.52756 14.667048-62.959937 37.652552L340.114746 317.063239l-250.636341 36.065404c-25.806759 3.703345-47.117111 20.693298-55.435567 44.030819-8.318456 23.339568-1.998517 49.028647 16.195867 66.546625l183.620018 177.477111-42.591027 246.139933c-4.290723 24.778336 6.819313 49.6457 28.512381 64.194044 12.021801 7.907087 26.071795 11.933797 40.092114 11.933797 11.552104 0 23.162536-2.733251 33.596166-8.082072l218.540342-110.313431 218.539318 110.313431c10.465352 5.349845 22.104437 8.082072 33.625842 8.082072 14.020318 0 28.099988-4.027733 40.121789-11.933797 21.663392-14.549368 32.773428-39.416731 28.393677-64.194044l-42.531676-246.139933 183.679369-177.477111C992.030379 446.189132 998.201939 420.49903 990.001163 397.159462zM727.40135 576.283072c-17.753339 17.136286-27.541263 40.621163-27.541263 64.900126 0 5.14416 0.411369 10.257621 1.323135 15.402805 0 0 24.101931 139.559523 34.595936 200.286606-49.733705-25.1324-183.090968-92.413759-183.090968-92.413759-12.814864-6.465249-26.777877-9.699919-40.680515-9.699919-13.932314 0-27.894304 3.233648-40.680515 9.699919 0 0-133.416616 67.340711-183.15032 92.413759 10.522658-60.727083 34.654264-200.286606 34.654264-200.286606 0.911766-5.14416 1.323135-10.257621 1.323135-15.402805 0-24.278963-9.787924-47.704488-27.570939-64.900126 0 0-97.791234-94.588285-145.614425-140.764977 63.196321-9.111518 202.020086-29.099758 202.020086-29.099758 29.363771-4.174066 54.760185-22.603811 67.957765-49.087998 0 0 66.075905-132.856867 91.059925-183.001941 25.013697 50.261731 91.090625 183.001941 91.090625 183.001941 13.227256 26.484188 38.622646 44.913932 67.986417 49.087998 0 0 138.854465 19.987217 202.02111 29.099758C825.33994 481.69581 727.40135 576.283072 727.40135 576.283072z' fill='#a9a9a9'></path></svg>";
+        let svg_tag = "<svg style='margin-left: 20px; margin-right: 5px; fill: #a9a9a9;' viewBox='0 0 1024 1024' version='1.1' width='15' height='15'><path d='M115.7 615.7c-19.4-19.4-19.4-50.8 0-70.1L567.9 93.3l0.2-0.2c3.2-3.1 1.1-8.5-3.4-8.5h-53.3c-7.2 0.5-13.9 3.6-19 8.6L43.6 542.1c-21.3 21.3-21.3 55.8 0 77.1l320.7 320.7c11.6 11.6 30.5 11.6 42.1 0 9.2-9.2 9.2-24.2 0-33.5L115.7 615.7z' ></path><path d='M944.8 97.8l-313.5 19.1c-6.7 0.4-13.1 3.3-17.8 8L193.9 544.4c-18 18-18 47.1 0 65l300.8 300.8c10.8 10.8 28.3 10.8 39 0l432.6-432.6c4.8-4.8 7.6-11.1 8-17.8l19.2-313.3c1.7-27.6-21.2-50.4-48.7-48.7z m-124.7 232c-32.5 0-58.8-26.3-58.8-58.8s26.3-58.8 58.8-58.8 58.8 26.3 58.8 58.8-26.4 58.8-58.8 58.8z' ></path></svg>";
+        let svg_success = "<svg style='position: absolute;left: 25px' width='30'height='30'viewBox='0 0 100 100'fill='none'xmlns='http://www.w3.org/2000/svg'><path d='M36 50L46 60L67.5 38'stroke='transparent'stroke-width='4'stroke-linecap='round'stroke-linejoin='round'stroke-dasharray='45'stroke-linecap='round'><animate attributeName='stroke'begin='0s'values='transparent; #FFF'dur='.5s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/><animate attributeName='stroke-dashoffset'begin='0s'values='45; 0'dur='1s'fill='freeze'calcMode='spline'keySplines='0.89, 0, 0.38, 0.88'/></path><circle cx='50.5'cy='50.5'r='31'stroke='transparent'stroke-width='5'fill='transparent'stroke-dasharray='195'stroke-linecap='round'><animate attributeName='stroke'begin='0s'values='transparent; #FFF'dur='.5s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/><animate attributeName='stroke-dashoffset'begin='0s'values='195; 0'dur='1s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/></circle></svg>";
+        let svg_error = "<svg style='position: absolute;left: -2px' width='30'height='30'viewBox='0 0 100 100'><circle cx='50.5'cy='50.5'r='31'stroke-width='5'fill='transparent'stroke-dasharray='195'stroke-linecap='round'><animate attributeName='stroke'begin='0s'values='transparent; #FFF'dur='.5s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/><animate attributeName='stroke-dashoffset'begin='0s'values='195; 0'dur='1s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/></circle><line x1='38.1213'y1='37'x2='64.9914'y2='63.8701'fill='transparent'stroke='transparent'stroke-width='4'stroke-dasharray='40'stroke-linecap='round'><animate attributeName='stroke'begin='0s'values='transparent; #FFF'dur='.5s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/><animate attributeName='stroke-dashoffset'begin='0s'values='40; 0'dur='1s'fill='freeze'calcMode='spline'keySplines='0.89, 0, 0.38, 0.88'/></line><line x1='64.9914'y1='37.1213'x2='38.1213'y2='63.9914'stroke='transparent'stroke-width='4'stroke-dasharray='40'stroke-linecap='round'><animate attributeName='stroke'begin='.5s'values='transparent; #FFF'dur='.5s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/><animate attributeName='stroke-dashoffset'begin='.5s'values='40; 0'dur='1s'fill='freeze'calcMode='spline'keySplines='0.89, 0, 0.38, 0.88'/></line></svg>";
+        let svg_upload = "<svg width='22'height='22'viewBox='0 0 100 100'xmlns='http://www.w3.org/2000/svg'><path d='M73.0527 44.3894C70.8689 33.7861 61.5127 25.6771 49.9752 25.6771C40.9274 25.6771 33.1338 30.6702 29.392 38.1558C19.723 39.3985 12.5505 47.197 12.5505 56.8681C12.5505 67.1586 20.9725 75.5805 31.2628 75.5805H71.8032C80.538 75.5805 87.3998 68.7164 87.3998 59.9813C87.3999 51.875 80.851 45.0132 73.0527 44.3894Z'fill='transparent'stroke-dasharray='200'stroke-width='5'transform-origin='center'stroke-linecap='round'><animate attributeName='stroke'begin='0s'values='transparent; #868588'dur='.5s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/><animate attributeName='stroke-dashoffset'begin='0s'values='200; 0'dur='1s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/><animate attributeName='stroke-width'begin='.5s'values='5; 0'dur='.8s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/><animate attributeName='fill'begin='.8s'values='transparent; #868588'dur='.8s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/></path><path d='M62.5747 91.3813L51.7429 79.5618C51.0569 78.8127 49.9429 78.8127 49.2568 79.5618L38.4313 91.3882C37.4558 92.4533 38.2677 94.3155 39.5454 94.3155H44.914V111.117C44.914 112.155 45.6819 113 46.6386 113H54.3675C55.3178 113 56.092 112.162 56.092 111.117V94.3087H61.4733C62.7761 94.3087 63.5188 92.4258 62.5747 91.3813Z' style='fill: var(--offWhite);'><animateTransform attributeName='transform'type='translate'begin='1.2s'values='0,0; 0,-27'dur='.4s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/></path></svg>";
+
+        var Random = Math.ceil(Math.random() * 10);
+        var Captcha = document.getElementById("Captcha");
+        var CaptchaText = document.getElementById("CaptchaText");
+        // var commentPut = document.getElementById("waline-edit");
+        if (Captcha) {
+            if (true) {
+                var MouseArr = 0;
+                var MousePosition = new Array();
+                Captcha.onmousemove = function(evt) {
+                    var e = evt || event;
+                    if (MouseArr < 50) {
+                        MousePosition[MouseArr] = e.clientX;
+                        CaptchaText.innerHTML = "\u7ee7\u7eed\u79fb\u52a8\u9f20\u6807(" + Math.ceil((MousePosition.length / 50) * 100) + "%)";
+                        MouseArr++
+                    } else {
+                        Captcha.onmousemove = null;
+                        CaptchaText.innerHTML = svg_success + "\u4eba\u673a\u9a8c\u8bc1\u5b8c\u6210";
+                        Captcha.style.backgroundColor = "#00D59F";
+                        // commentPut.removeAttribute("disabled");
+                        document.getElementById("wl-edit").removeAttribute("disabled");
+                        document.getElementById("wl-nick").removeAttribute("disabled");
+                        document.getElementById("wl-mail").removeAttribute("disabled");
+                    }
+                }
+            } else {
+                if (Random < 5) {
+                    Captcha.onclick = function() {
+                        CaptchaText.innerHTML = "\u8bf7\u518d\u70b9\u51fb\u4e00\u6b21";
+                        Captcha.onclick = function() {
+                            Captcha.onclick = null;
+                            CaptchaText.innerHTML = svg_success + "\u4eba\u673a\u9a8c\u8bc1\u5b8c\u6210";
+                            Captcha.style.backgroundColor = "#00D59F";
+                            // commentPut.removeAttribute("disabled");
+                            document.getElementById("wl-edit").removeAttribute("disabled");
+                            document.getElementById("wl-nick").removeAttribute("disabled");
+                            document.getElementById("wl-mail").removeAttribute("disabled");
+                        }
+                    }
+                } else {
+                    Captcha.onclick = function() {
+                        Captcha.onclick = null;
+                        CaptchaText.innerHTML = svg_success + "\u4eba\u673a\u9a8c\u8bc1\u5b8c\u6210";
+                        Captcha.style.backgroundColor = "#00D59F";
+                        // commentPut.removeAttribute("disabled");
+                        document.getElementById("wl-edit").removeAttribute("disabled");
+                        document.getElementById("wl-nick").removeAttribute("disabled");
+                        document.getElementById("wl-mail").removeAttribute("disabled");
+                    }
+                }
+            }
+        }
+    </script>
+    <div id="waline"></div>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/april-comment@latest/dist/index.css" />
+ 
+    <!-- 旧版 主题自带的waline -->
+    <!-- <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@waline/client@0.16.2/dist/Waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://commentation-8caeh54ho-ustc-nku.vercel.app/","placeholder":"祝各位来宾虎年大吉吖~请登陆后评论奥","path":"window.location.pathname","avatar":"wavatar","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":true,"avatarCDN":"","avatarForce":true,"requiredFields":[],"emojiCDN":null,"emojiMaps":null,"anonymous":false,"enableQQ":true,"requiredMeta":["nick","mail"]},
+          {
+            el: '#waline',
+            serverURL: 'https://commentation-8caeh54ho-ustc-nku.vercel.app/',
+            emoji: [
+              'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili',
+              'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq',
+              'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-emoji'
+            ],
+            path: window.location.pathname
+          }
+        )
+        new Waline(options);
+      });
+    });
+  </script>               -->
+
+    <!-- waline cdn引入 -->
+    <!-- <script src="//cdn.jsdelivr.net/npm/@waline/client"></script> -->
+    <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+    <!-- <script src="/js/client.js" type="text/javascript"></script> -->
+    <script>
+        Waline.init({
+            el: '#waline',
+            serverURL: 'https://waline.starysky.top',
+            lang: 'zh-CN',
+            emoji: [
+                '//cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/Yurui-Neko/',
+                '//cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus',
+                '//cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/Snow-Miku/',
+                '//cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/bilibiliHotKey/',
+                '//cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/Sweetie-Bunny/',
+                '//cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq',
+                '//cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/aodamiao/',
+                '//cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili',
+                '//cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-emoji',
+                // https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN/ 表情包站点大全
+            ],
+            meta: ['nick', 'mail', 'link'],
+            requiredMeta: ['nick', 'mail'],
+            path: window.location.pathname,
+            pagesize: 10,
+            locale: {
+                nick: '旅行者昵称',
+                mail: '是联系方式吖',
+                mailError: '请填写正确的邮件地址',
+                link: '旅行者的小站',
+                sofa: '来发评论吧~',
+                submit: '发射',
+                reply: '回复',
+                cancelReply: '取消回复',
+                comment: '评论',
+                more: '加载更多...',
+                preview: '预览',
+                emoji: '表情',
+                uploadImage: '上传图片',
+                seconds: '秒前',
+                minutes: '分钟前',
+                hours: '小时前',
+                days: '天前',
+                now: '刚刚',
+                uploading: '八百里加急传送中',
+                login: '登录',
+                logout: '退出',
+                admin: '冰墩墩',
+                word: '字',
+                level0: 'HMS皇家橡树号',
+                level1: 'HMS威尔士亲王号',
+                level2: 'HMS英王乔治五世号',
+                level3: 'HMS伊丽莎白女王号',
+                level4: 'KMS提尔皮茨号',
+                level5: 'KMS俾斯麦号',
+                level6: 'KMS欧根亲王号',
+                level7: 'KMS齐柏林伯爵号',
+                level8: 'USS宾夕法尼亚号',
+                level9: 'USS依阿华号',
+                level10: 'CV埃塞克斯号',
+                level11: 'CV普林斯顿号',
+                level12: 'CVB中途岛号',
+                level13: 'CVB罗斯福号',
+                level14: 'CVN企业号',
+                level15: 'CVN福特号'
+            },
+        });
+    </script>
+    <!-- 给waline框架内加注文学气息，替代default placeholder -->
+    <script type="text/javascript">
+        fetch('https://v1.hitokoto.cn/?c=d')
+        .then(response => response.json())
+        .then(data => {
+        document.getElementById("wl-edit").setAttribute("placeholder",data.hitokoto+"————"+data.from);
+        document.getElementById("wl-edit").setAttribute("disabled","true");
+        document.getElementById("wl-edit").setAttribute("title","要先验证才能评论哦");
+        document.getElementById("wl-nick").setAttribute("title","先验证才能输入噢");
+        document.getElementById("wl-mail").setAttribute("title","先验证才能输入噢");
+        document.getElementById("wl-nick").setAttribute("disabled","disabled");
+        document.getElementById("wl-mail").setAttribute("disabled","disabled");
+        })
+        .catch(console.error)
+    </script>
+    <!-- 给placeholder 框架添加右侧背景图 -->
+    <style>
+        .wl-editor {
+            background-image: url(https://n.sinaimg.cn/sinakd20220211s/480/w240h240/20220211/8383-c07f54dde00ef387ad48507d41d38d8c.gif);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+    </style>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+               </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+    
+  <!-- 旋转 -->
+  <!-- <div class="twopeople">
+        <div class="container" style="height:200px;">
+            <canvas class="illo" width="800" height="800" style="max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;"></canvas>
+        </div>
+        <script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople1.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/zdog.dist.js"></script>
+        <script id="rendered-js" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople.js"></script>
+        <style type="text/css" lang="css">
+            .twopeople{
+                margin: 0;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+            canvas {
+                display: block;
+                margin: 0 auto;
+                cursor: move;
+            }
+        </style>
+  </div> -->
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+
+<!-- Custom -->
+
+
+
+
+
+
+
+
+
+    
+
+    
+        <a id="scroll-top-button" href="#" role="button">
+            <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+        </a>
+    
+
+    
+        <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+
+    
+        <!-- Aplayer -->
+        <script>
+            $(document).on('pjax:start', function() {
+                if (window.aplayers) {
+                    for (let i = 0; i < window.aplayers.length; i++) {
+                        window.aplayers[i].destroy();
+                    }
+                    window.aplayers = [];
+                }
+            });
+        </script>
+        <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+        <style>
+            .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+                left: -66px !important;
+                /* 默认情况下缩进左侧66px，只留一点箭头部分 */
+            }
+            
+            .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+                left: 0 !important;
+                /* 鼠标悬停是左侧缩进归零，完全显示按钮 */
+            }
+        </style>
+        <script src="https://fastly.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+        <script src="https://fastly.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+        <!-- for more help, visit:https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md#%E6%A0%87%E7%AD%BE%E5%8F%82%E6%95%B0 -->
+        <!-- 歌单设置 -->
+        <div class="aplayer no-destroy" data-id="8519482494" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="true" data-order="random" data-preload="none" data-autoplay="false" muted></div>
+    
+    <!-- 四季气氛 -->
+    
+    
+    
+        <script src="https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/shuye.js"></script>
+        <script>
+            jQuery(document).ready(function($) {
+                $("body").wpSuperSnow({
+                    flakes: ["https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/007.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/006.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/004.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/005.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/001.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/003.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/002.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/008.png"],
+                    totalFlakes: "100",
+                    zIndex: "999999",
+                    maxSize: "30",
+                    maxDuration: "40",
+                    useFlakeTrans: false
+                })
+            });
+        </script>
+    
+    
+    
+    <!-- 四季结束 -->
+    </main>
+    <!-- fancybox -->
+    
+        <link href="/css/jquery.fancybox.min.css" rel="stylesheet">
+        <script src="/js/jquery.fancybox.min.js" type="text/javascript"></script>
+        <script>
+            $("img").each(function() {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                $(element).attr("type", "fancyimg");
+                $(this).wrap(element);
+            });
+        </script>
+    
+
+    <!-- 鼠标特效主体库 -->
+    <!-- fireworks -->
+    
+    <!-- cursorstar -->
+    
+        <script type="text/javascript" src="/js/cursorstar.js"></script>
+    
+    <!-- core_value -->
+    
+    <!-- 鼠标特效主体库结束 -->
+
+
+    <!-- canvas-nest -->
+    
+    <!-- three.min.js -->
+    
+
+
+    <!-- 节日气氛主体库 -->
+    <link rel="stylesheet" href="/css/spring.css">
+<link rel="stylesheet" href="/css/christmas.css">
+
+  <!-- 春节节日气氛 -->
+
+
+
+
+    <script>
+      // 网站主题切换模式开始 
+      if (localStorage.getItem('themespring') === '1') 
+        { document.body.classList.add('themespring'); } 
+        else if 
+        (matchMedia('(prefers-color-scheme: themespring)').matches) 
+        { document.body.classList.add('themespring'); } 
+        function switchThemesspring() { 
+            var body = document.body; 
+            if(body.classList.contains('themespring')){ 
+                document.body.classList.remove('themespring'); 
+                localStorage.setItem('themespring','0'); 
+                return; 
+              } 
+            else { 
+                document.body.classList.add('themespring'); 
+                localStorage.setItem('themespring','1'); 
+                return; 
+          } 
+      }; // 网站主题切换模式结束
+    </script>
+          <script>
+        // 网站主题切换模式开始 
+        if (localStorage.getItem('themechristmas') === '1') 
+          { document.body.classList.add('themechristmas'); } 
+          else if 
+          (matchMedia('(prefers-color-scheme: themechristmas)').matches) 
+          { document.body.classList.add('themechristmas'); } 
+          function switchThemeschristmas() { 
+              var body = document.body; 
+              if(body.classList.contains('themechristmas')){ 
+                  document.body.classList.remove('themechristmas'); 
+                  localStorage.setItem('themechristmas','0'); 
+                  
+                  return; 
+                } 
+              else { 
+                  document.body.classList.add('themechristmas'); 
+                  localStorage.setItem('themechristmas','1'); 
+                  return; 
+            } 
+        }; // 网站主题切换模式结束
+      </script>
+    <!-- 节日气氛主体结束 -->
+
+    <footer class="text-center mt-5 py-3" id="footer">
+  <!-- 评论打字机效果，来自@Vian大佬 -->
+  <script type="text/javascript" src="https://vian.top/dzj.js"></script>
+<!--背景云雾特效-->
+  <div id="footer-wrap">
+    <!-- <section class="fog">
+        <div class="fog__container">
+            <div class="fog__img fog__img--first"></div>
+            <div class="fog__img fog__img--second"></div>
+        </div>
+    </section>
+    <style>
+      .fog{
+        position:relative;
+        height:100vh;
+        width:100%;
+        position:fixed;
+        top:0;
+        z-index:-1
+      }
+      .fog__container{
+        position:absolute;
+        height:100%;
+        width:100%;
+        overflow:hidden
+      }
+      .fog__img{
+        position:absolute;
+        height:100vh;
+        width:300vw
+      }
+      .fog__img--first{
+        background:url("https://ae01.alicdn.com/kf/Ud713fee99c5d4f2bac69dd0469a95b13e.png") repeat-x;
+        background-size:contain;
+        background-position:center;
+        -webkit-animation:marquee 60s linear infinite;
+        animation:marquee 60s linear infinite
+      }
+      .fog__img--second{
+        background:url("https://ae01.alicdn.com/kf/Ub5631e112d7742cbb3cab47a304b80f4T.png") repeat-x;
+        background-size:contain;
+        background-position:center;
+        -webkit-animation:marquee 40s linear infinite;
+        animation:marquee 40s linear infinite
+      }
+      @media screen and (max-width:768px){
+        .fog__img--first{
+          -webkit-animation:marquee 6s linear infinite;
+          animation:marquee 6s linear infinite
+        }
+        .fog__img--second{
+          -webkit-animation:marquee 6s linear infinite;
+          animation:marquee 6s linear infinite
+        }
+      }
+      @-webkit-keyframes marquee{
+        0%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+        100%{-webkit-transform:translate3d(-200vw,0,0);transform:translate3d(-200vw,0,0)}
+      }
+      @keyframes marquee{
+        0%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+        100%{-webkit-transform:translate3d(-200vw,0,0);
+          transform:translate3d(-200vw,0,0)}
+      }
+    </style> -->
+  <!--云雾特效结束-->
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <span>@2021</span> <i class="iconfont icon-love"></i> <span>By USTC-茶糜花开</span> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+    
+
+    
+
+    
+
+    <!-- 天数尾注 --> 
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+    <br>
+    <!-- 营业中 -->
+    <div id="workboard"></div>
+    <style>
+      @font-face {
+      font-family: 'UnidreamLED';
+      src: url("https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@main/UnidreamLED.ttf");
+      font-display: swap;
+      }
+      div#runtime {
+        width: 180px;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: #fff;
+        padding-inline: 5px;
+        border-radius: 10px;
+        background-color: rgba(0,0,0,0.7);
+        font-family: 'UnidreamLED';
+        animation: daylight 2s linear infinite alternate
+      }
+      @-webkit-keyframes daylight {
+        from{
+          box-shadow: 0 0 5px #eedc3c;
+        }
+        to {
+          box-shadow: 0 0 2px #ff0234;
+        }
+      }
+      @-o-keyframes daylight {
+        from{
+          box-shadow: 0 0 5px #eedc3c;
+        }
+        to {
+          box-shadow: 0 0 2px #ff0234;
+        }
+      }
+      @-moz-keyframes daylight {
+        from{
+          box-shadow: 0 0 5px #eedc3c;
+        }
+        to {
+          box-shadow: 0 0 2px #ff0234;
+        }
+      }
+      [data-user-color-scheme='dark'] div#runtime {
+        color: #28b4c8;
+        box-shadow: 0 0 5px rgba(28,69,218,0.71);
+        animation: flashlight 1s linear infinite alternate;
+      }
+      @-moz-keyframes flashlight {
+        from {
+          box-shadow: 0 0 5px #1478d2;
+        }
+        to {
+          box-shadow: 0 0 2px #1478d2;
+        }
+      }
+      @-webkit-keyframes flashlight {
+        from {
+          box-shadow: 0 0 5px #1478d2;
+        }
+        to {
+          box-shadow: 0 0 2px #1478d2;
+        }
+      }
+      @-o-keyframes flashlight {
+        from {
+          box-shadow: 0 0 5px #1478d2;
+        }
+        to {
+          box-shadow: 0 0 2px #1478d2;
+        }
+      }
+      @keyframes flashlight {
+        from {
+          box-shadow: 0 0 5px #1478d2;
+        }
+        to {
+          box-shadow: 0 0 2px #1478d2;
+        }
+      }
+    </style>
+    <script>
+          setInterval(() => {
+        let create_time = Math.round(new Date('2021-09-16 00:00:00').getTime() / 1000); //在此行修改建站时间
+        let timestamp = Math.round((new Date().getTime()) / 1000);
+        let second = timestamp - create_time;
+        let time = new Array(0, 0, 0, 0, 0);
+
+        var nol = function(h){
+          return h>9?h:'0'+h;
+        }
+        if (second >= 365 * 24 * 3600) {
+          time[0] = parseInt(second / (365 * 24 * 3600));
+          second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+          time[1] = parseInt(second / (24 * 3600));
+          second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+          time[2] = nol(parseInt(second / 3600));
+          second %= 3600;
+        }
+        if (second >= 60) {
+          time[3] = nol(parseInt(second / 60));
+          second %= 60;
+        }
+        if (second > 0) {
+          time[4] = nol(second);
+        }
+        if (((Number(time[2])<12) && (Number(time[2])>7)) || ((Number(time[2])>=14) && (Number(time[2])<18)) || ((Number(time[2]>=19)) && (Number(time[2])<22))){
+          currentTimeHtml ="<img class='boardsign' src='https://img.shields.io/badge/小U-营业啦-6adea8?style=social&logo=React' title='又是被迫营业的一天呢~'><div id='runtime'>"+ time[0] + ' YEAR ' + time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4] + '</div>';
+        }
+        else if (((Number(time[2])>=12) && (Number(time[2])<14)) || ((Number(time[2])>=18) && (Number(time[2])<19))){
+          currentTimeHtml = "<img class='boardsign' src='https://img.shields.io/badge/小U-恰饭中-6adea8?style=social&logo=RenPy' title='干饭啦干饭啦~'><div id='runtime'>"+ time[0] + ' YEAR ' + time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4] + '</div>';
+        }
+        else{
+          currentTimeHtml ="<img class='boardsign' src='https://img.shields.io/badge/小U-打烊啦-6adea8?style=social&logo=Elsevier' title='打烊啦打烊啦！'><div id='runtime'>" + time[0] + ' YEAR ' + time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4] + '</div>';
+        }
+        document.getElementById("workboard").innerHTML = currentTimeHtml;
+      }, 1000);
+    </script>
+    <!-- 营业结束 -->
+    <div class="footer_custom_text">
+      <div>
+      <div class="github-badge">
+        <a style="color:#fff" rel="external nofollow noopener noreferrer" href="https://hexo.io/" target="_blank" title="由 Hexo 强力驱动" data-pjax-state="">
+          <span class="badge-subject">
+            <i class="fa fa-header" aria-hidden="true" style="color:#2680dc"></i>&nbsp;Frame
+          </span>
+          <span class="badge-value bg-blue">Hexo</span>
+        </a>
+      </div>
+      <div class="github-badge">
+        <a style="color:#fff" rel="external nofollow noopener noreferrer" href="https://cloud.tencent.com/" target="_blank" title="腾讯云提供域名相关服务" data-pjax-state="">
+          <span class="badge-subject"><i class="fa fa-cloud" aria-hidden="true" style="color:orange"></i>&nbsp;DNS</span>
+          <span class="badge-value bg-DNS">Tencent cloud</span>
+        </a>
+      </div>
+      <div class="github-badge">
+        <a style="color:#fff" rel="external nofollow noopener noreferrer" href="https://www.jsdelivr.com/" target="_blank" title="本站使用JsDelivr为静态资源提供CDN加速" data-pjax-state="">
+          <span class="badge-subject imgfooter">CDN</span>
+          <span class="badge-value bg-blueviolet">jsDelivr</span>
+        </a>
+      </div>
+      </div>
+      <div>
+      <div class="github-badge">
+        <a style="color:#fff" rel="external nofollow noopener noreferrer" href="https://blog.starysky.top/atom.xml" target="_blank" title="本站支持RSS订阅" data-pjax-state="">
+          <span class="badge-subject">
+            <i class="fa fa-rss" aria-hidden="true"></i>&nbsp;RSS
+          </span>
+          <span class="badge-value bg-orange">Atom</span>
+        </a>
+      </div>
+      <div class="github-badge">
+        <a style="color:#fff" rel="external nofollow noopener noreferrer" href="https://blog.starysky.top/sitemap.xml" target="_blank" title="本站支持站点地图" data-pjax-state="">
+          <span class="badge-subject">
+            <i class="fa fa-sitemap" aria-hidden="true"></i>&nbsp;sitemap
+          </span>
+          <span class="badge-value bg-orange">Sitemap</span>
+        </a>
+      </div>
+      <div class="github-badge">
+        <a style="color:#fff" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" data-pjax-state="">
+          <span class="badge-subject">
+            <i class="fa fa-copyright" aria-hidden="true"></i>&nbsp;Copyright
+          </span>
+          <span class="badge-value bg-orange">BY-NC-SA 4.0</span>
+        </a>
+      </div>
+      </div>
+    </div>
+    <style>
+      .github-badge{margin-left:5px;display:inline-block;border-radius:4px;text-shadow:none;color:#fff;line-height:15px;background-color:#abbac3;margin-bottom:5px;font-size:12px}.github-badge .badge-subject{display:inline-block;background-color:#4d4d4d;padding:4px 4px 4px 6px;border-top-left-radius:4px;border-bottom-left-radius:4px}.github-badge .badge-value{display:inline-block;padding:4px 6px 4px 4px;border-top-right-radius:4px;border-bottom-right-radius:4px}.imgfooter{background:url(https://fastly.jsdelivr.net/gh/Rr210/image@master/hexo/0/jsdelivr.jpeg) no-repeat;background-position:6px;background-size:12px 12px;padding:4px 4px 4px 21px!important}.github-badge .bg-blue{background:linear-gradient(90deg,#3a6186,#89253e)}.github-badge .bg-brightgreen{background:linear-gradient(90deg,#fc5c7d,#6a82fb)}.github-badge .bg-orange{background:linear-gradient(90deg,#f0c27b,#4b1248)}.github-badge .bg-gradient{background:linear-gradient(90deg,#3ca5f6,#a86af9)}.github-badge .bg-blueviolet{background:linear-gradient(90deg,#654ea3,#eaafc8)}.github-badge .bg-DNS{background:linear-gradient(90deg,#aa4b6b,#6b6b83,#3b8d99)}
+    </style>
+    <script>
+      var now = new Date(); 
+      function createtime() { 
+          var grt= new Date("09/16/2021 00:00:00");//在此处修改你的建站时间
+          now.setTime(now.getTime()+250); 
+          days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+          if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+          mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+          snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+          document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+      } 
+    setInterval("createtime()",250);
+    </script>
+    <!-- 站长统计 -->
+    <!-- <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280925393'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1280925393%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+    <style>
+      #cnzz_stat_icon_1280925393 a{
+        color: black;
+      }
+    </style> -->
+
+    <div><a href="https://icp.gov.moe/?keyword=20220654" target="_blank"><img style="width:16px;" src="https://cdn.jsdelivr.net/gh/wuxinkj/blogimg@main/icon400.png" srcset="/img/loading.gif" lazyload alt="">&ensp;萌ICP备20220654号</a></div>
+    <script async src="https://cdn.dusays.com/bsz.js"></script>
+    <div>
+      本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+      本站总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </div>
+    <div id="cc-myssl-id">
+      <a target="_blank" rel="noopener" href="https://myssl.com/blog.starysky.top?from=mysslid" title="本站已通过MySSL认证"><img src="https://static.myssl.com/res/images/myssl-id3.png" srcset="/img/loading.gif" lazyload alt="" style="max-height:50px;display:block;margin:0 auto"></a>
+    </div>
+    <!-- <div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 0;">
+      <a target="_blank" rel="noopener" href="https://myssl.com/blog.starysky.top?from=mysslid" title="本站已通过MySSL认证"><img src="https://static.myssl.com/res/images/myssl-id.png" srcset="/img/loading.gif" lazyload alt="" style="width:100%;height:100%"></a>
+    </div> -->
+  </div>
+  <script src="/js/fish.js" async></script>
+</footer>
+
+<style>
+  #footer:hover {
+    background-color: rgba(255,255,255,.5);
+    color: #464646;
+  }
+
+  @media screen and (max-height: 650px) and (min-width: 1110px)
+  {
+      #footer {
+          background-color: rgba(255,255,255,.5);
+          color: #464646;
+      }
+  }
+</style>
+
+
+
+
+    <!-- SCRIPTS -->
+    
+  <script  src="https://fastly.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://fastly.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://unpkg.zhimg.com/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://fastly.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://fastly.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://fastly.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://fastly.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://fastly.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://fastly.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/js/diytitle.js"></script>
+<script src="/js/National_Memorial_Day.js"></script>
+<script src="/js/codetype.js"></script>
+<script src="/js/articleload.js"></script>
+<script src="/js/festival_lunar.js"></script>
+<script src="/js/festival_day.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+    <!-- loading-pages -->
+    
+    
+
+    <!-- 前端静止右键查询 -->
+    <!-- <script>
+        function unmouse(){	
+          document.oncontextmenu = function(){
+            new Vue({
+                data:function(){
+                 this.$notify({
+                 title:"嘿！右键菜单去旅行啦",
+                 message:"┭┮﹏┭┮！",
+                 position: 'bottom-right',
+                 offset: 50,
+                showClose: false,
+                 type:"warning"
+                });
+                return{visible:false}
+               }
+            })
+            return (false);
+          };       
+          document.onkeydown = document.onkeyup = document.onkeypress = function(event) {
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if (e && (e.keyCode == 123 || (e.keyCode == 116 && e.type!='keypress'))) 
+            {
+              e.returnValue = false; 
+              new Vue({
+                data:function(){
+                this.$notify({
+                    title:"嘿！调试被流放西伯利亚啦",
+                    message:"┭┮﹏┭┮！",
+                    position: 'bottom-right',
+                    offset: 50,
+                    showClose: false,
+                    type:"error"
+                });
+                return{visible:false}
+                }
+              })
+              return (false);
+            }
+          }
+        }
+        unmouse()
+    </script> -->
+
+    <!-- 复制提醒 -->
+    <script>
+        /* 复制提醒 */
+        document.addEventListener("copy", function(e) {
+                new Vue({
+                    data: function() {
+                        this.$notify({
+                            title: "嘿！复制成功",
+                            message: "若要转载请保留原文链接！谢谢吖🙃~",
+                            position: 'bottom-right',
+                            offset: 50,
+                            showClose: false,
+                            type: "success"
+                        });
+                        return {
+                            visible: false
+                        }
+                    }
+                })
+            })
+            //  版权声明文字
+        document.body.addEventListener('copy', function(e) {
+            if (window.getSelection().toString() && window.getSelection().toString().length > 10) {
+                setClipboardText(e);
+            }
+        });
+
+        function setClipboardText(event) {
+            var clipboardData = event.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                event.preventDefault();
+                var htmlData = '' +
+                    '著作权归作者所有。<br>' +
+                    '商业转载请联系作者获得授权，非商业转载请注明出处。<br>' +
+                    '作者：USTC-茶糜花开<br>' +
+                    '链接：' + window.location.href + '<br>' +
+                    '来源：https://blog.starysky.top<br><br>' +
+                    window.getSelection().toString();
+                var textData = '' +
+                    '著作权归作者所有。\n' +
+                    '商业转载请联系作者获得授权，非商业转载请注明出处。\n' +
+                    '作者：USTC-茶糜花开\n' +
+                    '链接：' + window.location.href + '\n' +
+                    '来源：https://blog.starysky.top\n\n' +
+                    window.getSelection().toString();
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    </script>
+
+
+    <!-- 悬挂的喵喵 -->
+    <script type="text/javascript" src="/js/szgotop.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/szgotop.css" />
+    <div class="back-to-top cd-top faa-float animated cd-is-visible" style="top: -999px;"></div>
+
+    <!-- 侧边栏 -->
+
+    <div id="rightside" style="opacity: 1; transform: translateX(-38px);">
+        <div id="rightside-config-hide" class="show">
+            <button id="translateLink" type="button" title="简繁转换">繁</button>
+            <button id="dark" type="button" title="主板透明显影切换"> 
+              <i class="fa fa-snowflake fa-spin"></i>
+            </button>
+            <button id="readmode" type="button" title="阅读模式">
+              <i class="fa fa-book"></i>
+            </button>
+            <!-- <button id="hide-aside-btn" type="button" title="单栏和双栏切换">
+                <i class="fa fa-arrows-alt-h"></i>
+            </button>-->
+            <button><a id="to_comment" href="#waline" title="直达评论" ><i class="fa fa-cloud"></i></a></button>
+        </div>
+        <div id="rightside-config-show">
+            <button id="rightside_config" type="button" title="设置">
+                <i class="fa fa-cog fa-spin"></i>
+            </button>
+        <!-- <button id="chat_btn" type="button" title="rightside.chat_btn">
+                <i class="fa fa-sms"></i>
+            </button> -->
+            <!-- <button id="go-up" type="button" title="回到顶部">
+                <i class="fa fa-arrow-up"></i>
+            </button> -->
+            <button id="fabtn_reading_progress" class="btn btn-icon btn-neutral fabtn shadow-sm" type="button" tooltip="阅读进度">
+              <div id="fabtn_reading_progress_bar" style="width: 0%;"></div>
+              <span id="fabtn_reading_progress_details" style="display: flex; justify-content: center; font-size: 0.5rem;">0%</span>
+            </button>
+        </div>
+    </div>
+    <!-- layout: rightside 依赖 -->
+    <script type="text/javascript" src="/js/rightside.js"></script>
+    <style>
+        #rightside {
+            position: fixed;
+            right: -38px;
+            bottom: 80px;
+            z-index: 100;
+            opacity: 0;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+            filter: alpha(opacity=0);
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+        
+        #rightside #rightside-config-hide {
+            -webkit-transition: -webkit-transform 0.4s;
+            -moz-transition: -moz-transform 0.4s;
+            -o-transition: -o-transform 0.4s;
+            -ms-transition: -ms-transform 0.4s;
+            transition: transform 0.4s;
+            -webkit-transform: translate(35px, 0);
+            -moz-transform: translate(35px, 0);
+            -o-transform: translate(35px, 0);
+            -ms-transform: translate(35px, 0);
+            transform: translate(35px, 0);
+        }
+        
+        #rightside #rightside-config-hide.show {
+            -webkit-transform: translate(0, 0) !important;
+            -moz-transform: translate(0, 0) !important;
+            -o-transform: translate(0, 0) !important;
+            -ms-transform: translate(0, 0) !important;
+            transform: translate(0, 0) !important;
+        }
+        
+        #rightside>div>button,
+        #rightside>div>a {
+            display: block;
+            margin-bottom: 2px;
+            width: 30px;
+            height: 30px;
+            background-color: var(--btn-bg);
+            color: var(--btn-color);
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        #rightside>div>button:hover,
+        #rightside>div>a:hover {
+            background-color: var(--btn-hover-color);
+        }
+        
+        #rightside #mobile-toc-button {
+            display: none;
+        }
+        
+        @media screen and (max-width: 900px) {
+            #rightside #mobile-toc-button {
+                display: block;
+            }
+        }
+        
+        @media screen and (max-width: 900px) {
+            #rightside #hide-aside-btn {
+                display: none;
+            }
+        }
+    </style>
+    <!-- 主题切换 schema tool -->
+    <!-- theme-change start -->
+    <div class="changeSkin-gear no-select">
+        <div class="keys">
+            <span id="open-skinMenu">切换主题 | SCHEME TOOL &nbsp;<i class="iconfont icon-gear inline-block rotating"></i></span>
+        </div>
+    </div>
+    <div class="skin-menu no-select">
+        <div class="theme-controls row-container">
+            <ul class="menu-list">
+                <li id="bg_0" data-text="默认是纯洁的白色~">
+                    <i class="fa fa-television" aria-hidden="true"></i>
+                </li>
+                <li id="bg_1" data-text="樱花飞舞~">
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                </li>
+                <li id="bg_2" data-text="格子控！">
+                    <i class="fa fa-slack" aria-hidden="true"></i>
+                </li>
+                <li id="bg_3" data-text="小点点~">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </li>
+                <li id="bg_4" data-text="充满力量的橙色">
+                    <i class="fa fa-optin-monster" aria-hidden="true"></i>
+                </li>
+                <li id="bg_5" data-text="pixiv主题~">
+                    <i class="fa fa-fire" aria-hidden="true"></i>
+                </li>
+                <li id="bg_6" data-text="必应图片">
+                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                </li>
+                <li id="bg_7" data-text="关灯！">
+                    <i class="fa fa-moon-o" aria-hidden="true"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script type='text/javascript' src='//fastly.jsdelivr.net/gh/LIlGG/halo-theme-sakura@1.3.1/script/utils.min.js?ver=1.3.1'></script>
+
+    <script type="text/javascript" src="/js/schema.js"></script>、
+    <!-- ！！！！！！！！！！！！！！！ -->
+    <!-- 特别提醒：如果博客出问题，可能是schema.js引发的错误 -->
+    <!-- ！！！！！！！！！！！！！！！ -->
+    <style>
+        .changeSkin {
+            position: fixed;
+            bottom: 0px;
+            right: -600px;
+            width: auto;
+            height: auto;
+            z-index: 99999;
+            font-family: 'Fira Mono';
+            padding: 10px 20px;
+            transiton-property: right;
+            transition-duration: .3s, .3s
+        }
+        
+        .changeSkin .keys {
+            position: relative;
+            z-index: 99999
+        }
+        
+        .changeSkin .keys span {
+            cursor: pointer
+        }
+        
+        .changeSkin-gear {
+            position: fixed;
+            bottom: -999px;
+            right: 5px;
+            width: auto;
+            height: auto;
+            z-index: 99999;
+            visibility: hidden;
+            white-space: nowrap;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 10px 10px 0 0
+        }
+        
+        .changeSkin .keys {
+            position: relative;
+            z-index: 99999
+        }
+        
+        .changeSkin .keys span {
+            cursor: pointer
+        }
+        
+        .changeSkin .close-skinMenu {
+            position: relative;
+            z-index: 99999;
+            cursor: pointer
+        }
+        
+        .keys-line-add {
+            text-align: right;
+            margin-right: 22px
+        }
+        
+        @media(max-width:800px) {
+            .changeSkin-gear span:before {
+                content: ""
+            }
+            .changeSkin i {
+                font-size: 20px
+            }
+            .changeSkin-gear i {
+                font-size: 20px
+            }
+        }
+        
+        @media(max-width:800px) {
+            .changeSkin-gear span:before {
+                content: ""
+            }
+            .changeSkin i {
+                font-size: 20px
+            }
+            .changeSkin-gear i {
+                font-size: 20px
+            }
+        }
+        
+        .no-select {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+        
+        .skin-menu {
+            position: fixed;
+            bottom: 40px;
+            right: 10px;
+            height: auto;
+            width: 220px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 1px 40px -8px rgba(250, 3, 3, 0.5);
+            z-index: 99999;
+            font-family: 'Ubuntu', sans-serif;
+            transform: scaleX(0);
+            transition-duration: .3s, .3s
+        }
+        
+        .skin-menu.show {
+            transform: scaleX(1)
+        }
+        
+        .skin-menu:after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            margin-left: -10px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: #fff transparent transparent
+        }
+        
+        .skin-menu .row-container {
+            height: auto;
+            margin: 0;
+            padding: 0;
+            text-align: center
+        }
+        
+        .skin-menu .row-container .menu-list {
+            display: block;
+            text-align: center;
+            padding: 0;
+            margin: 10px auto
+        }
+        
+        .menu-list li {
+            display: inline-block;
+            margin: 6px;
+            line-height: 36px;
+            width: 36px;
+            background-color: #f5f5f5;
+            border-radius: 50%;
+            cursor: pointer
+        }
+        
+        .menu-list li:hover {
+            background-color: #fc3;
+            color: #fff
+        }
+        
+        .skin-menu .row-container.font-family-controls {
+            padding: 3px 12px 16px
+        }
+        
+        .font-family-controls button {
+            display: inline-block;
+            border-style: none;
+            border-radius: 5px;
+            padding: 5px;
+            height: 40px;
+            width: calc(50% - 10px);
+            font-size: 15px;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            margin: 0 4px;
+            box-shadow: none;
+            background-color: #f5f5f5;
+            cursor: pointer
+        }
+        
+        .font-family-controls button.selected {
+            background-color: #fc3;
+            color: #fff
+        }
+        
+        .control-btn-serif {
+            font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Source Han Serif', source-han-serif-sc, 'PT Serif', 'SongTi SC', 'MicroSoft Yahei', Georgia, serif
+        }
+        
+        .control-btn-sans-serif {
+            font-family: 'Ubuntu', sans-serif
+        }
+    </style>
+
+    <!-- tidio live chat -->
+    <script src="//code.tidio.co/1vvq0avfgvr8jikubalyr2tquvsh7xbx.js" async></script>
+
+
+    <!-- diy rightmenu -->
+    
+        <!-- 主资源 -->
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_2397198_zlxtpqcjxp.css"/>
+<script type="text/javascript" src=""></script>
+
+<!-- 主代码 -->
+<div class="usercm" id="rightmenu-wrapper" style="left: 199px; top: 5px; display: none;">
+    <ul>
+        <!-- 首页 -->
+        <li>
+        <a href="https://blog.starysky.top/ProfilePage-main/">
+            <i class="iconfont icon-home">
+            </i>
+            <span>星航云图</span>
+        </a>
+        </li>
+        <!-- 小站 -->
+        <li>
+        <a href="https://blog.starysky.top/Personal-main/" >
+            <i class="iconfont icon-copy">
+            </i>
+            <span>星云小站</span>
+        </a>
+        </li>
+        <!-- 搜索 -->
+        <li>
+        <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">
+            <i class="iconfont icon-Search">
+            </i>
+            <span>星云扫描</span>
+        </a>
+        </li>
+        <!-- 前进 -->
+        <li>
+        <a onclick="history.forward()" href="javascript:void(0)">
+            <i class="iconfont icon-qianjin">
+            </i>
+            <span>动力前进</span>
+        </a>
+        </li>
+        <!-- 回退 -->
+        <li>
+        <a onclick="history.back()" href="javascript:void(0)">
+            <i class="iconfont icon-houtui">
+            </i>
+            <span>动力后退</span>
+        </a>
+        </li>
+        <!-- 刷新 -->
+        <li>
+        <a onclick="window.location.reload();" href="javascript:void(0)">
+            <i class="iconfont icon-lx-refresh">
+            </i>
+            <span>星图重载</span>
+        </a>
+        </li>
+        <!-- 朋友 -->
+        <li title="朋友">
+        <a href="https://blog.starysky.top/friend/">
+            <i class="iconfont icon-friends">
+            </i>
+            <span>星际朋友</span>
+        </a>
+        <!-- cat.dorcandy 专属 -->
+        <li title="喵喵专属">
+        <a href="https://cat.dorcandy.cn" target="_blank">
+            <i class="fa fa-anchor"></i>
+            <span title="嘿嘿，是喵喵专属吖">直达喵喵</span>
+        </a>
+        </li>
+        <!-- 博友 -->
+        <li title="星河天地">
+            <a href="https://bf.zzxworld.com/" target="_blank">
+                <i class="fa fa-ravelry"></i>
+                <span>繁星点点</span>
+            </a>
+            </li>
+        </li>
+        <!-- 留言 -->
+        <li title="留言">
+        <a class="nav-link" target="_self" href="#waline">
+            <i class="iconfont icon-comment" ></i>
+            <span>璨璨星语</span>
+        </a>
+        </li>
+        <!-- 收藏 -->
+        <li title="收藏">
+        <a onclick="like_it(' ');" href="javascript:void(0)">
+            <i class="iconfont icon-rss">
+            </i>
+            <span>秋收冬藏</span>
+        </a>
+        </li>
+        <!-- 分享 -->
+        <li title="分享">
+            <a onclick="copyPageUrl();" href="javascript:void(0)">
+                <i class="iconfont icon-twitter-fill">
+                </i>
+                <span>簪星曳月</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class=".notify-container"></div>
+<style rel="text/css">
+      /*右键*/
+    a {
+        text-decoration: none;
+    }
+    div.usercm{
+        background-repeat:no-repeat;
+        background-position:center center;
+        background-size:cover;
+        background-color:#fff;
+        font-size:13px!important;
+        width:130px;
+        -moz-box-shadow:1px 1px 3px rgba (0,0,0,.3);
+        box-shadow:0px 0px 15px #333;
+        position:absolute;
+        display:none;
+        z-index:10000;
+        opacity:0.9;
+        border-radius: 8px;
+    }
+    div.usercm ul{
+        list-style-type:none;
+        list-style-position:outside;
+        margin:0px;
+        padding:0px;
+        display:block
+    }
+    div.usercm ul li{
+        margin:0px;
+        padding:0px;
+        line-height:35px;
+    }
+    div.usercm ul li a{
+        color:#666;
+        padding:0 15px;
+        display:block
+    }
+    div.usercm ul li a:hover{
+        color:#fff;
+        background:#7486E7
+    }
+    div.usercm ul li a i{
+        margin-right:10px
+    }
+    a.disabled{
+        color:#c8c8c8!important;
+        cursor:not-allowed
+    }
+    a.disabled:hover{
+        background-color:rgba(255,11,11,0)!important
+    }
+    div.usercm{
+        background:#fff !important;
+    }
+</style>
+<script type="text/javascript">
+    (function(a){
+        a.extend({
+            mouseMoveShow:function(b){
+                var d=0,c=0,h=0,k=0,e=0,f=0;a(window).mousemove(
+                    function(g){
+                        d=a(window).width();
+                        c=a(window).height();
+                        h=g.clientX;
+                        k=g.clientY;
+                        e=g.pageX;
+                        f=g.pageY;
+                        h+a(b).width()>=d&&(e=e-a(b).width()-5);k+a(b).height()>=c&&(f=f-a(b).height()-5);
+                        a("html").on({
+                            contextmenu:function(c){
+                                3==c.which&&a(b).css({left:e,top:f}).show()
+                            },
+                            click:function(){a(b).hide()}
+                        })
+                    }
+                )
+            },
+            disabledContextMenu:function(){
+                window.oncontextmenu=function(){
+                    return false;
+                }
+            }
+        }
+        )})(jQuery);
+    (function($){
+        for(var a=navigator.userAgent,b="Android;iPhone;SymbianOS;Windows Phone;iPad;iPod".split(";"),d=!0,c=0;c<b.length;c++)
+            if(0<a.indexOf(b[c])){
+                d=!1;
+                break
+            }
+            d&&($.mouseMoveShow(".usercm"),$.disabledContextMenu())
+    })(jQuery);
+    // function getSelect(){
+    //     ""==(window.getSelection?window.getSelection():document.selection.createRange().text)?toastr.info("啊噢...你没还没选择文字呢！","复制提示"):document.execCommand("Copy")
+    // }
+    function like_it(type) {
+        var content = {
+            title: "旅行者，喜欢小站就用Ctrl+D收藏吧" ,
+            content: ""
+        };
+        zi_notify.showNotify(type, content);
+    }
+    function copyUrl(id) {
+        $("body").after("<input id='copyVal'></input>");
+        var text = id;
+        var input = document.getElementById("copyVal");
+        input.value = text;
+        input.select();
+        input.setSelectionRange(0, input.value.length);   
+        document.execCommand("copy");
+        $("#copyVal").remove();
+    }
+    function copyPageUrl(){
+        var url = window.location.href;
+        copyUrl(url);
+        // btf.snackbarShow('复制本页链接地址成功');
+        $('#rightmenu-wrapper').attr('style','display: none');
+    }
+</script>
+    
+    
+    <!-- 博客快捷键 -->
+    <div id="keyboard-tips">
+    <div class="keyboardTitle">小站快捷键</div>
+    <div class="keybordList">
+      <div class="keybordItem">
+        <div class="keyGroup">
+          <div class="key">shift</div>
+          <div class="key">K</div>
+        </div>
+        <div class="keyContent">
+          <div class="content">关闭快捷键</div>
+        </div>
+      </div>
+      <div class="keybordItem">
+        <div class="keyGroup">
+          <div class="key">shift</div>
+          <div class="key">A</div>
+        </div>
+        <div class="keyContent">
+          <div class="content">打开留言板</div>
+        </div>
+      </div>
+      <div class="keybordItem">
+        <div class="keyGroup">
+          <div class="key">shift</div>
+          <div class="key">M</div>
+        </div>
+        <div class="keyContent">
+          <div class="content">播放/暂停音乐</div>
+        </div>
+      </div>
+      <div class="keybordItem">
+        <div class="keyGroup">
+          <div class="key">shift</div>
+          <div class="key">D</div>
+        </div>
+        <div class="keyContent">
+          <div class="content">深色/浅色显示模式</div>
+        </div>
+      </div>
+      <div class="keybordItem">
+        <div class="keyGroup">
+          <div class="key">shift</div>
+          <div class="key">S</div>
+        </div>
+        <div class="keyContent">
+          <div class="content">站内搜索</div>
+        </div>
+      </div>
+      <div class="keybordItem">
+        <div class="keyGroup">
+          <div class="key">shift</div>
+          <div class="key">B</div>
+        </div>
+        <div class="keyContent">
+          <div class="content">返回首页</div>
+        </div>
+      </div>
+      <div class="keybordItem">
+        <div class="keyGroup">
+          <div class="key">shift</div>
+          <div class="key">F</div>
+        </div>
+        <div class="keyContent">
+          <div class="content">友链圈子</div>
+        </div>
+      </div>
+      <div class="keybordItem">
+        <div class="keyGroup">
+          <div class="key">shift</div>
+          <div class="key">C</div>
+        </div>
+        <div class="keyContent">
+          <div class="content">认证信息</div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+    $(window).on("keydown", function(e) {
+    // && (heo.hideLoading(),
+    // heo.hideConsole(),
+    // rm.hideRightMenu()),
+    // heo_keyboard
+    if (e.shiftKey) {
+        if (16 == e.keyCode && document.querySelector("#keyboard-tips").classList.add("show"),
+        75 == e.keyCode)
+            return shortcuts.keyboardToggle(),
+            !1;
+        if (65 == e.keyCode)
+            return shortcuts.message(),
+            !1;
+        if (77 == e.keyCode)
+            return shortcuts.music(),
+            !1;
+        if (67 == e.keyCode)
+            return shortcuts.cc(),
+            !1;
+        if (83 == e.keyCode)
+            return shortcuts.search(),
+            !1;
+        if (66 == e.keyCode)
+            return shortcuts.home(),
+            !1;
+        if (68 == e.keyCode)
+            return switchNightMode(),
+            !1;
+        if (70 == e.keyCode)
+            return shortcuts.friend()
+            !1
+    }
+}),
+    $(window).on("keyup", function(e) {
+        16 == e.keyCode && document.querySelector("#keyboard-tips").classList.remove("show")
+    })
+</script>
+<script>
+    const shortcuts={
+        keyboardToggle: () =>{
+            document.querySelector("#keyboard-tips").setAttribute("style","display:none");
+        },
+        home: () =>{
+            this.location.href="/";
+        },
+        friend: () =>{
+            this.location.href="/friend/";
+        },
+        search: () =>{
+            let a = document.querySelectorAll(".nav-link");
+            var event = document.createEvent("MouseEvents");
+            event.initEvent('click',true,true);
+            a[9].dispatchEvent(event);
+        },
+        music: () =>{
+            let aplayer = document.querySelector(".aplayer-button");
+            var event = document.createEvent("MouseEvents");
+            event.initEvent('click',true,true);
+            aplayer.dispatchEvent(event);
+        },
+        cc: () =>{
+            this.location.href="https://icp.gov.moe/?keyword=20220654";
+        },
+        message: () =>{
+            this.location.href="/envelope/"
+        }
+    }
+</script>
+
+<style>
+    #keyboard-tips {
+	position: fixed;
+	top: 100px;
+	left: 20px;
+	z-index: 999;
+	background: var(--heo-maskbgdeep);
+	border-radius: 12px;
+	border: var(--style-border);
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	backdrop-filter: saturate(180%) blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	pointer-events: none;
+	box-shadow: var(--heo-shadow-border);
+	opacity: 0;
+	transition: .3s
+    }
+
+    #keyboard-tips.show {
+        opacity: 1;
+        transition: .1s
+    }
+
+    #keyboard-tips .keybordList {
+        display: flex;
+        flex-direction: column;
+        margin-top: 8px
+    }
+
+    #keyboard-tips .keyboardTitle {
+        font-size: 12px;
+        color: var(--heo-secondtext);
+        line-height: 1
+    }
+
+    #keyboard-tips .keybordItem {
+        display: flex;
+        margin-top: 4px
+    }
+
+    #keyboard-tips .keyGroup {
+        display: flex;
+        align-items: center;
+        width: 90px
+    }
+
+    #keyboard-tips .keyGroup .key {
+        padding: .2em .4em;
+        font-family: inherit;
+        background-color: var(--card-bg);
+        color: var(--font-color);
+        border: var(--style-border);
+        border-color: var(--heo-secondtext);
+        border-bottom: 2px solid var(--heo-secondtext);
+        box-shadow: var(--heo-shadow-border);
+        border-radius: .25rem;
+        overflow-wrap: break-word;
+        overflow-x: auto;
+        font-weight: 500;
+        font-size: .875em;
+        margin-right: 4px;
+        vertical-align: baseline;
+        line-height: 1;
+        height: 24px
+    }
+</style>
+
+
+
+
+    <!-- 来访通知组合 -->
+    <!-- notify 已经前移到<body>处 请注意 -->
+    <script type="text/javascript" src="/js/notice.js"></script>
+    <script>
+        notie('info', '欢迎您到访本站! 您的到来让小站<strong>蓬荜生辉</strong>. 祝您体验愉快~', true);
+    </script>
+    <div class="noties"></div>
+    <style>
+        .noties {
+            position: fixed;
+            right: 0;
+            top: 70px
+        }
+        
+        .noties:empty {
+            display: none
+        }
+        
+        .notie {
+            background-color: #ddd;
+            opacity: 0;
+            -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+            -webkit-transition: -webkit-transform .3s, opacity .3s;
+            transition: transform .3s, opacity .3s;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            width: 200px;
+            font: 14px/1.4 Helvetica, serif;
+            word-wrap: break-word
+        }
+        
+        .notie.notie-auto-hide-disabled {
+            cursor: pointer
+        }
+        
+        .notie.notie-shown {
+            -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+            opacity: 1
+        }
+        
+        .notie .notie-body {
+            padding: 10px 12px
+        }
+        
+        .notie .notie-svg {
+            height: 23px;
+            display: block;
+            float: left
+        }
+        
+        .notie .notie-text {
+            display: block;
+            padding-left: 30px;
+            padding-top: 2px
+        }
+        
+        .notie svg {
+            height: 23px;
+            width: 23px
+        }
+        
+        .notie.notie-info {
+            background-color: #c6e4f4;
+            border-color: #a9d3eb;
+            color: #477dac
+        }
+        
+        .notie.notie-info a {
+            color: #477dac
+        }
+        
+        .notie.notie-error {
+            background-color: #eac1bd;
+            border-color: #d7a9a6;
+            color: #ab2925
+        }
+        
+        .notie.notie-error a {
+            color: #ab2925
+        }
+        
+        .notie.notie-success {
+            background-color: #d9f1cf;
+            border-color: #c8e1bf;
+            color: #748c6c
+        }
+        
+        .notie.notie-success a {
+            color: #748c6c
+        }
+        
+        .notie.notie-warning {
+            background-color: #f7f2cf;
+            border-color: #e8e2b2;
+            color: #9c7d45
+        }
+        
+        .notie.notie-warning a {
+            color: #9c7d45
+        }
+    </style>
+    <!-- 进入网站侧边信息提示 -->
+
+    <!-- <script>
+        function OnBtnClick(type) {
+            var content = {
+                title: "欢迎来到我的小站,这里以学习札记与科学知识为主哟！",
+                content: "更多功能请见顶部实验室！"
+            };
+            zi_notify.showNotify(type, content);
+        }
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            OnBtnClick(" ");
+        }
+    </script> -->
+    <style>
+        .notify-container {
+            position: fixed;
+            display: flex;
+            padding: 0;
+            align-items: flex-start;
+            flex-direction: column-reverse;
+            width: 300vw;
+            z-index: 11;
+            pointer-events: none;
+            transition: all 0.5s;
+            height: 50vh;
+            left: 0vw;
+        }
+        
+        .notify-container .notify {
+            /*background-color: rgba(15, 15, 15, 0.6);*/
+            animation: notify-show-hide 4.5s ease-in-out;
+            /*border-right: 7px solid rgba(0, 0, 0, 0.4);*/
+            transition: all 0.5s;
+            /*color: white;*/
+            box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
+            margin-bottom: 15px;
+            padding: 13px 15px;
+            height: 50px;
+        }
+        
+        .notify-container .notify .title {
+            font-size: 1.0rem;
+        }
+        
+        .notify-container .notify .content {
+            margin-top: -25px;
+            margin-left: -22px;
+            text-align: center;
+            /*color: #eee;*/
+            font-size: 0.80rem;
+        }
+        
+        @keyframes notify-show-hide {
+            0% {
+                opacity: 0;
+                transform: translate(-15vw, 0);
+                margin-bottom: 15px;
+            }
+            10% {
+                opacity: 1;
+                transform: translate(0vw, 0);
+                margin-bottom: 15px;
+            }
+            85% {
+                opacity: 1;
+                transform: translate(0, 0);
+                margin-bottom: 15px;
+            }
+            100% {
+                opacity: 0;
+                margin-bottom: -75px;
+            }
+        }
+    </style>
+
+
+</body>
+</html>

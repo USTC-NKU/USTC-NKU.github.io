@@ -1,0 +1,16 @@
+.scroll-top-button {
+  right: 60px;
+  width: 70px;
+  height: 900px;
+  top: -900px;
+  bottom: unset;
+  transition: all 0.5s ease-in-out;
+  background: url("/images/scroll.png");
+}
+.scroll-top-button > i {
+  display: none;
+}
+.scroll-top-button.scroll-top-button-on {
+  bottom: unset;
+  top: calc(100vh - 900px - 200px);
+}

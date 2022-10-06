@@ -1,0 +1,79 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1360",
+      "name": "新浪微博",
+      "font_class": "xinlangweibo",
+      "unicode": "f01af",
+      "unicode_decimal": 983471
+    },
+    {
+      "icon_id": "1082809",
+      "name": "youtube",
+      "font_class": "youtube",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "1206331",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "4937023",
+      "name": "facebook-fill",
+      "font_class": "facebook-fill",
+      "unicode": "e88d",
+      "unicode_decimal": 59533
+    },
+    {
+      "icon_id": "4937026",
+      "name": "instagram-fill",
+      "font_class": "instagram-fill",
+      "unicode": "e88f",
+      "unicode_decimal": 59535
+    },
+    {
+      "icon_id": "4937032",
+      "name": "twitter-square-fill",
+      "font_class": "twitter-square-fill",
+      "unicode": "e891",
+      "unicode_decimal": 59537
+    },
+    {
+      "icon_id": "10932439",
+      "name": "bilibili-fill",
+      "font_class": "bilibili-fill",
+      "unicode": "e69c",
+      "unicode_decimal": 59036
+    },
+    {
+      "icon_id": "18166694",
+      "name": "抖音",
+      "font_class": "douyin",
+      "unicode": "e8db",
+      "unicode_decimal": 59611
+    },
+    {
+      "icon_id": "18166712",
+      "name": "快手",
+      "font_class": "kuaishou",
+      "unicode": "e8dc",
+      "unicode_decimal": 59612
+    },
+    {
+      "icon_id": "19449267",
+      "name": "linkedin",
+      "font_class": "linkedin-fill",
+      "unicode": "eab1",
+      "unicode_decimal": 60081
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>body {
+    --color-text: #0f070a;
+    --color-bg: #03f7ea;
+    --color-bg-2: #9ef103;
+    --color-link: #317bd0;
+    --color-link-hover: #e5ff00;
+    background: radial-gradient(ellipse at 100% 0, #fed96f 0, var(--color-bg) 50%, var(--color-bg-2) 125%)
+}
