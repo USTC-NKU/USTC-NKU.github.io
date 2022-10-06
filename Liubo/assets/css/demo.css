@@ -1501,6 +1501,23 @@ figure.effect-romeo:hover p {
 .portfolio-details .portfolio-info {
   padding: 30px;
   box-shadow: 0px 0 30px rgba(88, 113, 109, 0.08);
+  position: absolute;
+  transition: all .5s ease-out;
+  backface-visibility: hidden ;
+  perspective: 800px;
+  transform-style: preserve-3d;
+}
+.portfolio-details #portfolio-temp .back{
+  visibility: hidden;
+  opacity: 0;
+}
+.portfolio-details #portfolio-temp:hover .front{
+  transform: rotateY(180deg);
+}
+.portfolio-details #portfolio-temp:hover .back{
+  visibility: visible;
+  opacity: 1;
+  transform: rotateY(360deg);
 }
 .portfolio-details .portfolio-info h3 {
   font-size: 22px;
@@ -2634,3 +2651,4 @@ overflow:hidden;
       padding-left: calc(var(--baseIncrement)*2)
   }
 }
+

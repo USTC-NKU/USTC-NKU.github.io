@@ -238,8 +238,8 @@
           </div>
         </div>
 
-        <div class="col-lg-4" data-aos="fade-right" data-aos-delay="100">
-          <div class="portfolio-info">
+        <div id="portfolio-temp" class="col-lg-4" data-aos="fade-right" data-aos-delay="100">
+          <div class="portfolio-info front">
             <h3>Professor 刘波</h3>
             <ul>
               <li><strong>籍贯</strong>: 山东青岛</li>
@@ -255,6 +255,24 @@
                 <li>开展了深海海底光缆声学传感的观测</li>
                 <li>武警海南总队海口支队机动四中队共训</li>
                 <li>在三沙市永兴岛做核酸检测志愿者等</li>
+              </li>
+            </ul>
+          </div>
+          <div class="portfolio-info back">
+            <h3>Professor 刘波</h3>
+            <ul>
+              <li><strong>籍贯</strong>: 山东青岛</li>
+              <li><strong>成就</strong>: <br>南开大学电光学院教授，副院长<sup>1</sup><br>中国光学学会光学测试委员会委员<sup>2</sup><br>国家863计划项目评审专家<sup>3</sup>等</li>
+              <li><strong>研究方向</strong>: 光纤通信与传感技术</li>
+              <li><strong>科研经历</strong>:
+                <li>发表署名科技论文150余篇</li>
+                <li>承担 国家863计划项目</li>
+                <li>承担国家自然基金重点项目</li>
+                <li>科技部重点研发计划项目：面向海洋覆盖的应用示范网络</li>
+                <li>自然基金仪器专项：基于微波光子技术的卫星激光通信多普勒频移模拟器</li>
+                <li>自然基金项目：多通道液芯波导光流作用增强技术及癌症早期双标血检研究</li>
+                <li>天津市技术发明二等奖</li>
+                <li>天津市自然科学二等奖等</li>
               </li>
             </ul>
           </div>
@@ -559,7 +577,7 @@
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="flip-left" data-aos-delay="400">
           <div class="icon-box">
             <div class="icon"><i class="bx bx-world"></i></div>
-            <h4 class="title"><a href="">关于面向未来</a></h4>
+            <h4 class="title"><a href="">关于未来之路</a></h4>
             <p class="description">
               第一，学生一定要找到兴趣，认清楚自己的能力，并在二者中寻求平衡点。第二，需要有做国之大器的胸怀与抱负。<br>对青年学生走向科研道路来讲，科研素养与爱国爱党的意识同样重要。做科研会经历很多迷茫，在重新找到自我，认识自我的过程中，始终胸怀国之大者，始终抱着爱党爱国守天涯的态度，就已经成功将“小我”融入了“大我”。如果 “小我”对“大我”产生了认同感与自豪感，二者便是一个密不可分的整体了。
             </p>
@@ -804,6 +822,47 @@
           });
     </script>
     <!-- ===========end============= -->
-    
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>    
+  <script>  
+      // 禁止按F12调试
+      document.onkeydown = document.onkeyup = document.onkeypress = function (event) {
+        var e = event || window.event || arguments.callee.caller.arguments[0];
+        var status=0;
+        if (e && e.keyCode == 123) {
+          e.returnValue = false;
+          status=1;
+          return (false);
+        }
+        if(status==1){
+            swal({
+              title: "Warning",
+              text: "Unauthorized devtool call detected",
+              icon: "error",
+              button: false,
+              timer: 3000,
+              closeOnEsc: false,
+              closeOnClickOutside: false
+             }).then(()=>{
+            swal({
+                  title: "warning",
+                  text: "You are expected to close the devtool",
+                  icon: "info",
+                  button: false,
+                  timer: 3000,
+                  closeOnEsc: false,
+                  closeOnClickOutside: false
+              })
+            })
+        }
+      }
+      // 防止鼠标右键浏览器‘检查’操作
+      setInterval(function () {
+        debugger;
+      }, 100)
+
+      // 禁止右键
+      document.oncontextmenu = function () { return false; };
+  </script>
 </body>
 </html>
