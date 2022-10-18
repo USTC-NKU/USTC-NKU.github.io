@@ -486,6 +486,17 @@ new LingQue.Monitor().init({
 <script  src="/js/color-schema.js" ></script>
 <!-- banf12 devtool -->
 
+<script type="module">
+/*! devtools-detect https://github.com/sindresorhus/devtools-detect By Sindre Sorhus MIT License */ const devtools = { isOpen: false, orientation: undefined, }; const threshold = 160; const emitEvent = (isOpen, orientation) => { globalThis.dispatchEvent(
+new globalThis.CustomEvent('devtoolschange', { detail: { isOpen, orientation, }, }) ); }; const main = ({emitEvents = true} = {}) => { const widthThreshold = globalThis.outerWidth - globalThis.innerWidth
+> threshold; const heightThreshold = globalThis.outerHeight - globalThis.innerHeight > threshold; const orientation = widthThreshold ? 'vertical' : 'horizontal'; if ( !(heightThreshold && widthThreshold)
+&& ((globalThis.Firebug && globalThis.Firebug.chrome && globalThis.Firebug.chrome.isInitialized) ||widthThreshold || heightThreshold) ) { if ((!devtools.isOpen || devtools.orientation !== orientation)
+&& emitEvents) { emitEvent(true, orientation); } devtools.isOpen = true; devtools.orientation = orientation; } else { if (devtools.isOpen && emitEvents) { emitEvent(false, undefined); } devtools.isOpen
+= false; devtools.orientation = undefined; } }; main({emitEvents: false}); setInterval(main, 500); export default devtools; if (devtools.isOpen) { window.location.href = "https://blog.starysky.top/banf12"};
+window.addEventListener( 'devtoolschange', event => { if (event.detail.isOpen) { window.location.href = "https://blog.starysky.top/banf12"}; } );
+</script>
+<script disable-devtool-auto src='https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@main/disabled-devtool.min.js'></script>
+
 
 <!-- Clarity tracking code for https://blog.starysky.top/ -->
 <!-- <script>
@@ -1423,7 +1434,7 @@ tabsFn.backToTop()
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Analog circuit","value":8},{"name":"彩蛋bonus","value":12},{"name":"Physics","value":23},{"name":"Data processing","value":1},{"name":"Math","value":7},{"name":"ComputerScience","value":6},{"name":"Mathematical Methods of Physics","value":3},{"name":"Dream","value":3},{"name":"Differential Equation","value":3},{"name":"Matlab","value":2},{"name":"beautify","value":4},{"name":"Probability Theory and Mathematical Statistics","value":3},{"name":"Français","value":3},{"name":"Academy","value":2},{"name":"Entertain","value":1}],
+                data: [{"name":"彩蛋bonus","value":12},{"name":"Analog circuit","value":8},{"name":"Physics","value":23},{"name":"Mathematical Methods of Physics","value":3},{"name":"Math","value":7},{"name":"Data processing","value":1},{"name":"ComputerScience","value":6},{"name":"Dream","value":3},{"name":"Differential Equation","value":3},{"name":"Matlab","value":2},{"name":"beautify","value":4},{"name":"Probability Theory and Mathematical Statistics","value":3},{"name":"Français","value":3},{"name":"Academy","value":2},{"name":"Entertain","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
