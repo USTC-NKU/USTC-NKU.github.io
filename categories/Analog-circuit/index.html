@@ -472,17 +472,6 @@ new LingQue.Monitor().init({
 <script  src="/js/color-schema.js" ></script>
 <!-- banf12 devtool -->
 
-<script type="module">
-/*! devtools-detect https://github.com/sindresorhus/devtools-detect By Sindre Sorhus MIT License */ const devtools = { isOpen: false, orientation: undefined, }; const threshold = 160; const emitEvent = (isOpen, orientation) => { globalThis.dispatchEvent(
-new globalThis.CustomEvent('devtoolschange', { detail: { isOpen, orientation, }, }) ); }; const main = ({emitEvents = true} = {}) => { const widthThreshold = globalThis.outerWidth - globalThis.innerWidth
-> threshold; const heightThreshold = globalThis.outerHeight - globalThis.innerHeight > threshold; const orientation = widthThreshold ? 'vertical' : 'horizontal'; if ( !(heightThreshold && widthThreshold)
-&& ((globalThis.Firebug && globalThis.Firebug.chrome && globalThis.Firebug.chrome.isInitialized) ||widthThreshold || heightThreshold) ) { if ((!devtools.isOpen || devtools.orientation !== orientation)
-&& emitEvents) { emitEvent(true, orientation); } devtools.isOpen = true; devtools.orientation = orientation; } else { if (devtools.isOpen && emitEvents) { emitEvent(false, undefined); } devtools.isOpen
-= false; devtools.orientation = undefined; } }; main({emitEvents: false}); setInterval(main, 500); export default devtools; if (devtools.isOpen) { window.location.href = "https://blog.starysky.top/banf12"};
-window.addEventListener( 'devtoolschange', event => { if (event.detail.isOpen) { window.location.href = "https://blog.starysky.top/banf12"}; } );
-</script>
-<script disable-devtool-auto src='https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@main/disabled-devtool.min.js'></script>
-
 
 <!-- Clarity tracking code for https://blog.starysky.top/ -->
 <!-- <script>
@@ -1287,14 +1276,14 @@ tabsFn.backToTop()
     </a>
   
     
-    <a href="/2021/10/08/%E5%9C%BA%E6%95%88%E5%BA%94%E7%AE%A1/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">场效应管</span>
+    <a href="/2021/10/08/%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">半导体基础知识</span>
       <time style="float: right;">10-08</time>
     </a>
   
     
-    <a href="/2021/10/08/%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">半导体基础知识</span>
+    <a href="/2021/10/08/%E5%9C%BA%E6%95%88%E5%BA%94%E7%AE%A1/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">场效应管</span>
       <time style="float: right;">10-08</time>
     </a>
   
