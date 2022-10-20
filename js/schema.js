@@ -147,16 +147,16 @@ var LIlGGAttachContext = {
         })
     },
     CPY: function CPY() {
-        document.body.addEventListener("copy", function(e) { if (Poi.copyrightNotice && window.getSelection().toString().length > 30) { setClipboardText(e) } if (toast) { toast.create("澶嶅埗鎴愬姛锛�<br>Copied to clipboard successfully!", 2e3) } });
-        var setClipboardText = function setClipboardText(event) {
-            event.preventDefault();
-            var htmlData = "# 鍟嗕笟杞浇璇疯仈绯讳綔鑰呰幏寰楁巿鏉冿紝闈炲晢涓氳浆杞借娉ㄦ槑鍑哄銆�<br>" + "# For commercial use, please contact the author for authorization. For non-commercial use, please indicate the source.<br>" + "# 鍗忚(License)锛氱讲鍚�-闈炲晢涓氭€т娇鐢�-鐩稿悓鏂瑰紡鍏变韩 4.0 鍥介檯 (CC BY-NC-SA 4.0)<br>" + "# 浣滆€�(Author)锛�" + Poi.nickname + "<br>" + "# 閾炬帴(URL)锛�" + window.location.href + "<br>" + "# 鏉ユ簮(Source)锛�" + Poi.sitename + "<br><br>" + window.getSelection().toString().replace(/\r\n/g, "<br>");
-            var textData = "# 鍟嗕笟杞浇璇疯仈绯讳綔鑰呰幏寰楁巿鏉冿紝闈炲晢涓氳浆杞借娉ㄦ槑鍑哄銆俓n" + "# For commercial use, please contact the author for authorization. For non-commercial use, please indicate the source.\n" + "# 鍗忚(License)锛氱讲鍚�-闈炲晢涓氭€т娇鐢�-鐩稿悓鏂瑰紡鍏变韩 4.0 鍥介檯 (CC BY-NC-SA 4.0)\n" + "# 浣滆€�(Author)锛�" + Poi.nickname + "\n" + "# 閾炬帴(URL)锛�" + window.location.href + "\n" + "# 鏉ユ簮(Source)锛�" + Poi.sitename + "\n\n" + window.getSelection().toString().replace(/\r\n/g, "\n");
-            if (event.clipboardData) {
-                event.clipboardData.setData("text/html", htmlData);
-                event.clipboardData.setData("text/plain", textData)
-            } else if (window.clipboardData) { return window.clipboardData.setData("text", textData) }
-        }
+        // document.body.addEventListener("copy", function(e) { if (Poi.copyrightNotice && window.getSelection().toString().length > 30) { setClipboardText(e) } if (toast) { toast.create("澶嶅埗鎴愬姛锛�<br>Copied to clipboard successfully!", 2e3) } });
+        // var setClipboardText = function setClipboardText(event) {
+        //     event.preventDefault();
+        //     var htmlData = "# 鍟嗕笟杞浇璇疯仈绯讳綔鑰呰幏寰楁巿鏉冿紝闈炲晢涓氳浆杞借娉ㄦ槑鍑哄銆�<br>" + "# For commercial use, please contact the author for authorization. For non-commercial use, please indicate the source.<br>" + "# 鍗忚(License)锛氱讲鍚�-闈炲晢涓氭€т娇鐢�-鐩稿悓鏂瑰紡鍏变韩 4.0 鍥介檯 (CC BY-NC-SA 4.0)<br>" + "# 浣滆€�(Author)锛�" + Poi.nickname + "<br>" + "# 閾炬帴(URL)锛�" + window.location.href + "<br>" + "# 鏉ユ簮(Source)锛�" + Poi.sitename + "<br><br>" + window.getSelection().toString().replace(/\r\n/g, "<br>");
+        //     var textData = "# 鍟嗕笟杞浇璇疯仈绯讳綔鑰呰幏寰楁巿鏉冿紝闈炲晢涓氳浆杞借娉ㄦ槑鍑哄銆俓n" + "# For commercial use, please contact the author for authorization. For non-commercial use, please indicate the source.\n" + "# 鍗忚(License)锛氱讲鍚�-闈炲晢涓氭€т娇鐢�-鐩稿悓鏂瑰紡鍏变韩 4.0 鍥介檯 (CC BY-NC-SA 4.0)\n" + "# 浣滆€�(Author)锛�" + Poi.nickname + "\n" + "# 閾炬帴(URL)锛�" + window.location.href + "\n" + "# 鏉ユ簮(Source)锛�" + Poi.sitename + "\n\n" + window.getSelection().toString().replace(/\r\n/g, "\n");
+        //     if (event.clipboardData) {
+        //         event.clipboardData.setData("text/html", htmlData);
+        //         event.clipboardData.setData("text/plain", textData)
+        //     } else if (window.clipboardData) { return window.clipboardData.setData("text", textData) }
+        // }
     },
     PHO: function PHO() {
         var $photoPage = $(".photo-page");
