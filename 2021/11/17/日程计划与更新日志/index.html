@@ -492,17 +492,6 @@ new LingQue.Monitor().init({
 <script  src="/js/color-schema.js" ></script>
 <!-- banf12 devtool -->
 
-<script type="module">
-/*! devtools-detect https://github.com/sindresorhus/devtools-detect By Sindre Sorhus MIT License */ const devtools = { isOpen: false, orientation: undefined, }; const threshold = 160; const emitEvent = (isOpen, orientation) => { globalThis.dispatchEvent(
-new globalThis.CustomEvent('devtoolschange', { detail: { isOpen, orientation, }, }) ); }; const main = ({emitEvents = true} = {}) => { const widthThreshold = globalThis.outerWidth - globalThis.innerWidth
-> threshold; const heightThreshold = globalThis.outerHeight - globalThis.innerHeight > threshold; const orientation = widthThreshold ? 'vertical' : 'horizontal'; if ( !(heightThreshold && widthThreshold)
-&& ((globalThis.Firebug && globalThis.Firebug.chrome && globalThis.Firebug.chrome.isInitialized) ||widthThreshold || heightThreshold) ) { if ((!devtools.isOpen || devtools.orientation !== orientation)
-&& emitEvents) { emitEvent(true, orientation); } devtools.isOpen = true; devtools.orientation = orientation; } else { if (devtools.isOpen && emitEvents) { emitEvent(false, undefined); } devtools.isOpen
-= false; devtools.orientation = undefined; } }; main({emitEvents: false}); setInterval(main, 500); export default devtools; if (devtools.isOpen) { window.location.href = "https://blog.starysky.top/banf12"};
-window.addEventListener( 'devtoolschange', event => { if (event.detail.isOpen) { window.location.href = "https://blog.starysky.top/banf12"}; } );
-</script>
-<script disable-devtool-auto src='https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@main/disabled-devtool.min.js'></script>
-
 
 <!-- Clarity tracking code for https://blog.starysky.top/ -->
 <!-- <script>
@@ -1271,7 +1260,7 @@ tabsFn.backToTop()
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      2.2k 字
     </span>
   
 
@@ -1281,7 +1270,7 @@ tabsFn.backToTop()
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14
+      30
        分钟
     </span>
   
@@ -1315,14 +1304,14 @@ tabsFn.backToTop()
             
               <div class='tip warning'>
                 <p class="note note-warning" style="color: crimson;">
-                  <i class="fa fa-bullhorn faa-flash animated faa-slow">请注意，本文最近一次更新于：2022-05-05,文章内容可能已经不具有时效性，请谨慎参考</i>
+                  <i class="fa fa-bullhorn faa-flash animated faa-slow">请注意，本文最近一次更新于：2022-10-25,文章内容可能已经不具有时效性，请谨慎参考</i>
                 </p> 
               </div> 
             
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年5月5日星期四晚上7点17分 +08:00
+                  本文最后更新于：2022年10月25日星期二中午11点32分 +08:00
                 
               </p>
             
@@ -1466,6 +1455,17 @@ tabsFn.backToTop()
 <li><input checked disabled type="checkbox"> Analog circuit</li>
 </ul>
 <hr>
+<!-- https://guole.fun/posts/41887/#%E7%89%B9%E6%80%A7 for use help-->
+
+<ul>
+<li>用法<figure class="highlight gcode"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs gcode">&#123;<span class="hljs-meta">%</span> + 标签值 + 经度 + 纬度 + 文本 + 缩放等级 + 宽 + 高 + 默认图层 + <span class="hljs-meta">%</span>&#125;<br></code></pre></div></td></tr></table></figure></li>
+<li>混合地图<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.css"><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.js"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet.ChineseTmsProviders@1.0.4.js"></script><div class="map-box"><div id="map-120.101101-30.239119" style="max-width:100%; height:360px;display: block;margin:0 auto;z-index:1;border-radius: 5px;"></div></div><script type="text/javascript">var normalm=L.tileLayer.chinaProvider('GaoDe.Normal.Map',{maxZoom:20,minZoom:1,attribution:'Amap'});var imgm=L.tileLayer.chinaProvider('GaoDe.Satellite.Map',{maxZoom:20,minZoom:1,attribution:'Amap'});var imga=L.tileLayer.chinaProvider('GaoDe.Satellite.Annotion',{maxZoom:20,minZoom:1,attribution:'Amap'});var normalMap=L.tileLayer.chinaProvider('Google.Normal.Map',{maxZoom:20,minZoom:1,attribution:'Google Maps'}),satelliteMap=L.tileLayer.chinaProvider('Google.Satellite.Map',{maxZoom:21,minZoom:1,attribution:'Google Maps'});routeMap=L.tileLayer.chinaProvider('Google.Satellite.Annotion',{maxZoom:21,minZoom:1});var normalMap=L.tileLayer.chinaProvider('Google.Normal.Map',{maxZoom:21,minZoom:1,attribution:'Google Maps'}),satelliteMap=L.tileLayer.chinaProvider('Google.Satellite.Map',{maxZoom:21,minZoom:1,attribution:'Google Maps'}),routeMap=L.tileLayer.chinaProvider('Google.Satellite.Annotion',{maxZoom:21,minZoom:1,attribution:'Google Maps'});var normalm1=L.tileLayer.chinaProvider('Geoq.Normal.Map',{maxZoom:21,minZoom:1,attribution:'GeoQ'});var normal=L.layerGroup([normalm]),image=L.layerGroup([imgm,imga]);var baseLayers={"高德地图":normal,"智图地图":normalm1,"谷歌地图":normalMap,"高德卫星地图":imgm,"谷歌卫星地图":satelliteMap,"高德卫星标注":image,"谷歌卫星标注":routeMap};var mymap=L.map('map-120.101101-30.239119',{center:[30.239119,120.101101],zoom:15,layers:[normal],zoomControl:false});L.control.layers(baseLayers,null).addTo(mymap);L.control.zoom({zoomInTitle:'放大',zoomOutTitle:'缩小'}).addTo(mymap);var marker = L.marker(['30.239119','120.101101']).addTo(mymap);marker.bindPopup("这里是西湖灵隐寺，据说求姻缘很灵验哦！").openPopup();</script></li>
+<li>谷歌地图<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.css"><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.js"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet.ChineseTmsProviders@1.0.4.js"></script><div id="googleMap-120.1011-30.239119" style="max-width:100%; height:360px;display: block;margin:0 auto;z-index:1;border-radius: 5px;"></div><script type="text/javascript">var normalMap=L.tileLayer.chinaProvider('Google.Normal.Map',{maxZoom:22,minZoom:1,attribution:'Google Maps'}),satelliteMap=L.tileLayer.chinaProvider('Google.Satellite.Map',{maxZoom:22,minZoom:1,attribution:'Google Maps'}),routeMap=L.tileLayer.chinaProvider('Google.Satellite.Annotion',{maxZoom:22,minZoom:1,attribution:'Google Maps'});var baseLayers={"谷歌地图":normalMap,"谷歌卫星图":satelliteMap,"谷歌卫星标注": routeMap};var overlayLayers={};var mymap=L.map("googleMap-120.1011-30.239119",{center:[30.239119,120.1011],zoom:14,layers:[normalMap],zoomControl:false});L.control.layers(baseLayers,null).addTo(mymap);L.control.zoom({zoomInTitle:'放大',zoomOutTitle:'缩小'}).addTo(mymap);var marker = L.marker(['30.239119','120.1011']).addTo(mymap);marker.bindPopup("这里是西湖灵隐寺，据说求姻缘很灵验哦！").openPopup();</script></li>
+<li>高德地图<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.css"><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.js"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet.ChineseTmsProviders@1.0.4.js"></script><div class="map-box"><div id="gaodeMap-120.101101-30.2391" style="max-width:100%; height:360px;display: block;margin:0 auto;z-index:1;border-radius: 5px;"></div></div><script type="text/javascript">var normalm=L.tileLayer.chinaProvider('GaoDe.Normal.Map',{maxZoom:20,minZoom:1,attribution:'Amap'});var imgm=L.tileLayer.chinaProvider('GaoDe.Satellite.Map',{maxZoom:20,minZoom:1,attribution:'Amap'});var imga=L.tileLayer.chinaProvider('GaoDe.Satellite.Annotion',{maxZoom:20,minZoom:1,attribution:'Amap'});var normal=L.layerGroup([normalm]),image=L.layerGroup([imgm,imga]);var baseLayers={"高德地图":normal,"高德卫星地图":imgm,"高德卫星标注":image};var mymap=L.map('gaodeMap-120.101101-30.2391',{center:[30.2391,120.101101],zoom:16,layers:[normal],zoomControl:false});L.control.layers(baseLayers,null).addTo(mymap);L.control.zoom({zoomInTitle:'放大',zoomOutTitle:'缩小'}).addTo(mymap);var marker = L.marker(['30.2391','120.101101']).addTo(mymap);marker.bindPopup("这里是西湖灵隐寺，据说求姻缘很灵验哦！").openPopup();</script></li>
+<li>百度地图<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.css"><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.js"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/proj4@2.4.3.js"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/proj4leaflet@1.0.1.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet.ChineseTmsProviders@1.0.4.js"></script><div id="baiduMap-120.101122-30.2391" style="max-width:100%; height:360px;display: block;margin:0 auto;z-index:1;border-radius: 5px;"></div><script type="text/javascript">var normalMap=L.tileLayer.chinaProvider('Baidu.Normal.Map',{maxZoom:20,minZoom:4,attribution:'Baidu Map'}),satelliteMap=L.tileLayer.chinaProvider('Baidu.Satellite.Map',{maxZoom:18,minZoom:1,attribution:'Baidu Map'}),annotionMap=L.tileLayer.chinaProvider('Baidu.Satellite.Annotion',{maxZoom:18,minZoom:1,attribution:'Baidu Map'});var imageMap=L.layerGroup([satelliteMap,annotionMap]);var baseLayers={"百度地图":normalMap,"百度卫星图":satelliteMap,"百度卫星标注":imageMap};var mymap=L.map("baiduMap-120.101122-30.2391",{crs:L.CRS.Baidu,minZoom:2,maxZoom:20,attributionControl:true,center:[30.2391,120.101122],zoom:16,layers:[normalMap],zoomControl:false});L.control.layers(baseLayers,overlayLayers).addTo(mymap);L.control.zoom({zoomInTitle:'放大',zoomOutTitle:'缩小'}).addTo(mymap);var marker = L.marker(['30.2391','120.101122']).addTo(mymap);marker.bindPopup("这里是西湖灵隐寺，据说求姻缘很灵验哦！").openPopup();</script></li>
+<li>Geo地图<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.css"><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.js"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet.ChineseTmsProviders@1.0.4.js"></script><div id="geoqMap-120.101001-30.239019" style="max-width:90%; height:320px;display: block;margin:0 auto;z-index:1;border-radius: 5px;"></div><script type="text/javascript">var normalm1=L.tileLayer.chinaProvider('Geoq.Normal.Map',{maxZoom:20,minZoom:1,attribution:'GeoQ'});var normalm2=L.tileLayer.chinaProvider('Geoq.Normal.PurplishBlue',{maxZoom:20,minZoom:1,attribution:'GeoQ'});var normalm3=L.tileLayer.chinaProvider('Geoq.Normal.Gray',{maxZoom:20,minZoom:1,attribution:'GeoQ'});var normalm4=L.tileLayer.chinaProvider('Geoq.Normal.Warm',{maxZoom:20,minZoom:1,attribution:'GeoQ'});var normalm5=L.tileLayer.chinaProvider('Geoq.Theme.Hydro',{maxZoom:20,minZoom:1,attribution:'GeoQ'});var normal=L.layerGroup([normalm1,normalm2,normalm3,normalm4,normalm5]);var baseLayers={"智图地图":normalm1,"午夜蓝":normalm2,"灰色":normalm3,"暖色":normalm4,"水系":normalm5};var mymap=L.map("geoqMap-120.101001-30.239019",{center:[30.239019,120.101001],zoom:13,layers:[normalm3],zoomControl:false});L.control.layers(baseLayers,null).addTo(mymap);L.control.zoom({zoomInTitle:'放大',zoomOutTitle:'缩小'}).addTo(mymap);var marker = L.marker(['30.239019','120.101001']).addTo(mymap);marker.bindPopup("这里是西湖灵隐寺，据说求姻缘很灵验哦！").openPopup();</script></li>
+<li>Openstreet地图<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.css"><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-tag-map/lib/leaflet@1.7.1.js"></script><div class="map-box"><div id="openstreetMap-120.101101-30.239122" style="max-width:100%; height:360px;display: block;margin:0 auto;z-index:1;border-radius: 5px;"></div></div><script>var mymap = L.map('openstreetMap-120.101101-30.239122', { attributionControl:false }).setView(['30.239122','120.101101'],16);L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(mymap);var marker = L.marker(['30.239122','120.101101']).addTo(mymap);marker.bindPopup("这里是西湖灵隐寺，据说求姻缘很灵验哦").openPopup();</script></li>
+</ul>
 
             </div>
             <hr>
@@ -1794,7 +1794,7 @@ tabsFn.backToTop()
                 <div class="minipost-copyright-u">
                     <h>更新于</h>
                     <div class="minipost-copyright-cc-info">
-                        <h>2022-05-05</h>
+                        <h>2022-10-25</h>
                     </div>
                 </div>
                 <div class="minipost-copyright-c">
