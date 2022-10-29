@@ -42,6 +42,7 @@ window.addEventListener("copy", function() {
 
 //欢迎问候
 window.addEventListener('load', function () {
+  browserVersion();
     if(sessionStorage.getItem("isReload4")){
       return true
     }else{
@@ -89,7 +90,7 @@ document.addEventListener('visibilitychange', function () {
         layout: '2',
         position: 'bottomCenter',
         icon: 'fa fa-comment-alt-smile',
-        backgroundColor: 'var(--heo-ahoverbg)',
+        backgroundColor: 'rgb(0,255,127)',
         title: 'Welcome Back',
         message: '花径不曾缘客扫，蓬门今始为君开'
       });
@@ -97,6 +98,64 @@ document.addEventListener('visibilitychange', function () {
     }
   }
 });
+
+
+function browserTC() {
+  iziToast.show({
+    timeout: 20000,
+    title: 'Caution',
+    message: '「为了访问安全，本站已停止对过低版本浏览器的支持」',
+    position: 'center',
+    progressBarColor: 'rgb(0,255,127)',
+    transitionIn: 'bounceInUp',
+    transitionOut: 'fadeOutDown',
+    zindex: 999,
+    drag: false,
+    buttons: [
+      ['<button>Confirmed</button>', function (instance, toast) {
+
+          instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+
+      }],
+  ],
+  onClosing: function(instance, toast, closedBy){
+      console.info('Closing | closedBy: ' + closedBy);
+  },
+  onClosed: function(instance, toast, closedBy){
+      console.info('Closed | closedBy: ' + closedBy);
+  }
+  })
+}
+function browserVersion() {
+  var userAgent = navigator.userAgent;
+  var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1;
+  var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
+  var isEdge = userAgent.indexOf("Edge") > -1 && !isIE;
+  var isFirefox = userAgent.indexOf("Firefox") > -1;
+  var isOpera = userAgent.indexOf("Opera")>-1 || userAgent.indexOf("OPR")>-1 ;
+  var isChrome = userAgent.indexOf("Chrome")>-1 && userAgent.indexOf("Safari")>-1 && userAgent.indexOf("Edge")==-1 && userAgent.indexOf("OPR")==-1;
+  var isSafari = userAgent.indexOf("Safari")>-1 && userAgent.indexOf("Chrome")==-1 && userAgent.indexOf("Edge")==-1 && userAgent.indexOf("OPR")==-1;
+  if(isEdge) {
+      if(userAgent.split('Edge/')[1].split('.')[0]<90){
+          browserTC()
+      }
+  } else if(isFirefox) {
+      if(userAgent.split('Firefox/')[1].split('.')[0]<90){
+          browserTC()
+      }
+  } else if(isOpera) {
+      if(userAgent.split('OPR/')[1].split('.')[0]<80){
+          browserTC()
+      }
+  } else if(isChrome) {
+      if(userAgent.split('Chrome/')[1].split('.')[0]<100){
+          browserTC()
+      }
+  } else if(isSafari) {
+      //不知道Safari多少版本才算老旧
+  }
+}
+
 
 //关注我们
 // window.addEventListener('load', function () {
