@@ -99,7 +99,7 @@ document.addEventListener('visibilitychange', function () {
   }
 });
 
-
+// 低版本浏览器提醒
 function browserTC() {
   iziToast.show({
     timeout: 20000,

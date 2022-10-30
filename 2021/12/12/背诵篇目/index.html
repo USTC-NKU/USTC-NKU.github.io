@@ -2268,7 +2268,7 @@ tabsFn.backToTop()
         <script src="https://fastly.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
         <!-- for more help, visit:https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md#%E6%A0%87%E7%AD%BE%E5%8F%82%E6%95%B0 -->
         <!-- 歌单设置 -->
-        <div class="aplayer no-destroy" data-id="8519482494" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="true" data-order="random" data-preload="none" data-autoplay="false" muted></div>
+        <div class="aplayer no-destroy" data-id="3442174120" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="true" data-order="random" data-preload="none" data-autoplay="false" muted></div>
     
     <!-- 四季气氛 -->
     
@@ -2937,6 +2937,8 @@ tabsFn.backToTop()
         }
     </script>
 
+    <!-- tidio live chat -->
+    <!-- <script src="//code.tidio.co/1vvq0avfgvr8jikubalyr2tquvsh7xbx.js" async></script> -->
 
     <!-- 悬挂的喵喵 -->
     <script type="text/javascript" src="/js/szgotop.js"></script>
@@ -3273,10 +3275,6 @@ tabsFn.backToTop()
             font-family: 'Ubuntu', sans-serif
         }
     </style>
-
-    <!-- tidio live chat -->
-    <script src="//code.tidio.co/1vvq0avfgvr8jikubalyr2tquvsh7xbx.js" async></script>
-
 
     <!-- diy rightmenu -->
     
@@ -3906,6 +3904,321 @@ tabsFn.backToTop()
         }
     </style>
 
+  <div class="contact-info">
+    <div class="option">
+        <i class="fas fa-rocket"></i>
+        <div class="bloktop"></div>
+        <div class="text">
+            科学之光 温暖世界
+            <div class="strip"></div>
+        </div>
+    </div>
+    <div class="option">
+        <i class="fas fa-cube"></i>
+        <div class="blok"></div>
+        <div class="text">
+            USTC-茶糜花开
+            <!-- <button class="option_custom-btn btn-16" onclick="window.location.href='/about'"></button> -->
+            <div class="strip"></div>
+        </div>
+    </div>
+    <div class="option">
+        <i class="fas fa-music"></i>
+        <div class="blokbottom"></div>
+        <div class="text aplayertext">
+          <div class="strip"></div>
+          <div
+            class="aplayer no-destroy"
+            mutex="true"
+            listfolded="true"
+            data-id="3442174120"
+            data-preload="none"
+            data-server="tencent"
+            data-volume="0.25"
+            data-order="random"
+            data-type="playlist"
+            data-fixed="true"
+            data-autoplay="false"
+          ></div>
+        </div>
+    </div>
+  </div>
+  <style>
+    .option_custom-btn {
+        width: 130px;
+        height: 40px;
+        color: #fff;
+        border-radius: 5px;
+        padding: 10px 25px;
+        font-family: 'Lato', sans-serif;
+        font-weight: 500;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+        7px 7px 20px 0px rgba(0,0,0,.1),
+        4px 4px 5px 0px rgba(0,0,0,.1);
+        outline: none;
+    }
+    /* 16 */
+    .btn-16 {
+    border: none;
+    color: #000;
+    }
+    .btn-16:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    direction: rtl;
+    z-index: -1;
+    box-shadow:
+    -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001;
+    transition: all 0.3s ease;
+    }
+    .btn-16:hover {
+    color: #000;
+    }
+    .btn-16:hover:after {
+    left: auto;
+    right: 0;
+    width: 100%;
+    }
+    .btn-16:active {
+    top: 2px;
+    }
+    .contact-info{
+    position: fixed!important;
+    top: 25%!important;
+    z-index: 200!important;
+    left: -50px!important;
+    transition: 0.5s!important;
+    }
+    .contact-info:focus{
+        left: 0px!important;
+    }
+    .contact-info:hover{
+    left: 0px!important;
+    }
+    .contact-info .option{
+    position: relative!important;
+    }
+
+    .contact-info .option i{
+    display: block!important;
+    width: 50px!important;
+    text-align: center!important;
+    height: 60px!important;
+    line-height: 60px!important;
+    background: rgb(255, 255, 255);
+    color: #b9b9b9;
+    font-size: 20px;
+    transition: 0.5s;
+    border-radius: 0 10px 10px 0;
+    }
+
+    .contact-info .option:hover i{
+    color: #3498db;
+    }
+    .contact-info .text{
+    border-radius: 15px;
+    position: absolute!important;
+    height: 60px!important;
+    width: 200px!important;
+    background: rgba(255,255,255,.85);
+    top: 0!important;
+    z-index: -1!important;
+    left: -136px!important;
+    color: rgb(0, 0, 0);
+    line-height: 60px;
+    text-align: center;
+    transition: 0.5s;
+    }
+    .contact-info .aplayertext{
+    transition: none!important;
+    }
+    .aplayer{
+    position: absolute!important;
+    }
+    .aplayer.aplayer-fixed .aplayer-body{
+    left: -60px!important;
+    position: absolute!important;
+    width: 370px!important;
+    transition: none!important;
+    border-radius: 10px!important;
+    }
+    .aplayer.aplayer-fixed{
+    left: -300px !important;
+    }
+    .contact-info .option:hover .aplayer.aplayer-fixed .aplayer-body,.contact-info .option:hover .aplayer.aplayer-fixed{
+    left: 0px !important;
+    }
+    .contact-info .option:hover .text{
+    left: 60px!important;
+    }
+    .contact-info .blok{
+    position: absolute!important;
+    height: 60px!important;
+    width: 100px!important;
+    top: 0!important;
+    z-index: -1!important;
+    left: 0px!important;
+    }
+    .contact-info .bloktop{
+    position: absolute!important;
+    height: 75px!important;
+    width: 100px!important;
+    bottom: 0px!important;
+    z-index: -1!important;
+    left: 0px!important;
+    }
+    .contact-info .blokbottom{
+    position: absolute!important;
+    height: 75px!important;
+    width: 100px!important;
+    top: 0!important;
+    z-index: -1!important;
+    left: 0px!important;
+    }
+    .contact-info .option:hover .blok,.contact-info .option:hover .bloktop,.contact-info .option:hover .blokbottom{
+    left: 0px!important;
+    }
+    .contact-info .option:hover .aplayertext{
+    left: 60px!important;
+    width: 370px!important;
+    background: transparent!important;
+    }
+    .aplayer.aplayer-fixed .aplayer-miniswitcher{
+    border-radius: 0 10px 10px 0!important;
+    }
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body{
+    transition: 0.28s!important;
+    border-radius: 10px!important;
+    }
+    .aplayer .aplayer-pic{
+    height: 60px!important;
+    }
+    .aplayer .aplayer-info{
+    height: 60px!important;
+    }
+    .aplayer.aplayer-narrow .aplayer-body{
+    height: 60px!important;
+    }
+    .aplayer .aplayer-list.aplayer-list-hide{
+    margin-bottom: 59px!important;
+    }
+    .aplayer.aplayer-fixed .aplayer-list{
+    margin-bottom: 62px!important;
+    max-height: 240px!important;
+    }
+    .aplayer.aplayer-fixed .aplayer-info{
+    transition: none!important;
+    }
+    .aplayer.aplayer-narrow .aplayer-body{
+    height: 60px!important;
+    }
+    .aplayer.aplayer-narrow .aplayer-body, .aplayer.aplayer-narrow .aplayer-pic{
+    border-radius:  10px 0 0 10px!important;
+    }
+    .aplayer.aplayer-fixed{
+    border-radius: 10px!important;
+    }
+    .aplayer .aplayer-pic{
+    border-radius:  0 0 0 10px!important;
+    }
+    .aplayer.aplayer-fixed .aplayer-list{
+    border-radius: 10px 10px 0 0!important;
+    }
+    [data-theme=dark]
+    .contact-info .option i{
+    background: rgb(22, 22, 22);
+    color: #b9b9b9;
+    }
+    [data-theme=dark]
+    .contact-info .text{
+    background: rgba(23, 23, 23, 0.85);
+    color: rgba(255, 255, 255, 0.92);
+    }
+    @media screen and (max-width:960px){
+    .contact-info{
+        display: none!important;
+        }
+    }
+    .aplayer{
+    opacity: .93!important;
+    }
+    [data-theme=dark]
+    .aplayer{
+    background: rgb(22, 22, 22)!important;
+    color: rgb(255, 255, 255);
+    }
+    [data-theme=dark]
+    .aplayer.aplayer-fixed .aplayer-body{
+    background: rgb(22, 22, 22)!important;
+    color: rgb(255, 255, 255);
+    }
+    [data-theme=dark]
+    .aplayer .aplayer-list ol li:hover{
+    background: #3b3b3b;
+    }
+    [data-theme=dark]
+    .aplayer .aplayer-list ol li.aplayer-list-light{
+    background: #686868;
+    }
+    [data-theme=dark]
+    .aplayer .aplayer-info .aplayer-controller .aplayer-time{
+    color: #d4d4d4;
+    }
+    [data-theme=dark]
+    .aplayer .aplayer-list ol li .aplayer-list-index{
+    color: #d4d4d4;
+    }
+    [data-theme=dark]
+    .aplayer .aplayer-list ol li .aplayer-list-author{
+    color: #d4d4d4;
+    }
+    [data-theme=dark]
+    .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon path{
+    fill: #d4d4d4;
+    }
+
+    .contact-info .text .strip{
+    border-radius: 5px!important;
+    position: absolute!important;
+    height: 36px!important;
+    width: 5px!important;
+    background: rgba(20, 163, 230, 0.8)!important;
+    top: 12px!important;
+    z-index: -1!important;
+    right: 4px!important;
+    transition: 0.5s;
+    }
+    .aplayertext .strip{
+    transition: none!important;
+    }
+    .contact-info .option:hover .aplayertext .strip{
+    background: transparent!important;
+    }
+    [data-theme=dark]
+    .aplayer .aplayer-miniswitcher{
+    background: rgba(23, 23, 23, 0.85);
+    }
+    .aplayer .aplayer-miniswitcher .aplayer-icon:hover path{
+    fill: #3498db;
+    }
+    [data-theme=dark]
+    .contact-info .option:hover i{
+    color: #3498db;
+    }
+  </style>
+  
 
 </body>
 </html>
