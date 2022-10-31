@@ -476,17 +476,6 @@ new LingQue.Monitor().init({
 <script  src="/js/color-schema.js" ></script>
 <!-- banf12 devtool -->
 
-<script type="module">
-/*! devtools-detect https://github.com/sindresorhus/devtools-detect By Sindre Sorhus MIT License */ const devtools = { isOpen: false, orientation: undefined, }; const threshold = 160; const emitEvent = (isOpen, orientation) => { globalThis.dispatchEvent(
-new globalThis.CustomEvent('devtoolschange', { detail: { isOpen, orientation, }, }) ); }; const main = ({emitEvents = true} = {}) => { const widthThreshold = globalThis.outerWidth - globalThis.innerWidth
-> threshold; const heightThreshold = globalThis.outerHeight - globalThis.innerHeight > threshold; const orientation = widthThreshold ? 'vertical' : 'horizontal'; if ( !(heightThreshold && widthThreshold)
-&& ((globalThis.Firebug && globalThis.Firebug.chrome && globalThis.Firebug.chrome.isInitialized) ||widthThreshold || heightThreshold) ) { if ((!devtools.isOpen || devtools.orientation !== orientation)
-&& emitEvents) { emitEvent(true, orientation); } devtools.isOpen = true; devtools.orientation = orientation; } else { if (devtools.isOpen && emitEvents) { emitEvent(false, undefined); } devtools.isOpen
-= false; devtools.orientation = undefined; } }; main({emitEvents: false}); setInterval(main, 500); export default devtools; if (devtools.isOpen) { window.location.href = "https://blog.starysky.top/banf12"};
-window.addEventListener( 'devtoolschange', event => { if (event.detail.isOpen) { window.location.href = "https://blog.starysky.top/banf12"}; } );
-</script>
-<script disable-devtool-auto src='https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@main/disabled-devtool.min.js'></script>
-
 
 <!-- Clarity tracking code for https://blog.starysky.top/ -->
 <!-- <script>
@@ -605,7 +594,18 @@ s.parentNode.insertBefore(el, s);
                 }).trigger("scroll");
             </script>
         </div> -->
-    <!-- hexo injector body_end start --><script defer src="https://unpkg.zhimg.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.js"></script><script async src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/js/fontawesome.min.js"></script><!-- hexo injector body_end end --></body>
+    <!-- hexo injector body_end start --><script>
+    // 全局变量声明区域
+    var fdata = {
+      apiurl: 'https://fcorcle.starysky.top/',
+      initnumber: 20, //【可选】页面初始化展示文章数量
+      stepnumber: 10, //【可选】每次加载增加的篇数
+      error_img: 'https://npm.elemecdn.com/akilar-candyassets/image/404.gif' //【可选，头像图片加载失败时的默认头像】
+    }
+    //存入本地存储
+    localStorage.setItem("fdatalist",JSON.stringify(fdata))
+    </script>
+    <script data-pjax src="https://npm.elemecdn.com/hexo-filter-fcircle-anzhiyu@1.1.2/assets/js/fetch.js"></script><script data-pjax src="https://npm.elemecdn.com/hexo-filter-fcircle-anzhiyu@1.1.2/assets/js/random-friends-post.js"></script><script defer src="https://unpkg.zhimg.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.js"></script><script async src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/js/fontawesome.min.js"></script><!-- hexo injector body_end end --></body>
     
 <script type="text/javascript">
 {
@@ -1333,7 +1333,7 @@ tabsFn.backToTop()
                 }
             });
         </script>
-        <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
         <style>
             .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
                 left: -66px !important;
@@ -1345,8 +1345,8 @@ tabsFn.backToTop()
                 /* 鼠标悬停是左侧缩进归零，完全显示按钮 */
             }
         </style>
-        <script src="https://fastly.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
-        <script src="https://fastly.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/meting/1.2.0/Meting.min.js"></script>
         <!-- for more help, visit:https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md#%E6%A0%87%E7%AD%BE%E5%8F%82%E6%95%B0 -->
         <!-- 歌单设置 -->
         <!-- <div class="aplayer no-destroy" data-id="3442174120" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="true" data-order="circulation" data-preload="none" data-autoplay="false" muted></div> -->

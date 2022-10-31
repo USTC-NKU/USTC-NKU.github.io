@@ -476,17 +476,6 @@ new LingQue.Monitor().init({
 <script  src="/js/color-schema.js" ></script>
 <!-- banf12 devtool -->
 
-<script type="module">
-/*! devtools-detect https://github.com/sindresorhus/devtools-detect By Sindre Sorhus MIT License */ const devtools = { isOpen: false, orientation: undefined, }; const threshold = 160; const emitEvent = (isOpen, orientation) => { globalThis.dispatchEvent(
-new globalThis.CustomEvent('devtoolschange', { detail: { isOpen, orientation, }, }) ); }; const main = ({emitEvents = true} = {}) => { const widthThreshold = globalThis.outerWidth - globalThis.innerWidth
-> threshold; const heightThreshold = globalThis.outerHeight - globalThis.innerHeight > threshold; const orientation = widthThreshold ? 'vertical' : 'horizontal'; if ( !(heightThreshold && widthThreshold)
-&& ((globalThis.Firebug && globalThis.Firebug.chrome && globalThis.Firebug.chrome.isInitialized) ||widthThreshold || heightThreshold) ) { if ((!devtools.isOpen || devtools.orientation !== orientation)
-&& emitEvents) { emitEvent(true, orientation); } devtools.isOpen = true; devtools.orientation = orientation; } else { if (devtools.isOpen && emitEvents) { emitEvent(false, undefined); } devtools.isOpen
-= false; devtools.orientation = undefined; } }; main({emitEvents: false}); setInterval(main, 500); export default devtools; if (devtools.isOpen) { window.location.href = "https://blog.starysky.top/banf12"};
-window.addEventListener( 'devtoolschange', event => { if (event.detail.isOpen) { window.location.href = "https://blog.starysky.top/banf12"}; } );
-</script>
-<script disable-devtool-auto src='https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@main/disabled-devtool.min.js'></script>
-
 
 <!-- Clarity tracking code for https://blog.starysky.top/ -->
 <!-- <script>
@@ -605,7 +594,18 @@ s.parentNode.insertBefore(el, s);
                 }).trigger("scroll");
             </script>
         </div> -->
-    <!-- hexo injector body_end start --><script defer src="https://unpkg.zhimg.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.js"></script><script async src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/js/fontawesome.min.js"></script><!-- hexo injector body_end end --></body>
+    <!-- hexo injector body_end start --><script>
+    // 全局变量声明区域
+    var fdata = {
+      apiurl: 'https://fcorcle.starysky.top/',
+      initnumber: 20, //【可选】页面初始化展示文章数量
+      stepnumber: 10, //【可选】每次加载增加的篇数
+      error_img: 'https://npm.elemecdn.com/akilar-candyassets/image/404.gif' //【可选，头像图片加载失败时的默认头像】
+    }
+    //存入本地存储
+    localStorage.setItem("fdatalist",JSON.stringify(fdata))
+    </script>
+    <script data-pjax src="https://npm.elemecdn.com/hexo-filter-fcircle-anzhiyu@1.1.2/assets/js/fetch.js"></script><script data-pjax src="https://npm.elemecdn.com/hexo-filter-fcircle-anzhiyu@1.1.2/assets/js/random-friends-post.js"></script><script defer src="https://unpkg.zhimg.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.js"></script><script async src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/js/fontawesome.min.js"></script><!-- hexo injector body_end end --></body>
     
 <script type="text/javascript">
 {
@@ -1542,26 +1542,26 @@ tabsFn.backToTop()
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/14/Static-magnetic-field/" target="_self">
-          <img src="/img/FlowerTown.jpg" srcset="/img/loading.gif" lazyload alt="Static magnetic field">
+        <a href="/2021/11/14/QAQ-of-probability-theory-and-mathematical-statistic/" target="_self">
+          <img src="/img/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1.jpg" srcset="/img/loading.gif" lazyload alt="QAQ of probability theory and mathematical statistic">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/11/14/Static-magnetic-field/" target="_self">
-          Static magnetic field
+        <a href="/2021/11/14/QAQ-of-probability-theory-and-mathematical-statistic/" target="_self">
+          QAQ of probability theory and mathematical statistic
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/11/14/Static-magnetic-field/" target="_self">
+        <a href="/2021/11/14/QAQ-of-probability-theory-and-mathematical-statistic/" target="_self">
           
           
             
           
-          本文旨在简单介绍静磁场的相关性质，更深层次的介绍将在日后的电磁场理论中推出
+          本文将综合总结概率论、数理统计、时间序列、回归分析、多元统计等内容的核心概念
         </a>
       </p>
 
@@ -1578,7 +1578,7 @@ tabsFn.backToTop()
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Physics/">Physics</a>
+              <a href="/categories/Probability-Theory-and-Mathematical-Statistics/">Probability Theory and Mathematical Statistics</a>
             
           </div>
         
@@ -1586,7 +1586,7 @@ tabsFn.backToTop()
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Magnetic-field/">Magnetic field</a>
+              <a href="/tags/Summary-of-PTMS/">Summary of PTMS</a>
             
           </div>
         
@@ -1658,62 +1658,6 @@ tabsFn.backToTop()
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/14/Thermodynamic-properties-of-homogeneous-matter/" target="_self">
-          <img src="/img/%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6.jpg" srcset="/img/loading.gif" lazyload alt="Thermodynamic properties of homogeneous matter">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/14/Thermodynamic-properties-of-homogeneous-matter/" target="_self">
-          Thermodynamic properties of homogeneous matter
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/14/Thermodynamic-properties-of-homogeneous-matter/" target="_self">
-          
-          
-            
-          
-          本文介绍物理学一大分支热力学中均与物质的热力学性质，将揭示热力学函数之间的联系和相关理论
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-14 22:00" pubdate>
-              2021-11-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Physics/">Physics</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Thermodynamics/">Thermodynamics</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/11/14/Vector-analysis/" target="_self">
           <img src="/img/%E6%95%B0%E7%89%A9.jpg" srcset="/img/loading.gif" lazyload alt="Vector analysis">
         </a>
@@ -1759,6 +1703,62 @@ tabsFn.backToTop()
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/Vector-analysis/">Vector analysis</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/11/14/Thermodynamic-properties-of-homogeneous-matter/" target="_self">
+          <img src="/img/%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6.jpg" srcset="/img/loading.gif" lazyload alt="Thermodynamic properties of homogeneous matter">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/11/14/Thermodynamic-properties-of-homogeneous-matter/" target="_self">
+          Thermodynamic properties of homogeneous matter
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/11/14/Thermodynamic-properties-of-homogeneous-matter/" target="_self">
+          
+          
+            
+          
+          本文介绍物理学一大分支热力学中均与物质的热力学性质，将揭示热力学函数之间的联系和相关理论
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-14 22:00" pubdate>
+              2021-11-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Physics/">Physics</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Thermodynamics/">Thermodynamics</a>
             
           </div>
         
@@ -2178,7 +2178,7 @@ tabsFn.backToTop()
                 }
             });
         </script>
-        <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
         <style>
             .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
                 left: -66px !important;
@@ -2190,8 +2190,8 @@ tabsFn.backToTop()
                 /* 鼠标悬停是左侧缩进归零，完全显示按钮 */
             }
         </style>
-        <script src="https://fastly.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
-        <script src="https://fastly.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/meting/1.2.0/Meting.min.js"></script>
         <!-- for more help, visit:https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md#%E6%A0%87%E7%AD%BE%E5%8F%82%E6%95%B0 -->
         <!-- 歌单设置 -->
         <!-- <div class="aplayer no-destroy" data-id="3442174120" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="true" data-order="circulation" data-preload="none" data-autoplay="false" muted></div> -->
