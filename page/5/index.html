@@ -476,6 +476,17 @@ new LingQue.Monitor().init({
 <script  src="/js/color-schema.js" ></script>
 <!-- banf12 devtool -->
 
+<script type="module">
+/*! devtools-detect https://github.com/sindresorhus/devtools-detect By Sindre Sorhus MIT License */ const devtools = { isOpen: false, orientation: undefined, }; const threshold = 160; const emitEvent = (isOpen, orientation) => { globalThis.dispatchEvent(
+new globalThis.CustomEvent('devtoolschange', { detail: { isOpen, orientation, }, }) ); }; const main = ({emitEvents = true} = {}) => { const widthThreshold = globalThis.outerWidth - globalThis.innerWidth
+> threshold; const heightThreshold = globalThis.outerHeight - globalThis.innerHeight > threshold; const orientation = widthThreshold ? 'vertical' : 'horizontal'; if ( !(heightThreshold && widthThreshold)
+&& ((globalThis.Firebug && globalThis.Firebug.chrome && globalThis.Firebug.chrome.isInitialized) ||widthThreshold || heightThreshold) ) { if ((!devtools.isOpen || devtools.orientation !== orientation)
+&& emitEvents) { emitEvent(true, orientation); } devtools.isOpen = true; devtools.orientation = orientation; } else { if (devtools.isOpen && emitEvents) { emitEvent(false, undefined); } devtools.isOpen
+= false; devtools.orientation = undefined; } }; main({emitEvents: false}); setInterval(main, 500); export default devtools; if (devtools.isOpen) { window.location.href = "https://blog.starysky.top/banf12"};
+window.addEventListener( 'devtoolschange', event => { if (event.detail.isOpen) { window.location.href = "https://blog.starysky.top/banf12"}; } );
+</script>
+<script disable-devtool-auto src='https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@main/disabled-devtool.min.js'></script>
+
 
 <!-- Clarity tracking code for https://blog.starysky.top/ -->
 <!-- <script>
@@ -1990,62 +2001,6 @@ tabsFn.backToTop()
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/14/Rigid-body-mechanics/" target="_self">
-          <img src="/img/FlowerTown.jpg" srcset="/img/loading.gif" lazyload alt="Rigid body mechanics">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/14/Rigid-body-mechanics/" target="_self">
-          Rigid body mechanics
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/14/Rigid-body-mechanics/" target="_self">
-          
-          
-            
-          
-          刚体动力学是力学的一个分支，研究刚体在外力作用下的运动规律。它是计算机器部件的运动，舰船、飞机、火箭等航行器的运动以及天体姿态运动的力学基础。
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-14 22:00" pubdate>
-              2021-11-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Physics/">Physics</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Rigid-body-mechanics/">Rigid body mechanics</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/11/14/Static-magnetic-field/" target="_self">
           <img src="/img/FlowerTown.jpg" srcset="/img/loading.gif" lazyload alt="Static magnetic field">
         </a>
@@ -2091,6 +2046,62 @@ tabsFn.backToTop()
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/Magnetic-field/">Magnetic field</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/11/14/Rigid-body-mechanics/" target="_self">
+          <img src="/img/FlowerTown.jpg" srcset="/img/loading.gif" lazyload alt="Rigid body mechanics">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/11/14/Rigid-body-mechanics/" target="_self">
+          Rigid body mechanics
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/11/14/Rigid-body-mechanics/" target="_self">
+          
+          
+            
+          
+          刚体动力学是力学的一个分支，研究刚体在外力作用下的运动规律。它是计算机器部件的运动，舰船、飞机、火箭等航行器的运动以及天体姿态运动的力学基础。
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-14 22:00" pubdate>
+              2021-11-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Physics/">Physics</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Rigid-body-mechanics/">Rigid body mechanics</a>
             
           </div>
         

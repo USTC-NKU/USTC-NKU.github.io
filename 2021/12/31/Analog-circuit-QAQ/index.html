@@ -1,0 +1,5015 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34; >
+<!-- 引入VUE -->
+<script src="https://fastly.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+<!--backup <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script> -->
+<!-- 引入样式 -->
+<script src="https://fastly.jsdelivr.net/npm/element-ui@2.15.6/lib/index.js"></script>
+<!--backup <script src="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/index.js"></script> -->
+<!-- 引入组件库 -->
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css">
+<!--backup <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css"> -->
+<!-- spring 气氛依赖 -->
+<script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js" id="jquery-js"></script>
+<!-- pjax引入 -->
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script> -->
+<!-- 监控二依赖 -->
+<!-- <script src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous"></script> -->
+<!-- <script>
+new LingQue.Monitor().init({
+    id: "JZVTdtaLoErnXrGM"
+});
+</script> -->
+<script>
+    const GLOBAL_CONFIG = {
+        root: '/',
+        algolia: undefined,
+        pjax: true,
+        windowheight: "auto",
+        toc: true,
+        codeLine: true,
+        themeChange: true,
+        headFocus: true,
+        localSearch: {
+            "path": "search.xml",
+            "languages": {
+                "hits_empty": "找不到您查询的内容：${query}"
+            }
+        },
+        translate: {
+            "defaultEncoding": 2,
+            "translateDelay": 0,
+            "msgToTraditionalChinese": "繁",
+            "msgToSimplifiedChinese": "簡"
+        },
+        noticeOutdate: {
+            "limitDay": 200,
+            "position": "top",
+            "messagePrev": "It has been",
+            "messageNext": "days since the last update, the content of the article may be outdated."
+        },
+        highlight: {
+            "plugin": "highlighjs",
+            "highlightCopy": true,
+            "highlightLang": true,
+            "highlightHeightLimit": false
+        },
+        copy: {
+            success: '复制成功',
+            error: '复制错误',
+            noSupport: '浏览器不支持'
+        },
+        relativeDate: {
+            homepage: false,
+            post: false
+        },
+        runtime: '天',
+        date_suffix: {
+            just: '刚刚',
+            min: '分钟前',
+            hour: '小时前',
+            day: '天前',
+            month: '个月前'
+        },
+        copyright: undefined,
+        lightbox: 'fancybox',
+        Snackbar: undefined,
+        source: {
+            jQuery: 'https://fastly.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+            justifiedGallery: {
+                js: 'https://fastly.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+                css: 'https://fastly.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+            },
+            // fancybox: {
+            //     js: 'https://fastly.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+            //     css: 'https://fastly.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+            // }
+        },
+        isPhotoFigcaption: false,
+        islazyload: true,
+        isanchor: false,
+
+    };
+    var Poi = {
+        "pjax": "true",
+        "windowheight": "auto",
+        "ajaxurl": "https://www.morcat.cn",
+        "resBaseUrl": "//cdn.jsdelivr.net/gh/LIlGG/halo-theme-sakura@1.3.1",
+        "formpostion": "bottom",
+        "toc": "true",
+        "codeLine": "true",
+        "themeChange": "true",
+        "headFocus": "true",
+        "bgvideo": "",
+        "tagRandomColorMin": "0.999",
+        "tagRandomColorMax": "1",
+        "nickname": "shen",
+        "sitename": "USTC-茶糜花开",
+        "themeBase": "https://hexo.fluid-dev.com/",
+        "openToast": "true",
+        "toastWidth": 260,
+        "toastHeight": 60,
+        "toastTop": "top",
+        "toastBackground": "#fe9600",
+        "toastColor": "#ffffff",
+        "toastFontSize": 14,
+        "copyMonitor": "true",
+        "copyrightNotice": "true",
+        "photosStyle": "justify",
+        "photosGutter": 10,
+        "tocDepth": 0,
+        "i18n": "auto",
+        "mathjax": "",
+        "coverNum": "5",
+        "rimageUrl": "https://api.lixingyong.com/api/images",
+        "coverOpen": "",
+        "meEmail": "",
+        "defaultTheme": "bg_6",
+        "defaultGroup": "",
+    };
+</script>
+<script>
+    (win => {
+        win.saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0) return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay,
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        }
+
+        win.getScript = url => new Promise((resolve, reject) => {
+            const script = document.createElement('script')
+            script.src = url
+            script.async = true
+            script.onerror = reject
+            script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+            }
+            document.head.appendChild(script)
+        })
+
+        win.activateDarkMode = function() {
+            document.documentElement.setAttribute('data-user-color-scheme', 'dark')
+            if (document.querySelector('meta[name="theme-color"]') !== null) {
+                document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+            }
+        }
+        win.activateLightMode = function() {
+            document.documentElement.setAttribute('data-user-color-scheme', 'light')
+            if (document.querySelector('meta[name="theme-color"]') !== null) {
+                document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+            }
+        }
+        const t = saveToLocal.get('theme')
+
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+
+        const asideStatus = saveToLocal.get('aside-status')
+        if (asideStatus !== undefined) {
+            if (asideStatus === 'hide') {
+                document.documentElement.classList.add('hide-aside')
+            } else {
+                document.documentElement.classList.remove('hide-aside')
+            }
+        }
+
+        const detectApple = () => {
+            if (GLOBAL_CONFIG.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+                document.documentElement.classList.add('apple')
+            }
+        }
+        detectApple()
+        document.addEventListener('pjax:complete', detectApple)
+    })(window)
+</script>
+<script type="text/javascript">
+    var bgConfig = {
+
+        "bg_0": {
+            "id": "0",
+            "name": "white",
+            "desc": "默认是纯洁的白色~",
+            "url": "https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@main/Her_Majesty.png",
+            "strategy": "cover",
+            "isNight": ""
+        },
+
+        "bg_1": {
+            "id": "1",
+            "name": "sakura",
+            "desc": "樱花飞舞~",
+            "url": "https://view.lixingyong.com/images/2020/07/23/695cc3a80b21ee7f18bd731824ab9638.png",
+            "strategy": "none",
+            "isNight": ""
+        },
+
+        "bg_2": {
+            "id": "2",
+            "name": "gribs",
+            "desc": "格子控！",
+            "url": "https://view.lixingyong.com/images/2020/07/23/defc1b6783cd16774900517d3b38ded7.jpg",
+            "strategy": "none",
+            "isNight": ""
+        },
+
+        "bg_3": {
+            "id": "3",
+            "name": "KAdots",
+            "desc": "小点点~",
+            "url": "https://view.lixingyong.com/images/2020/07/23/kyotoanimation.png",
+            "strategy": "none",
+            "isNight": ""
+        },
+
+        "bg_4": {
+            "id": "4",
+            "name": "totem",
+            "desc": "充满力量的橙色",
+            "url": "https://cdn.lixingyong.com/2021/02/08/wallhaven-eyoe5l.jpg",
+            "strategy": "none",
+            "isNight": ""
+        },
+
+        "bg_5": {
+            "id": "5",
+            "name": "pixiv",
+            "desc": "pixiv主题~",
+            "url": "https://cdn.lixingyong.com/2020/07/16/26c4a685f61bab28e637b7fac4451de3.jpg",
+            "strategy": "none",
+            "isNight": ""
+        },
+
+        "bg_6": {
+            "id": "6",
+            "name": "bing",
+            "desc": "必应图片",
+            // "url": "https://api.ixiaowai.cn/api/api.php",
+            "url": "https://api.yimian.xyz/img?type=wallpaper",
+            "strategy": "cover",
+            "isNight": ""
+        },
+
+        "bg_7": {
+            "id": "7",
+            "name": "dark",
+            "desc": "关灯！",
+            "url": "https://api.yimian.xyz/img?type=moe&size=1920x1080",
+            // "url": "https://www.dmoe.cc/random.php",
+            // "url": "https://cdn.lixingyong.com/2020/07/16/6943d4f41793e549c441d6828d91181f.jpg",
+                "strategy": "cover",
+            "isNight": ""
+        },
+
+    };
+</script>
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" contnent="Author: USTC-茶糜花开,Key: USTC-茶糜花开,USTC-NKU,科学之光温暖世界">
+    <!-- <meta name="msvalidate.01" content="700F48CD339DE5F80AD32BCCA1CFB1CE" /> -->
+    <!-- <meta name="bytedance-verification-code" content="tnjvINgQ2S4CiLIGKHev" /> -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/css/post-calendar.css">
+    <!-- fontawesome 动态图标 faa-YYYY -->
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/font-awesome-animation@0.2.1/dist/font-awesome-animation.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- 文章尾部二维码矩阵依赖 -->
+    <link rel="stylesheet" type="text/css" href="/css/coin.css">
+    <!-- pjax -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>  -->
+    <!-- 加载动画依赖 -->
+    <link rel="stylesheet" href="/css/loading.min.css">
+    <!-- 洪哥的link外挂标签css依赖 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/tag-link/tag-link.css">
+    <!-- DNS预解析阵列 -->
+    <link rel="dns-prefetch" href="//fastly.jsdelivr.net/">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com/">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net/">
+    <!-- iziToats 类似店长的SAONotify -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
+    <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+    <script type="text/javascript" src="/js/reminder.js"></script>
+    <!-- typed -->
+    <script src="https://fastly.jsdelivr.net/npm/typed.js/lib/typed.min.js"></script>
+    <!-- 进入网站左侧欢迎提示  -->
+    <script type="text/javascript" src="/js/zi_message2.js" charset="utf-8"></script>
+    <!-- 网页预加载动画 -->
+    <!-- <script>
+        var endLoading = function() {
+            document.body.style.overflow = 'auto';
+            document.getElementById('loading-box').classList.add("loaded");
+        }
+        window.addEventListener('load', endLoading);
+    </script> -->
+    <!-- SEO 链接安全跳转页面-->
+    <script src="https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@main/go-jumper.js"></script>
+    <!-- 加载结束 -->
+    <!-- 时间胶囊依赖 -->
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <style>
+      .pace {
+        -webkit-pointer-events: none;
+        pointer-events: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      .pace-inactive {
+        display: none;
+      }
+
+      .pace .pace-progress {
+        background: #e90f92;
+        position: fixed;
+        z-index: 2000;
+        top: 0;
+        right: 100%;
+        width: 100%;
+        height: 2px;
+      }
+
+      .pace .pace-progress-inner {
+        display: block;
+        position: absolute;
+        right: 0px;
+        width: 100px;
+        height: 100%;
+        box-shadow: 0 0 10px #e90f92, 0 0 5px #e90f92;
+        opacity: 1.0;
+        -webkit-transform: rotate(3deg) translate(0px, -4px);
+        -moz-transform: rotate(3deg) translate(0px, -4px);
+        -ms-transform: rotate(3deg) translate(0px, -4px);
+        -o-transform: rotate(3deg) translate(0px, -4px);
+        transform: rotate(3deg) translate(0px, -4px);
+      }
+
+      .pace .pace-activity {
+        display: block;
+        position: fixed;
+        z-index: 2000;
+        top: 15px;
+        right: 15px;
+        width: 14px;
+        height: 14px;
+        border: solid 2px transparent;
+        border-top-color: #e90f92;
+        border-left-color: #e90f92;
+        border-radius: 10px;
+        -webkit-animation: pace-spinner 400ms linear infinite;
+        -moz-animation: pace-spinner 400ms linear infinite;
+        -ms-animation: pace-spinner 400ms linear infinite;
+        -o-animation: pace-spinner 400ms linear infinite;
+        animation: pace-spinner 400ms linear infinite;
+      }
+
+      @-webkit-keyframes pace-spinner {
+        0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+      }
+      @-moz-keyframes pace-spinner {
+        0% { -moz-transform: rotate(0deg); transform: rotate(0deg); }
+        100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
+      }
+      @-o-keyframes pace-spinner {
+        0% { -o-transform: rotate(0deg); transform: rotate(0deg); }
+        100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
+      }
+      @-ms-keyframes pace-spinner {
+        0% { -ms-transform: rotate(0deg); transform: rotate(0deg); }
+        100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
+      }
+      @keyframes pace-spinner {
+        0% { transform: rotate(0deg); transform: rotate(0deg); }
+        100% { transform: rotate(360deg); transform: rotate(360deg); }
+      }
+      /* 在下面修改进度条外观 */
+      .pace .pace-progress {
+        background: #d2f106ec; /*进度条颜色*/
+        height: 3px;/* 进度条厚度 */
+      }
+      .pace .pace-progress-inner {
+        box-shadow: 0 0 10px #e90f92, 0 0 5px #e90f92; /*阴影颜色*/
+      }
+      .pace .pace-activity {
+        border-top-color: #f70713e5;	/*上边框颜色*/
+        border-left-color: #0b17f5ec;	/*左边框颜色*/
+      }
+    </style>
+    <!-- 依赖结束 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
+    <meta name="theme-color" content="#2f4154">
+    <meta name="description" content=" 模拟电路要点简述">
+    <meta name="author" content="USTC-elbitsiserri">
+    <meta name="keywords" content="科学，USTC-茶糜花开，USTC-NKU">
+    
+    <title>
+    Analog-Circuit-QAQ - USTC-茶糜花开
+    </title>
+    
+
+<link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://fastly.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://fastly.jsdelivr.net/npm/highlight.js@10.7.2/styles/dracula.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//fastly.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+<link rel="stylesheet" href="/css/mac.css">
+<link rel="stylesheet" href="/css/articleload.css">
+
+
+
+<script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.starysky.top","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":false,"leancloud":{"app_id":"gEFdjc20oYN3KCeikzvapmha-MdYXbMMI","app_key":"OLxg3tBuNYHF9fjNT1yI7f2H","server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+<script  src="/js/utils.js" ></script>
+<script  src="/js/color-schema.js" ></script>
+<!-- banf12 devtool -->
+
+<script type="module">
+/*! devtools-detect https://github.com/sindresorhus/devtools-detect By Sindre Sorhus MIT License */ const devtools = { isOpen: false, orientation: undefined, }; const threshold = 160; const emitEvent = (isOpen, orientation) => { globalThis.dispatchEvent(
+new globalThis.CustomEvent('devtoolschange', { detail: { isOpen, orientation, }, }) ); }; const main = ({emitEvents = true} = {}) => { const widthThreshold = globalThis.outerWidth - globalThis.innerWidth
+> threshold; const heightThreshold = globalThis.outerHeight - globalThis.innerHeight > threshold; const orientation = widthThreshold ? 'vertical' : 'horizontal'; if ( !(heightThreshold && widthThreshold)
+&& ((globalThis.Firebug && globalThis.Firebug.chrome && globalThis.Firebug.chrome.isInitialized) ||widthThreshold || heightThreshold) ) { if ((!devtools.isOpen || devtools.orientation !== orientation)
+&& emitEvents) { emitEvent(true, orientation); } devtools.isOpen = true; devtools.orientation = orientation; } else { if (devtools.isOpen && emitEvents) { emitEvent(false, undefined); } devtools.isOpen
+= false; devtools.orientation = undefined; } }; main({emitEvents: false}); setInterval(main, 500); export default devtools; if (devtools.isOpen) { window.location.href = "https://blog.starysky.top/banf12"};
+window.addEventListener( 'devtoolschange', event => { if (event.detail.isOpen) { window.location.href = "https://blog.starysky.top/banf12"}; } );
+</script>
+<script disable-devtool-auto src='https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@main/disabled-devtool.min.js'></script>
+
+
+<!-- Clarity tracking code for https://blog.starysky.top/ -->
+<!-- <script>
+(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "bf8ldvh58i");
+</script> -->
+
+                                                <!-- 站长 -->
+                                                <!-- <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script> -->
+                                                <!-- 头条SEO -->
+                                                <!-- <script>
+(function(){
+var el = document.createElement("script");
+el.src = "https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?ee2220bee249cdbccd6457861b7f85f9039e56e2664112f03c7aa81758c242fc65e0a2ada1d5e86b11e7de7c1a83287d04743a02fd1ee8dd8558a8cad50e91cb354f8c6f3f78e5fd97613c481f678e6d";
+el.id = "ttzz";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(el, s);
+})(window)
+</script> -->
+    <!--自定义看板娘,超级版看板娘,这是网站左侧的强大看板娘-->
+    <script src="https://fastly.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="/live2d_models/autoload.js"></script>
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css" />
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@latest/tag_plugins1.css" media="defer" onload="this.media='all'"><script src="https://fastly.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/carousel-touch.min.js"></script><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="USTC-茶糜花开" type="application/atom+xml">
+</head>
+
+
+    <body>
+      
+            <!-- GRADIENT CIRCLE PLANES -->
+            <!-- <div class="spinner-box">
+      <div class="leo-border-1">
+        <div class="leo-core-1"></div>
+      </div> 
+      <div class="leo-border-2">
+        <div class="leo-core-2"></div>
+      </div> 
+      <div class="loading-word">星夜兼程中...</div>
+    </div> -->
+
+            <!-- LOADING DOTS... -->
+            <!-- <div class="spinner-box">
+      <div class="pulse-container">  
+        <div class="pulse-bubble pulse-bubble-1"></div>
+        <div class="pulse-bubble pulse-bubble-2"></div>
+        <div class="pulse-bubble pulse-bubble-3"></div>
+      </div>
+      <div class="loading-word">星夜兼程中...</div>
+    </div> -->
+
+            <!-- SOLAR SYSTEM -->
+            <!-- <div class="spinner-box">
+      <div class="solar-system">
+        <div class="earth-orbit orbit">
+          <div class="planet earth"></div>
+          <div class="venus-orbit orbit">
+            <div class="planet venus"></div>
+            <div class="mercury-orbit orbit">
+              <div class="planet mercury"></div>
+              <div class="sun"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="loading-word">星夜兼程中...</div>
+    </div> -->
+
+            <!-- Three Quarter Spinner -->
+
+            <!-- <div class="spinner-box">
+      <div class="three-quarter-spinner"></div>
+      <div class="loading-word">星夜兼程中...</div>
+    </div> -->
+        </div>
+        <!-- 阅读彩色进度条 -->
+        <!-- <div id="progressbar">
+            <style>
+                #progressbar {
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    height: 3px;
+                    z-index: 99999;
+                    /* background-image: linear-gradient(to right, #00FF72,#00C7FF); */
+                    background-image: linear-gradient(to right, rgb(228, 6, 248), rgb(217, 255, 0));
+                    border-radius: 5px;
+                }
+            </style>
+            <script>
+                //进度条加载显示
+                $(window).scroll(function() {
+                    var a = $(window).scrollTop(),
+                        c = $(document).height(),
+                        b = $(window).height();
+                    scrollPercent = a / (c - b) * 100;
+                    scrollPercent = scrollPercent.toFixed(1);
+                    $("#progressbar").css({
+                        width: scrollPercent + "%"
+                    });
+                }).trigger("scroll");
+            </script>
+        </div> -->
+    <!-- hexo injector body_end start --><script>
+    // 全局变量声明区域
+    var fdata = {
+      apiurl: 'https://fcorcle.starysky.top/',
+      initnumber: 20, //【可选】页面初始化展示文章数量
+      stepnumber: 10, //【可选】每次加载增加的篇数
+      error_img: 'https://npm.elemecdn.com/akilar-candyassets/image/404.gif' //【可选，头像图片加载失败时的默认头像】
+    }
+    //存入本地存储
+    localStorage.setItem("fdatalist",JSON.stringify(fdata))
+    </script>
+    <script data-pjax src="https://npm.elemecdn.com/hexo-filter-fcircle-anzhiyu@1.1.2/assets/js/fetch.js"></script><script data-pjax src="https://npm.elemecdn.com/hexo-filter-fcircle-anzhiyu@1.1.2/assets/js/random-friends-post.js"></script><script defer src="https://unpkg.zhimg.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.js"></script><script async src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/js/fontawesome.min.js"></script><!-- hexo injector body_end end --></body>
+    
+<script type="text/javascript">
+{
+	const template = `
+		<div id="aDot">
+			<div class="bg"></div>
+			<div class="dot"></div>
+		</div>
+		<style>
+		#aDot{
+			display: flex;
+			position: fixed;
+			right: 20px;
+			top: 50%;
+			width: 60px;
+			height: 60px;
+			justify-content: center;
+			align-items: center;
+			z-index: 1000;
+		}
+		@media screen and (max-width: 768px){
+			#aDot{
+				display: flex;
+			}
+		}
+		#aDot .bg{
+			position: absolute;
+			background-color: rgba(0, 0, 0, 0.6);
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+		}
+		#aDot .dot{
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background-color: rgba(255, 255, 255, 0.6);
+			transition: 0.1s;
+		}
+		</style>
+	`
+	document.body.insertAdjacentHTML('beforeend',template);
+
+	let touchStartTime,
+		touchStartPos;
+	let mouseDown = false;
+	function start(e){
+		touchStartTime = e.timeStamp;
+		touchStartPos = [e.changedTouches[0].clientX,e.changedTouches[0].clientY];
+
+		return false;
+	}
+	function move(e){
+		let currentPos = [e.changedTouches[0].clientX,e.changedTouches[0].clientY];
+		let offset = [currentPos[0]-touchStartPos[0],currentPos[1]-touchStartPos[1]];
+		if(offset[0]**2 + offset[1]**2 > 30**2){
+			const l = Math.sqrt(offset[0]**2+offset[1]**2);
+			offset[0] = 30*offset[0]/l;
+			offset[1] = 30*offset[1]/l;
+		}
+		document.querySelector('#aDot .dot').style.transform = `translate(${offset[0]}px,${offset[1]}px)`
+
+		return false
+	}
+	function end(e){
+		let touchEndTime = e.timeStamp;
+		let touchEndPos = [e.changedTouches[0].clientX,e.changedTouches[0].clientY];
+
+		let offset = [touchEndPos[0]-touchStartPos[0],touchEndPos[1]-touchStartPos[1]];
+		if(offset[0]**2 + offset[1]**2 > 30**2){
+			const l = Math.sqrt(offset[0]**2+offset[1]**2);
+			offset[0] = 30*offset[0]/l;
+			offset[1] = 30*offset[1]/l;
+		}
+		let touchTime = touchEndTime-touchStartTime;
+
+		//判定事件
+		if(touchTime < 300 && offset[0] == 0 && offset[1] == 0){
+			console.log("click")
+			if(document.getElementById('mobile-toc-button')){
+				document.getElementById('mobile-toc-button').click()
+			}
+		}else if(offset[0] == 0 && offset[1] == 0){
+			console.log("longClick")
+			window.location.href = window.location.origin;
+
+		}else if((offset[0]**2+offset[1]**2) < 400){
+			console.log("little=>cancel");
+		}else if(
+			offset[0] > 0 
+			&& (Math.atan(offset[1]/offset[0])/Math.PI*180 < 45) 
+			&& (Math.atan(offset[1]/offset[0])/Math.PI*180 > -45)){
+			console.log("right")
+			window.history.forward();
+		}else if(
+			offset[0] < 0 
+			&& (Math.atan(offset[1]/-offset[0])/Math.PI*180 < 45) 
+			&& (Math.atan(offset[1]/-offset[0])/Math.PI*180 > -45)){
+			console.log("left")
+			window.history.back();
+		}else if(offset[1]<0){
+			console.log("up");
+			$('body,html').animate({
+                scrollTop: 0
+            }, 600);
+		}else if(offset[1]>0){
+			console.log("down");
+			let h;
+			if(document.getElementById("post-comment")){
+				h = document.getElementById('post-comment').offsetTop;
+			}else if(document.getElementById('footer')){
+				h = document.getElementById('footer').offsetTop;
+			}
+			// console.log(h)
+			btf.scrollToDest(h, 500);
+		}else{
+			console.log("???")
+		}
+
+		// console.log("--TouchTime:",touchTime);
+		// console.log("--TouchOffset:",offset[0],offset[1])
+		document.querySelector('#aDot .dot').style.transform = `translate(0px,0px)`
+		return false
+	}
+	$('#aDot .dot').on('touchstart',start);
+	$('#aDot .dot').on('mousedown',function(e){
+		mouseDown=true;console.log("mStart")
+		e.changedTouches = [{clientX:e.clientX,clientY:e.clientY}]
+		start(e)
+		// console.log(e);
+		return false;
+	});
+	$('#aDot .dot').on('touchmove',move);
+	$(window).on('mousemove',function(e){
+		if(mouseDown){
+			console.log("mMove");
+			e.changedTouches = [{clientX:e.clientX,clientY:e.clientY}];
+			move(e);
+			return false;
+		}
+	});
+	$('#aDot .dot').on('touchend',end);
+	$(window).on('mouseup',function(e){
+		if(mouseDown){
+			mouseDown=false;
+			console.log("mEnd")
+			e.changedTouches = [{clientX:e.clientX,clientY:e.clientY}]
+			end(e,this)
+			return false;
+		}
+	});
+	$('#aDot').on('touchcancel',function(e){
+		console.log("cancel",e)
+	})
+}
+</script>
+<!-- butterfly 主体功能迁移 -->
+<!-- butterfly 主体迁移区域 -->
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+const tabsFn = {
+    clickFnOfTabs: function () {
+    document.querySelectorAll('.post-content .tab > button').forEach(function (item) {
+        item.addEventListener('click', function (e) {
+        const $this = this
+        const $tabItem = $this.parentNode
+
+        if (!$tabItem.classList.contains('active')) {
+            const $tabContent = $tabItem.parentNode.nextElementSibling
+            const $siblings = btf.siblings($tabItem, '.active')[0]
+            $siblings && $siblings.classList.remove('active')
+            $tabItem.classList.add('active')
+            const tabId = $this.getAttribute('data-href').replace('#', '')
+            const childList = [...$tabContent.children]
+            childList.forEach(item => {
+            if (item.id === tabId) item.classList.add('active')
+            else item.classList.remove('active')
+            })
+            const $isTabJustifiedGallery = $tabContent.querySelectorAll(`#${tabId} .fj-gallery`)
+            if ($isTabJustifiedGallery.length > 0) {
+            btf.initJustifiedGallery($isTabJustifiedGallery)
+            }
+        }
+        })
+    })
+    },
+    backToTop: () => {
+    document.querySelectorAll('.post-content .tabs .tab-to-top').forEach(function (item) {
+        item.addEventListener('click', function () {
+        btf.scrollToDest(btf.getEleTop(btf.getParents(this, '.tabs')), 300)
+        })
+    })
+    }
+}    
+tabsFn.clickFnOfTabs()
+tabsFn.backToTop()
+})
+</script>
+<body>
+    <!-- 到访通知  -->
+    <!-- 配置文件在底部查阅 -->
+    <div class="notify-container"></div>
+    <!-- end -->
+    <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" title="小U的博客"
+       href="/">&nbsp;<i class="fa fa-gear faa-spin animated" aria-hidden="true"></i><strong>USTC-茶糜花开</strong>&nbsp;
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/journey/">
+                <i class="fa fa-globe"></i>
+                旅行
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/friend/">
+                <i class="iconfont icon-friends"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/envelope/">
+                <i class="iconfont icon-comment"></i>
+                留言
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/shuoshuo/">
+                <i class="fa fa-camera"></i>
+                动态
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://travellings.link/">
+                <i class="fa fa-train"""></i>
+                开往
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-switch-fill"></i>
+                聚合
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/USTC-NKU/">
+                    <i class="iconfont icon-docker"></i>
+                    母站
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/ProfilePage-main/">
+                    <i class="iconfont icon-home-fill"></i>
+                    首页
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/Personal-main/">
+                    <i class="iconfont icon-playstation-fill"></i>
+                    小站
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/ylui-master/">
+                    <i class="fa fa-plane"></i>
+                    导航
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-renwensheke"></i>
+                人文
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/globe/">
+                    <i class="iconfont icon-xinwenchuban"></i>
+                    时政新闻
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/essay">
+                    <i class="iconfont icon-1"></i>
+                    沁脾散文
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/historytoday/">
+                    <i class="iconfont icon-lishi"></i>
+                    今日历史
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-book"></i>
+                文章
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/archives/">
+                    <i class="iconfont icon-archive-fill"></i>
+                    归档
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/categories/">
+                    <i class="iconfont icon-category-fill"></i>
+                    分类
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/">
+                    <i class="iconfont icon-tags-fill"></i>
+                    标签
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/github-calendar/">
+                    <i class="iconfont icon-github-fill"></i>
+                    贡献
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/analysis/">
+                    <i class="iconfont icon-codeforces"></i>
+                    统计分析
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" onclick="switchNightMode()">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+        <li class="nav-item">
+          <div id="he-plugin-simple"></div>
+          <div id="">
+            <canvas id="canvas" style="width:50%;height: 30%;">
+          </div>
+        </li>
+      </ul>
+
+      <!-- 天气预报 -->
+      
+      <script>
+      WIDGET = {
+        "CONFIG": {
+          "modules": "12034",
+          "background": "5",
+          "tmpColor": "FFFFFF",
+          "tmpSize": "16",
+          "cityColor": "FFFFFF",
+          "citySize": "16",
+          "aqiColor": "FFFFFF",
+          "aqiSize": "16",
+          "weatherIconSize": "24",
+          "alertIconSize": "18",
+          "padding": "10px 10px 10px 10px",
+          "shadow": "0",
+          "borderRadius": "5",
+          "language": "auto",
+          "fixed": "false",
+          "vertical": "center",
+          "horizontal": "center",
+          "key": "53f00a07942f4c18a1a956244ec0f5b7"
+        }
+      }
+      </script>
+      <script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
+   
+      <!-- canvas 粒子时钟 -->
+      
+      
+      <!-- 此代码和样式文件为日月切换动画 -->
+      <script>
+        function checkNightMode() {
+          '1' === localStorage.getItem('isDark') ? ($('body').addClass('DarkMode'), $('#changeMode-top').removeClass('fa-moon').addClass('fa-sun'), $('#modeicon').attr('xlink:href', '#icon-sun')) : '0' === localStorage.getItem('isDark') ? $('#modeicon').attr('xlink:href', '#icon-moon') : new Date().getHours() >= 20 || new Date().getHours() < 7 ? ($('body').addClass('DarkMode'), $('#changeMode-top').removeClass('fa-moon').addClass('fa-sun'), $('#modeicon').attr('xlink:href', '#icon-sun')) : matchMedia('(prefers-color-scheme: dark)').matches ? ($('body').addClass('DarkMode'), $('#changeMode-top').removeClass('fa-moon').addClass('fa-sun'), $('#modeicon').attr('xlink:href', '#icon-sun')) : $('#modeicon').attr('xlink:href', '#icon-moon')
+        }
+        function switchNightMode() {
+          $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+            setTimeout(function () {
+              $('body').hasClass('DarkMode') ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#changeMode-top').removeClass('fa-sun').addClass('fa-moon'), $('#modeicon').attr('xlink:href', '#icon-moon')) : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#changeMode-top').removeClass('fa-moon').addClass('fa-sun'), $('#modeicon').attr('xlink:href', '#icon-sun')),
+                setTimeout(function () {
+                  $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                    $(this).remove()
+                  })
+                }, 2e3)
+            })
+            const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+            if (nowMode === 'light') {
+              activateDarkMode()
+              saveToLocal.set('theme', 'dark', 2)
+              GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night)
+              $('#modeicon').attr('xlink:href', '#icon-moon')
+            } else {
+              activateLightMode()
+              saveToLocal.set('theme', 'light', 2)
+              GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day)
+              $('body').addClass('DarkMode'), $('#changeMode-top').removeClass('fa-moon').addClass('fa-sun'), $('#modeicon').attr('xlink:href', '#icon-sun')
+            }
+            // handle some cases
+            typeof utterancesTheme === 'function' && utterancesTheme()
+            typeof FB === 'object' && window.loadFBComment()
+            window.DISQUS && document.getElementById('disqus_thread').children.length && setTimeout(() => window.disqusReset(), 200)
+        }
+        function switchNightModeTop() {
+          $('body').hasClass('DarkMode') ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#changeMode-top').removeClass('fa-sun').addClass('fa-moon'), $('#modeicon').attr('xlink:href', '#icon-moon')) : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#changeMode-top').removeClass('fa-moon').addClass('fa-sun'), $('#modeicon').attr('xlink:href', '#icon-sun'))
+        }
+      </script>
+      <style>
+        .Cuteen_DarkSky,
+        .Cuteen_DarkSky:before {
+          content: '';
+          position: fixed;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          z-index: 88888888;
+        }
+        .Cuteen_DarkSky {
+          background: linear-gradient(#feb8b0, #fef9db);
+        }
+        .Cuteen_DarkSky:before {
+          transition: 2s ease all;
+          opacity: 0;
+          background: linear-gradient(#4c3f6d, #6c62bb, #93b1ed);
+        }
+        .DarkMode .Cuteen_DarkSky:before {
+          opacity: 1;
+        }
+        .Cuteen_DarkPlanet {
+          z-index: 99999999;
+          position: fixed;
+          left: -50%;
+          top: -50%;
+          width: 200%;
+          height: 200%;
+          -webkit-animation: CuteenPlanetMove 2s cubic-bezier(0.7, 0, 0, 1);
+          animation: CuteenPlanetMove 2s cubic-bezier(0.7, 0, 0, 1);
+          transform-origin: center bottom;
+        }
+        @-webkit-keyframes CuteenPlanetMove {
+          0% {
+            transform: rotate(0);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        @keyframes CuteenPlanetMove {
+          0% {
+            transform: rotate(0);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        .Cuteen_DarkPlanet:after {
+          position: absolute;
+          left: 35%;
+          top: 40%;
+          width: 9.375rem;
+          height: 9.375rem;
+          border-radius: 50%;
+          content: '';
+          background: linear-gradient(#fefefe, #fffbe8);
+        }
+        .search span{
+            display: none;
+        }
+        .menus_item a{
+        text-decoration: none!important;
+        }
+        /*深色模式按钮*/
+        .icon-V {
+            border-radius: 6px !important;
+            width: 18px;
+            height: 18px;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            top: 2rem;
+            left: 8rem;
+            transition: 1.3s cubic-bezier(0.53, 0, 0.15, 1.3);
+            z-index: 9999;
+          }
+
+        .icon-V svg{
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            bottom: 0px;
+            margin: auto;
+            right: 1px;
+          }
+      </style>
+    </div>
+  </div>
+
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+        style="background: url('https://images.rsecc.cn/20220104183620.png') no-repeat center center; background-size: cover;">
+        <div class="full-bg-img">
+            <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+                <div class="page-header text-center fade-in-up">
+                    <span class="h2" id="subtitle" title="Analog-Circuit-QAQ">
+                        
+                    </span>
+
+                    
+                        <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      USTC-elbitsiserri
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-31 13:50" pubdate>
+        2021年12月31日星期五下午1点50分 +08:00
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      12.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      149
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+                    
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <main>
+    
+        
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Analog-Circuit-QAQ</h1>
+            <!-- 文章时效性提示 -->
+            
+              <div class='tip warning'>
+                <p class="note note-warning" style="color: crimson;">
+                  <i class="fa fa-bullhorn faa-flash animated faa-slow">请注意，本文最近一次更新于：2022-01-09,文章内容可能已经不具有时效性，请谨慎参考</i>
+                </p> 
+              </div> 
+            
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年1月9日星期日上午10点36分 +08:00
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p> 模拟电路要点简述<br> <span id="more"></span></p>
+<hr>
+<h1 id="常用半导体器件"><a href="#常用半导体器件" class="headerlink" title="常用半导体器件"></a>常用半导体器件</h1><hr>
+<ol>
+<li>半导体</li>
+</ol>
+<ul>
+<li> 1.1 纯净的具有晶体结构的半导体称为本征半导体</li>
+<li> 1.2 N型半导体是在本征半导体中掺入五价元素，主要靠自由电子导电</li>
+<li> 1.3 P型半导体是在本征半导体中掺入三价元素，主要靠空穴导电</li>
+<li> 1.4 多子受温度影响低，少子受温度影响高</li>
+<li> 1.5 向N型半导体中掺入足够的三价元素可以将其变为P型半导体</li>
+<li> 1.6 P型、N型半导体均呈电中性</li>
+</ul>
+<hr>
+<ol start="2">
+<li>PN结</li>
+</ol>
+<ul>
+<li> 2.1 PN结具有单向导电性</li>
+<li> 2.2 由浓度差导致的物质粒子运动称为扩散运动，PN结结合在一起时多子会产生扩散运动</li>
+<li> 2.3 在PN结交界面处由于扩散运动，自由电子与空穴复合而产生空间电荷区，也称为耗尽层，形成内建电场，产生内建电动势</li>
+<li> 2.4 在电场作用下，少子的运动称为漂移运动，内建电场的存在是产生漂移运动的原因</li>
+<li> 2.5 PN结在无外场和其他激发的情况下(如热激发、光致激发)，扩散运动与漂移运动平衡，PN结电流为零</li>
+<li> 2.6 PN结外加正向电压时(外电源正端接P，负极接N)，将加剧扩散运动而抑制 漂移运动，形成正向电流，PN结导通</li>
+<li> 2.7 PN结反向接入时，将加剧少子漂移运动而抑制多子扩散运动，形成反向电流，近似分析中常忽略该电流</li>
+<li> 2.8 PN结电流方程为$i=I_{S}(e^{\frac{U}{V_{T}}}-1)$，$V_{T}=\frac{KT}{q}$是热电动势，T=300K时取26mV，$I_{S}$是反向饱和电流</li>
+<li> 2.9 PN结两端的反向电压达到一定程度后会被反向击穿，击穿类型分为两种：掺杂浓度高的形成齐纳击穿；掺杂浓度低的形成雪崩击穿</li>
+<li> 2.10 PN结具有势垒电容和扩散电容，二者之和统称为结电容</li>
+</ul>
+<hr>
+<ol start="3">
+<li>二极管</li>
+</ol>
+<ul>
+<li> 3.1 二极管具有单向导电性，并且存在正向导通开启电压$U_{on}$.对于硅型材料一般取0.7V；对于锗型材料一般取0.2V</li>
+<li> 3.2 近似分析时，依然用PN结电流方程及其模型处理二极管问题</li>
+<li> 3.3 理想二极管可以视为正向导通电压为零，反向时断路(反向截至电流为零)；当存在正向导通电压时，可以视为理想二极管与一电源的串联</li>
+<li> 3.4 二极管的微变等效电路模型，即将二极管等效为一个动态电阻$r_{d}$，$r_{d}=\frac{V_{T}}{I_{D}}$</li>
+<li> 3.5 稳压二极管具有稳压特性，其正向特性与普通二极管相同，而当反向电压达到一定程度后被反向击穿后，将表现出稳压特性$U=U_{Z}$</li>
+</ul>
+<hr>
+<ol start="4">
+<li>晶体三极管</li>
+</ol>
+<ul>
+<li> 4.1 晶体三极管中由两种不同极性的电荷载流子参与导电，因而也称为双极型晶体管(BJT)、半导体三极管，简称晶体管</li>
+<li> 4.2 可以将晶体管视为两个PN结连结的成果，可以分为PNP型和NPN型晶体管；晶体管引出的三个电极分别为基极b、发射极e、集电极c；发射区和基区间的PN结称为发射结、集电区和基区间的PN结称为集电结</li>
+<li> 4.3 从符号判断晶体管类型：箭头从b-&gt;e，则为NPN型晶体管；箭头从e-&gt;b，则为PNP型晶体管</li>
+<li>4.4 晶体管内部载流子运动分析(了解)<ul>
+<li>4.4.1 发射结加正向电压，扩散运动形成发射极电流$I_{E}$</li>
+<li>4.4.2 扩散到基区的自由电子和空穴复合形成基极电流$I_{B}$</li>
+<li>4.4.3 集电结加反向电压，漂移运动形成集电极电流$I_{C}$ </li>
+</ul>
+</li>
+<li>4.5 晶体管的共射和共基交流放大系数<ul>
+<li>4.5.1 共射交流放大系数$\beta=\frac{i_{c}}{i_{b}}$</li>
+<li>4.5.2 共基交流放大系数$\alpha=\frac{i_{c}}{i_{e}}$</li>
+<li>4.5.3 两者的关系$\alpha=\frac{\beta}{1+\beta}$</li>
+</ul>
+</li>
+<li>4.6 晶体管的输入输出特性曲线<ul>
+<li>4.6.1 输入特性曲线：在管压降$U_{CE}$一定时，基极电流$i_{b}$与发射结压降$U_{be}$之间的关系</li>
+<li>4.6.2 输出特性曲线：在基极电流$i_{b}$一定时，集电极电流$i_{c}$与管压降$U_{ce}$之间的关系</li>
+</ul>
+</li>
+<li>4.7 晶体管工作状态的判别(以NPN型为例)<ul>
+<li>4.7.1 截止区：发射结电压小于开启电压且集电结反向偏置；对于共射电路，即为$U_{be}\le U_{on}$,$U_{ce} &gt; U_{be}$</li>
+<li>4.7.2 放大区：发射结正片且集电结反偏，此时集电极电流仅仅决定于基极电流而与管压降无关，表现出$i_{b}$对$i_{c}$的控制作用，即$i_{c}=\beta i_{b}$表现在输出特性曲线上即为平行于横轴的平行线；对于共射电路，即为$U_{be}&gt; U_{on}$,$U_{ce}\ge U_{be}$ </li>
+<li>4.7.3 饱和区：发射结正偏且集电结正偏，此时集电极电流与基极电流和管压降都有关；对于共射电路，即为$U_{be} &gt; U_{on}$,$U_{ce}&lt;U_{be}$,$i_{C}&lt;\beta i_{b}$</li>
+<li>4.7.4 临界区饱和(放大)区：$U_{ce}=U_{be}$</li>
+</ul>
+</li>
+<li> 4.8 对于给定的晶体管，若集电极电位最高，则为NPN型；若集电极电位最低，则为PNP型；基极电位永远居中</li>
+</ul>
+<hr>
+<ol start="5">
+<li>场效应管(了解)</li>
+</ol>
+<ul>
+<li> 5.1 场效应管(FET)分为结型场效应管和绝缘栅型场效应管两种</li>
+<li> 5.2 结型场效应管又分为N沟道和P沟道两种，三个电极分别为栅极g、漏极d、源极s.在符号图中，中间为栅极g，箭头从g出发的为N沟道管，指向方向即为源极s；箭头指向g的为P沟道，出发点即为源极s</li>
+<li>5.3 结型场效应管工作状态判断(N沟道管为例)<ul>
+<li>5.3.1 截止区(夹断区)：在$U_{GS}&lt;U_{GS(off)}$时处于夹断区，类似于发射结反偏</li>
+<li>5.3.2 恒流区：$0&gt;U_{GS}&gt;U_{GS(off)}$,$U_{GD}&lt;U_{GS(off)}$，类似于发射结正片集电结反偏</li>
+<li>5.3.3 可变电阻区：$0&gt;U_{GS}&gt;U_{GS(off)}$,$U_{GD}&gt;U_{GS(off)}$，类似于发射结、集电结正偏</li>
+<li>5.3.4 可以这么类比，夹断区的条件形同与晶体管的截止区；恒流区的条件形同与晶体管的放大区；可变电阻区形同与饱和区，便于记忆</li>
+<li>5.3.5 同P晶体管条件与N型晶体管相反一样，P沟道的上述条件也与N沟道相反</li>
+</ul>
+</li>
+<li> 5.4 若N沟道的$U_{GS}$大于零，P沟道的$U_{GS}$小于零，则失去g-s之间等效电阻很大的特点</li>
+<li>5.5 绝缘栅型场效应管<ul>
+<li>5.5.1 凡是在栅极-源极电压$U_{GS}$为零时电流也为零的管子就为增强型管子；凡是在$U_{GS}$为零时漏极电流不为零的就为耗尽型管子</li>
+<li>5.5.2 反映在符号图上为：虚线为增强型，实线为耗尽型(虚增实耗)</li>
+<li>5.5.3 耗尽型MOS管的工作状态与5.3中给出结论一致</li>
+</ul>
+</li>
+<li>5.6 增强型MOS管工作状态判断(N沟道为例)<ul>
+<li>5.6.1 截止区：$U_{GS}&lt;U_{GS(th)}$，小于开启电压即截至</li>
+<li>5.6.2 恒流区：$U_{GS}&gt;U_{GS(th)}$，$U_{GD}&lt;U_{GS(th)}$</li>
+<li>5.6.3 可变电阻区：$U_{GS}&gt;U_{GS(th)}$，$U_{GD}&gt;U_{GS(th)}$ </li>
+</ul>
+</li>
+<li>5.7 场效应管电流方程为:$i_{D}=I_{DO}(\frac{U_{GS}}{U_{GS(th)}}-1)^2$，$I_{DO}$是$U_{GS}=2U_{GS(th)}$时的电流</li>
+</ul>
+<hr>
+<h1 id="基本放大电路"><a href="#基本放大电路" class="headerlink" title="基本放大电路"></a>基本放大电路</h1><ul>
+<li>因为只靠晶体管，因此以下的内容完全针对晶体管，而不涉及(或较少涉及)场效应管</li>
+</ul>
+<hr>
+<ol>
+<li>放大电路的基本概念组</li>
+</ol>
+<ul>
+<li> 1.1 放大电路放大的本质是能量的控制和转换</li>
+<li> 1.2 放大的基本特征是功率放大</li>
+<li> 1.3 能够控制能量的元件称为有源元件</li>
+<li> 1.4 输入电阻是从放大电路输入端看进去的等效电阻，输入电阻越大，放大电路从信号源索取的电流越小，信号源内阻的压降越小，损失越小；需要强调的是输入电阻是放大电路自身的参数，与信号源电阻无关</li>
+<li> 1.5 输出电阻是从输出端看进去的等效内阻.任何放大电路的输出都可以等效成一个有内阻的电压源.输出电阻越小，放大电路的带负载能力越强；需要强调的是输出电阻也是放大电路自身的参数，与负载电阻无关</li>
+<li> 1.6 最大不失真输出电压为临界出现非线性失真时的输出电压</li>
+<li> 1.7 下限截止频率$f_{L}$是使得放大倍数降落到0.707倍时的频率</li>
+<li> 1.8 上限截止频率$f_{H}$是使得放大倍数降落到0.707倍时的频率</li>
+<li> 1.9 通频带是介于下限和上限截止频率之间的频率带</li>
+<li> 1.10 产生非线性失真的原因：由于放大器件本身具有非线性特性，因此线性放大范围有一定的限度，当输入信号幅度过高时就会产生非线性失真   </li>
+<li> 1.11 静态工作点是输入信号为零，只存在直流电源作用时晶体管的:基极电流$I_{BQ}$、集电极电流$I_{CQ}$和发射结压降$U_{BEQ}$、管压降$U_{CEQ}$;一般我们认为$U_{BEQ}$为已知量，如前所述，对于硅取0.7V，锗取0.2V.</li>
+<li> 1.12 设置静态工作点的原因：保证放大电路在整个输入信号周期内始终工作在正常状态，保证电路不产生失真</li>
+<li> 1.13 电路要正常工作在放大状态，晶体管应处在放大区、场效应管应处在恒流区</li>
+<li> 1.14 直流通路是仅在直流电源作用下直流电流流经的通路</li>
+<li> 1.15 交流通路是仅在输入信号作用下交流信号流经的通路</li>
+<li> 1.16 直接耦合是放大电路与负载电阻直接相连的方式，对于直接耦合，其交直流负载线始终重合</li>
+<li> 1.17 阻容耦合是放大电路与负载间通过电容相连的方式，对于阻容耦合，仅在零负载下交直流负载线重合</li>
+</ul>
+<hr>
+<ol start="2">
+<li>非线性失真的分析</li>
+</ol>
+<ul>
+<li> 2.1 将一个交流小信号加载在放大电路上，在输出特性曲线上，Q点电压值$U_{CEQ}$若靠近饱和管压降$U_{CES}$则容易出现饱和失真(靠近饱和区)；靠近$V_{CC}$则容易出现截止失真(靠近截止区).</li>
+<li> 2.2 集电极电阻电位变化与输出电压变化的相位相反的，因此集电极电阻电压与2.1变化相同，而输出电压与2.1变化相反.这就是说，若2.1中容易出现饱和失真，则集电极电流$i_{c}$容易出现顶部失真(显然集电极电流增大)，而输出电压则容易出现底部失真</li>
+</ul>
+<hr>
+<ol start="3">
+<li>三种基本接法</li>
+</ol>
+<ul>
+<li> 3.1 关于如何判断是共什么电极的方法：对于一个晶体管，我们只需要判断作为信号的输入端是从什么电极进入，信号输出是从什么电极输出，则剩下的那一个电极就是用来共联的电极.简而言之，非用于承接输入输出的电极就是共联电极</li>
+<li>3.2 三种接法的性质比较(建议看看)<ul>
+<li>3.2.1 共射接法：既能放大电流也能放大电压，具有高输出电阻、中等输入电阻和窄通频带的性质，用于一般放大</li>
+<li>3.2.2 共集接法：只能放大电流不能放大电压，具有低输出电阻、高输入电阻的特性，常用做射极跟随(电压跟随)、输入级和输出级</li>
+<li>3.2.3 共基电路：只能放大电压不能放大电流，具有高输出电阻、低输入电阻的特性，高频特性最好，常用于宽频带</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ol start="4">
+<li>三极管等效电路模型</li>
+</ol>
+<ul>
+<li> 略(建议自行看书)</li>
+</ul>
+<hr>
+<ol start="5">
+<li>复合管(两个晶体管连接)</li>
+</ol>
+<ul>
+<li>5.1 复合管组成原则<ul>
+<li>5.1.1 保证每只晶体管都能处于放大区和有合适的通路</li>
+<li>5.1.2 为了实现电流放大，应当将第一支管子的发射极或集电极与第二支管子的基极相连</li>
+</ul>
+</li>
+<li> 5.2 复合管的总交流电流放大系数等于两个管子各自电流放大系数的乘积</li>
+</ul>
+<hr>
+<h1 id="多级放大电路"><a href="#多级放大电路" class="headerlink" title="多级放大电路"></a>多级放大电路</h1><hr>
+<ol>
+<li>概念组</li>
+</ol>
+<ul>
+<li> 1.1 组成多级放大电路的每一个基本放大电路称为一级，级与级之间的连接称为级间耦合</li>
+<li> 1.2 多级放大电路的输入电阻取决于输入级所用的放大管类型和电路的基本形式；其大小就是第一级输入电阻的大小</li>
+<li> 1.3 多级放大电路的带负载能力的衡量，即输出电阻的大小，取决于输出级电路的基本形式，其大小就是最后一级的输出电阻大小</li>
+<li> 1.4 多级放大电路的低频特性取决于电路的耦合方式以及耦合电容、旁路电容的大小</li>
+<li> 1.5 多级放大电路的总放大能力取决于各级放大电路的放大倍数</li>
+</ul>
+<hr>
+<ol start="2">
+<li>直接耦合放大</li>
+</ol>
+<ul>
+<li> 2.1 直接耦合放大存在零点漂移现象(即温漂).温度变化引起半导体器件参数变化是产生温漂的主要原因</li>
+<li> 2.2 直接耦合放大具有良好的低频特性</li>
+<li> 2.3 抑制温漂的方法如下：在电路中引入直流负反馈，典型的就是静态工作点稳定电路中$R_{e}$的作用；采取温度补偿的方式，例如用热敏元件抵消放大管的变化；采用特性相同的管子构成差分放大电路</li>
+</ul>
+<hr>
+<ol start="3">
+<li>阻容耦合放大</li>
+</ol>
+<ul>
+<li> 3.1 阻容耦合电路中由于级间电容存在，各级静态工作点是相互独立的</li>
+<li> 3.2 阻容耦合低频特性差，不能放大变化缓慢的信号，因而一般只在高频、大功率情况下采用阻容耦合方式</li>
+<li> 3.3 由于制造大容量电容的困难，阻容耦合不便于集成化</li>
+</ul>
+<hr>
+<ol start="4">
+<li>差分放大电路</li>
+</ol>
+<ul>
+<li> 4.1 差分放大电路是构成多级直接耦合放大电路的基本单元电路</li>
+<li> 4.2 差分放大电路加载的共模信号是大小相等极性相同的输入信号</li>
+<li> 4.3 差分放大电路加载的差模信号是大小相等极性相反的输入信号</li>
+<li> 4.4 差分放大电路多是在电路参数理想对称的条件下进行的，参数的对称互补抑制了温漂；理想对称的差分放大电路对共模信号不放大，共模放大倍数$A_{c}=0$</li>
+<li> 4.5 差分放大器的四种接法具体自行看书</li>
+</ul>
+<hr>
+<ol start="5">
+<li>直接耦合互补输出级(OCL电路)</li>
+</ol>
+<ul>
+<li> 5.1 直接耦合的互补输出级是双向跟随的互补输出级，由一个NPN晶体管的射级和PNP晶体管的射级连接而成，且这两个管子参数相同，特性对称</li>
+<li> 5.2 由于晶体管存在开启电压$U_{be}$，因此该双向跟随互补输出电路在过零附近输出电压将产生交越失真</li>
+<li> 5.3 消除交越失真的方法是设置合适的静态工作点</li>
+</ul>
+<hr>
+<ol start="6">
+<li>直接耦合多级放大电路</li>
+</ol>
+<ul>
+<li> 6.1 直接耦合多级放大电路常用差分放大电路做输入级，这样可以增大共模抑制比，同时减小电路温漂</li>
+<li> 6.2 直接耦合放大电路的输出级常用直接耦合互补输出级电路(OCL电路)，可以使输出电阻小，且带负载能力强，并且最大不失真电压幅值可以接近电源电压，进一步增强放大能力</li>
+<li> 6.3 直接耦合放大电路的中间级常用共射放大电路，可以得到高电压放大倍数</li>
+<li> 6.4 多级放大电路放大倍数的计算，建议一级一级的计算，并需要注意下级电路对上级输出电阻、上级输出电阻对下级输入电阻的影响</li>
+</ul>
+<hr>
+<h1 id="集成运算放大电路"><a href="#集成运算放大电路" class="headerlink" title="集成运算放大电路"></a>集成运算放大电路</h1><hr>
+<ol>
+<li>集成运放的电路组成特点</li>
+</ol>
+<ul>
+<li> 1.1 集成运放一般由输入级、中间级、输出级、偏置电路构成</li>
+<li> 1.2 输入级一般采用差分放大电路，用于抑制温漂、增强共模抑制比、增大输入电阻和展宽频带</li>
+<li> 1.3 中间级一般采用共射放大电路，用于提供高电压放大倍数</li>
+<li> 1.4 输出级一般采用准互补输出级(OCL)，用以消除交越失真和进行过流保护，并且产生小的输出电阻，增大带负载能力，增强最大不失真电压并使之接近直流电源电压</li>
+<li> 1.5 偏置电路一般采用多路电流源电路，用于为各级放大电路提供静态工作点、提供动态电阻和避免温漂</li>
+<li> 1.6 集成运算放大器适用于放大低频信号，这是因为电路中存在大量晶体管和PN结，也就存在很多结电容、分布电容</li>
+<li> 1.7 集成运放采用有源负载是为了增大电压放大倍数，这是因为有源负载的交流电阻理想无穷大</li>
+<li> 1.8 集成运放可以等效为高性能的双端输入单端输出的、具有高输入电阻低输出电阻的、能较好抑制温漂的差分放大电路 </li>
+<li> 1.9 运算放大器的输出端是存在输出电流的</li>
+</ul>
+<hr>
+<ol start="2">
+<li>集成运放的重要参数列表</li>
+</ol>
+<ul>
+<li> 2.1 开环差模增益：在无反馈情况下，集成运放对两输入端电位差的放大能力</li>
+<li> 2.2 差模输入电阻：对差模电压信号源的输入电阻</li>
+<li> 2.3 共模抑制比：理想无穷大</li>
+<li> 2.4 输入失调电压：为使输出电压为零在输入端加的补偿电压</li>
+<li> 2.5 输入失调电流：两输入端静态电流之差的绝对值</li>
+</ul>
+<hr>
+<ol start="3">
+<li>电流源电路(自行看书)</li>
+</ol>
+<ul>
+<li> 3.1 镜像电流源</li>
+<li> 3.2 比例电流源</li>
+<li> 3.3 微电流源</li>
+<li> …..</li>
+</ul>
+<hr>
+<ol start="4">
+<li>有源负载放大电路</li>
+</ol>
+<ul>
+<li> 4.1 集成运放中，常用电流源电路作为有源负载替代集电极电阻$R_{c}$，这样一方面可以提供动态的电阻，一方面可以设置静态工作点</li>
+<li> 4.2 电路分析自行看书</li>
+</ul>
+<hr>
+<h1 id="放大电路的频率响应"><a href="#放大电路的频率响应" class="headerlink" title="放大电路的频率响应"></a>放大电路的频率响应</h1><hr>
+<ol>
+<li>概念组</li>
+</ol>
+<ul>
+<li> 1.1 低频特性分析：需要考虑耦合电容和旁路电容的影响，可以认为耦合电容是串入电路中，因此对高频信号相当于短路而不产生影响，而低频时会产生分压</li>
+<li> 1.2 高频特性分析：需要考虑极间电容和分布电容的影响，可以认为极间电容是并入电路中，因此对低频信号相当于断路而不产生影响，而高频时会产生分流</li>
+<li> 1.3 如前所述，共基电路的上限频率最高，因而其频带宽</li>
+<li> 1.4 直接耦合放大电路低频特性好，而阻容耦合电路中由于耦合电容、旁路电容多，因而低频特性差，下限频率高</li>
+<li> 1.5 放大电路的放大级数越多，其上限频率越低，频带越窄</li>
+<li> 1.6 放大电路中任何一个电容所确定的截止频率的表达式均为$f_{L}(f_{H})=\frac{1}{2\pi\tau}$，$\tau$为该电容所在回路的时间常数</li>
+<li>1.7 晶体管的Π型模型<ul>
+<li>1.7.1 参数列表：<ul>
+<li><ol>
+<li>$r_{bb’}$: 基区体电阻</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>$r_{b’e’}$: 发射结电阻</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>$r_{e}$: 发射极体电阻，常忽略不计</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>$r_{b’c’}$: 集电结电阻</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>$r_{c}$: 集电极体电阻，常忽略不计</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>$C_{\pi}$: 发射结电容</li>
+</ol>
+</li>
+<li><ol start="7">
+<li>$C_{\mu}$: 集电结电容  </li>
+</ol>
+</li>
+<li><ol start="8">
+<li>$g_{m}$: 跨导，$g_{m}=\frac{1}{r_{e}}=\frac{I_{EQ}}{V_{T}}$</li>
+</ol>
+</li>
+<li><ol start="9">
+<li>$r_{b’e}$: $r_{b’e}=(1+\beta)r_{e}=(1+\beta)\frac{V_{T}}{I_{EQ}}$</li>
+</ol>
+</li>
+<li><ol start="10">
+<li>$r_{ce}$: $r_{ce}=\frac{V_{A}}{I_{CQ}}$，常视为断路</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>1.7.2 集电结电流$I_{c}$与发射结电压$u_{b’e}$成线性关系</li>
+<li>1.7.3 完整模型结构图(了解)<img src="/2021/12/31/Analog-circuit-QAQ/%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E6%A8%A1%E5%9E%8B.png" srcset="/img/loading.gif" lazyload alt="Π型模型"></li>
+<li>1.7.4 标准简化模型<ul>
+<li><ol>
+<li>考虑电阻$r_{b’c}$与$r_{ce}$的阻值都很大，因此视为断路而除去</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>将跨接在输入-输出回路的电容$C_{\mu}$利用米勒定理分别等效到输入输出回路之中</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>$C_{\mu}’=(1-K)C_{\mu}$,$C_{\mu}’’=(1-\frac{1}{K})C_{\mu}$,$K=\frac{U_{ce}}{U_{b’e}}$</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>必备的喜闻乐见的参量$C_{\pi}’=C_{\pi}+C_{\mu}’$ </li>
+</ol>
+</li>
+<li><ol start="5">
+<li>一般地，$C_{\mu’’}$容抗远大于负载电阻，因此视为断路而忽略，便得到最终简化电路(c)，这就是最终需要记住的</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>1.7.5 标准简化模型(必备)<img src="/2021/12/31/Analog-circuit-QAQ/%E7%AE%80%E5%8C%96%E6%A8%A1%E5%9E%8B.png" srcset="/img/loading.gif" lazyload alt="简化模型"></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ol start="2">
+<li>晶体管电流放大倍数的频率响应(必备)</li>
+</ol>
+<ul>
+<li> 2.1 共射截止频率$f_{\beta}$: $f_{\beta}=\frac{1}{2\pi r_{b’e}C_{\pi}’}$,$C_{\pi}’=C_{\pi}+C_{\mu}$</li>
+<li> 2.2 2.1所述的共射截止频率便是题目中常常给出的参量，一般地需要我们通过共射截止频率先行计算出$C_{\mu}$的数值大小，再按照米勒定理计算出$C_{\mu}’$并由此计算上限截止频率，因此2.1式的重要性就显而易见了</li>
+<li> 2.3 共基截止频率$f_{\alpha}$: $f_{\alpha}=(1+\beta)f_{\beta}$</li>
+<li> 2.4 2.3式是容易理解的，因为$\alpha=\frac{i_{c}}{i_{e}}=\frac{\beta}{1+\beta}\Rightarrow \frac{\alpha}{\beta}=\frac{1}{1+\beta}$,只需注意到频率需要取反便可得到，当然上面这么说只是为了理解方便</li>
+<li> 2.5 由2.3可以看出共基放大电路的上限截止频率远高于共射放大电路，因此共基放大电路可以作为宽频带的放大电路</li>
+</ul>
+<hr>
+<ol start="3">
+<li>考试中的放大电路频率响应问题</li>
+</ol>
+<ul>
+<li> 3.1 中频段：中频段模型就是我们最先接触到的、最熟悉的晶体管的等效模型.我们知道在该模型中是不考虑任何电容的，这是因为处于中频带时，”串接”的耦合电容(旁路电容)容抗小而视为短路；”并接”的极间电容(分布电容)容抗大而视为断路</li>
+<li> 3.2 低频段：如前所述，低频段时必须考虑耦合电容(旁路电容)的分压影响，极间电容(分布电容)仍然视为开路而不考虑；换言之，计算下限截止频率就要分析各个耦合电容所在回路中谁的时间常数小</li>
+<li> 3.3 高频段：如前所述，高频段时必须考虑极间电容(分布电容)的分流影响，耦合电容(旁路电容)视为短路而不考虑；换言之，计算上限截止频率就要分析各个极间电容所在回路中谁的时间常数大</li>
+<li> 3.4 求解上限、下限截止频率的关键是正确的计算回路的等效电阻</li>
+</ul>
+<hr>
+<ol start="4">
+<li>放大电路频率响应特性的改善和带宽的展宽</li>
+</ol>
+<ul>
+<li> 4.1 为降低下限截止频率，需要增大耦合电容和其等效电阻，但一般低频信号时采取直接耦合放大电路更加合适</li>
+<li> 4.2 提高上限截止频率，其矛盾是增益和带宽的矛盾，需要减小相应的等效电容和等效电阻阻值，还可以考虑共基放大电路</li>
+</ul>
+<hr>
+<ol start="5">
+<li>多级放大电路</li>
+</ol>
+<ul>
+<li> 5.1 对于多级放大电路，其计算建议一级一级的计算放大倍数</li>
+<li> 5.2 对于多级放大电路，其整个电路的下限频率一般认为是各级中最高的下限频率；上限频率一般认为是各级中最低的上限截止频率   </li>
+</ul>
+<hr>
+<h1 id="放大电路中的反馈"><a href="#放大电路中的反馈" class="headerlink" title="放大电路中的反馈"></a>放大电路中的反馈</h1><hr>
+<ol>
+<li>概念组</li>
+</ol>
+<ul>
+<li> 1.1 反馈：存在一条通路，使得输出回路与输入回路连通，并由此影响放大电路的净输入量，则引入了反馈</li>
+<li> 1.2 使放大电路净输入量增大，则引入正反馈；使放大电路净输入量减小，则引入负反馈</li>
+<li> 1.3 反馈中存在直流量，则引入直流反馈；存在交流量，则引入交流反馈$\Leftrightarrow$仅存在于直流通路中的反馈称为直流反馈，仅存在于交流通路中的反馈称为交流反馈</li>
+<li> 1.4 直流反馈的主要作用是稳定静态工作点，能够克服直接耦合放大电路的零点漂移(温漂)现象</li>
+<li> 1.5 交流反馈的主要作用是提高放大倍数稳定性、改变输入输出电阻</li>
+<li> 1.6 反馈量仅仅与输出量有关，与其他任何因素，例如输入量，无关</li>
+<li> 1.7 串并联负反馈的判断：若输入量、反馈量、净输入量是以电压方式叠加的，则为串联反馈；若上述三量是以电流方式叠加的，则为并联反馈</li>
+<li> 1.8 电压电流反馈的判断：取决于反馈量的采样形式.若反馈量取自输出电压，则为电压反馈；取自输出电流，则为电流反馈$\Leftrightarrow$将输出端短路反馈量消失，则为电压反馈；将输出端断路，反馈量消失，则为电流反馈</li>
+<li> 1.9 正负反馈的判断：除了按照定义去看，还可以采取瞬时极性法.注意晶体管的相位反向性问题: 共射接法反相，共集、共基接法同相(即符号相同)</li>
+</ul>
+<hr>
+<ol start="2">
+<li>四种反馈类型的功能</li>
+</ol>
+<ul>
+<li> 2.1 电压串联：$U_{i}$控制$U_{o}$实现电压放大</li>
+<li> 2.2 电流串联：$U_{i}$控制$I_{o}$实现电压转换电流</li>
+<li> 2.3 电压并联：$I_{i}$控制$U_{o}$实现电流转换电压</li>
+<li> 2.4 电流并联：$I_{i}$控制$I_{o}$实现电流放大</li>
+</ul>
+<hr>
+<ol start="3">
+<li>负反馈功效</li>
+</ol>
+<ul>
+<li> 3.1 电压负反馈用以稳定电压、减小输出电阻</li>
+<li> 3.2 电流负反馈用以稳定电流，增大输出电阻</li>
+<li> 3.3 串联负反馈用以增大输入电阻</li>
+<li> 3.4 并联负反馈用以减小输入电阻</li>
+<li> 3.5 欲减小从信号源索取的电流并增强带负载能力就需要引入电压串联负反馈</li>
+<li> 3.6 欲增大从信号源索取的电流并稳定输出电流就需要引入电流并联负反馈  </li>
+<li> 3.7 总的来说，引入负反馈可以稳定放大倍数、改变输入输出电阻、展宽频带、减小非线性失真 </li>
+</ul>
+<hr>
+<ol start="4">
+<li>负反馈电路中的关系</li>
+</ol>
+<ul>
+<li>4.0 <ul>
+<li>4.0.1 声明：$X_{o},X_{i},X_{i}’,X_{f}$分别代表输出、输入、净输入、反馈量</li>
+<li>4.0.2 我们讨论负反馈，一般是在中频带下讨论的</li>
+</ul>
+</li>
+<li> 4.1 反馈系数F：$F=\frac{X_{f}}{X_{o}}$</li>
+<li> 4.2 开环放大倍数A：$A=\frac{X_{o}}{X_{i}’}$</li>
+<li> 4.3 闭环放大倍数$A_{f}$：$A_{f}=\frac{X_{o}}{X_{i}}$</li>
+<li> 4.4 三者关系：$A_{f}=\frac{X_{o}}{X_{i}’+X_{f}}=\frac{A}{1+AF}$</li>
+<li> 4.5 由4.4可见引入负反馈后电路的放大倍数缩小到原来的(1+AF)分之一</li>
+<li> 4.6 若发现$(1+AF)&lt;1$，则电路引入的是正反馈；并且当$(1+AF)=0$时将产生自激振荡，产生自己振荡的条件是引入正反馈或开环状态</li>
+<li> 4.7 在深度负反馈条件下，即$(1+AF)\gg 1$，则$A_{f}=\frac{1}{F}$，在考试中惯用(必备)</li>
+<li> 4.8 需要注意深度负反馈下放大倍数仅仅决定于反馈网络，这一点固然好，但也不是反馈越深越好</li>
+<li> 4.9 当信号频率进入低频或高频段时，负反馈电路可能对某一特定频率产生正反馈而引起自激振荡</li>
+</ul>
+<hr>
+<ol start="5">
+<li>深度负反馈网络(必备)</li>
+<li></li>
+</ol>
+<ul>
+<li> 5.1 深度负反馈的重要关系：$A_{f}=\frac{1}{F}$</li>
+<li> 5.2 深度负反馈的实质是在近似分析中忽略净输入量</li>
+<li>5.3 当引入深度负反馈后就有两个重要条件(必备)<ul>
+<li>5.3.1 虚短：$U_{i}=U_{f}$，净输入电压忽略不计</li>
+<li>5.3.2 虚断：$I_{i}=I_{f}$，净输入电流忽略不计</li>
+</ul>
+</li>
+<li> 5.4 深度负反馈网络具体实例自行看书</li>
+</ul>
+<hr>
+<ol start="6">
+<li>理想运放(必备)</li>
+</ol>
+<ul>
+<li>6.1 理想运放的特性<ul>
+<li>6.1.1 开环差模增益无穷大</li>
+<li>6.1.2 差模输入电阻无穷大</li>
+<li>6.1.3 输出电阻为零</li>
+<li>6.1.4 共模抑制比无穷大</li>
+<li>6.1.5 上限截止频率无穷大</li>
+</ul>
+</li>
+<li> 6.2 集成运算放大器需要在线性区才能正常工作，此时需要引入负反馈</li>
+<li> 6.3 集成运放满足虚短路条件：$u_{P}=u_{N}$</li>
+<li> 6.4 集成运放满足虚断路条件：$i_{P}=i_{N}=0$</li>
+<li> 6.5 理想运放处于开环状态或引入正反馈时工作在非线性区</li>
+</ul>
+<hr>
+<ol start="7">
+<li>自激振荡(推荐)</li>
+</ol>
+<ul>
+<li> 7.1 在低频段，由于耦合电容、旁路电容的影响，$\dot{A}\dot{F}$将产生超前相移；在高频段，由于器件极间电容、分布电容的影响，$\dot{A}\dot{F}$将产生滞后相移.上述两种统称附加相移</li>
+<li> 7.2 当附加相移为$(2n+1)\pi$时就会使放大倍数增大，周而复始</li>
+<li> 7.3 自激振荡的产生条件是$\dot{A}\dot{F}=-1,\varphi_{A}+\varphi_{F}=(2n+1)\pi$，起振条件是$|\dot{A}\dot{F}|&gt;1$</li>
+<li> 7.4 放大电路放大级数越多，引入负反馈后越容易产生高频振荡；电路中耦合旁路电容越多，引入负反馈后越容易产生低频振荡；反馈越深，满足幅值条件越容易，产生自激振荡可能性越大</li>
+<li> 7.5 消除自激振荡的方式可以是滞后补偿、超前补偿或RC补偿</li>
+</ul>
+<hr>
+<h1 id="功率输出级-必备"><a href="#功率输出级-必备" class="headerlink" title="功率输出级(必备)"></a>功率输出级(必备)</h1><hr>
+<ol>
+<li>综述</li>
+</ol>
+<ul>
+<li> 1.1 功率放大器一般由放大电路与大功率输出级组成</li>
+<li> 1.2 功率输出级是大信号输出，前述的各种模型都是小信号模型，已不再适用于分析，而只能采取图解法分析</li>
+</ul>
+<hr>
+<ol start="2">
+<li>分类</li>
+</ol>
+<ul>
+<li> 2.1 功率输出级按照静态工作点的设置可以分为甲类(A类)、乙类(B类)、甲乙类(AB类)和丙类(C类)四类</li>
+<li>2.2 甲类<ul>
+<li>2.2.1 工作于线性区的的放大器都是甲类放大器，前述的共集、共基、共射放大电路都属于甲类</li>
+<li>2.2.2 甲类电路在整个输入信号周期内都导通，导通角等于360°</li>
+<li>2.2.3 甲类放大器的理论最大效率为25%</li>
+</ul>
+</li>
+<li>2.3 乙类<ul>
+<li>2.3.1 乙类放大器的$I_{CQ}$设置在截止点，晶体管在正半周导通而负半周截止，导通角为180°</li>
+<li>2.3.2 乙类放大器的理论最大效率为$\frac{\pi}{4}$=78.5%</li>
+<li>2.3.3 乙类输出级的缺点是输出波形存在交越失真，所采取的电路形态为互补推挽输出级</li>
+</ul>
+</li>
+<li>2.4 甲乙类<ul>
+<li>2.4.1 为了弥补乙类输出级的交越失真，甲乙类输出级采用准互补输出级OCL电路</li>
+<li>2.4.2 甲乙类输出级的电路设计为互补推挽输出级提供起始偏压，从而克服交越失真</li>
+<li>2.4.3 由于甲乙类输出级是OCL无电容输出级，因此其低频特性很好</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="各种运算电路"><a href="#各种运算电路" class="headerlink" title="各种运算电路"></a>各种运算电路</h1><ul>
+<li>众所周知，这玩意儿最喜欢考电路设计</li>
+</ul>
+<hr>
+<ol>
+<li><ul>
+<li>综述：考试中，分析运算电路时均认为集成运放为理想运放，满足深度负反馈条件，因而满足虚短、虚断两个条件；在分析时常运用叠加原理、节点电流法等基本电路分析方法</li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li>比例运算电路(必备)<ul>
+<li>2.1 反相比例运算电路<ul>
+<li>2.1.1 具体电路分析自行看书，不再展开论述</li>
+<li>2.1.2 同相端接地，反相端接输入</li>
+</ul>
+</li>
+<li>2.2 同相比例运算电路<ul>
+<li>2.2.1 具体电路分析自行看书，不再展开论述 </li>
+<li>2.2.2 反相端接地，同相端接输入</li>
+<li>2.2.3 虽然同相比例运算放大电路具有高输入电阻、低输出电阻的特性，但由于集成运放有共模输入，因此应当使用高共模抑制比的运放以提高运算精度</li>
+</ul>
+</li>
+<li>2.3电压跟随器<ul>
+<li>2.3.1 在同相比例运算电路中，将输出电压全部反馈到输入端就构成射极跟随器</li>
+<li>2.3.2 此时反馈系数为1，$u_{i}=u_{P}=u_{N}=u_{o}$</li>
+</ul>
+</li>
+<li>2.4 在多级运算放大电路的分析中，只需时刻意识到各级电路的输出电阻均为零(理想运放)，具有恒压特性，因此虽然后级电路是前级电路的负载，但并不影响前级电路的运算关系，因此可以完全视为独立的单极电路分析</li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol start="3">
+<li>求和运算电路(必备)</li>
+</ol>
+<ul>
+<li> 3.1 求和运算电路是用以实现多个输入信号按各自不同的比例求和或求差的电路</li>
+<li>3.2 反相求和电路<ul>
+<li>3.2.1 多个输入信号均加载在运放的反相端而同相端接地</li>
+<li>3.2.2 具体电路分析自行看书，不再展开论述，实质上可以按照叠加原理或者直接运用理想集成运放的虚短虚断条件分析即可</li>
+</ul>
+</li>
+<li> 3.3 同相求和电路</li>
+</ul>
+<ul>
+<li>3.3.1 多个输入信号均加载在运放的同相端</li>
+<li>3.3.2 具体电路分析自行看书，不再展开论述</li>
+</ul>
+<ul>
+<li>3.4 加减求和电路<ul>
+<li>3.4.1 实际上拆分成同相求和电路(+)和反相求和电路(-)两部分分析即可；分别分析时，只需要将另外一端口的输入信号全部置零接地即可</li>
+</ul>
+</li>
+<li>3.5 平衡电路提醒<ul>
+<li>3.5.1 一般地该考点喜欢考电路设计，在实际设计时我们可以倾向于美的对称来设置电阻，这会极大节省时间</li>
+<li>3.5.2 如前所述，集成运放可以视为一个高性能的差分放大电路，差分放大电路是参数一致理想对称的，因此在实际设计时，应当注意同相、反相端口电阻的总阻值相同，起到平衡电阻的作用</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ol start="4">
+<li>积分微分电路(要求不高)</li>
+</ol>
+<ul>
+<li>4.1 积分电路<ul>
+<li>4.1.1 基本的，由电阻电容实现，电容接入反馈网络</li>
+<li>4.1.2 鉴于考试要求不高，不深入展开分析，但需要知道基本电路形式</li>
+<li>4.1.3 通过积分电路可以实现波形变换，例如将方波转为三角波、将正弦波转为余弦波等等</li>
+</ul>
+</li>
+<li>4.2 微分电路<ul>
+<li>4.2.1 基本的，由电阻电容实现，电阻接入反馈网络，电容与输入信号连接</li>
+<li>4.2.2 鉴于考试要求不高，不深入展开分析，但需要知道基本电路形式</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ol start="5">
+<li>指数对数电路(要求不高)</li>
+</ol>
+<ul>
+<li>5.1 指数电路<ul>
+<li>5.1.1 将二极管(或三极管)接入输入回路就可以实现基本指数运算</li>
+<li>5.1.2 鉴于考试要求不高，不深入展开分析，但需要知道基本电路形式</li>
+</ul>
+</li>
+<li>5.2 对数电路<ul>
+<li>5.2.1 将二极管(或三极管)接入反馈网络就可以实现基本的对数运算</li>
+<li>5.2.2 鉴于考试要求不高，不深入展开分析，但需要知道基本电路形式</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ol start="6">
+<li>比较器(必备)</li>
+</ol>
+<ul>
+<li>6.1 综述<ul>
+<li>6.1.1 这里我们讲的比较器特别指电压比较器</li>
+<li>6.1.2 在电压比较器电路中，集成运放需要工作在非线性区域，这就要求集成运放处于开环状态，或者引入正反馈</li>
+<li>6.1.3 在比较器电路，对于集成运放而言，其虚断条件依然成立，但虚短条件不再成立.换言之，我们依然忽略电流净输入，但不能忽略电压净输入</li>
+<li>6.1.4 比较器都存在阈值电压$U_{T}$，当变化经过阈值电压时，就会出现输出电压的跃变</li>
+</ul>
+</li>
+<li> 6.2 分类：分为单限比较器、滞回比较器和窗口比较器</li>
+<li>6.3 单限比较器<ul>
+<li>6.3.1 过零比较器<ul>
+<li>6.3.1.1 过零比较器是最简单的单限比较器，其阈值电压$U_{T}=0V$，运放处于开环状态</li>
+<li>6.3.1.2 运放一端口连接输入信号，另一端口接地.当输入电压越过0V时，输出电压就会跃变</li>
+</ul>
+</li>
+<li>6.3.2 一般的单限比较器<ul>
+<li>6.3.2.1 依然是处于开环状态 </li>
+<li>6.3.2.2 考题中，首先需要计算出其阈值电压$U_{T}$，方法是寻求运放两个输入端电压$u_{P}$和$u_{N}$的表达式，并令$u_{P}=u_{N}$就能给出阈值电压</li>
+</ul>
+</li>
+<li>6.3.3 单限比较器具有很强的灵敏性，也因此其抗干扰能力很差</li>
+</ul>
+</li>
+<li>6.4 滞回比较器<ul>
+<li>6.4.1 滞回比较器相对于单限比较器而言，具备强的抗干扰性</li>
+<li>6.4.2 滞回比较器电路引入正反馈</li>
+<li>6.4.3 滞回比较器存在两个不同的阈值电压，电路中一般存在两个相对连接的稳压二极管</li>
+<li>6.4.3 考题中，首先依然需要按照6.3.2.2的方式计算出两个阈值电压</li>
+<li>6.4.4 运放输出端的接入的电阻一般是必不可少的，该电阻的作用是承载运放输出端与输出端间的压降</li>
+</ul>
+</li>
+<li>6.5 窗口比较器<ul>
+<li>6.5.1 有了上面的基础，看到题目自行分析即可</li>
+</ul>
+</li>
+<li>6.6 比较器的总结性综述<ul>
+<li>6.6.1 在电压比较器中，集成运放多工作在非线性区，输出只有高电平和低电平两种状态</li>
+<li>6.6.2 解决问题的首要是计算阈值电压，图像的跃变方向与输入电压作用于同相还是反相输入端有关</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ol start="7">
+<li>方波发生器(建议必备)</li>
+</ol>
+<ul>
+<li>7.1 最基本的电路<ul>
+<li>7.1.1 方波发生电路的构成：电压比较器电路、振荡电路和正反馈电路</li>
+<li>7.1.2 具体下图中，由$R_{1},R_{2}$构成正反馈网络、由$R_{3},C$构成振荡网络、由运放,$R_{4}$和稳压二极管组成电压比较网络</li>
+<li><img src="/2021/12/31/Analog-circuit-QAQ/%E6%96%B9%E6%B3%A2%E5%8F%91%E7%94%9F%E5%99%A8.png" srcset="/img/loading.gif" lazyload alt="方波发生电路"></li>
+</ul>
+</li>
+<li>7.2 回顾：三要素法(必备)<ul>
+<li>7.2.1 时间常数$\tau$: $\tau=RC$，就是寻求电容所在回路的等效电阻</li>
+<li>7.2.2 初值条件$U(t=0)$: 题目给出就更好，没给就自行假设一个可行的状态</li>
+<li>7.2.3 边界条件$U(t=\infty)$: 电容充放电平衡时的理论最高电压</li>
+<li>7.2.4 三要素方程：$U(t)=U(\infty)+[U(0)-U(\infty)]e^{-\frac{t}{\tau}}$</li>
+</ul>
+</li>
+<li>7.3 分析步骤(看习惯)<ul>
+<li>7.3.1 阈值电压：$u_{N}=u_{P}=\pm\frac{R_{1}}{R_{1}+R_{2}}U_{Z}=\pm\beta U_{Z}$</li>
+<li>7.3.2 时间常数：$\tau=R_{3}C$</li>
+<li>7.3.3 初值条件：没给，自行设定为$U(0)=-\beta U_{Z}$，回路图中为由$-U_{Z}$向$U_{Z}$的跃变</li>
+<li>7.3.4 边界条件：$U(\infty)=U_{Z}$</li>
+<li>7.3.5 边界条件：$U(\frac{T}{2})=\beta U_{Z}=U_{Z}-(1+\beta)U_{Z}e^{-\frac{T}{2R_{3 }C}}$</li>
+<li>7.3.6 解方程得：$T=2R_{3}C\ln(1+\frac{2R_{1}}{R_{2}})$</li>
+</ul>
+</li>
+<li>7.4 进阶版：占空比可调的电路<ul>
+<li>7.4.1 占空比q：在一个周期中高平电压所占的比例</li>
+<li>7.4.2 上图！<br><img src="/2021/12/31/Analog-circuit-QAQ/%E8%BF%9B%E9%98%B6%E7%89%88%E6%96%B9%E6%B3%A2.png" srcset="/img/loading.gif" lazyload alt="占空比可调"></li>
+<li>7.4.3 周期分析：设充电时长为$T_{1}$,放电时长为$T_{2}$，有了上面的基础，我们可以很容易的写出两个表达式分别为<br>$$\begin{aligned}<br> T_{1}&amp;=(R_{3}+R_{w1})C\ln(1+\frac{2R_{1}}{R_{2}}) \\<br> T_{2}&amp;=(R_{3}+R_{w2})C\ln(1+\frac{2R_{1}}{R_{2}}) \\<br> &amp;\Rightarrow \\<br> T&amp;=(R_{3}+R_{w})C\ln(1+\frac{2R_{1}}{R_{2}}) \\<br> q&amp;=\frac{T_{1}}{T}=\frac{R_{3}+R_{w1}}{R_{3}+R_{w}}<br>\end{aligned}$$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ol start="8">
+<li>三角波发生电路(了解)</li>
+</ol>
+<ul>
+<li> 8.1 前面说过通过积分运放电路可以实现由方波到三角波的波形转换</li>
+<li> 8.2 在7.方波发生电路中已经详细说明了如何产生方波，因此只需要在其基础上接入一个积分运算电路，就能利用产生的方波，作为积分运算电路的输入信号，实现三角波的输出</li>
+<li> 8.3 毕竟含有积分电路，应该不是很重点考点，不加详述了</li>
+</ul>
+<hr>
+<ol start="9">
+<li>电压-电流-电压转换电路(推荐)</li>
+</ol>
+<ul>
+<li>9.1 上图！<br> <img src="/2021/12/31/Analog-circuit-QAQ/%E8%BD%AC%E6%8D%A2%E7%94%B5%E8%B7%AF.png" srcset="/img/loading.gif" lazyload alt="转换电路"></li>
+<li>9.2 电压-电流转换电路<ul>
+<li>9.2.1 分析<br>考虑到考试的电路必然不会那么简单，遂以此为例<br>$R_{1}=R_{2}=R_{3}=R_{4}=R$<br>该电路由$A_{1}$运放所在的同相求和电路和$A_{2}$所在的射极跟随器组成<br>对射极跟随器显然有：$u_{P2}=u_{o2}$，于是$R_{4}$下方可以视为一个电压源替代<br>利用叠加原理可得：$u_{P1}=\frac{R_{4}}{R_{3}+R_{4}}u_{i}+\frac{R_{3}}{R_{3}+R_{4}}u_{o2}$<br>利用$A_{1}$虚短虚断的性质可得：$u_{o1}=(1+\frac{R_{2}}{R_{1}})u_{N1}$<br>利用欧姆定律可得：$i_{o}=\frac{u_{o1}-u_{P2}}{R_{o}}$<br>整理便得到：$i_{o}=\frac{u_{i}}{R_{o}}$</li>
+</ul>
+</li>
+<li>9.3 电流-电压转换电路<ul>
+<li>9.3.1 分析<br>引入电压并联负反馈<br>利用虚短虚断可以快速得到$i_{S}=i_{F}$,于是$u_{o}=-i_{S}R_{f}$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="直流电源与整流电路"><a href="#直流电源与整流电路" class="headerlink" title="直流电源与整流电路"></a>直流电源与整流电路</h1><hr>
+<ol>
+<li>概念组</li>
+</ol>
+<ul>
+<li> 直流电源是将电网电压的交流电转换为直流电的能量转换电路</li>
+<li> 电容滤波电路适用于负载电流较小的情况</li>
+<li> 电感滤波电路适用于负载电流较大的情况</li>
+<li> 稳压管稳压电路中，限流电阻是必不可少的元件.限流电阻的作用是限制稳压管中的电流，使稳压管工作在稳压状态且不会损坏；同时在电网波动时产生相反的变化，起补偿作用，维持输出电压基本不变</li>
+</ul>
+<hr>
+<ol start="2">
+<li>整流电路(必备)</li>
+</ol>
+<ul>
+<li>2.1 半波整流电路<ul>
+<li>2.1.1 上图<br><img src="/2021/12/31/Analog-circuit-QAQ/%E5%8D%8A%E6%B3%A2%E6%95%B4%E6%B5%81.png" srcset="/img/loading.gif" lazyload alt="半波整流"></li>
+<li>2.1.2 原理<br>显然只有正向电压时理想二极管才会导通，因此输出波形只有半个周期(理想二极管零导通开启电压)</li>
+<li>2.1.3 主要参数<ul>
+<li>2.1.3.1 平均输出电压<br>$$U_{o(AV)}=\frac{1}{2\pi}\int_{0}^{\pi}\sqrt{2}U_{2}\sin(\omega t)\mathrm{d\omega t}=\frac{\sqrt{2}}{\pi}U_{2}=0.45U_{2}$$</li>
+<li>2.1.3.2 脉动系数S：基波峰值与输出电压平均值之比<br>$$\begin{aligned}<br> S=\frac{\pi}{2}=1.57<br>\end{aligned}$$</li>
+<li>2.1.3.3 最大反向电压和最大平均电流<br>一般情况下，允许电网存在10%的波动，因此选取二极管时需要留心其最大允许的反向电压和允许的最大电流<br>对半波整流电路，最大反向电压为$U_{max}=1.1\sqrt{2}U_{2}$<br>对半波整流电路，最大平均电流为$I_{F}=1.1\frac{\sqrt{2}U_{2}}{\pi R}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2.2 全波整流电路<ul>
+<li>2.2.1 全波整流电路就实现了完全利用整个信号周期</li>
+<li>2.2.2 主要参数<ul>
+<li>2.2.2.1 平均输出电压<br>$$U_{o(AV)}=\frac{1}{\pi}\int_{0}^{\pi}\sqrt{2}U_{2}\sin(\omega t)\mathrm{d\omega t}=\frac{2\sqrt{2}}{\pi}U_{2}=0.9U_{2}$$</li>
+<li>2.2.2.2 脉动系数<br>$$\begin{aligned}<br> S=\frac{2}{3}=0.67<br>\end{aligned}$$  </li>
+<li>2.2.2.3 最大反向电压和最大平均电流<br>$U_{max}=1.1\sqrt{2}U_{2}$<br>$I_{F}=1.1\frac{2\sqrt{2}U_{2}}{\pi R}$ </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2.3 桥式整流电路<ul>
+<li>2.3.1 上图<br><img src="/2021/12/31/Analog-circuit-QAQ/%E6%A1%A5%E5%BC%8F%E6%95%B4%E6%B5%81.png" srcset="/img/loading.gif" lazyload alt="桥式整流"></li>
+<li>2.3.2 主要参数<ul>
+<li>2.3.2.1 平均输出电压<br>$$U_{o(AV)}=\frac{1}{\pi}\int_{0}^{\pi}\sqrt{2}U_{2}\sin(\omega t)\mathrm{d\omega t}=\frac{2\sqrt{2}}{\pi}U_{2}=0.9U_{2}$$</li>
+<li>2.3.2.2 脉动系数<br>$$\begin{aligned}<br> S=\frac{2}{3}=0.67<br>\end{aligned}$$  </li>
+<li>2.3.2.3 最大反向电压和最大平均电流<br>$U_{max}=1.1\sqrt{2}U_{2}$<br>$I_{F}=1.1\frac{2\sqrt{2}U_{2}}{\pi R}$ </li>
+</ul>
+</li>
+<li>2.3.3 肉眼清晰地可见与全波整流是一致的</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ol start="3">
+<li>滤波电路</li>
+</ol>
+<ul>
+<li>3.1 电容滤波电路<ul>
+<li>3.1.1 上图<br><img src="/2021/12/31/Analog-circuit-QAQ/%E6%BB%A4%E6%B3%A2%E7%94%B5%E8%B7%AF.png" srcset="/img/loading.gif" lazyload alt="基础滤波电路"></li>
+<li>3.1.2 结构<br>最简单的滤波电路就是在桥式整流电路后面并联一个电容<br>电容滤波电路利用电容的充放电作用，使输出电压趋于平滑</li>
+<li>3.1.3 原理<br>都是理想二极管奥，因此，零正向压降<br>当电压$u_{2}$处于正半周并且数值大于电容两端的电压时，电流一路流经电容，给电容充电；另一路流经负载电阻，并且理想变压器无损耗，加之理想二极管无正向压降，因此$u_{2}=u_{c}=u_{o}$成立.当$u_{2}$增大时输出电压随之增大；当其减小时，电容通过负载放电，电容电压下降，下降趋势与$u_{2}$基本相同.但是电容器是按照指数规律放电，当$u_{2}$下滑到一定程度时,$u_{c}$的变化慢于$u_{2}$因此二极管$D_{1},D_{3}$截止，此后电容通过负载放电；当副线圈电压处于负半周并大于电容电压时，重复上述过程即可.</li>
+<li>3.1.4 上图<br><img src="/2021/12/31/Analog-circuit-QAQ/%E6%BB%A4%E6%B3%A2%E5%9D%87%E5%80%BC.png" srcset="/img/loading.gif" lazyload alt="滤波电压平均值"></li>
+<li>3.1.5 主要参量<br>我们认为电容每次充放电都能达到$u_{2}$的峰值，即$U_{omax}=\sqrt{2}U_{2}$，且在半周期$\frac{T}{2}$时达到最小值$U_{omin}$.<br>因此输出电压的平均值为：$U_{o(AV)}=\frac{U_{omax}+U_{omin}}{2}$<br>根据相似关系可知<br>$$\frac{T}{2R_{L}C}=\frac{U_{omax}-U_{omin}}{U_{omax}}$$<br>最终可以得到<br>$$\begin{aligned}<br> U_{o(AV)}=\sqrt{2}U_{2}(1-\frac{T}{4R_{L}C})<br>\end{aligned}$$<br>当负载开路时，$U_{o(AV)}=\sqrt{2}U_{2}$<br>当$R_{L}C=(3-5)\frac{T}{2}$时，$U_{o(AV)}=1.2U_{2}$<br>电容的最低耐压值为：$U=1.1\sqrt{2}U_{2}$<br>脉动系数S：$S=\frac{T}{4R_{L}C-T}$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ol start="4">
+<li>稳压管稳压电路</li>
+</ol>
+<ul>
+<li>4.1 上图<br> <img src="/2021/12/31/Analog-circuit-QAQ/%E7%A8%B3%E5%8E%8B%E7%94%B5%E8%B7%AF.png" srcset="/img/loading.gif" lazyload alt="稳压电路"></li>
+<li>4.2 稳压原理<br> 当电网电压增大时，滤波电路的输出电压也随之增大，最终输出电压也随之增大.但由于稳压二极管需满足$U_{O}=U_{Z}$，$U_{Z}$增大必然导致通过稳压二极管的电流$I_{DZ}$增大，因而降落在电阻R上的电压增大，这就使得$U_{O}$减小，从而实现最终输出电压基本不变</li>
+<li>4.3 电阻R的作用<br> 通过分析可以看出，利用稳压二极管的电流调节作用，通过限流电阻R上的电流或电压实现补偿，达到稳压的目的.因此限流电阻R必不可少</li>
+</ul>
+<hr>
+<ol start="5">
+<li>串联型稳压电路</li>
+</ol>
+<ul>
+<li>5.1 前言<br> 在4.稳压电路中，我们看到利用稳压二极管就能实现输出电压的稳定输出，但是通过稳压二极管的电流变化幅度较小，稳压二极管正常工作，其电流必须不小于最小稳压电流、不大于最大稳压电流，即$I_{Z}&lt;I_{DZ}&lt;I_{ZM}$；此外其输出电压不可调节也是一大缺陷</li>
+<li>5.2 上图<br> <img src="/2021/12/31/Analog-circuit-QAQ/%E4%B8%B2%E8%81%94%E7%A8%B3%E5%8E%8B.png" srcset="/img/loading.gif" lazyload alt="串联稳压电路"></li>
+<li>5.3 原理<br> 设想当因为电网波动使输出电压升高时，这一变化将通过由$R_{1}、R_{2}、R_{3}$组成的采样电路反馈到运放的反相端；运放的同相端电位基本为稳压管的电压；这样运放的输出电压，也即为晶体管的基极电压，$U_{o}=A_{d}(u_{P}-u_{N})$势必降低.由于晶体管采取射极输出(基极与射极的变化同相的)，于是$U_{o}$的电压也势必降低，从而使输出电压稳定<br> 电路是靠引入深度电压负反馈来稳定输出电压的</li>
+<li>5.4 输出电压的调整范围<br> 利用理想运放深度负反馈满足的虚短虚断条件容易得到：<br> $$U_{Z}=u_{P}=u_{N}=\frac{R_{3}+R_{2}’}{R_{1}+R_{2}+R_{3}}U_{o}$$<br> 因此调节范围显然为<br> $$\begin{aligned}<br>  \frac{R_{1}+R_{2}+R_{3}}{R_{2}+R_{3}}U_{Z}\le U_{o} \le\frac{R_{1}+R_{2}+R_{3}}{R_{3}}U_{Z}<br> \end{aligned}$$</li>
+<li>5.5 正常稳压时调整管满足的条件<br> 整个电路中调整管(晶体管)是核心元件，其应工作在放大区，因此可以得到约束条件为<br> $$U_{CE(min)}&gt;U_{CES}$$<br> 而管压降的最小值，显然是在当供给给集电极电压最小而射极的输出电压值最大时产生的<br> $$\begin{aligned}<br>  U_{E(max)}=U_{O(max)}<br> \end{aligned}$$<br> 对与$U_{C(min)}$，则需要根据前面连接的电路是电容滤波电路，还是桥式整流电路，抑或是其他电路，进行具体分析</li>
+</ul>
+<hr>
+<span class="p center logo ultra blue">THE END</span>
+
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Analog-circuit/">Analog circuit</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Analog-Circuit-QAQ/">Analog Circuit-QAQ</a>
+                    
+                  </div>
+                
+              </div>
+              <div id="tingliu" style="text-align:center; vertical-align: middle; color: #ff1144; font-weight: bold; font-size: x-large;"> 
+                <span class="tingliu2">您阅读这篇文章共花了：</span> 
+                <span class="tingliu3" id="stime"></span> 
+              </div> 
+              <script language="JavaScript">
+                var ss = 0, mm = 0, hh = 0; 
+                function TimeGo() { 
+                  ss++; 
+                  if (ss >= 60) { 
+                    mm += 1; ss = 0 
+                  }
+                  if (mm >= 60) { 
+                    hh += 1; mm = 0 
+                  } 
+                  ss_str = (ss < 10 ? "0" + ss : ss); 
+                  mm_str = (mm < 10 ? "0" + mm : mm); 
+                  tMsg = "" + hh + "小时" + mm_str + "分" + ss_str + "秒"; 
+                  document.getElementById("stime").innerHTML = tMsg; 
+                  setTimeout("TimeGo()", 1000) 
+                } 
+                TimeGo(); 
+              </script> 
+            <!-- 这里是小U自定义的 -->
+            
+    <div class="business-center">
+        <div class="business-card">
+            <div class="business-flip">
+                <div class="business-front">
+                    <div class="business-strip-bottom"></div>
+                    <div class="business-strip-top"></div><img class="business-logo entered loaded" width="80" height="80" data-lazy-src="/assets/cardcode.png" srcset="/img/loading.gif" lazyload alt="cardcode" src=https://ustc-nku.github.io/Personal-main/assets/img/wechat.jpg data-ll-status="loaded">
+                    <div class="business-Invitation">Invitation</div>
+                    <div class="business-chip">
+                        <div class="business-chip-line"></div>
+                        <div class="business-chip-line"></div>
+                        <div class="business-chip-line"></div>
+                        <div class="business-chip-line"></div>
+                        <div class="business-chip-main"></div>
+                    </div>
+                    <svg class="business-wave" viewBox="0 3.71 26.959 38.787" width="26.959" height="38.787" fill="white"><path d="M19.709 3.719c.266.043.5.187.656.406 4.125 5.207 6.594 11.781 6.594 18.938 0 7.156-2.469 13.73-6.594 18.937-.195.336-.57.531-.957.492a.9946.9946 0 0 1-.851-.66c-.129-.367-.035-.777.246-1.051 3.855-4.867 6.156-11.023 6.156-17.718 0-6.696-2.301-12.852-6.156-17.719-.262-.317-.301-.762-.102-1.121.204-.36.602-.559 1.008-.504z"></path><path d="M13.74 7.563c.231.039.442.164.594.343 3.508 4.059 5.625 9.371 5.625 15.157 0 5.785-2.113 11.097-5.625 15.156-.363.422-1 .472-1.422.109-.422-.363-.472-1-.109-1.422 3.211-3.711 5.156-8.551 5.156-13.843 0-5.293-1.949-10.133-5.156-13.844-.27-.309-.324-.75-.141-1.114.188-.367.578-.582.985-.542h.093z"></path><path d="M7.584 11.438c.227.031.438.144.594.312 2.953 2.863 4.781 6.875 4.781 11.313 0 4.433-1.828 8.449-4.781 11.312-.398.387-1.035.383-1.422-.016-.387-.398-.383-1.035.016-1.421 2.582-2.504 4.187-5.993 4.187-9.875 0-3.883-1.605-7.372-4.187-9.875-.321-.282-.426-.739-.266-1.133.164-.395.559-.641.984-.617h.094zM1.178 15.531c.121.02.238.063.344.125 2.633 1.414 4.437 4.215 4.437 7.407 0 3.195-1.797 5.996-4.437 7.406-.492.258-1.102.07-1.36-.422-.257-.492-.07-1.102.422-1.359 2.012-1.075 3.375-3.176 3.375-5.625 0-2.446-1.371-4.551-3.375-5.625-.441-.204-.676-.692-.551-1.165.122-.468.567-.785 1.051-.742h.094z"></path></svg>
+                    <div class="business-card-number">
+                        <div class="business-section">USTC-茶糜花开</div>
+                        <div class="business-section">FeynmanDirac</div>
+                    </div>
+                    <div class="business-end"><span class="business-end-text">created:</span><span class="business-end-date">12/03/2022</span></div>
+                    <div class="business-card-holder">Welcome to USTC-茶糜花开</div>
+                    <div class="business-master">
+                        <div class="business-circle business-master-red"></div>
+                        <div class="business-circle business-master-yellow"></div>
+                    </div>
+                </div>
+                <div class="business-back">
+                    <div class="business-strip-black"></div>
+                    <div class="business-ccv"><label>sitelink</label>
+                        <div><a target="_blank" rel="noopener external nofollow noreferrer" href="https://jq.qq.com/?_wv=1027&amp;k=hGNxNGdb"><a href="https://blog.starysky.top" target="_blank">https://blog.starysky.top</a></a></div>
+                    </div>
+                    <div class="business-terms">
+                        <p>This is an identification card as an honored membership of FeynmanDirac</p>
+                        <p>Happy to see you follow FeynmanDirac, enjoy science together</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            
+              
+              <div class="col-lg-7 mx-auto nopadding-x-md">  
+                <div class="post-reward">
+                  <button class="tip-button reward-button">
+                    <span class="tip-button__text">小U的融媒体矩阵</span>
+                    <div class="coin-wrapper">
+                      <div class="coin">
+                        <div class="coin__middle"></div>
+                        <div class="coin__back"></div>
+                        <div class="coin__front"></div>
+                      </div>
+                    </div>
+                    <div class="reward-main">
+                      <ul class="reward-all">
+                        <li class="reward-item">
+                          <a href="	https://ustc-nku.github.io/Personal-main/assets/img/wechat.jpg" rel="external nofollow noreferrer" target="_blank">
+                            <img class="post-qr-code-img entered loaded" src="	https://ustc-nku.github.io/Personal-main/assets/img/wechat.jpg" srcset="/img/loading.gif" lazyload data-lazy-src="	https://ustc-nku.github.io/Personal-main/assets/img/wechat.jpg" alt="wechat" data-ll-status="loaded">
+                          </a>
+                          <div class="post-qr-code-desc">小Uの公众</div>
+                        </li>
+                        <li class="reward-item">
+                          <a href="/img/profile.png" rel="external nofollow noreferrer" target="_blank">
+                            <img class="post-qr-code-img entered loaded" src="/img/profile.png" srcset="/img/loading.gif" lazyload data-lazy-src="/img/profile.png" alt="mystery" data-ll-status="loaded">
+                          </a>
+                          <div class="post-qr-code-desc">小Uの小屋</div>
+                        </li>
+                      </ul>
+                    </div>
+                  </button>
+                </div>
+              </div>
+                <audio id="coinAudio" src="https://npm.elemecdn.com/akilar-candyassets/audio/Launcher.mp3"></audio>
+                <script type="text/javascript">
+                var tipButtons = document.querySelectorAll('.tip-button')
+
+                  function coinAudio() {
+                    var coinAudio = document.getElementById("coinAudio");
+                    if (coinAudio) {
+                      coinAudio.play();//有音频时播放
+                    }
+                  }
+                  // Loop through all buttons (allows for multiple buttons on page)
+                  tipButtons.forEach((button) => {
+                    var coin = button.querySelector('.coin')
+
+                    // The larger the number, the slower the animation
+                    coin.maxMoveLoopCount = 90
+
+                    button.addEventListener('click', () => {
+                      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true; //媒体选择
+                      if (button.clicked) return
+                      button.classList.add('clicked')
+
+                      // Wait to start flipping th coin because of the button tilt animation
+                      setTimeout(() => {
+                        // Randomize the flipping speeds just for fun
+                        coin.sideRotationCount = Math.floor(Math.random() * 5) * 90
+                        coin.maxFlipAngle = (Math.floor(Math.random() * 4) + 3) * Math.PI
+                        button.clicked = true
+                        flipCoin()
+                        coinAudio()
+                      }, 50)
+                    })
+
+                    var flipCoin = () => {
+                      coin.moveLoopCount = 0
+                      flipCoinLoop()
+                    }
+
+                    var resetCoin = () => {
+                      coin.style.setProperty('--coin-x-multiplier', 0)
+                      coin.style.setProperty('--coin-scale-multiplier', 0)
+                      coin.style.setProperty('--coin-rotation-multiplier', 0)
+                      coin.style.setProperty('--shine-opacity-multiplier', 0.4)
+                      coin.style.setProperty('--shine-bg-multiplier', '50%')
+                      coin.style.setProperty('opacity', 1)
+                      // Delay to give the reset animation some time before you can click again
+                      setTimeout(() => {
+                        button.clicked = false
+                      }, 300)
+                    }
+
+                    var flipCoinLoop = () => {
+                      coin.moveLoopCount++
+                      var percentageCompleted = coin.moveLoopCount / coin.maxMoveLoopCount
+                      coin.angle = -coin.maxFlipAngle * Math.pow((percentageCompleted - 1), 2) + coin.maxFlipAngle
+
+                      // Calculate the scale and position of the coin moving through the air
+                      coin.style.setProperty('--coin-y-multiplier', -11 * Math.pow(percentageCompleted * 2 - 1, 4) + 11)
+                      coin.style.setProperty('--coin-x-multiplier', percentageCompleted)
+                      coin.style.setProperty('--coin-scale-multiplier', percentageCompleted * 0.6)
+                      coin.style.setProperty('--coin-rotation-multiplier', percentageCompleted * coin.sideRotationCount)
+
+                      // Calculate the scale and position values for the different coin faces
+                      // The math uses sin/cos wave functions to similate the circular motion of 3D spin
+                      coin.style.setProperty('--front-scale-multiplier', Math.max(Math.cos(coin.angle), 0))
+                      coin.style.setProperty('--front-y-multiplier', Math.sin(coin.angle))
+
+                      coin.style.setProperty('--middle-scale-multiplier', Math.abs(Math.cos(coin.angle), 0))
+                      coin.style.setProperty('--middle-y-multiplier', Math.cos((coin.angle + Math.PI / 2) % Math.PI))
+
+                      coin.style.setProperty('--back-scale-multiplier', Math.max(Math.cos(coin.angle - Math.PI), 0))
+                      coin.style.setProperty('--back-y-multiplier', Math.sin(coin.angle - Math.PI))
+
+                      coin.style.setProperty('--shine-opacity-multiplier', 4 * Math.sin((coin.angle + Math.PI / 2) % Math.PI) - 3.2)
+                      coin.style.setProperty('--shine-bg-multiplier', -40 * (Math.cos((coin.angle + Math.PI / 2) % Math.PI) - 0.5) + '%')
+
+                      // Repeat animation loop
+                      if (coin.moveLoopCount < coin.maxMoveLoopCount) {
+                        if (coin.moveLoopCount === coin.maxMoveLoopCount - 6) button.classList.add('shrink-landing')
+                        window.requestAnimationFrame(flipCoinLoop)
+                      } else {
+                        button.classList.add('coin-landed')
+                        coin.style.setProperty('opacity', 0)
+                        setTimeout(() => {
+                          button.classList.remove('clicked', 'shrink-landing', 'coin-landed')
+                          setTimeout(() => {
+                            resetCoin()
+                          }, 300)
+                        }, 1500)
+                      }
+                    }
+                  })
+                </script>
+                <style>
+                  :root {
+                    --btn-hover-color: #6842ff;
+                  --btn-color: #fff;
+                  --btn-bg: #ff8080;
+                  --reward-pop: #f5f5f5;
+                  }
+                  .post-reward {
+                  position: relative;
+                  margin-top: 2rem;
+                  width: 100%;
+                  text-align: center
+                  }
+              
+                  .post-reward .reward-button {
+                      display: inline-block;
+                      padding: .2rem 1.2rem;
+                      background: var(--btn-bg);
+                      color: var(--btn-color);
+                      cursor: pointer;
+                      -webkit-transition: all .4s;
+                      -moz-transition: all .4s;
+                      -o-transition: all .4s;
+                      -ms-transition: all .4s;
+                      transition: all .4s
+                  }
+              
+                  .post-reward .reward-button:hover {
+                      -webkit-box-shadow: inset 15em 0 0 0 var(--btn-hover-color);
+                      box-shadow: inset 15em 0 0 0 var(--btn-hover-color)
+                  }
+              
+                  .post-reward .reward-button:hover .reward-main {
+                      display: block
+                  }
+              
+                  .post-reward .reward-button .reward-main {
+                      position: absolute;
+                      bottom: 40px;
+                      left: -25%;
+                      z-index: 100;
+                      display: none;
+                      padding: 0 0 15px;
+                      width: 150%
+                  }
+                  
+                  .post-reward .reward-button .reward-main .reward-all {
+                      display: inline-block;
+                      margin: 0;
+                      padding: 1rem .5rem;
+                      border-radius: 4px;
+                      background: url("https://ustc-nku.github.io/Personal-main/assets/img/app-qr-bg.png");
+                      background-size: contain;
+                  }
+              
+                  .post-reward .reward-button .reward-main .reward-all:before {
+                      position: absolute;
+                      bottom: -10px;
+                      left: 0;
+                      width: 100%;
+                      height: 20px;
+                      content: ''
+                  }
+              
+                  .post-reward .reward-button .reward-main .reward-all:after {
+                      position: absolute;
+                      right: 0;
+                      bottom: 2px;
+                      left: 0;
+                      margin: 0 auto;
+                      width: 0;
+                      height: 0;
+                      border-top: 13px solid var(--reward-pop);
+                      border-right: 13px solid transparent;
+                      border-left: 13px solid transparent;
+                      content: ''
+                  }
+              
+                  .post-reward .reward-button .reward-main .reward-all .reward-item {
+                      display: inline-block;
+                      padding: 0 6px;
+                      list-style-type: none;
+                      vertical-align: top
+                  }
+              
+                  .post-reward .reward-button .reward-main .reward-all .reward-item img {
+                      width: 130px;
+                      height: 130px
+                  }
+              
+                  .post-reward .reward-button .reward-main .reward-all .reward-item .post-qr-code-desc {
+                      padding-top: .4rem;
+                      width: 130px;
+                      color: #858585
+                  }
+                </style>   
+              
+              
+              <div class="em09 muted-3-color">
+                <div>
+                  <span>©</span> 版权声明
+                </div>
+                <div id="minipost">
+    <div class="minipost-copyright">
+        <div class="minipost-copyright__title">
+            <span class="minipost-copyright-info">
+                <h>Analog-Circuit-QAQ</h>
+            </span>
+        </div>
+        <div class="minipost-copyright__type">
+            <span class="minipost-copyright-info">
+                <a href="https://blog.starysky.top/2021/12/31/Analog-circuit-QAQ/index.html" onclick="copyPageUrl()" data-pjax-state="">链接：传送门</a>
+            </span>
+        </div>
+        <div class="minipost-copyright-m">
+            <div class="minipost-copyright-m-info">
+                <div class="minipost-copyright-a">
+                    <h>作者</h>
+                    <div class="minipost-copyright-cc-info">
+                        <h>USTC-elbitsiserri</h>
+                    </div>
+                </div>
+                <div class="minipost-copyright-c">
+                    <h>创作于</h>
+                    <div class="minipost-copyright-cc-info">
+                        <h>2021-12-31</h>
+                    </div>
+                </div>
+                <div class="minipost-copyright-u">
+                    <h>更新于</h>
+                    <div class="minipost-copyright-cc-info">
+                        <h>2022-01-09</h>
+                    </div>
+                </div>
+                <div class="minipost-copyright-c">
+                    <h>许可协议</h>
+                    <div class="minipost-copyright-cc-info">
+                        <a class="icon" rel="noopener external nofollow noreferrer" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                            <i class="fa fa-creative-commons"></i>
+                        </a>
+                        <a rel="noopener external nofollow noreferrer" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function copyUrl(id) {
+        $("body").after("<input id='copyVal'></input>");
+        var text = id;
+        var input = document.getElementById("copyVal");
+        input.value = text;
+        input.select();
+        input.setSelectionRange(0, input.value.length);   
+        document.execCommand("copy");
+        $("#copyVal").remove();
+    }
+    function copyPageUrl(){
+        var url = window.location.href;
+        copyUrl(url);
+        // btf.snackbarShow('复制本页链接地址成功');
+        $('#rightmenu-wrapper').attr('style','display: none');
+    }
+</script>
+<style>
+    @font-face {
+    font-family: "Font Awesome 5 Brands";
+    font-display: block;
+    font-weight: 400;
+    src: url(https://npm.elemecdn.com/@fortawesome/fontawesome-free@6/webfonts/fa-brands-400.woff2) format("woff2"),url(../webfonts/fa-brands-400.ttf) format("truetype")
+    }
+    #minipost .minipost-copyright {
+    position: relative;
+    margin: 40px 0 10px;
+    padding: 10px 16px;
+    border: 1px solid #4c4948;
+    -webkit-transition: box-shadow .3s ease-in-out;
+    -moz-transition: box-shadow .3s ease-in-out;
+    -o-transition: box-shadow .3s ease-in-out;
+    -ms-transition: box-shadow .3s ease-in-out;
+    transition: box-shadow .3s ease-in-out;
+    overflow: hidden;
+    border-radius: 12px!important;
+    background-color: #eff1f3;
+    }
+    #minipost .minipost-copyright:before {
+    background: rgba(255,128,128,0.1);
+    position: absolute;
+    display: flex;
+    right: -26px;
+    top: -120px;
+    content: '\f25e';
+    font-size: 200px;
+    font-family: 'Font Awesome 5 Brands';
+    opacity: .2
+    }
+    #minipost .minipost-copyright:hover {
+        -webkit-box-shadow: 0 0 8px 0 rgba(232,237,250,.6),0 2px 4px 0 rgba(232,237,250,.5);
+        box-shadow: 0 0 8px 0 rgba(232,237,250,.6),0 2px 4px 0 rgba(232,237,250,.5)
+    }
+    #minipost .minipost-copyright .minipost-copyright-meta {
+        color: #ff8080;
+        font-weight: 700
+    }
+    #minipost .minipost-copyright .minipost-copyright-info {
+        padding-left: 6px
+    }
+    #minipost .minipost-copyright .minipost-copyright-info a {
+        text-decoration: none;
+        word-break: break-word
+    }
+    #minipost .minipost-copyright .minipost-copyright-info a:hover {
+        text-decoration: none
+    }
+    #minipost .minipost-copyright-cc-info {
+        color: #ff8080
+    } 
+    .minipost-copyright-m-info .minipost-copyright-a,.minipost-copyright-m-info .minipost-copyright-c,.minipost-copyright-m-info .minipost-copyright-u {
+    display: inline-block;
+    width: fit-content;
+    padding: 2px 5px
+    }
+    #minipost .minipost-copyright__title {
+        font-size: 22px
+    }
+    #minipost .minipost-copyright__notice {
+        font-size: 15px
+    }
+    #minipost .minipost-copyright {
+        -webkit-box-shadow: 2px 2px 5px;
+        box-shadow: 2px 2px 5px
+    }  
+    .copyright span {
+    vertical-align: super
+    } 
+    .copyright svg {
+    -webkit-animation: butterfly 1s linear infinite alternate;
+    -moz-animation: butterfly 1s linear infinite alternate;
+    -o-animation: butterfly 1s linear infinite alternate;
+    -ms-animation: butterfly 1s linear infinite alternate;
+    animation: butterfly 1s linear infinite alternate
+    }
+</style>
+                <div class="posts-copyright"> <!--网站声明代码start-->
+                <fieldset style=" border: 1.5px dashed #008cff; padding: 10px; border-radius: 5px; line-height: 2em;font-weight: 700;color: var(--key-color);background-color: var(--body-bg-color);">
+                      <legend align="center" style=" margin-bottom: -2px;width: 30%;text-align: center; background-color: #008cff; border-radius: 999px; background-image: linear-gradient(120deg, #eb150e 0%, #e102ff 100%);border: 1.5px dashed #008cff;">
+                        免责声明
+                      </legend>
+                      <span class="btn-info btn-xs"><i class="fa fa-gavel" aria-hidden="true"></i> 1</span> 小站名称：<span style="color: #3333ff"><span style="color: #09ace2; font-size: 18px"><strong>USTC-茶糜花开</strong></span></span><br>
+                      <span class="btn-info btn-xs"><i class="fa fa-gavel" aria-hidden="true"></i> 2</span> 小站网址：<font color="#09ace2"><a href="https://blog.starysky.top">https://blog.starysky.top</a></font><br>
+                      <span class="btn-info btn-xs"><i class="fa fa-gavel" aria-hidden="true"></i> 3</span> 除标注`转载`字样的文章外，小站所发布的文章由小U均由撰写，仅供学习参考，我们尽最大能力保障文章内容的准确性和科学性<br>
+                      <span class="btn-info btn-xs"><i class="fa fa-gavel" aria-hidden="true"></i> 4</span> 小站所转载的文章的内容与观点，不代表`USTC-茶糜花开`的立场，文章所有权归属作者所有<br>
+                      <span class="btn-info btn-xs"><i class="fa fa-gavel" aria-hidden="true"></i> 5</span> 小站将在《中华人民共和国网络安全法》、《中华人民共和国计算机信息系统安全保护条例》等法律法规的框架下依法依规运行<br>
+                      <span class="btn-info btn-xs"><i class="fa fa-gavel" aria-hidden="true"></i> 7</span> 本站文章采用<strong>知识共享署名-相同方式共享 4.0 国际许可协议</strong>进行许可，阅读后请勿用于任何未授权用途<br>
+                    </fieldset>
+                  <!--网站声明代码end-->
+                </div>
+              </div>
+
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/01/02/Atomic-Optics-QAQ/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Atomic-Optics-QAQ</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/12/%E8%83%8C%E8%AF%B5%E7%AF%87%E7%9B%AE/">
+                        <span class="hidden-mobile">2021双十二彩蛋之诗文背诵</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+    <div id="vaptchaContainer" title="要先验证才能评论哦 >_< ">
+        <div class="vaptcha-init-main">
+            <div class="vaptcha-init-loading">
+                <img src="https://r.vaptcha.net/public/img/vaptcha-loading.gif" srcset="/img/loading.gif" lazyload />
+                <span class="vaptcha-text">验证码启动中...</span>
+            </div>
+        </div>
+    </div>
+    <div id="Captcha" title="要先验证才能评论哦 >_< "><p id="CaptchaText"><i class="fa fa-shield" aria-hidden="true">备用人机验证</i></p></div>
+    <script src="https://v-cn.vaptcha.com/v3.js"></script>
+    <script>
+        vaptcha({
+            vid: '6209e51fb5b91cdd5d5aa843',
+            type: 'click',
+            container: '#vaptchaContainer',
+        }).then(function(vaptchaObj) {
+            vaptchaObj.listen("pass", function() {
+                document.getElementById("wl-edit").removeAttribute("disabled");
+                document.getElementById("wl-nick").removeAttribute("disabled");
+                document.getElementById("wl-mail").removeAttribute("disabled");
+            });
+            vaptchaObj.render()
+        })
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/april-comment@latest/dist/index.js"></script> -->
+    <style>
+        #vaptchaContainer {
+            width: 100%;
+            height: 36px;
+            vertical-align: middle;
+        }
+        
+        .vaptcha-init-main {
+            display: table;
+            width: 100%;
+            height: 100%;
+            background-color: #eeeeee;
+        }
+        
+        .vaptcha-init-loading {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        
+        .vaptcha-init-loading>a {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: none;
+        }
+        
+        .vaptcha-init-loading>a img {
+            vertical-align: middle;
+        }
+        
+        .vaptcha-init-loading .vaptcha-text {
+            font-family: sans-serif;
+            font-size: 12px;
+            color: #cccccc;
+            vertical-align: middle;
+        }
+        #Captcha {
+            margin-top: 10px;
+            display: -webkit-box!important;
+            display: -ms-flexbox!important;
+            display: flex!important;
+            -webkit-box-align: center!important;
+            -ms-flex-align: center!important;
+            align-items: center!important;
+            border-radius: 5px;
+            width: 100%;
+            height: 36px;
+            background-color: #2113df;
+            user-select: none;
+            transition: all .5s ease-in-out;
+            vertical-align: middle;
+        }
+
+        #CaptchaText {
+            vertical-align: middle;
+            margin-right: auto!important;
+            margin-left: auto!important;
+            margin-top: 10px;
+            word-spacing: 5px;
+            font-size: 13px;
+            color: #fff;
+            display: inline-flex;
+            line-height: 0;
+            align-items: center;
+        }
+    </style>
+    <!-- 第二验证系统 备选 -->
+    <script>
+        let svg_clock = "<svg style='margin-right: 5px; fill: #a9a9a9;' viewBox='0 0 1024 1024' version='1.1' width='15' height='15'><path d='M512 938.666667c235.637333 0 426.666667-191.029333 426.666667-426.666667S747.637333 85.333333 512 85.333333 85.333333 276.362667 85.333333 512s191.029333 426.666667 426.666667 426.666667zM329.376 649.376L480 498.741333V320a32 32 0 0 1 64 0v192a32 32 0 0 1-9.376 22.624l-160 160a32 32 0 1 1-45.248-45.248z'></path></svg>";
+        let svg_coin = "<svg viewBox='0 0 1024 1024' version='1.1' width='15' height='15' style='margin-right:2px;margin-left:15px;'><path d='M512 64a448 448 0 1 1 0 896A448 448 0 0 1 512 64z m0 64a384 384 0 1 0 0 768A384 384 0 0 0 512 128z m155.52 118.144c20.224 0 36.608 14.912 36.608 33.28 0 18.432-16.384 33.344-36.608 33.344H545.28v61.12a210.56 210.56 0 0 1 199.552 197.76l0.384 11.904v44.48a33.28 33.28 0 0 1-66.112 5.952l-0.512-5.952v-44.48a143.936 143.936 0 0 0-123.2-141.888l-10.112-1.152v311.04a33.28 33.28 0 0 1-66.112 5.952l-0.512-6.016V440.512A143.936 143.936 0 0 0 345.728 573.44l-0.384 10.112v44.48a33.28 33.28 0 0 1-66.112 5.952l-0.512-5.952v-44.48a210.56 210.56 0 0 1 187.968-208.704l11.904-0.96v-61.12H350.72c-20.16 0-36.48-14.912-36.48-33.28 0-18.432 16.32-33.28 36.48-33.28h316.8z' fill='#a9a9a9'></path></svg>";
+        let svg_eye = "<svg viewBox='0 0 1024 1024' version='1.1' width='15' height='15' style='margin-right: 2px;'><path d='M512 256C339.2 256 188.8 360.32 128 512c60.8 148.544 211.2 256 384 256s323.2-104.32 384-256c-60.8-148.544-211.2-256-384-256z m0 448.768c-134.4 0-256-75.84-313.6-192.768C256 395.072 377.6 319.232 512 319.232c134.4 0 256 75.84 313.6 192.768-57.6 116.928-179.2 192.768-313.6 192.768z' fill='#a9a9a9' p-id='2575'></path><path d='M512 374.144c-78.976 0-141.44 60.928-141.44 137.856s62.464 137.856 141.44 137.856S653.44 588.928 653.44 512 591.04 374.144 512 374.144z m0 211.584c-42.752 0-75.648-32-75.648-73.728 0-19.2 6.528-38.464 23.04-51.264 13.12-12.8 32.896-22.464 52.608-22.464 42.752 0 75.648 32 75.648 73.728 0 41.664-32.896 73.728-75.648 73.728z' fill='#a9a9a9'></path></svg>";
+        let svg_forks = "<svg height='15' viewBox='0 0 16 16' version='1.1' width='15' style='margin-left: 20px; margin-right: 5px;'><path d='M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z' fill='#a9a9a9'></path></svg>";
+        let svg_like = "<svg viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' width='15' height='15' style='margin-right:2px;margin-left:15px;'><path d='M857.28 344.992h-264.832c12.576-44.256 18.944-83.584 18.944-118.208 0-78.56-71.808-153.792-140.544-143.808-60.608 8.8-89.536 59.904-89.536 125.536v59.296c0 76.064-58.208 140.928-132.224 148.064l-117.728-0.192A67.36 67.36 0 0 0 64 483.04V872c0 37.216 30.144 67.36 67.36 67.36h652.192a102.72 102.72 0 0 0 100.928-83.584l73.728-388.96a102.72 102.72 0 0 0-100.928-121.824zM128 872V483.04c0-1.856 1.504-3.36 3.36-3.36H208v395.68H131.36A3.36 3.36 0 0 1 128 872z m767.328-417.088l-73.728 388.96a38.72 38.72 0 0 1-38.048 31.488H272V476.864a213.312 213.312 0 0 0 173.312-209.088V208.512c0-37.568 12.064-58.912 34.72-62.176 27.04-3.936 67.36 38.336 67.36 80.48 0 37.312-9.504 84-28.864 139.712a32 32 0 0 0 30.24 42.496h308.512a38.72 38.72 0 0 1 38.048 45.888z' fill='#a9a9a9'></path></svg>";
+        let svg_link = "<svg style='margin-right: .3em; fill: white;' viewBox='0 0 24 24' width='17' height='17'><path d='M6.77 17.23c-.905-.904-.94-2.333-.08-3.193l3.059-3.06-1.192-1.19-3.059 3.058c-1.489 1.489-1.427 3.954.138 5.519s4.03 1.627 5.519.138l3.059-3.059-1.192-1.192-3.059 3.06c-.86.86-2.289.824-3.193-.08zm3.016-8.673l1.192 1.192 3.059-3.06c.86-.86 2.289-.824 3.193.08.905.905.94 2.334.08 3.194l-3.059 3.06 1.192 1.19 3.059-3.058c1.489-1.489 1.427-3.954-.138-5.519s-4.03-1.627-5.519-.138L9.786 8.557zm-1.023 6.68c.33.33.863.343 1.177.029l5.34-5.34c.314-.314.3-.846-.03-1.176-.33-.33-.862-.344-1.176-.03l-5.34 5.34c-.314.314-.3.846.03 1.177z'></path></svg>";
+        let svg_star = "<svg viewBox='0 0 1024 1024' version='1.1' width='15' height='15' style='margin-right: 5px;'><path d='M990.001163 397.159462c-8.28878-23.338544-29.716812-40.327474-55.435567-44.030819l-250.637364-36.065404L574.996265 98.200556c-11.404748-22.985504-36.007075-37.652552-62.989613-37.652552-26.925233 0-51.52756 14.667048-62.959937 37.652552L340.114746 317.063239l-250.636341 36.065404c-25.806759 3.703345-47.117111 20.693298-55.435567 44.030819-8.318456 23.339568-1.998517 49.028647 16.195867 66.546625l183.620018 177.477111-42.591027 246.139933c-4.290723 24.778336 6.819313 49.6457 28.512381 64.194044 12.021801 7.907087 26.071795 11.933797 40.092114 11.933797 11.552104 0 23.162536-2.733251 33.596166-8.082072l218.540342-110.313431 218.539318 110.313431c10.465352 5.349845 22.104437 8.082072 33.625842 8.082072 14.020318 0 28.099988-4.027733 40.121789-11.933797 21.663392-14.549368 32.773428-39.416731 28.393677-64.194044l-42.531676-246.139933 183.679369-177.477111C992.030379 446.189132 998.201939 420.49903 990.001163 397.159462zM727.40135 576.283072c-17.753339 17.136286-27.541263 40.621163-27.541263 64.900126 0 5.14416 0.411369 10.257621 1.323135 15.402805 0 0 24.101931 139.559523 34.595936 200.286606-49.733705-25.1324-183.090968-92.413759-183.090968-92.413759-12.814864-6.465249-26.777877-9.699919-40.680515-9.699919-13.932314 0-27.894304 3.233648-40.680515 9.699919 0 0-133.416616 67.340711-183.15032 92.413759 10.522658-60.727083 34.654264-200.286606 34.654264-200.286606 0.911766-5.14416 1.323135-10.257621 1.323135-15.402805 0-24.278963-9.787924-47.704488-27.570939-64.900126 0 0-97.791234-94.588285-145.614425-140.764977 63.196321-9.111518 202.020086-29.099758 202.020086-29.099758 29.363771-4.174066 54.760185-22.603811 67.957765-49.087998 0 0 66.075905-132.856867 91.059925-183.001941 25.013697 50.261731 91.090625 183.001941 91.090625 183.001941 13.227256 26.484188 38.622646 44.913932 67.986417 49.087998 0 0 138.854465 19.987217 202.02111 29.099758C825.33994 481.69581 727.40135 576.283072 727.40135 576.283072z' fill='#a9a9a9'></path></svg>";
+        let svg_tag = "<svg style='margin-left: 20px; margin-right: 5px; fill: #a9a9a9;' viewBox='0 0 1024 1024' version='1.1' width='15' height='15'><path d='M115.7 615.7c-19.4-19.4-19.4-50.8 0-70.1L567.9 93.3l0.2-0.2c3.2-3.1 1.1-8.5-3.4-8.5h-53.3c-7.2 0.5-13.9 3.6-19 8.6L43.6 542.1c-21.3 21.3-21.3 55.8 0 77.1l320.7 320.7c11.6 11.6 30.5 11.6 42.1 0 9.2-9.2 9.2-24.2 0-33.5L115.7 615.7z' ></path><path d='M944.8 97.8l-313.5 19.1c-6.7 0.4-13.1 3.3-17.8 8L193.9 544.4c-18 18-18 47.1 0 65l300.8 300.8c10.8 10.8 28.3 10.8 39 0l432.6-432.6c4.8-4.8 7.6-11.1 8-17.8l19.2-313.3c1.7-27.6-21.2-50.4-48.7-48.7z m-124.7 232c-32.5 0-58.8-26.3-58.8-58.8s26.3-58.8 58.8-58.8 58.8 26.3 58.8 58.8-26.4 58.8-58.8 58.8z' ></path></svg>";
+        let svg_success = "<svg style='position: absolute;left: 25px' width='30'height='30'viewBox='0 0 100 100'fill='none'xmlns='http://www.w3.org/2000/svg'><path d='M36 50L46 60L67.5 38'stroke='transparent'stroke-width='4'stroke-linecap='round'stroke-linejoin='round'stroke-dasharray='45'stroke-linecap='round'><animate attributeName='stroke'begin='0s'values='transparent; #FFF'dur='.5s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/><animate attributeName='stroke-dashoffset'begin='0s'values='45; 0'dur='1s'fill='freeze'calcMode='spline'keySplines='0.89, 0, 0.38, 0.88'/></path><circle cx='50.5'cy='50.5'r='31'stroke='transparent'stroke-width='5'fill='transparent'stroke-dasharray='195'stroke-linecap='round'><animate attributeName='stroke'begin='0s'values='transparent; #FFF'dur='.5s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/><animate attributeName='stroke-dashoffset'begin='0s'values='195; 0'dur='1s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/></circle></svg>";
+        let svg_error = "<svg style='position: absolute;left: -2px' width='30'height='30'viewBox='0 0 100 100'><circle cx='50.5'cy='50.5'r='31'stroke-width='5'fill='transparent'stroke-dasharray='195'stroke-linecap='round'><animate attributeName='stroke'begin='0s'values='transparent; #FFF'dur='.5s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/><animate attributeName='stroke-dashoffset'begin='0s'values='195; 0'dur='1s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/></circle><line x1='38.1213'y1='37'x2='64.9914'y2='63.8701'fill='transparent'stroke='transparent'stroke-width='4'stroke-dasharray='40'stroke-linecap='round'><animate attributeName='stroke'begin='0s'values='transparent; #FFF'dur='.5s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/><animate attributeName='stroke-dashoffset'begin='0s'values='40; 0'dur='1s'fill='freeze'calcMode='spline'keySplines='0.89, 0, 0.38, 0.88'/></line><line x1='64.9914'y1='37.1213'x2='38.1213'y2='63.9914'stroke='transparent'stroke-width='4'stroke-dasharray='40'stroke-linecap='round'><animate attributeName='stroke'begin='.5s'values='transparent; #FFF'dur='.5s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/><animate attributeName='stroke-dashoffset'begin='.5s'values='40; 0'dur='1s'fill='freeze'calcMode='spline'keySplines='0.89, 0, 0.38, 0.88'/></line></svg>";
+        let svg_upload = "<svg width='22'height='22'viewBox='0 0 100 100'xmlns='http://www.w3.org/2000/svg'><path d='M73.0527 44.3894C70.8689 33.7861 61.5127 25.6771 49.9752 25.6771C40.9274 25.6771 33.1338 30.6702 29.392 38.1558C19.723 39.3985 12.5505 47.197 12.5505 56.8681C12.5505 67.1586 20.9725 75.5805 31.2628 75.5805H71.8032C80.538 75.5805 87.3998 68.7164 87.3998 59.9813C87.3999 51.875 80.851 45.0132 73.0527 44.3894Z'fill='transparent'stroke-dasharray='200'stroke-width='5'transform-origin='center'stroke-linecap='round'><animate attributeName='stroke'begin='0s'values='transparent; #868588'dur='.5s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/><animate attributeName='stroke-dashoffset'begin='0s'values='200; 0'dur='1s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/><animate attributeName='stroke-width'begin='.5s'values='5; 0'dur='.8s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/><animate attributeName='fill'begin='.8s'values='transparent; #868588'dur='.8s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/></path><path d='M62.5747 91.3813L51.7429 79.5618C51.0569 78.8127 49.9429 78.8127 49.2568 79.5618L38.4313 91.3882C37.4558 92.4533 38.2677 94.3155 39.5454 94.3155H44.914V111.117C44.914 112.155 45.6819 113 46.6386 113H54.3675C55.3178 113 56.092 112.162 56.092 111.117V94.3087H61.4733C62.7761 94.3087 63.5188 92.4258 62.5747 91.3813Z' style='fill: var(--offWhite);'><animateTransform attributeName='transform'type='translate'begin='1.2s'values='0,0; 0,-27'dur='.4s'fill='freeze'calcMode='spline'keySplines='0.42, 0, 0.56, 1'/></path></svg>";
+
+        var Random = Math.ceil(Math.random() * 10);
+        var Captcha = document.getElementById("Captcha");
+        var CaptchaText = document.getElementById("CaptchaText");
+        // var commentPut = document.getElementById("waline-edit");
+        if (Captcha) {
+            if (true) {
+                var MouseArr = 0;
+                var MousePosition = new Array();
+                Captcha.onmousemove = function(evt) {
+                    var e = evt || event;
+                    if (MouseArr < 50) {
+                        MousePosition[MouseArr] = e.clientX;
+                        CaptchaText.innerHTML = "\u7ee7\u7eed\u79fb\u52a8\u9f20\u6807(" + Math.ceil((MousePosition.length / 50) * 100) + "%)";
+                        MouseArr++
+                    } else {
+                        Captcha.onmousemove = null;
+                        CaptchaText.innerHTML = svg_success + "\u4eba\u673a\u9a8c\u8bc1\u5b8c\u6210";
+                        Captcha.style.backgroundColor = "#00D59F";
+                        // commentPut.removeAttribute("disabled");
+                        document.getElementById("wl-edit").removeAttribute("disabled");
+                        document.getElementById("wl-nick").removeAttribute("disabled");
+                        document.getElementById("wl-mail").removeAttribute("disabled");
+                    }
+                }
+            } else {
+                if (Random < 5) {
+                    Captcha.onclick = function() {
+                        CaptchaText.innerHTML = "\u8bf7\u518d\u70b9\u51fb\u4e00\u6b21";
+                        Captcha.onclick = function() {
+                            Captcha.onclick = null;
+                            CaptchaText.innerHTML = svg_success + "\u4eba\u673a\u9a8c\u8bc1\u5b8c\u6210";
+                            Captcha.style.backgroundColor = "#00D59F";
+                            // commentPut.removeAttribute("disabled");
+                            document.getElementById("wl-edit").removeAttribute("disabled");
+                            document.getElementById("wl-nick").removeAttribute("disabled");
+                            document.getElementById("wl-mail").removeAttribute("disabled");
+                        }
+                    }
+                } else {
+                    Captcha.onclick = function() {
+                        Captcha.onclick = null;
+                        CaptchaText.innerHTML = svg_success + "\u4eba\u673a\u9a8c\u8bc1\u5b8c\u6210";
+                        Captcha.style.backgroundColor = "#00D59F";
+                        // commentPut.removeAttribute("disabled");
+                        document.getElementById("wl-edit").removeAttribute("disabled");
+                        document.getElementById("wl-nick").removeAttribute("disabled");
+                        document.getElementById("wl-mail").removeAttribute("disabled");
+                    }
+                }
+            }
+        }
+    </script>
+    <div id="waline"></div>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/april-comment@latest/dist/index.css" />
+ 
+    <!-- 旧版 主题自带的waline -->
+    <!-- <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@waline/client@0.16.2/dist/Waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://commentation-8caeh54ho-ustc-nku.vercel.app/","placeholder":"祝各位来宾虎年大吉吖~请登陆后评论奥","path":"window.location.pathname","avatar":"wavatar","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":true,"avatarCDN":"","avatarForce":true,"requiredFields":[],"emojiCDN":null,"emojiMaps":null,"anonymous":false,"enableQQ":true,"requiredMeta":["nick","mail"]},
+          {
+            el: '#waline',
+            serverURL: 'https://commentation-8caeh54ho-ustc-nku.vercel.app/',
+            emoji: [
+              'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili',
+              'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq',
+              'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-emoji'
+            ],
+            path: window.location.pathname
+          }
+        )
+        new Waline(options);
+      });
+    });
+  </script>               -->
+
+    <!-- waline cdn引入 -->
+    <!-- <script src="//cdn.jsdelivr.net/npm/@waline/client"></script> -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/waline/2.13.0/waline.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/waline/2.13.0/waline.css">
+    <!-- <script src="/js/client.js" type="text/javascript"></script> -->
+    <script>
+        Waline.init({
+            el: '#waline',
+            serverURL: 'https://waline.starysky.top',
+            lang: 'zh-CN',
+            emoji: [
+                '//cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/Yurui-Neko/',
+                '//cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus',
+                '//cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/Snow-Miku/',
+                '//cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/bilibiliHotKey/',
+                '//cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/Sweetie-Bunny/',
+                '//cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq',
+                '//cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/aodamiao/',
+                '//cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili',
+                '//cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-emoji',
+                // https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN/ 表情包站点大全
+            ],
+            meta: ['nick', 'mail', 'link'],
+            requiredMeta: ['nick', 'mail'],
+            path: window.location.pathname,
+            pagesize: 10,
+            locale: {
+                nick: '旅行者昵称',
+                mail: '是联系方式吖',
+                mailError: '请填写正确的邮件地址',
+                link: '旅行者的小站',
+                sofa: '来发评论吧~',
+                submit: '发射',
+                reply: '回复',
+                cancelReply: '取消回复',
+                comment: '评论',
+                more: '加载更多...',
+                preview: '预览',
+                emoji: '表情',
+                uploadImage: '上传图片',
+                seconds: '秒前',
+                minutes: '分钟前',
+                hours: '小时前',
+                days: '天前',
+                now: '刚刚',
+                uploading: '八百里加急传送中',
+                login: '登录',
+                logout: '退出',
+                admin: '冰墩墩',
+                word: '字',
+                level0: 'HMS皇家橡树号',
+                level1: 'HMS威尔士亲王号',
+                level2: 'HMS英王乔治五世号',
+                level3: 'HMS伊丽莎白女王号',
+                level4: 'KMS提尔皮茨号',
+                level5: 'KMS俾斯麦号',
+                level6: 'KMS欧根亲王号',
+                level7: 'KMS齐柏林伯爵号',
+                level8: 'USS宾夕法尼亚号',
+                level9: 'USS依阿华号',
+                level10: 'CV埃塞克斯号',
+                level11: 'CV普林斯顿号',
+                level12: 'CVB中途岛号',
+                level13: 'CVB罗斯福号',
+                level14: 'CVN企业号',
+                level15: 'CVN福特号'
+            },
+        });
+    </script>
+    <!-- 给waline框架内加注文学气息，替代default placeholder -->
+    <script type="text/javascript">
+        fetch('https://v1.hitokoto.cn/?c=d')
+        .then(response => response.json())
+        .then(data => {
+        document.getElementById("wl-edit").setAttribute("placeholder",data.hitokoto+"————"+data.from);
+        document.getElementById("wl-edit").setAttribute("disabled","true");
+        document.getElementById("wl-edit").setAttribute("title","要先验证才能评论哦");
+        document.getElementById("wl-nick").setAttribute("title","先验证才能输入噢");
+        document.getElementById("wl-mail").setAttribute("title","先验证才能输入噢");
+        document.getElementById("wl-nick").setAttribute("disabled","disabled");
+        document.getElementById("wl-mail").setAttribute("disabled","disabled");
+        })
+        .catch(console.error)
+    </script>
+    <!-- 给placeholder 框架添加右侧背景图 -->
+    <style>
+        .wl-editor {
+            background-image: url(https://n.sinaimg.cn/sinakd20220211s/480/w240h240/20220211/8383-c07f54dde00ef387ad48507d41d38d8c.gif);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right;
+        }
+    </style>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+               </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+    
+  <!-- 旋转 -->
+  <!-- <div class="twopeople">
+        <div class="container" style="height:200px;">
+            <canvas class="illo" width="800" height="800" style="max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;"></canvas>
+        </div>
+        <script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople1.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/zdog.dist.js"></script>
+        <script id="rendered-js" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople.js"></script>
+        <style type="text/css" lang="css">
+            .twopeople{
+                margin: 0;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+            canvas {
+                display: block;
+                margin: 0 auto;
+                cursor: move;
+            }
+        </style>
+  </div> -->
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+
+<!-- Custom -->
+
+
+
+
+
+
+
+
+
+    
+
+    
+        <a id="scroll-top-button" href="#" role="button">
+            <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+        </a>
+    
+
+    
+        <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+
+    
+        <!-- Aplayer -->
+        <script>
+            $(document).on('pjax:start', function() {
+                if (window.aplayers) {
+                    for (let i = 0; i < window.aplayers.length; i++) {
+                        window.aplayers[i].destroy();
+                    }
+                    window.aplayers = [];
+                }
+            });
+        </script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+        <style>
+            .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+                left: -66px !important;
+                /* 默认情况下缩进左侧66px，只留一点箭头部分 */
+            }
+            
+            .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+                left: 0 !important;
+                /* 鼠标悬停是左侧缩进归零，完全显示按钮 */
+            }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/meting/1.2.0/Meting.min.js"></script>
+        <!-- for more help, visit:https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md#%E6%A0%87%E7%AD%BE%E5%8F%82%E6%95%B0 -->
+        <!-- 歌单设置 -->
+        <!-- <div class="aplayer no-destroy" data-id="3442174120" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="true" data-order="circulation" data-preload="none" data-autoplay="false" muted></div> -->
+    
+    <!-- 四季气氛 -->
+    
+    
+    
+        <script src="https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/shuye.js"></script>
+        <script>
+            jQuery(document).ready(function($) {
+                $("body").wpSuperSnow({
+                    flakes: ["https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/007.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/006.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/004.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/005.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/001.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/003.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/002.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/008.png"],
+                    totalFlakes: "100",
+                    zIndex: "999999",
+                    maxSize: "30",
+                    maxDuration: "40",
+                    useFlakeTrans: false
+                })
+            });
+        </script>
+    
+    
+    
+    <!-- 四季结束 -->
+    </main>
+    <!-- fancybox -->
+    
+        <link href="/css/jquery.fancybox.min.css" rel="stylesheet">
+        <script src="/js/jquery.fancybox.min.js" type="text/javascript"></script>
+        <script>
+            $("img").each(function() {
+                var element = document.createElement("a");
+                $(element).attr("data-fancybox", "gallery");
+                $(element).attr("href", $(this).attr("src"));
+                $(element).attr("type", "fancyimg");
+                $(this).wrap(element);
+            });
+        </script>
+    
+
+    <!-- 鼠标特效主体库 -->
+    <!-- fireworks -->
+    
+    <!-- cursorstar -->
+    
+    <!-- core_value -->
+    
+    <!-- 鼠标特效主体库结束 -->
+
+
+    <!-- canvas-nest -->
+    
+    <!-- three.min.js -->
+    
+
+
+    <!-- 节日气氛主体库 -->
+    <link rel="stylesheet" href="/css/spring.css">
+<link rel="stylesheet" href="/css/christmas.css">
+
+  <!-- 春节节日气氛 -->
+
+
+
+
+    <script>
+      // 网站主题切换模式开始 
+      if (localStorage.getItem('themespring') === '1') 
+        { document.body.classList.add('themespring'); } 
+        else if 
+        (matchMedia('(prefers-color-scheme: themespring)').matches) 
+        { document.body.classList.add('themespring'); } 
+        function switchThemesspring() { 
+            var body = document.body; 
+            if(body.classList.contains('themespring')){ 
+                document.body.classList.remove('themespring'); 
+                localStorage.setItem('themespring','0'); 
+                return; 
+              } 
+            else { 
+                document.body.classList.add('themespring'); 
+                localStorage.setItem('themespring','1'); 
+                return; 
+          } 
+      }; // 网站主题切换模式结束
+    </script>
+          <script>
+        // 网站主题切换模式开始 
+        if (localStorage.getItem('themechristmas') === '1') 
+          { document.body.classList.add('themechristmas'); } 
+          else if 
+          (matchMedia('(prefers-color-scheme: themechristmas)').matches) 
+          { document.body.classList.add('themechristmas'); } 
+          function switchThemeschristmas() { 
+              var body = document.body; 
+              if(body.classList.contains('themechristmas')){ 
+                  document.body.classList.remove('themechristmas'); 
+                  localStorage.setItem('themechristmas','0'); 
+                  
+                  return; 
+                } 
+              else { 
+                  document.body.classList.add('themechristmas'); 
+                  localStorage.setItem('themechristmas','1'); 
+                  return; 
+            } 
+        }; // 网站主题切换模式结束
+      </script>
+    <!-- 节日气氛主体结束 -->
+
+    <footer class="text-center mt-5 py-3" id="footer">
+  <!-- 评论打字机效果，来自@Vian大佬 -->
+  <script type="text/javascript" src="https://vian.top/dzj.js"></script>
+<!--背景云雾特效-->
+  <div id="footer-wrap">
+    <!-- <section class="fog">
+        <div class="fog__container">
+            <div class="fog__img fog__img--first"></div>
+            <div class="fog__img fog__img--second"></div>
+        </div>
+    </section>
+    <style>
+      .fog{
+        position:relative;
+        height:100vh;
+        width:100%;
+        position:fixed;
+        top:0;
+        z-index:-1
+      }
+      .fog__container{
+        position:absolute;
+        height:100%;
+        width:100%;
+        overflow:hidden
+      }
+      .fog__img{
+        position:absolute;
+        height:100vh;
+        width:300vw
+      }
+      .fog__img--first{
+        background:url("https://ae01.alicdn.com/kf/Ud713fee99c5d4f2bac69dd0469a95b13e.png") repeat-x;
+        background-size:contain;
+        background-position:center;
+        -webkit-animation:marquee 60s linear infinite;
+        animation:marquee 60s linear infinite
+      }
+      .fog__img--second{
+        background:url("https://ae01.alicdn.com/kf/Ub5631e112d7742cbb3cab47a304b80f4T.png") repeat-x;
+        background-size:contain;
+        background-position:center;
+        -webkit-animation:marquee 40s linear infinite;
+        animation:marquee 40s linear infinite
+      }
+      @media screen and (max-width:768px){
+        .fog__img--first{
+          -webkit-animation:marquee 6s linear infinite;
+          animation:marquee 6s linear infinite
+        }
+        .fog__img--second{
+          -webkit-animation:marquee 6s linear infinite;
+          animation:marquee 6s linear infinite
+        }
+      }
+      @-webkit-keyframes marquee{
+        0%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+        100%{-webkit-transform:translate3d(-200vw,0,0);transform:translate3d(-200vw,0,0)}
+      }
+      @keyframes marquee{
+        0%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+        100%{-webkit-transform:translate3d(-200vw,0,0);
+          transform:translate3d(-200vw,0,0)}
+      }
+    </style> -->
+  <!--云雾特效结束-->
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <span>@2021</span> <i class="iconfont icon-love"></i> <span>By USTC-茶糜花开</span> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+    
+
+    
+
+    
+
+    <!-- 天数尾注 --> 
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+    <br>
+    <!-- 营业中 -->
+    <div id="workboard"></div>
+    <style>
+      @font-face {
+      font-family: 'UnidreamLED';
+      src: url("https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@main/UnidreamLED.ttf");
+      font-display: swap;
+      }
+      div#runtime {
+        width: 180px;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: #fff;
+        padding-inline: 5px;
+        border-radius: 10px;
+        background-color: rgba(0,0,0,0.7);
+        font-family: 'UnidreamLED';
+        animation: daylight 2s linear infinite alternate
+      }
+      @-webkit-keyframes daylight {
+        from{
+          box-shadow: 0 0 5px #eedc3c;
+        }
+        to {
+          box-shadow: 0 0 2px #ff0234;
+        }
+      }
+      @-o-keyframes daylight {
+        from{
+          box-shadow: 0 0 5px #eedc3c;
+        }
+        to {
+          box-shadow: 0 0 2px #ff0234;
+        }
+      }
+      @-moz-keyframes daylight {
+        from{
+          box-shadow: 0 0 5px #eedc3c;
+        }
+        to {
+          box-shadow: 0 0 2px #ff0234;
+        }
+      }
+      [data-user-color-scheme='dark'] div#runtime {
+        color: #28b4c8;
+        box-shadow: 0 0 5px rgba(28,69,218,0.71);
+        animation: flashlight 1s linear infinite alternate;
+      }
+      @-moz-keyframes flashlight {
+        from {
+          box-shadow: 0 0 5px #1478d2;
+        }
+        to {
+          box-shadow: 0 0 2px #1478d2;
+        }
+      }
+      @-webkit-keyframes flashlight {
+        from {
+          box-shadow: 0 0 5px #1478d2;
+        }
+        to {
+          box-shadow: 0 0 2px #1478d2;
+        }
+      }
+      @-o-keyframes flashlight {
+        from {
+          box-shadow: 0 0 5px #1478d2;
+        }
+        to {
+          box-shadow: 0 0 2px #1478d2;
+        }
+      }
+      @keyframes flashlight {
+        from {
+          box-shadow: 0 0 5px #1478d2;
+        }
+        to {
+          box-shadow: 0 0 2px #1478d2;
+        }
+      }
+    </style>
+    <script>
+          setInterval(() => {
+        let create_time = Math.round(new Date('2021-09-16 00:00:00').getTime() / 1000); //在此行修改建站时间
+        let timestamp = Math.round((new Date().getTime()) / 1000);
+        let second = timestamp - create_time;
+        let time = new Array(0, 0, 0, 0, 0);
+
+        var nol = function(h){
+          return h>9?h:'0'+h;
+        }
+        if (second >= 365 * 24 * 3600) {
+          time[0] = parseInt(second / (365 * 24 * 3600));
+          second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+          time[1] = parseInt(second / (24 * 3600));
+          second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+          time[2] = nol(parseInt(second / 3600));
+          second %= 3600;
+        }
+        if (second >= 60) {
+          time[3] = nol(parseInt(second / 60));
+          second %= 60;
+        }
+        if (second > 0) {
+          time[4] = nol(second);
+        }
+        if (((Number(time[2])<12) && (Number(time[2])>7)) || ((Number(time[2])>=14) && (Number(time[2])<18)) || ((Number(time[2]>=19)) && (Number(time[2])<22))){
+          currentTimeHtml ="<img class='boardsign' src='https://img.shields.io/badge/小U-营业啦-6adea8?style=social&logo=React' title='又是被迫营业的一天呢~'><div id='runtime'>"+ time[0] + ' YEAR ' + time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4] + '</div>';
+        }
+        else if (((Number(time[2])>=12) && (Number(time[2])<14)) || ((Number(time[2])>=18) && (Number(time[2])<19))){
+          currentTimeHtml = "<img class='boardsign' src='https://img.shields.io/badge/小U-恰饭中-6adea8?style=social&logo=RenPy' title='干饭啦干饭啦~'><div id='runtime'>"+ time[0] + ' YEAR ' + time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4] + '</div>';
+        }
+        else{
+          currentTimeHtml ="<img class='boardsign' src='https://img.shields.io/badge/小U-打烊啦-6adea8?style=social&logo=Elsevier' title='打烊啦打烊啦！'><div id='runtime'>" + time[0] + ' YEAR ' + time[1] + ' DAYS ' + time[2] + ' : ' + time[3] + ' : ' + time[4] + '</div>';
+        }
+        document.getElementById("workboard").innerHTML = currentTimeHtml;
+      }, 1000);
+    </script>
+    <!-- 营业结束 -->
+    <div class="footer_custom_text">
+      <div>
+      <div class="github-badge">
+        <a style="color:#fff" rel="external nofollow noopener noreferrer" href="https://hexo.io/" target="_blank" title="由 Hexo 强力驱动" data-pjax-state="">
+          <span class="badge-subject">
+            <i class="fa fa-header" aria-hidden="true" style="color:#2680dc"></i>&nbsp;Frame
+          </span>
+          <span class="badge-value bg-blue">Hexo</span>
+        </a>
+      </div>
+      <div class="github-badge">
+        <a style="color:#fff" rel="external nofollow noopener noreferrer" href="https://cloud.tencent.com/" target="_blank" title="腾讯云提供域名相关服务" data-pjax-state="">
+          <span class="badge-subject"><i class="fa fa-cloud" aria-hidden="true" style="color:orange"></i>&nbsp;DNS</span>
+          <span class="badge-value bg-DNS">Tencent cloud</span>
+        </a>
+      </div>
+      <div class="github-badge">
+        <a style="color:#fff" rel="external nofollow noopener noreferrer" href="https://www.jsdelivr.com/" target="_blank" title="本站使用JsDelivr为静态资源提供CDN加速" data-pjax-state="">
+          <span class="badge-subject imgfooter">CDN</span>
+          <span class="badge-value bg-blueviolet">jsDelivr</span>
+        </a>
+      </div>
+      </div>
+      <div>
+      <div class="github-badge">
+        <a style="color:#fff" rel="external nofollow noopener noreferrer" href="https://blog.starysky.top/atom.xml" target="_blank" title="本站支持RSS订阅" data-pjax-state="">
+          <span class="badge-subject">
+            <i class="fa fa-rss" aria-hidden="true"></i>&nbsp;RSS
+          </span>
+          <span class="badge-value bg-orange">Atom</span>
+        </a>
+      </div>
+      <div class="github-badge">
+        <a style="color:#fff" rel="external nofollow noopener noreferrer" href="https://blog.starysky.top/sitemap.xml" target="_blank" title="本站支持站点地图" data-pjax-state="">
+          <span class="badge-subject">
+            <i class="fa fa-sitemap" aria-hidden="true"></i>&nbsp;sitemap
+          </span>
+          <span class="badge-value bg-orange">Sitemap</span>
+        </a>
+      </div>
+      <div class="github-badge">
+        <a style="color:#fff" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" data-pjax-state="">
+          <span class="badge-subject">
+            <i class="fa fa-copyright" aria-hidden="true"></i>&nbsp;Copyright
+          </span>
+          <span class="badge-value bg-orange">BY-NC-SA 4.0</span>
+        </a>
+      </div>
+      </div>
+    </div>
+    <style>
+      .github-badge{margin-left:5px;display:inline-block;border-radius:4px;text-shadow:none;color:#fff;line-height:15px;background-color:#abbac3;margin-bottom:5px;font-size:12px}.github-badge .badge-subject{display:inline-block;background-color:#4d4d4d;padding:4px 4px 4px 6px;border-top-left-radius:4px;border-bottom-left-radius:4px}.github-badge .badge-value{display:inline-block;padding:4px 6px 4px 4px;border-top-right-radius:4px;border-bottom-right-radius:4px}.imgfooter{background:url(https://fastly.jsdelivr.net/gh/Rr210/image@master/hexo/0/jsdelivr.jpeg) no-repeat;background-position:6px;background-size:12px 12px;padding:4px 4px 4px 21px!important}.github-badge .bg-blue{background:linear-gradient(90deg,#3a6186,#89253e)}.github-badge .bg-brightgreen{background:linear-gradient(90deg,#fc5c7d,#6a82fb)}.github-badge .bg-orange{background:linear-gradient(90deg,#f0c27b,#4b1248)}.github-badge .bg-gradient{background:linear-gradient(90deg,#3ca5f6,#a86af9)}.github-badge .bg-blueviolet{background:linear-gradient(90deg,#654ea3,#eaafc8)}.github-badge .bg-DNS{background:linear-gradient(90deg,#aa4b6b,#6b6b83,#3b8d99)}
+    </style>
+    <script>
+      var now = new Date(); 
+      function createtime() { 
+          var grt= new Date("09/16/2021 00:00:00");//在此处修改你的建站时间
+          now.setTime(now.getTime()+250); 
+          days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+          if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+          mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+          snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+          document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+      } 
+    setInterval("createtime()",250);
+    </script>
+    <!-- 站长统计 -->
+    <!-- <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1280925393'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1280925393%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+    <style>
+      #cnzz_stat_icon_1280925393 a{
+        color: black;
+      }
+    </style> -->
+
+    <div><a href="https://icp.gov.moe/?keyword=20220654" target="_blank"><img style="width:16px;" src="https://cdn.jsdelivr.net/gh/wuxinkj/blogimg@main/icon400.png" srcset="/img/loading.gif" lazyload alt="">&ensp;萌ICP备20220654号</a></div>
+    <script async src="https://cdn.dusays.com/bsz.js"></script>
+    <div>
+      本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+      本站总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </div>
+    <div id="cc-myssl-id">
+      <a target="_blank" rel="noopener" href="https://myssl.com/blog.starysky.top?from=mysslid" title="本站已通过MySSL认证"><img src="https://static.myssl.com/res/images/myssl-id3.png" srcset="/img/loading.gif" lazyload alt="" style="max-height:50px;display:block;margin:0 auto"></a>
+    </div>
+    <!-- <div id="cc-myssl-id" style="position: fixed;right: 0;bottom: 0;width: 65px;height: 65px;z-index: 0;">
+      <a target="_blank" rel="noopener" href="https://myssl.com/blog.starysky.top?from=mysslid" title="本站已通过MySSL认证"><img src="https://static.myssl.com/res/images/myssl-id.png" srcset="/img/loading.gif" lazyload alt="" style="width:100%;height:100%"></a>
+    </div> -->
+  </div>
+  <script src="/js/fish.js" async></script>
+</footer>
+
+<style>
+  #footer:hover {
+    background-color: rgba(255,255,255,.5);
+    color: #464646;
+  }
+
+  @media screen and (max-height: 650px) and (min-width: 1110px)
+  {
+      #footer {
+          background-color: rgba(255,255,255,.5);
+          color: #464646;
+      }
+  }
+</style>
+
+
+
+
+    <!-- SCRIPTS -->
+    
+  <script  src="https://fastly.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://fastly.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://unpkg.zhimg.com/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://fastly.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://fastly.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://fastly.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://fastly.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://fastly.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://fastly.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/js/diytitle.js"></script>
+<script src="/js/National_Memorial_Day.js"></script>
+<script src="/js/codetype.js"></script>
+<script src="/js/articleload.js"></script>
+<script src="/js/festival_lunar.js"></script>
+<script src="/js/festival_day.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+    <!-- loading-pages -->
+    
+    
+
+    <!-- 前端静止右键查询 -->
+    <!-- <script>
+        function unmouse(){	
+          document.oncontextmenu = function(){
+            new Vue({
+                data:function(){
+                 this.$notify({
+                 title:"嘿！右键菜单去旅行啦",
+                 message:"┭┮﹏┭┮！",
+                 position: 'bottom-right',
+                 offset: 50,
+                showClose: false,
+                 type:"warning"
+                });
+                return{visible:false}
+               }
+            })
+            return (false);
+          };       
+          document.onkeydown = document.onkeyup = document.onkeypress = function(event) {
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if (e && (e.keyCode == 123 || (e.keyCode == 116 && e.type!='keypress'))) 
+            {
+              e.returnValue = false; 
+              new Vue({
+                data:function(){
+                this.$notify({
+                    title:"嘿！调试被流放西伯利亚啦",
+                    message:"┭┮﹏┭┮！",
+                    position: 'bottom-right',
+                    offset: 50,
+                    showClose: false,
+                    type:"error"
+                });
+                return{visible:false}
+                }
+              })
+              return (false);
+            }
+          }
+        }
+        unmouse()
+    </script> -->
+
+    <!-- 复制提醒 -->
+    <script>
+        /* 复制提醒 */
+        document.addEventListener("copy", function(e) {
+                new Vue({
+                    data: function() {
+                        this.$notify({
+                            title: "嘿！复制成功",
+                            message: "若要转载请保留原文链接！谢谢吖🙃~",
+                            position: 'bottom-right',
+                            offset: 50,
+                            showClose: false,
+                            type: "success"
+                        });
+                        return {
+                            visible: false
+                        }
+                    }
+                })
+            })
+            //  版权声明文字
+        document.body.addEventListener('copy', function(e) {
+            if (window.getSelection().toString() && window.getSelection().toString().length > 10) {
+                setClipboardText(e);
+            }
+        });
+
+        function setClipboardText(event) {
+            var clipboardData = event.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                event.preventDefault();
+                var htmlData = '' +
+                    '著作权归作者所有。<br>' +
+                    '商业转载请联系作者获得授权，非商业转载请注明出处。<br>' +
+                    '作者：USTC-茶糜花开<br>' +
+                    '链接：' + window.location.href + '<br>' +
+                    '来源：https://blog.starysky.top<br><br>' +
+                    window.getSelection().toString();
+                var textData = '' +
+                    '著作权归作者所有。\n' +
+                    '商业转载请联系作者获得授权，非商业转载请注明出处。\n' +
+                    '作者：USTC-茶糜花开\n' +
+                    '链接：' + window.location.href + '\n' +
+                    '来源：https://blog.starysky.top\n\n' +
+                    window.getSelection().toString();
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    </script>
+
+    <!-- tidio live chat -->
+    <!-- <script src="//code.tidio.co/1vvq0avfgvr8jikubalyr2tquvsh7xbx.js" async></script> -->
+
+    <!-- 悬挂的喵喵 -->
+    <script type="text/javascript" src="/js/szgotop.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/szgotop.css" />
+    <div class="back-to-top cd-top faa-float animated cd-is-visible" style="top: -999px;"></div>
+
+    <!-- 侧边栏 -->
+
+    <div id="rightside" style="opacity: 1; transform: translateX(-38px);">
+        <div id="rightside-config-hide" class="show">
+            <button id="translateLink" type="button" title="简繁转换">繁</button>
+            <button id="dark" type="button" title="主板透明显影切换"> 
+              <i class="fa fa-snowflake fa-spin"></i>
+            </button>
+            <button id="readmode" type="button" title="阅读模式">
+              <i class="fa fa-book"></i>
+            </button>
+            <!-- <button id="hide-aside-btn" type="button" title="单栏和双栏切换">
+                <i class="fa fa-arrows-alt-h"></i>
+            </button>-->
+            <button><a id="to_comment" href="#waline" title="直达评论" ><i class="fa fa-cloud"></i></a></button>
+        </div>
+        <div id="rightside-config-show">
+            <button id="rightside_config" type="button" title="设置">
+                <i class="fa fa-cog fa-spin"></i>
+            </button>
+        <!-- <button id="chat_btn" type="button" title="rightside.chat_btn">
+                <i class="fa fa-sms"></i>
+            </button> -->
+            <!-- <button id="go-up" type="button" title="回到顶部">
+                <i class="fa fa-arrow-up"></i>
+            </button> -->
+            <button id="fabtn_reading_progress" class="btn btn-icon btn-neutral fabtn shadow-sm" type="button" tooltip="阅读进度">
+              <div id="fabtn_reading_progress_bar" style="width: 0%;"></div>
+              <span id="fabtn_reading_progress_details" style="display: flex; justify-content: center; font-size: 0.5rem;">0%</span>
+            </button>
+        </div>
+    </div>
+    <!-- layout: rightside 依赖 -->
+    <script type="text/javascript" src="/js/rightside.js"></script>
+    <style>
+        #rightside {
+            position: fixed;
+            right: -38px;
+            bottom: 80px;
+            z-index: 100;
+            opacity: 0;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+            filter: alpha(opacity=0);
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+        
+        #rightside #rightside-config-hide {
+            -webkit-transition: -webkit-transform 0.4s;
+            -moz-transition: -moz-transform 0.4s;
+            -o-transition: -o-transform 0.4s;
+            -ms-transition: -ms-transform 0.4s;
+            transition: transform 0.4s;
+            -webkit-transform: translate(35px, 0);
+            -moz-transform: translate(35px, 0);
+            -o-transform: translate(35px, 0);
+            -ms-transform: translate(35px, 0);
+            transform: translate(35px, 0);
+        }
+        
+        #rightside #rightside-config-hide.show {
+            -webkit-transform: translate(0, 0) !important;
+            -moz-transform: translate(0, 0) !important;
+            -o-transform: translate(0, 0) !important;
+            -ms-transform: translate(0, 0) !important;
+            transform: translate(0, 0) !important;
+        }
+        
+        #rightside>div>button,
+        #rightside>div>a {
+            display: block;
+            margin-bottom: 2px;
+            width: 30px;
+            height: 30px;
+            background-color: var(--btn-bg);
+            color: var(--btn-color);
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        #rightside>div>button:hover,
+        #rightside>div>a:hover {
+            background-color: var(--btn-hover-color);
+        }
+        
+        #rightside #mobile-toc-button {
+            display: none;
+        }
+        
+        @media screen and (max-width: 900px) {
+            #rightside #mobile-toc-button {
+                display: block;
+            }
+        }
+        
+        @media screen and (max-width: 900px) {
+            #rightside #hide-aside-btn {
+                display: none;
+            }
+        }
+    </style>
+    <!-- 主题切换 schema tool -->
+    <!-- theme-change start -->
+    <div class="changeSkin-gear no-select">
+        <div class="keys">
+            <span id="open-skinMenu">切换主题 | SCHEME TOOL &nbsp;<i class="iconfont icon-gear inline-block rotating"></i></span>
+        </div>
+    </div>
+    <div class="skin-menu no-select">
+        <div class="theme-controls row-container">
+            <ul class="menu-list">
+                <li id="bg_0" data-text="默认是纯洁的白色~">
+                    <i class="fa fa-television" aria-hidden="true"></i>
+                </li>
+                <li id="bg_1" data-text="樱花飞舞~">
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                </li>
+                <li id="bg_2" data-text="格子控！">
+                    <i class="fa fa-slack" aria-hidden="true"></i>
+                </li>
+                <li id="bg_3" data-text="小点点~">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                </li>
+                <li id="bg_4" data-text="充满力量的橙色">
+                    <i class="fa fa-optin-monster" aria-hidden="true"></i>
+                </li>
+                <li id="bg_5" data-text="pixiv主题~">
+                    <i class="fa fa-fire" aria-hidden="true"></i>
+                </li>
+                <li id="bg_6" data-text="必应图片">
+                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                </li>
+                <li id="bg_7" data-text="关灯！">
+                    <i class="fa fa-moon-o" aria-hidden="true"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script type='text/javascript' src='//fastly.jsdelivr.net/gh/LIlGG/halo-theme-sakura@1.3.1/script/utils.min.js?ver=1.3.1'></script>
+
+    <script type="text/javascript" src="/js/schema.js"></script>、
+    <!-- ！！！！！！！！！！！！！！！ -->
+    <!-- 特别提醒：如果博客出问题，可能是schema.js引发的错误 -->
+    <!-- ！！！！！！！！！！！！！！！ -->
+    <style>
+        .changeSkin {
+            position: fixed;
+            bottom: 0px;
+            right: -600px;
+            width: auto;
+            height: auto;
+            z-index: 99999;
+            font-family: 'Fira Mono';
+            padding: 10px 20px;
+            transiton-property: right;
+            transition-duration: .3s, .3s
+        }
+        
+        .changeSkin .keys {
+            position: relative;
+            z-index: 99999
+        }
+        
+        .changeSkin .keys span {
+            cursor: pointer
+        }
+        
+        .changeSkin-gear {
+            position: fixed;
+            bottom: -999px;
+            right: 5px;
+            width: auto;
+            height: auto;
+            z-index: 99999;
+            visibility: hidden;
+            white-space: nowrap;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 10px 10px 0 0
+        }
+        
+        .changeSkin .keys {
+            position: relative;
+            z-index: 99999
+        }
+        
+        .changeSkin .keys span {
+            cursor: pointer
+        }
+        
+        .changeSkin .close-skinMenu {
+            position: relative;
+            z-index: 99999;
+            cursor: pointer
+        }
+        
+        .keys-line-add {
+            text-align: right;
+            margin-right: 22px
+        }
+        
+        @media(max-width:800px) {
+            .changeSkin-gear span:before {
+                content: ""
+            }
+            .changeSkin i {
+                font-size: 20px
+            }
+            .changeSkin-gear i {
+                font-size: 20px
+            }
+        }
+        
+        @media(max-width:800px) {
+            .changeSkin-gear span:before {
+                content: ""
+            }
+            .changeSkin i {
+                font-size: 20px
+            }
+            .changeSkin-gear i {
+                font-size: 20px
+            }
+        }
+        
+        .no-select {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+        
+        .skin-menu {
+            position: fixed;
+            bottom: 40px;
+            right: 10px;
+            height: auto;
+            width: 220px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 1px 40px -8px rgba(250, 3, 3, 0.5);
+            z-index: 99999;
+            font-family: 'Ubuntu', sans-serif;
+            transform: scaleX(0);
+            transition-duration: .3s, .3s
+        }
+        
+        .skin-menu.show {
+            transform: scaleX(1)
+        }
+        
+        .skin-menu:after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            margin-left: -10px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: #fff transparent transparent
+        }
+        
+        .skin-menu .row-container {
+            height: auto;
+            margin: 0;
+            padding: 0;
+            text-align: center
+        }
+        
+        .skin-menu .row-container .menu-list {
+            display: block;
+            text-align: center;
+            padding: 0;
+            margin: 10px auto
+        }
+        
+        .menu-list li {
+            display: inline-block;
+            margin: 6px;
+            line-height: 36px;
+            width: 36px;
+            background-color: #f5f5f5;
+            border-radius: 50%;
+            cursor: pointer
+        }
+        
+        .menu-list li:hover {
+            background-color: #fc3;
+            color: #fff
+        }
+        
+        .skin-menu .row-container.font-family-controls {
+            padding: 3px 12px 16px
+        }
+        
+        .font-family-controls button {
+            display: inline-block;
+            border-style: none;
+            border-radius: 5px;
+            padding: 5px;
+            height: 40px;
+            width: calc(50% - 10px);
+            font-size: 15px;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            margin: 0 4px;
+            box-shadow: none;
+            background-color: #f5f5f5;
+            cursor: pointer
+        }
+        
+        .font-family-controls button.selected {
+            background-color: #fc3;
+            color: #fff
+        }
+        
+        .control-btn-serif {
+            font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Source Han Serif', source-han-serif-sc, 'PT Serif', 'SongTi SC', 'MicroSoft Yahei', Georgia, serif
+        }
+        
+        .control-btn-sans-serif {
+            font-family: 'Ubuntu', sans-serif
+        }
+    </style>
+
+    <!-- diy rightmenu -->
+    
+        <!-- 主资源 -->
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_2397198_zlxtpqcjxp.css"/>
+<script type="text/javascript" src=""></script>
+
+<!-- 主代码 -->
+<div class="usercm" id="rightmenu-wrapper" style="left: 199px; top: 5px; display: none;">
+    <ul>
+        <!-- 首页 -->
+        <li>
+        <a href="https://blog.starysky.top/ProfilePage-main/">
+            <i class="iconfont icon-home">
+            </i>
+            <span>星航云图</span>
+        </a>
+        </li>
+        <!-- 小站 -->
+        <li>
+        <a href="https://blog.starysky.top/Personal-main/" >
+            <i class="iconfont icon-copy">
+            </i>
+            <span>星云小站</span>
+        </a>
+        </li>
+        <!-- 搜索 -->
+        <li>
+        <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">
+            <i class="iconfont icon-Search">
+            </i>
+            <span>星云扫描</span>
+        </a>
+        </li>
+        <!-- 前进 -->
+        <li>
+        <a onclick="history.forward()" href="javascript:void(0)">
+            <i class="iconfont icon-qianjin">
+            </i>
+            <span>动力前进</span>
+        </a>
+        </li>
+        <!-- 回退 -->
+        <li>
+        <a onclick="history.back()" href="javascript:void(0)">
+            <i class="iconfont icon-houtui">
+            </i>
+            <span>动力后退</span>
+        </a>
+        </li>
+        <!-- 刷新 -->
+        <li>
+        <a onclick="window.location.reload();" href="javascript:void(0)">
+            <i class="iconfont icon-lx-refresh">
+            </i>
+            <span>星图重载</span>
+        </a>
+        </li>
+        <!-- 朋友 -->
+        <li title="朋友">
+        <a href="https://blog.starysky.top/friend/">
+            <i class="iconfont icon-friends">
+            </i>
+            <span>星际朋友</span>
+        </a>
+        <!-- cat.dorcandy 专属 -->
+        <li title="喵喵专属">
+        <a href="https://cat.dorcandy.cn" target="_blank">
+            <i class="fa fa-anchor"></i>
+            <span title="嘿嘿，是喵喵专属吖">直达喵喵</span>
+        </a>
+        </li>
+        <!-- 博友 -->
+        <li title="星河天地">
+            <a href="https://bf.zzxworld.com/" target="_blank">
+                <i class="fa fa-ravelry"></i>
+                <span>繁星点点</span>
+            </a>
+            </li>
+        </li>
+        <!-- 留言 -->
+        <li title="留言">
+        <a class="nav-link" target="_self" href="#waline">
+            <i class="iconfont icon-comment" ></i>
+            <span>璨璨星语</span>
+        </a>
+        </li>
+        <!-- 收藏 -->
+        <li title="收藏">
+        <a onclick="like_it(' ');" href="javascript:void(0)">
+            <i class="iconfont icon-rss">
+            </i>
+            <span>秋收冬藏</span>
+        </a>
+        </li>
+        <!-- 分享 -->
+        <li title="分享">
+            <a onclick="copyPageUrl();" href="javascript:void(0)">
+                <i class="iconfont icon-twitter-fill">
+                </i>
+                <span>簪星曳月</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class=".notify-container"></div>
+<style rel="text/css">
+      /*右键*/
+    a {
+        text-decoration: none;
+    }
+    div.usercm{
+        background-repeat:no-repeat;
+        background-position:center center;
+        background-size:cover;
+        background-color:#fff;
+        font-size:13px!important;
+        width:130px;
+        -moz-box-shadow:1px 1px 3px rgba (0,0,0,.3);
+        box-shadow:0px 0px 15px #333;
+        position:absolute;
+        display:none;
+        z-index:10000;
+        opacity:0.9;
+        border-radius: 8px;
+    }
+    div.usercm ul{
+        list-style-type:none;
+        list-style-position:outside;
+        margin:0px;
+        padding:0px;
+        display:block
+    }
+    div.usercm ul li{
+        margin:0px;
+        padding:0px;
+        line-height:35px;
+    }
+    div.usercm ul li a{
+        color:#666;
+        padding:0 15px;
+        display:block
+    }
+    div.usercm ul li a:hover{
+        color:#fff;
+        background:#7486E7
+    }
+    div.usercm ul li a i{
+        margin-right:10px
+    }
+    a.disabled{
+        color:#c8c8c8!important;
+        cursor:not-allowed
+    }
+    a.disabled:hover{
+        background-color:rgba(255,11,11,0)!important
+    }
+    div.usercm{
+        background:#fff !important;
+    }
+</style>
+<script type="text/javascript">
+    (function(a){
+        a.extend({
+            mouseMoveShow:function(b){
+                var d=0,c=0,h=0,k=0,e=0,f=0;a(window).mousemove(
+                    function(g){
+                        d=a(window).width();
+                        c=a(window).height();
+                        h=g.clientX;
+                        k=g.clientY;
+                        e=g.pageX;
+                        f=g.pageY;
+                        h+a(b).width()>=d&&(e=e-a(b).width()-5);k+a(b).height()>=c&&(f=f-a(b).height()-5);
+                        a("html").on({
+                            contextmenu:function(c){
+                                3==c.which&&a(b).css({left:e,top:f}).show()
+                            },
+                            click:function(){a(b).hide()}
+                        })
+                    }
+                )
+            },
+            disabledContextMenu:function(){
+                window.oncontextmenu=function(){
+                    return false;
+                }
+            }
+        }
+        )})(jQuery);
+    (function($){
+        for(var a=navigator.userAgent,b="Android;iPhone;SymbianOS;Windows Phone;iPad;iPod".split(";"),d=!0,c=0;c<b.length;c++)
+            if(0<a.indexOf(b[c])){
+                d=!1;
+                break
+            }
+            d&&($.mouseMoveShow(".usercm"),$.disabledContextMenu())
+    })(jQuery);
+    // function getSelect(){
+    //     ""==(window.getSelection?window.getSelection():document.selection.createRange().text)?toastr.info("啊噢...你没还没选择文字呢！","复制提示"):document.execCommand("Copy")
+    // }
+    function like_it(type) {
+        var content = {
+            title: "旅行者，喜欢小站就用Ctrl+D收藏吧" ,
+            content: ""
+        };
+        zi_notify.showNotify(type, content);
+    }
+    function copyUrl(id) {
+        $("body").after("<input id='copyVal'></input>");
+        var text = id;
+        var input = document.getElementById("copyVal");
+        input.value = text;
+        input.select();
+        input.setSelectionRange(0, input.value.length);   
+        document.execCommand("copy");
+        $("#copyVal").remove();
+    }
+    function copyPageUrl(){
+        var url = window.location.href;
+        copyUrl(url);
+        // btf.snackbarShow('复制本页链接地址成功');
+        $('#rightmenu-wrapper').attr('style','display: none');
+    }
+</script>
+    
+    
+    <!-- 博客快捷键 -->
+    <div id="keyboard-tips">
+    <div class="keyboardTitle">小站快捷键</div>
+    <div class="keybordList">
+      <div class="keybordItem">
+        <div class="keyGroup">
+          <div class="key">shift</div>
+          <div class="key">K</div>
+        </div>
+        <div class="keyContent">
+          <div class="content">关闭快捷键</div>
+        </div>
+      </div>
+      <div class="keybordItem">
+        <div class="keyGroup">
+          <div class="key">shift</div>
+          <div class="key">A</div>
+        </div>
+        <div class="keyContent">
+          <div class="content">打开留言板</div>
+        </div>
+      </div>
+      <div class="keybordItem">
+        <div class="keyGroup">
+          <div class="key">shift</div>
+          <div class="key">M</div>
+        </div>
+        <div class="keyContent">
+          <div class="content">播放/暂停音乐</div>
+        </div>
+      </div>
+      <div class="keybordItem">
+        <div class="keyGroup">
+          <div class="key">shift</div>
+          <div class="key">D</div>
+        </div>
+        <div class="keyContent">
+          <div class="content">深色/浅色显示模式</div>
+        </div>
+      </div>
+      <div class="keybordItem">
+        <div class="keyGroup">
+          <div class="key">shift</div>
+          <div class="key">S</div>
+        </div>
+        <div class="keyContent">
+          <div class="content">站内搜索</div>
+        </div>
+      </div>
+      <div class="keybordItem">
+        <div class="keyGroup">
+          <div class="key">shift</div>
+          <div class="key">B</div>
+        </div>
+        <div class="keyContent">
+          <div class="content">返回首页</div>
+        </div>
+      </div>
+      <div class="keybordItem">
+        <div class="keyGroup">
+          <div class="key">shift</div>
+          <div class="key">F</div>
+        </div>
+        <div class="keyContent">
+          <div class="content">友链圈子</div>
+        </div>
+      </div>
+      <div class="keybordItem">
+        <div class="keyGroup">
+          <div class="key">shift</div>
+          <div class="key">C</div>
+        </div>
+        <div class="keyContent">
+          <div class="content">认证信息</div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+    $(window).on("keydown", function(e) {
+    // && (heo.hideLoading(),
+    // heo.hideConsole(),
+    // rm.hideRightMenu()),
+    // heo_keyboard
+    if (e.shiftKey) {
+        if (16 == e.keyCode && document.querySelector("#keyboard-tips").classList.add("show"),
+        75 == e.keyCode)
+            return shortcuts.keyboardToggle(),
+            !1;
+        if (65 == e.keyCode)
+            return shortcuts.message(),
+            !1;
+        if (77 == e.keyCode)
+            return shortcuts.music(),
+            !1;
+        if (67 == e.keyCode)
+            return shortcuts.cc(),
+            !1;
+        if (83 == e.keyCode)
+            return shortcuts.search(),
+            !1;
+        if (66 == e.keyCode)
+            return shortcuts.home(),
+            !1;
+        if (68 == e.keyCode)
+            return switchNightMode(),
+            !1;
+        if (70 == e.keyCode)
+            return shortcuts.friend()
+            !1
+    }
+}),
+    $(window).on("keyup", function(e) {
+        16 == e.keyCode && document.querySelector("#keyboard-tips").classList.remove("show")
+    })
+</script>
+<script>
+    const shortcuts={
+        keyboardToggle: () =>{
+            document.querySelector("#keyboard-tips").setAttribute("style","display:none");
+        },
+        home: () =>{
+            this.location.href="/";
+        },
+        friend: () =>{
+            this.location.href="/friend/";
+        },
+        search: () =>{
+            let a = document.querySelectorAll(".nav-link");
+            var event = document.createEvent("MouseEvents");
+            event.initEvent('click',true,true);
+            a[9].dispatchEvent(event);
+        },
+        music: () =>{
+            let aplayer = document.querySelector(".aplayer-button");
+            var event = document.createEvent("MouseEvents");
+            event.initEvent('click',true,true);
+            aplayer.dispatchEvent(event);
+        },
+        cc: () =>{
+            this.location.href="https://icp.gov.moe/?keyword=20220654";
+        },
+        message: () =>{
+            this.location.href="/envelope/"
+        }
+    }
+</script>
+
+<style>
+    #keyboard-tips {
+	position: fixed;
+	top: 100px;
+	left: 20px;
+	z-index: 999;
+	background: var(--heo-maskbgdeep);
+	border-radius: 12px;
+	border: var(--style-border);
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	backdrop-filter: saturate(180%) blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	pointer-events: none;
+	box-shadow: var(--heo-shadow-border);
+	opacity: 0;
+	transition: .3s
+    }
+
+    #keyboard-tips.show {
+        opacity: 1;
+        transition: .1s
+    }
+
+    #keyboard-tips .keybordList {
+        display: flex;
+        flex-direction: column;
+        margin-top: 8px
+    }
+
+    #keyboard-tips .keyboardTitle {
+        font-size: 12px;
+        color: var(--heo-secondtext);
+        line-height: 1
+    }
+
+    #keyboard-tips .keybordItem {
+        display: flex;
+        margin-top: 4px
+    }
+
+    #keyboard-tips .keyGroup {
+        display: flex;
+        align-items: center;
+        width: 90px
+    }
+
+    #keyboard-tips .keyGroup .key {
+        padding: .2em .4em;
+        font-family: inherit;
+        background-color: var(--card-bg);
+        color: var(--font-color);
+        border: var(--style-border);
+        border-color: var(--heo-secondtext);
+        border-bottom: 2px solid var(--heo-secondtext);
+        box-shadow: var(--heo-shadow-border);
+        border-radius: .25rem;
+        overflow-wrap: break-word;
+        overflow-x: auto;
+        font-weight: 500;
+        font-size: .875em;
+        margin-right: 4px;
+        vertical-align: baseline;
+        line-height: 1;
+        height: 24px
+    }
+</style>
+
+
+
+
+    <!-- 来访通知组合 -->
+    <!-- notify 已经前移到<body>处 请注意 -->
+    <script type="text/javascript" src="/js/notice.js"></script>
+    <script>
+        notie('info', '欢迎您到访本站! 您的到来让小站<strong>蓬荜生辉</strong>. 祝您体验愉快~', true);
+    </script>
+    <div class="noties"></div>
+    <style>
+        .noties {
+            position: fixed;
+            right: 0;
+            top: 70px
+        }
+        
+        .noties:empty {
+            display: none
+        }
+        
+        .notie {
+            background-color: #ddd;
+            opacity: 0;
+            -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+            -webkit-transition: -webkit-transform .3s, opacity .3s;
+            transition: transform .3s, opacity .3s;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            width: 200px;
+            font: 14px/1.4 Helvetica, serif;
+            word-wrap: break-word
+        }
+        
+        .notie.notie-auto-hide-disabled {
+            cursor: pointer
+        }
+        
+        .notie.notie-shown {
+            -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+            opacity: 1
+        }
+        
+        .notie .notie-body {
+            padding: 10px 12px
+        }
+        
+        .notie .notie-svg {
+            height: 23px;
+            display: block;
+            float: left
+        }
+        
+        .notie .notie-text {
+            display: block;
+            padding-left: 30px;
+            padding-top: 2px
+        }
+        
+        .notie svg {
+            height: 23px;
+            width: 23px
+        }
+        
+        .notie.notie-info {
+            background-color: #c6e4f4;
+            border-color: #a9d3eb;
+            color: #477dac
+        }
+        
+        .notie.notie-info a {
+            color: #477dac
+        }
+        
+        .notie.notie-error {
+            background-color: #eac1bd;
+            border-color: #d7a9a6;
+            color: #ab2925
+        }
+        
+        .notie.notie-error a {
+            color: #ab2925
+        }
+        
+        .notie.notie-success {
+            background-color: #d9f1cf;
+            border-color: #c8e1bf;
+            color: #748c6c
+        }
+        
+        .notie.notie-success a {
+            color: #748c6c
+        }
+        
+        .notie.notie-warning {
+            background-color: #f7f2cf;
+            border-color: #e8e2b2;
+            color: #9c7d45
+        }
+        
+        .notie.notie-warning a {
+            color: #9c7d45
+        }
+    </style>
+    <!-- 进入网站侧边信息提示 -->
+
+    <!-- <script>
+        function OnBtnClick(type) {
+            var content = {
+                title: "欢迎来到我的小站,这里以学习札记与科学知识为主哟！",
+                content: "更多功能请见顶部实验室！"
+            };
+            zi_notify.showNotify(type, content);
+        }
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            OnBtnClick(" ");
+        }
+    </script> -->
+    <style>
+        .notify-container {
+            position: fixed;
+            display: flex;
+            padding: 0;
+            align-items: flex-start;
+            flex-direction: column-reverse;
+            width: 300vw;
+            z-index: 11;
+            pointer-events: none;
+            transition: all 0.5s;
+            height: 50vh;
+            left: 0vw;
+        }
+        
+        .notify-container .notify {
+            /*background-color: rgba(15, 15, 15, 0.6);*/
+            animation: notify-show-hide 4.5s ease-in-out;
+            /*border-right: 7px solid rgba(0, 0, 0, 0.4);*/
+            transition: all 0.5s;
+            /*color: white;*/
+            box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.15);
+            margin-bottom: 15px;
+            padding: 13px 15px;
+            height: 50px;
+        }
+        
+        .notify-container .notify .title {
+            font-size: 1.0rem;
+        }
+        
+        .notify-container .notify .content {
+            margin-top: -25px;
+            margin-left: -22px;
+            text-align: center;
+            /*color: #eee;*/
+            font-size: 0.80rem;
+        }
+        
+        @keyframes notify-show-hide {
+            0% {
+                opacity: 0;
+                transform: translate(-15vw, 0);
+                margin-bottom: 15px;
+            }
+            10% {
+                opacity: 1;
+                transform: translate(0vw, 0);
+                margin-bottom: 15px;
+            }
+            85% {
+                opacity: 1;
+                transform: translate(0, 0);
+                margin-bottom: 15px;
+            }
+            100% {
+                opacity: 0;
+                margin-bottom: -75px;
+            }
+        }
+    </style>
+  <!-- 左侧侧边栏伸缩 -->
+  <div class="contact-info">
+    <div class="option">
+        <i class="fas fa-rocket"></i>
+        <div class="bloktop"></div>
+        <div class="text">
+            科学之光 温暖世界
+            <div class="strip"></div>
+        </div>
+    </div>
+    <div class="option">
+        <i class="fas fa-cube"></i>
+        <div class="blok"></div>
+        <div class="text">
+            USTC-茶糜花开
+            <!-- <button class="option_custom-btn btn-16" onclick="window.location.href='/about'"></button> -->
+            <div class="strip"></div>
+        </div>
+    </div>
+    <div class="option">
+        <i class="fas fa-music"></i>
+        <div class="blokbottom"></div>
+        <div class="text aplayertext">
+          <div class="strip"></div>
+          <div 
+            class="aplayer no-destroy" 
+            mutex="true" 
+            listfolded="true" 
+            data-id="3442174120" 
+            data-preload="none" 
+            data-server="tencent" 
+            data-volume="0.5" 
+            data-order="order" 
+            data-type="playlist" 
+            data-fixed="true" 
+            data-autoplay="false" 
+          ></div>
+        </div>
+    </div>
+  </div>
+  <style>
+    .option_custom-btn {
+        width: 130px;
+        height: 40px;
+        color: #fff;
+        border-radius: 5px;
+        padding: 10px 25px;
+        font-family: 'Lato', sans-serif;
+        font-weight: 500;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+        7px 7px 20px 0px rgba(0,0,0,.1),
+        4px 4px 5px 0px rgba(0,0,0,.1);
+        outline: none;
+    }
+    /* 16 */
+    .btn-16 {
+    border: none;
+    color: #000;
+    }
+    .btn-16:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    direction: rtl;
+    z-index: -1;
+    box-shadow:
+    -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001;
+    transition: all 0.3s ease;
+    }
+    .btn-16:hover {
+    color: #000;
+    }
+    .btn-16:hover:after {
+    left: auto;
+    right: 0;
+    width: 100%;
+    }
+    .btn-16:active {
+    top: 2px;
+    }
+    .contact-info{
+    position: fixed!important;
+    top: 30%!important;
+    z-index: 200!important;
+    left: -50px!important;
+    transition: 0.5s!important;
+    }
+    .contact-info:focus{
+        left: 0px!important;
+    }
+    .contact-info:hover{
+    left: 0px!important;
+    }
+    .contact-info .option{
+    position: relative!important;
+    }
+
+    .contact-info .option i{
+    display: block!important;
+    width: 50px!important;
+    text-align: center!important;
+    height: 60px!important;
+    line-height: 60px!important;
+    background: rgb(255, 255, 255);
+    color: #b9b9b9;
+    font-size: 20px;
+    transition: 0.5s;
+    border-radius: 0 10px 10px 0;
+    }
+
+    .contact-info .option:hover i{
+    color: #3498db;
+    }
+    .contact-info .text{
+    border-radius: 15px;
+    position: absolute!important;
+    height: 60px!important;
+    width: 200px!important;
+    background: rgba(255,255,255,.85);
+    top: 0!important;
+    z-index: -1!important;
+    left: -136px!important;
+    color: rgb(0, 0, 0);
+    line-height: 60px;
+    text-align: center;
+    transition: 0.5s;
+    }
+    .contact-info .aplayertext{
+    transition: none!important;
+    }
+    .aplayer{
+    position: absolute!important;
+    }
+    .aplayer.aplayer-fixed .aplayer-body{
+    left: -60px!important;
+    position: absolute!important;
+    width: 370px!important;
+    transition: none!important;
+    border-radius: 10px!important;
+    }
+    .aplayer.aplayer-fixed{
+    left: -300px !important;
+    }
+    .contact-info .option:hover .aplayer.aplayer-fixed .aplayer-body,.contact-info .option:hover .aplayer.aplayer-fixed{
+    left: 0px !important;
+    }
+    .contact-info .option:hover .text{
+    left: 60px!important;
+    }
+    .contact-info .blok{
+    position: absolute!important;
+    height: 60px!important;
+    width: 100px!important;
+    top: 0!important;
+    z-index: -1!important;
+    left: 0px!important;
+    }
+    .contact-info .bloktop{
+    position: absolute!important;
+    height: 75px!important;
+    width: 100px!important;
+    bottom: 0px!important;
+    z-index: -1!important;
+    left: 0px!important;
+    }
+    .contact-info .blokbottom{
+    position: absolute!important;
+    height: 75px!important;
+    width: 100px!important;
+    top: 0!important;
+    z-index: -1!important;
+    left: 0px!important;
+    }
+    .contact-info .option:hover .blok,.contact-info .option:hover .bloktop,.contact-info .option:hover .blokbottom{
+    left: 0px!important;
+    }
+    .contact-info .option:hover .aplayertext{
+    left: 60px!important;
+    width: 370px!important;
+    background: transparent!important;
+    }
+    .aplayer.aplayer-fixed .aplayer-miniswitcher{
+    border-radius: 0 10px 10px 0!important;
+    }
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body{
+    transition: 0.28s!important;
+    border-radius: 10px!important;
+    }
+    .aplayer .aplayer-pic{
+    height: 60px!important;
+    }
+    .aplayer .aplayer-info{
+    height: 60px!important;
+    }
+    .aplayer.aplayer-narrow .aplayer-body{
+    height: 60px!important;
+    }
+    .aplayer .aplayer-list.aplayer-list-hide{
+    margin-bottom: 59px!important;
+    }
+    .aplayer.aplayer-fixed .aplayer-list{
+    margin-bottom: 62px!important;
+    max-height: 240px!important;
+    }
+    .aplayer.aplayer-fixed .aplayer-info{
+    transition: none!important;
+    }
+    .aplayer.aplayer-narrow .aplayer-body{
+    height: 60px!important;
+    }
+    .aplayer.aplayer-narrow .aplayer-body, .aplayer.aplayer-narrow .aplayer-pic{
+    border-radius:  10px 0 0 10px!important;
+    }
+    .aplayer.aplayer-fixed{
+    border-radius: 10px!important;
+    }
+    .aplayer .aplayer-pic{
+    border-radius:  0 0 0 10px!important;
+    }
+    .aplayer.aplayer-fixed .aplayer-list{
+    border-radius: 10px 10px 0 0!important;
+    }
+    [data-theme=dark]
+    .contact-info .option i{
+    background: rgb(22, 22, 22);
+    color: #b9b9b9;
+    }
+    [data-theme=dark]
+    .contact-info .text{
+    background: rgba(23, 23, 23, 0.85);
+    color: rgba(255, 255, 255, 0.92);
+    }
+    @media screen and (max-width:960px){
+    .contact-info{
+        display: none!important;
+        }
+    }
+    .aplayer{
+    opacity: .93!important;
+    }
+    [data-theme=dark]
+    .aplayer{
+    background: rgb(22, 22, 22)!important;
+    color: rgb(255, 255, 255);
+    }
+    [data-theme=dark]
+    .aplayer.aplayer-fixed .aplayer-body{
+    background: rgb(22, 22, 22)!important;
+    color: rgb(255, 255, 255);
+    }
+    [data-theme=dark]
+    .aplayer .aplayer-list ol li:hover{
+    background: #3b3b3b;
+    }
+    [data-theme=dark]
+    .aplayer .aplayer-list ol li.aplayer-list-light{
+    background: #686868;
+    }
+    [data-theme=dark]
+    .aplayer .aplayer-info .aplayer-controller .aplayer-time{
+    color: #d4d4d4;
+    }
+    [data-theme=dark]
+    .aplayer .aplayer-list ol li .aplayer-list-index{
+    color: #d4d4d4;
+    }
+    [data-theme=dark]
+    .aplayer .aplayer-list ol li .aplayer-list-author{
+    color: #d4d4d4;
+    }
+    [data-theme=dark]
+    .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon path{
+    fill: #d4d4d4;
+    }
+
+    .contact-info .text .strip{
+    border-radius: 5px!important;
+    position: absolute!important;
+    height: 36px!important;
+    width: 5px!important;
+    background: rgba(20, 163, 230, 0.8)!important;
+    top: 12px!important;
+    z-index: -1!important;
+    right: 4px!important;
+    transition: 0.5s;
+    }
+    .aplayertext .strip{
+    transition: none!important;
+    }
+    .contact-info .option:hover .aplayertext .strip{
+    background: transparent!important;
+    }
+    [data-theme=dark]
+    .aplayer .aplayer-miniswitcher{
+    background: rgba(23, 23, 23, 0.85);
+    }
+    .aplayer .aplayer-miniswitcher .aplayer-icon:hover path{
+    fill: #3498db;
+    }
+    [data-theme=dark]
+    .contact-info .option:hover i{
+    color: #3498db;
+    }
+  </style>
+  
+
+</body>
+</html>
