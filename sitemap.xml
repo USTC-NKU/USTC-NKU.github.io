@@ -871,14 +871,14 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Atomic-Optics-QAQ/</loc>
+    <loc>https://blog.starysky.top/tags/Atomic-physics/</loc>
     <lastmod>2022-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Atomic-physics/</loc>
+    <loc>https://blog.starysky.top/tags/Atomic-Optics-QAQ/</loc>
     <lastmod>2022-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -906,21 +906,7 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Complex-variable-function/</loc>
-    <lastmod>2022-11-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.starysky.top/tags/Data-processing-and-analysis/</loc>
-    <lastmod>2022-11-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.starysky.top/tags/Sentiment/</loc>
     <lastmod>2022-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -934,14 +920,14 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Wave-optics/</loc>
+    <loc>https://blog.starysky.top/tags/Complex-variable-function/</loc>
     <lastmod>2022-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Electric-field/</loc>
+    <loc>https://blog.starysky.top/tags/Sentiment/</loc>
     <lastmod>2022-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -962,7 +948,21 @@
   </url>
   
   <url>
+    <loc>https://blog.starysky.top/tags/Electric-field/</loc>
+    <lastmod>2022-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.starysky.top/tags/Monobasic-Constant-Differential-Equation/</loc>
+    <lastmod>2022-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.starysky.top/tags/Wave-optics/</loc>
     <lastmod>2022-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1074,14 +1074,14 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/%E5%B8%B8%E7%94%A8%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6/</loc>
+    <loc>https://blog.starysky.top/tags/%E7%A1%AC%E7%B3%96/</loc>
     <lastmod>2022-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/%E7%A1%AC%E7%B3%96/</loc>
+    <loc>https://blog.starysky.top/tags/%E5%B8%B8%E7%94%A8%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6/</loc>
     <lastmod>2022-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1102,14 +1102,14 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/The-Exterior-Derivative/</loc>
+    <loc>https://blog.starysky.top/tags/Commonsense/</loc>
     <lastmod>2022-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Commonsense/</loc>
+    <loc>https://blog.starysky.top/tags/The-Exterior-Derivative/</loc>
     <lastmod>2022-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1130,14 +1130,14 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/descriptive-geometry/</loc>
+    <loc>https://blog.starysky.top/tags/%E6%A8%A1%E6%8B%9F%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E4%B8%AD%E7%9A%84%E5%8D%95%E5%85%83%E7%94%B5%E8%B7%AF/</loc>
     <lastmod>2022-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/%E6%A8%A1%E6%8B%9F%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E4%B8%AD%E7%9A%84%E5%8D%95%E5%85%83%E7%94%B5%E8%B7%AF/</loc>
+    <loc>https://blog.starysky.top/tags/descriptive-geometry/</loc>
     <lastmod>2022-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1181,13 +1181,6 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/categories/Mathematical-Methods-of-Physics/</loc>
-    <lastmod>2022-11-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.starysky.top/categories/Data-processing/</loc>
     <lastmod>2022-11-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -1195,14 +1188,21 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/categories/Dream/</loc>
+    <loc>https://blog.starysky.top/categories/ComputerScience/</loc>
     <lastmod>2022-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/categories/ComputerScience/</loc>
+    <loc>https://blog.starysky.top/categories/Mathematical-Methods-of-Physics/</loc>
+    <lastmod>2022-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.starysky.top/categories/Dream/</loc>
     <lastmod>2022-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

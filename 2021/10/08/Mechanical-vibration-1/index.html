@@ -621,7 +621,18 @@ s.parentNode.insertBefore(el, s);
                 }).trigger("scroll");
             </script>
         </div> -->
-    <!-- hexo injector body_end start --><script defer src="https://unpkg.zhimg.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.js"></script><script async src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/js/fontawesome.min.js"></script><!-- hexo injector body_end end --></body>
+    <!-- hexo injector body_end start --><script>
+    // 全局变量声明区域
+    var fdata = {
+      apiurl: 'https://fcircle.starysky.top/',
+      initnumber: 20, //【可选】页面初始化展示文章数量
+      stepnumber: 10, //【可选】每次加载增加的篇数
+      error_img: 'https://npm.elemecdn.com/akilar-candyassets/image/404.gif' //【可选，头像图片加载失败时的默认头像】
+    }
+    //存入本地存储
+    localStorage.setItem("fdatalist",JSON.stringify(fdata))
+    </script>
+    <script data-pjax src="https://npm.elemecdn.com/hexo-filter-fcircle-anzhiyu@1.1.2/assets/js/fetch.js"></script><script data-pjax src="https://npm.elemecdn.com/hexo-filter-fcircle-anzhiyu@1.1.2/assets/js/random-friends-post.js"></script><script defer src="https://unpkg.zhimg.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.js"></script><script async src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/js/fontawesome.min.js"></script><!-- hexo injector body_end end --></body>
     
 <script type="text/javascript">
 {
@@ -1863,9 +1874,9 @@ tabsFn.backToTop()
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/10/08/Linear-algebra/">
+                      <a href="/2021/10/08/Mechanical-vibration-2/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Linear algebra</span>
+                        <span class="hidden-mobile">Mechanical vibration (2)</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -1873,8 +1884,8 @@ tabsFn.backToTop()
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/10/08/Mechanical-vibration-2/">
-                        <span class="hidden-mobile">Mechanical vibration (2)</span>
+                      <a href="/2021/10/08/Mechanical-vibration-3/">
+                        <span class="hidden-mobile">Mechanical vibration (3)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

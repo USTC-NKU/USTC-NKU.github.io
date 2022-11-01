@@ -605,7 +605,18 @@ s.parentNode.insertBefore(el, s);
                 }).trigger("scroll");
             </script>
         </div> -->
-    <!-- hexo injector body_end start --><script defer src="https://unpkg.zhimg.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.js"></script><script async src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/js/fontawesome.min.js"></script><!-- hexo injector body_end end --></body>
+    <!-- hexo injector body_end start --><script>
+    // 全局变量声明区域
+    var fdata = {
+      apiurl: 'https://fcircle.starysky.top/',
+      initnumber: 20, //【可选】页面初始化展示文章数量
+      stepnumber: 10, //【可选】每次加载增加的篇数
+      error_img: 'https://npm.elemecdn.com/akilar-candyassets/image/404.gif' //【可选，头像图片加载失败时的默认头像】
+    }
+    //存入本地存储
+    localStorage.setItem("fdatalist",JSON.stringify(fdata))
+    </script>
+    <script data-pjax src="https://npm.elemecdn.com/hexo-filter-fcircle-anzhiyu@1.1.2/assets/js/fetch.js"></script><script data-pjax src="https://npm.elemecdn.com/hexo-filter-fcircle-anzhiyu@1.1.2/assets/js/random-friends-post.js"></script><script defer src="https://unpkg.zhimg.com/jquery@latest/dist/jquery.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-theme-volantis@latest/source/js/issues.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.js"></script><script async src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/js/fontawesome.min.js"></script><!-- hexo injector body_end end --></body>
     
 <script type="text/javascript">
 {
@@ -1598,66 +1609,6 @@ tabsFn.backToTop()
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/14/The-most-probable-distribution-of-near-independent-particles/" target="_self">
-          <img src="/img/%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6.jpg" srcset="/img/loading.gif" lazyload alt="The most probable distribution of near independent particles">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/14/The-most-probable-distribution-of-near-independent-particles/" target="_self">
-          The most probable distribution of near independent particles
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/14/The-most-probable-distribution-of-near-independent-particles/" target="_self">
-          
-          
-            
-          
-          
-
-
-近独立粒子的最概然分布§6.1 粒子运动状态的经典描述
-设粒子的自由度为r.经典力学告诉我们，在任意时刻，粒子的力学运动状态由粒子的r个广义坐标$q_{1},q_{2},\cdots,q_{r}$和与之共轭的r个广义动量$p_{1},p_{2},\cdots,p_{r}$在该时刻的数值所确定.粒子的能量$\varepsilon$是其广义坐标和广义动量的函数$$\begin{equation}
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-14 22:00" pubdate>
-              2021-11-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Physics/">Physics</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Statistical-physics/">Statistical physics</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/11/14/Vector-analysis/" target="_self">
           <img src="/img/%E6%95%B0%E7%89%A9.jpg" srcset="/img/loading.gif" lazyload alt="Vector analysis">
         </a>
@@ -1759,6 +1710,66 @@ tabsFn.backToTop()
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/Thermodynamics/">Thermodynamics</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/11/14/The-most-probable-distribution-of-near-independent-particles/" target="_self">
+          <img src="/img/%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6.jpg" srcset="/img/loading.gif" lazyload alt="The most probable distribution of near independent particles">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/11/14/The-most-probable-distribution-of-near-independent-particles/" target="_self">
+          The most probable distribution of near independent particles
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/11/14/The-most-probable-distribution-of-near-independent-particles/" target="_self">
+          
+          
+            
+          
+          
+
+
+近独立粒子的最概然分布§6.1 粒子运动状态的经典描述
+设粒子的自由度为r.经典力学告诉我们，在任意时刻，粒子的力学运动状态由粒子的r个广义坐标$q_{1},q_{2},\cdots,q_{r}$和与之共轭的r个广义动量$p_{1},p_{2},\cdots,p_{r}$在该时刻的数值所确定.粒子的能量$\varepsilon$是其广义坐标和广义动量的函数$$\begin{equation}
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-14 22:00" pubdate>
+              2021-11-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Physics/">Physics</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Statistical-physics/">Statistical physics</a>
             
           </div>
         
