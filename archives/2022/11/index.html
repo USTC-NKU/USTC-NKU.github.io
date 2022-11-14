@@ -440,7 +440,7 @@ new LingQue.Monitor().init({
     <meta name="keywords" content="科学，USTC-茶糜花开，USTC-NKU">
     
     <title>
-    标签 - USTC-茶糜花开
+    归档 - USTC-茶糜花开
     </title>
     
 
@@ -810,7 +810,7 @@ tabsFn.backToTop()
     <!-- 配置文件在底部查阅 -->
     <div class="notify-container"></div>
     <!-- end -->
-    <header style="height: 80vh;">
+    <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" title="小U的博客"
@@ -1244,17 +1244,13 @@ tabsFn.backToTop()
         <div class="full-bg-img">
             <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
                 <div class="page-header text-center fade-in-up">
-                    <span class="h2" id="subtitle" title="标签">
+                    <span class="h2" id="subtitle" title="归档">
                         
                     </span>
 
                     
                 </div>
 
-                
-                    <div class="scroll-down-bar">
-                        <i class="iconfont icon-arrowdown"></i>
-                   </div>
                 
             </div>
         </div>
@@ -1271,36 +1267,110 @@ tabsFn.backToTop()
                     <div class="row">
                         <div class="col-12 col-md-10 m-auto">
                             
+   
+<div class="container archive-calendar">
+    <div class="card">
+        <div id="post-calendar" class="card-content"></div>
+    </div>
+</div>
 
-<div id="github_container" style="text-align: center;
-margin: 0 auto;
-width: 100%;
-display: flex;
-display: -webkit-flex;
-justify-content: center;
-align-items: center;
-flex-wrap: wrap;
-width: 110%;
-height: 110%;"></div>
-<script src="/js/githubcalendar.js"></script>
+<script type="text/javascript" src="/js/encharts.min.js"></script>
+<script type="text/javascript">
+    let myChart = echarts.init(document.getElementById('post-calendar'));
+
+    
+
+    let option = {
+        title: {
+            top: 0,
+            text: '文章日历',
+            left: 'center',
+            textStyle: {
+                color: '#3C4858'
+            }
+        },
+        tooltip: {
+            padding: 10,
+            backgroundColor: '#555',
+            borderColor: '#777',
+            borderWidth: 1,
+            formatter: function (obj) {
+                var value = obj.value;
+                return '<div style="font-size: 14px;">' + value[0] + '：' + value[1] + '</div>';
+            }
+        },
+        visualMap: {
+            show: true,
+            showLabel: true,
+            categories: [0, 1, 2, 3, 4],
+            calculable: true,
+            inRange: {
+                symbol: 'rect',
+                color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
+            },
+            itemWidth: 12,
+            itemHeight: 12,
+            orient: 'horizontal',
+            left: 'center',
+            bottom: 0
+        },
+        calendar: [{
+            left: 'center',
+            range: ["2021-11-14", "2022-11-14"],
+            cellSize: [13, 13],
+            splitLine: {
+                show: false
+            },
+            itemStyle: {
+                color: '#196127',
+                borderColor: '#fff',
+                borderWidth: 2
+            },
+            yearLabel: {
+                show: false
+            },
+            monthLabel: {
+                nameMap: 'cn',
+                fontSize: 11
+            },
+            dayLabel: {
+                formatter: '{start}  1st',
+                nameMap: 'cn',
+                fontSize: 11
+            }
+        }],
+        series: [{
+            type: 'heatmap',
+            coordinateSystem: 'calendar',
+            calendarIndex: 0,
+            data: [["2021-11-14", 7], ["2021-11-15", 0], ["2021-11-16", 0], ["2021-11-17", 1], ["2021-11-18", 0], ["2021-11-19", 0], ["2021-11-20", 0], ["2021-11-21", 0], ["2021-11-22", 0], ["2021-11-23", 1], ["2021-11-24", 0], ["2021-11-25", 0], ["2021-11-26", 0], ["2021-11-27", 0], ["2021-11-28", 1], ["2021-11-29", 0], ["2021-11-30", 0], ["2021-12-01", 0], ["2021-12-02", 0], ["2021-12-03", 0], ["2021-12-04", 1], ["2021-12-05", 0], ["2021-12-06", 0], ["2021-12-07", 0], ["2021-12-08", 0], ["2021-12-09", 0], ["2021-12-10", 0], ["2021-12-11", 0], ["2021-12-12", 1], ["2021-12-13", 0], ["2021-12-14", 0], ["2021-12-15", 0], ["2021-12-16", 0], ["2021-12-17", 0], ["2021-12-18", 0], ["2021-12-19", 0], ["2021-12-20", 0], ["2021-12-21", 0], ["2021-12-22", 0], ["2021-12-23", 0], ["2021-12-24", 0], ["2021-12-25", 0], ["2021-12-26", 0], ["2021-12-27", 0], ["2021-12-28", 0], ["2021-12-29", 0], ["2021-12-30", 0], ["2021-12-31", 1], ["2022-01-01", 0], ["2022-01-02", 1], ["2022-01-03", 0], ["2022-01-04", 0], ["2022-01-05", 0], ["2022-01-06", 0], ["2022-01-07", 0], ["2022-01-08", 0], ["2022-01-09", 0], ["2022-01-10", 0], ["2022-01-11", 0], ["2022-01-12", 0], ["2022-01-13", 0], ["2022-01-14", 0], ["2022-01-15", 0], ["2022-01-16", 0], ["2022-01-17", 0], ["2022-01-18", 0], ["2022-01-19", 0], ["2022-01-20", 0], ["2022-01-21", 1], ["2022-01-22", 0], ["2022-01-23", 0], ["2022-01-24", 0], ["2022-01-25", 0], ["2022-01-26", 0], ["2022-01-27", 1], ["2022-01-28", 1], ["2022-01-29", 1], ["2022-01-30", 0], ["2022-01-31", 0], ["2022-02-01", 0], ["2022-02-02", 0], ["2022-02-03", 0], ["2022-02-04", 1], ["2022-02-05", 1], ["2022-02-06", 0], ["2022-02-07", 0], ["2022-02-08", 1], ["2022-02-09", 0], ["2022-02-10", 0], ["2022-02-11", 0], ["2022-02-12", 1], ["2022-02-13", 1], ["2022-02-14", 0], ["2022-02-15", 2], ["2022-02-16", 0], ["2022-02-17", 1], ["2022-02-18", 0], ["2022-02-19", 0], ["2022-02-20", 0], ["2022-02-21", 0], ["2022-02-22", 0], ["2022-02-23", 0], ["2022-02-24", 0], ["2022-02-25", 0], ["2022-02-26", 0], ["2022-02-27", 0], ["2022-02-28", 0], ["2022-03-01", 0], ["2022-03-02", 0], ["2022-03-03", 3], ["2022-03-04", 0], ["2022-03-05", 0], ["2022-03-06", 1], ["2022-03-07", 0], ["2022-03-08", 0], ["2022-03-09", 0], ["2022-03-10", 0], ["2022-03-11", 0], ["2022-03-12", 0], ["2022-03-13", 0], ["2022-03-14", 0], ["2022-03-15", 0], ["2022-03-16", 0], ["2022-03-17", 0], ["2022-03-18", 0], ["2022-03-19", 0], ["2022-03-20", 0], ["2022-03-21", 0], ["2022-03-22", 1], ["2022-03-23", 1], ["2022-03-24", 0], ["2022-03-25", 0], ["2022-03-26", 0], ["2022-03-27", 0], ["2022-03-28", 0], ["2022-03-29", 1], ["2022-03-30", 1], ["2022-03-31", 0], ["2022-04-01", 0], ["2022-04-02", 0], ["2022-04-03", 0], ["2022-04-04", 0], ["2022-04-05", 0], ["2022-04-06", 0], ["2022-04-07", 1], ["2022-04-08", 0], ["2022-04-09", 0], ["2022-04-10", 0], ["2022-04-11", 0], ["2022-04-12", 0], ["2022-04-13", 0], ["2022-04-14", 0], ["2022-04-15", 0], ["2022-04-16", 0], ["2022-04-17", 0], ["2022-04-18", 0], ["2022-04-19", 0], ["2022-04-20", 0], ["2022-04-21", 0], ["2022-04-22", 0], ["2022-04-23", 0], ["2022-04-24", 0], ["2022-04-25", 0], ["2022-04-26", 0], ["2022-04-27", 0], ["2022-04-28", 11], ["2022-04-29", 0], ["2022-04-30", 0], ["2022-05-01", 0], ["2022-05-02", 0], ["2022-05-03", 0], ["2022-05-04", 0], ["2022-05-05", 0], ["2022-05-06", 1], ["2022-05-07", 0], ["2022-05-08", 0], ["2022-05-09", 0], ["2022-05-10", 0], ["2022-05-11", 0], ["2022-05-12", 0], ["2022-05-13", 0], ["2022-05-14", 0], ["2022-05-15", 0], ["2022-05-16", 0], ["2022-05-17", 0], ["2022-05-18", 0], ["2022-05-19", 0], ["2022-05-20", 0], ["2022-05-21", 0], ["2022-05-22", 0], ["2022-05-23", 0], ["2022-05-24", 0], ["2022-05-25", 0], ["2022-05-26", 0], ["2022-05-27", 0], ["2022-05-28", 0], ["2022-05-29", 0], ["2022-05-30", 0], ["2022-05-31", 0], ["2022-06-01", 0], ["2022-06-02", 0], ["2022-06-03", 0], ["2022-06-04", 0], ["2022-06-05", 0], ["2022-06-06", 0], ["2022-06-07", 0], ["2022-06-08", 0], ["2022-06-09", 0], ["2022-06-10", 0], ["2022-06-11", 0], ["2022-06-12", 0], ["2022-06-13", 0], ["2022-06-14", 0], ["2022-06-15", 0], ["2022-06-16", 0], ["2022-06-17", 0], ["2022-06-18", 1], ["2022-06-19", 0], ["2022-06-20", 1], ["2022-06-21", 1], ["2022-06-22", 0], ["2022-06-23", 0], ["2022-06-24", 0], ["2022-06-25", 0], ["2022-06-26", 0], ["2022-06-27", 0], ["2022-06-28", 0], ["2022-06-29", 0], ["2022-06-30", 0], ["2022-07-01", 0], ["2022-07-02", 0], ["2022-07-03", 0], ["2022-07-04", 0], ["2022-07-05", 0], ["2022-07-06", 0], ["2022-07-07", 0], ["2022-07-08", 0], ["2022-07-09", 0], ["2022-07-10", 0], ["2022-07-11", 0], ["2022-07-12", 0], ["2022-07-13", 0], ["2022-07-14", 0], ["2022-07-15", 0], ["2022-07-16", 0], ["2022-07-17", 0], ["2022-07-18", 0], ["2022-07-19", 0], ["2022-07-20", 0], ["2022-07-21", 0], ["2022-07-22", 0], ["2022-07-23", 0], ["2022-07-24", 0], ["2022-07-25", 1], ["2022-07-26", 0], ["2022-07-27", 0], ["2022-07-28", 0], ["2022-07-29", 0], ["2022-07-30", 0], ["2022-07-31", 0], ["2022-08-01", 0], ["2022-08-02", 0], ["2022-08-03", 1], ["2022-08-04", 0], ["2022-08-05", 0], ["2022-08-06", 0], ["2022-08-07", 0], ["2022-08-08", 0], ["2022-08-09", 0], ["2022-08-10", 0], ["2022-08-11", 2], ["2022-08-12", 0], ["2022-08-13", 0], ["2022-08-14", 0], ["2022-08-15", 0], ["2022-08-16", 0], ["2022-08-17", 0], ["2022-08-18", 0], ["2022-08-19", 0], ["2022-08-20", 0], ["2022-08-21", 0], ["2022-08-22", 0], ["2022-08-23", 0], ["2022-08-24", 0], ["2022-08-25", 0], ["2022-08-26", 0], ["2022-08-27", 0], ["2022-08-28", 0], ["2022-08-29", 0], ["2022-08-30", 0], ["2022-08-31", 0], ["2022-09-01", 0], ["2022-09-02", 0], ["2022-09-03", 0], ["2022-09-04", 0], ["2022-09-05", 0], ["2022-09-06", 0], ["2022-09-07", 0], ["2022-09-08", 0], ["2022-09-09", 0], ["2022-09-10", 0], ["2022-09-11", 0], ["2022-09-12", 0], ["2022-09-13", 0], ["2022-09-14", 0], ["2022-09-15", 0], ["2022-09-16", 1], ["2022-09-17", 0], ["2022-09-18", 0], ["2022-09-19", 0], ["2022-09-20", 0], ["2022-09-21", 0], ["2022-09-22", 0], ["2022-09-23", 0], ["2022-09-24", 0], ["2022-09-25", 0], ["2022-09-26", 0], ["2022-09-27", 0], ["2022-09-28", 0], ["2022-09-29", 0], ["2022-09-30", 0], ["2022-10-01", 0], ["2022-10-02", 0], ["2022-10-03", 0], ["2022-10-04", 0], ["2022-10-05", 0], ["2022-10-06", 0], ["2022-10-07", 0], ["2022-10-08", 0], ["2022-10-09", 0], ["2022-10-10", 0], ["2022-10-11", 0], ["2022-10-12", 0], ["2022-10-13", 0], ["2022-10-14", 0], ["2022-10-15", 0], ["2022-10-16", 0], ["2022-10-17", 0], ["2022-10-18", 0], ["2022-10-19", 0], ["2022-10-20", 0], ["2022-10-21", 0], ["2022-10-22", 0], ["2022-10-23", 0], ["2022-10-24", 0], ["2022-10-25", 0], ["2022-10-26", 0], ["2022-10-27", 0], ["2022-10-28", 0], ["2022-10-29", 0], ["2022-10-30", 0], ["2022-10-31", 0], ["2022-11-01", 0], ["2022-11-02", 0], ["2022-11-03", 0], ["2022-11-04", 0], ["2022-11-05", 0], ["2022-11-06", 0], ["2022-11-07", 0], ["2022-11-08", 0], ["2022-11-09", 0], ["2022-11-10", 0], ["2022-11-11", 0], ["2022-11-12", 0], ["2022-11-13", 0], ["2022-11-14", 1]]
+        }]
+
+    };
+
+    myChart.setOption(option);
+</script>
 
 
-<div class="text-center tagcloud">
-  <a href="/tags/2021%E5%8F%8C%E5%8D%81%E4%B8%80%E5%BD%A9%E8%9B%8B/" style="font-size: 15px; color: #bbe">2021双十一彩蛋</a> <a href="/tags/2021%E5%8F%8C%E5%8D%81%E4%BA%8C%E5%BD%A9%E8%9B%8B/" style="font-size: 15px; color: #bbe">2021双十二彩蛋</a> <a href="/tags/2022%E5%AF%92%E5%81%87%E7%89%B9%E5%88%8A/" style="font-size: 30px; color: #337ab7">2022寒假特刊</a> <a href="/tags/Analog-Circuit-QAQ/" style="font-size: 15px; color: #bbe">Analog Circuit-QAQ</a> <a href="/tags/Atomic-physics/" style="font-size: 18px; color: #a0aee3">Atomic physics</a> <a href="/tags/Atomic-Optics-QAQ/" style="font-size: 15px; color: #bbe">Atomic-Optics-QAQ</a> <a href="/tags/CS/" style="font-size: 27px; color: #4e87c2">CS</a> <a href="/tags/Commonsense/" style="font-size: 18px; color: #a0aee3">Commonsense</a> <a href="/tags/Complex-variable-function/" style="font-size: 21px; color: #85a1d8">Complex variable function</a> <a href="/tags/Data-processing-and-analysis/" style="font-size: 15px; color: #bbe">Data processing and analysis</a> <a href="/tags/Electric-field/" style="font-size: 15px; color: #bbe">Electric field</a> <a href="/tags/Fluid-Dynamics/" style="font-size: 15px; color: #bbe">Fluid Dynamics</a> <a href="/tags/Geometrical-optics/" style="font-size: 18px; color: #a0aee3">Geometrical optics</a> <a href="/tags/Linear-algebra/" style="font-size: 15px; color: #bbe">Linear algebra</a> <a href="/tags/Magnetic-field/" style="font-size: 15px; color: #bbe">Magnetic field</a> <a href="/tags/Matlab/" style="font-size: 18px; color: #a0aee3">Matlab</a> <a href="/tags/Mechanical-vibration/" style="font-size: 21px; color: #85a1d8">Mechanical vibration</a> <a href="/tags/Mechanical-wave/" style="font-size: 15px; color: #bbe">Mechanical wave</a> <a href="/tags/Monobasic-Constant-Differential-Equation/" style="font-size: 21px; color: #85a1d8">Monobasic Constant Differential Equation</a> <a href="/tags/Probability-Theory/" style="font-size: 15px; color: #bbe">Probability Theory</a> <a href="/tags/ProbabilityTheory/" style="font-size: 15px; color: #bbe">ProbabilityTheory</a> <a href="/tags/Promotion/" style="font-size: 15px; color: #bbe">Promotion</a> <a href="/tags/Rigid-body-mechanics/" style="font-size: 15px; color: #bbe">Rigid body mechanics</a> <a href="/tags/Sentiment/" style="font-size: 21px; color: #85a1d8">Sentiment</a> <a href="/tags/Solid-State/" style="font-size: 15px; color: #bbe">Solid State</a> <a href="/tags/Statistical-physics/" style="font-size: 15px; color: #bbe">Statistical physics</a> <a href="/tags/Summary-of-PTMS/" style="font-size: 15px; color: #bbe">Summary of PTMS</a> <a href="/tags/Tensor-analysis/" style="font-size: 18px; color: #a0aee3">Tensor analysis</a> <a href="/tags/The-Exterior-Derivative/" style="font-size: 15px; color: #bbe">The Exterior Derivative</a> <a href="/tags/Thermodynamics/" style="font-size: 21px; color: #85a1d8">Thermodynamics</a> <a href="/tags/Vector-analysis/" style="font-size: 18px; color: #a0aee3">Vector analysis</a> <a href="/tags/Wave-optics/" style="font-size: 18px; color: #a0aee3">Wave optics</a> <a href="/tags/beautify/" style="font-size: 24px; color: #6994cd">beautify</a> <a href="/tags/descriptive-geometry/" style="font-size: 15px; color: #bbe">descriptive geometry</a> <a href="/tags/franccis/" style="font-size: 21px; color: #85a1d8">francçis</a> <a href="/tags/paper/" style="font-size: 18px; color: #a0aee3">paper</a> <a href="/tags/wave-optics/" style="font-size: 15px; color: #bbe">wave optics</a> <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/" style="font-size: 15px; color: #bbe">基本放大电路</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6/" style="font-size: 24px; color: #6994cd">常用半导体器件</a> <a href="/tags/%E6%94%BE%E5%A4%A7%E5%99%A8%E7%9A%84%E9%A2%91%E7%8E%87%E7%89%B9%E6%80%A7/" style="font-size: 15px; color: #bbe">放大器的频率特性</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E4%B8%AD%E7%9A%84%E5%8D%95%E5%85%83%E7%94%B5%E8%B7%AF/" style="font-size: 15px; color: #bbe">模拟集成电路中的单元电路</a> <a href="/tags/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5/" style="font-size: 18px; color: #a0aee3">每日简报</a> <a href="/tags/%E7%A1%AC%E7%B3%96/" style="font-size: 15px; color: #bbe">硬糖</a>
+
+
+
+<div class="list-group">
+  <p class="h4">共计 83 篇文章</p>
+  <hr>
+  
+  
+    
+      
+      <p class="h5">2022</p>
+    
+    <a href="/2022/11/14/%E8%93%9D%E6%98%93%E4%BA%91/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">蓝易云香港服务器推荐</span>
+      <time style="float: right;">11-14</time>
+    </a>
   
 </div>
 
-<!-- 标签云图 -->
-<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
-<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
-<div class="widget-wrap">
-    <h3 class="widget-title" ></h3>
-    <div id="myCanvasContainer" class="widget tagcloud">
-        <canvas width="300" height="300" id="resCanvas" style="width: 100%;">
-            <a href="/tags/2021%E5%8F%8C%E5%8D%81%E4%B8%80%E5%BD%A9%E8%9B%8B/" style="font-size: 10px;">2021双十一彩蛋</a> <a href="/tags/2021%E5%8F%8C%E5%8D%81%E4%BA%8C%E5%BD%A9%E8%9B%8B/" style="font-size: 10px;">2021双十二彩蛋</a> <a href="/tags/2022%E5%AF%92%E5%81%87%E7%89%B9%E5%88%8A/" style="font-size: 20px;">2022寒假特刊</a> <a href="/tags/Analog-Circuit-QAQ/" style="font-size: 10px;">Analog Circuit-QAQ</a> <a href="/tags/Atomic-physics/" style="font-size: 12px;">Atomic physics</a> <a href="/tags/Atomic-Optics-QAQ/" style="font-size: 10px;">Atomic-Optics-QAQ</a> <a href="/tags/CS/" style="font-size: 18px;">CS</a> <a href="/tags/Commonsense/" style="font-size: 12px;">Commonsense</a> <a href="/tags/Complex-variable-function/" style="font-size: 14px;">Complex variable function</a> <a href="/tags/Data-processing-and-analysis/" style="font-size: 10px;">Data processing and analysis</a> <a href="/tags/Electric-field/" style="font-size: 10px;">Electric field</a> <a href="/tags/Fluid-Dynamics/" style="font-size: 10px;">Fluid Dynamics</a> <a href="/tags/Geometrical-optics/" style="font-size: 12px;">Geometrical optics</a> <a href="/tags/Linear-algebra/" style="font-size: 10px;">Linear algebra</a> <a href="/tags/Magnetic-field/" style="font-size: 10px;">Magnetic field</a> <a href="/tags/Matlab/" style="font-size: 12px;">Matlab</a> <a href="/tags/Mechanical-vibration/" style="font-size: 14px;">Mechanical vibration</a> <a href="/tags/Mechanical-wave/" style="font-size: 10px;">Mechanical wave</a> <a href="/tags/Monobasic-Constant-Differential-Equation/" style="font-size: 14px;">Monobasic Constant Differential Equation</a> <a href="/tags/Probability-Theory/" style="font-size: 10px;">Probability Theory</a> <a href="/tags/ProbabilityTheory/" style="font-size: 10px;">ProbabilityTheory</a> <a href="/tags/Promotion/" style="font-size: 10px;">Promotion</a> <a href="/tags/Rigid-body-mechanics/" style="font-size: 10px;">Rigid body mechanics</a> <a href="/tags/Sentiment/" style="font-size: 14px;">Sentiment</a> <a href="/tags/Solid-State/" style="font-size: 10px;">Solid State</a> <a href="/tags/Statistical-physics/" style="font-size: 10px;">Statistical physics</a> <a href="/tags/Summary-of-PTMS/" style="font-size: 10px;">Summary of PTMS</a> <a href="/tags/Tensor-analysis/" style="font-size: 12px;">Tensor analysis</a> <a href="/tags/The-Exterior-Derivative/" style="font-size: 10px;">The Exterior Derivative</a> <a href="/tags/Thermodynamics/" style="font-size: 14px;">Thermodynamics</a> <a href="/tags/Vector-analysis/" style="font-size: 12px;">Vector analysis</a> <a href="/tags/Wave-optics/" style="font-size: 12px;">Wave optics</a> <a href="/tags/beautify/" style="font-size: 16px;">beautify</a> <a href="/tags/descriptive-geometry/" style="font-size: 10px;">descriptive geometry</a> <a href="/tags/franccis/" style="font-size: 14px;">francçis</a> <a href="/tags/paper/" style="font-size: 12px;">paper</a> <a href="/tags/wave-optics/" style="font-size: 10px;">wave optics</a> <a href="/tags/%E5%9F%BA%E6%9C%AC%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/" style="font-size: 10px;">基本放大电路</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%99%A8%E4%BB%B6/" style="font-size: 16px;">常用半导体器件</a> <a href="/tags/%E6%94%BE%E5%A4%A7%E5%99%A8%E7%9A%84%E9%A2%91%E7%8E%87%E7%89%B9%E6%80%A7/" style="font-size: 10px;">放大器的频率特性</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E4%B8%AD%E7%9A%84%E5%8D%95%E5%85%83%E7%94%B5%E8%B7%AF/" style="font-size: 10px;">模拟集成电路中的单元电路</a> <a href="/tags/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5/" style="font-size: 12px;">每日简报</a> <a href="/tags/%E7%A1%AC%E7%B3%96/" style="font-size: 10px;">硬糖</a>
-        </canvas>
-    </div>
-</div>
 
 
 
