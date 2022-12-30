@@ -1,0 +1,1317 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&amp;display=swap" rel="stylesheet">
+<style>
+@font-face{
+   font-family: "Dancing Script",cursive;
+}
+</style>
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --main-color: rgba(128, 30, 255, 1);
+    --shadow-color : rgb(178, 80, 255);
+    --transplate-color : rgba(128, 30, 255, 0.1);
+    --dark-color : rgb(70, 18, 137);
+    --light-color : rgb(248, 242, 255);
+    --font-color : rgb(12, 12, 12);
+    --base-font : "Glow Sans", "Microsoft YaHei", serif;
+    --title-font: "Roboto Slab", "Times", serif;
+    --blockquote-font : "Times", "Roboto Slab", serif;
+    --blockquote-color : rgba(117, 117, 117, 0.9);
+    --monospace: "Cascadia code", "Courier New", monospace; 
+    --blockquote-border-color: rgb(0,0,255);
+
+    /* --background : url("https://cdn.jsdelivr.net/gh/LSTM-Kirigaya/KImage/Img/2k.jpg"); */
+    --quote-title-font-size : 0.9em;
+    --quote-tag-font-size : 1.1em;
+
+    /* typora GUI config */
+    --sidebar-font-color : black;
+    --main-panel-font-color : black;
+
+    /* background: url("http://api.dorcandy.cn/img/bing.php"), no-repeat;
+    background-attachment: fixed;
+    opacity: 1; */
+
+    --signature-font: "Dancing script";
+    --appellation-font: "Fira mono";
+}
+
+/* cyrillic-ext */
+/* global setting */
+body {
+    font-family: "Roboto Slab", "SimHei", serif;
+    /* background-color: rgb(255, 255, 255); */
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	text-rendering: optimizelegibility;
+	-webkit-font-smoothing: initial;
+}
+
+/* write is a wrapper of writable region */
+#write {
+    position: static;
+    /* width: 90%; */
+    max-width: 1000px;
+    min-height: calc(100vh - 6rem);
+	min-width: calc(100vw - 45rem);
+    line-height: 1.6;
+    transform: none;
+    height: auto;
+    caret-color: var(--main-color);
+}
+
+#write h1, h2, h3, h4, h5, h6 {
+    color: var(--font-color);
+    font-family: var(--title-font);
+    font-weight: 800;
+    line-height: 1.5;
+    margin: 0 0 1em 0;
+}
+
+#write h1 {
+    font-size: 40px;
+    margin: 0 0 1.0em 0;
+    line-height: 1.3; 
+    border-bottom: solid 3px var(--main-color);
+    width: fit-content;
+}
+
+#write h2 {
+    font-size: 28px;
+    border-radius: .5em;
+    width: fit-content;
+}
+
+#write h2::before {
+    content: "H2";
+    border-radius: .3em;
+    font-size: .8em;
+    padding: 3px 7px;
+    margin-right: 15px;
+    background-color: var(--main-color);
+    color: white;
+}
+
+#write h3 {
+    font-size: 24px;
+    border-radius: .3em; 
+    width: fit-content;
+}
+
+#write h3::before {
+    content: "H3";
+    color : white;
+    font-size: 0.8em;
+    background-color: var(--main-color);
+    border-radius: .3em;
+    margin-right: 12px;
+    padding: 4px 7px;
+}
+
+#write h4 {
+    font-size: 20px;
+}
+
+#write h4::before {
+    content: "H4";
+    color: white;
+    font-size: .8em;
+    background-color: var(--main-color);
+    border-radius: .3em;
+    margin-right: 9px;
+    padding: 5px 7px;
+}
+
+#write h5 {
+    font-size: 16px;
+}
+
+#write h5::before {
+    content: "H5";
+    color: white;
+    font-size: .8rem;
+    background-color: var(--main-color);
+    border-radius: .3rem;
+    margin-right: 6px;
+    padding: 6px 7px;
+}
+
+#write hr {
+    width: 60%;
+    text-align:center;
+    border-bottom: solid 1.8px var(--main-color);
+    margin: 4.5em auto;
+}
+
+
+#write img {
+    border-radius: 1.5em !important;
+    box-shadow: 0 0 10px 3px rgba(134, 136, 137, 0.8);
+    transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+}
+
+/* #write img:hover {
+    box-shadow: 0 0 10px 5px var(--shadow-color);
+    transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+} */
+
+
+#write blockquote {
+    padding: 10px 10px;
+    font-size: var(--quote-title-font-size);
+    color: var(--blockquote-color);
+    border-left: 4px solid var(--blockquote-border-color);
+    background: var(--light-color);
+    /* border-radius : 0.5em; */
+    font-family: var(--blockquote-font);
+    line-height: 35px;
+}
+
+#write blockquote span {
+    word-break: break-all;
+}
+
+#write blockquote h1 {
+    font-weight: 200;
+    font-size: var(--quote-tag-font-size);
+    border-bottom: none;
+    font-family: var(--base-font);
+    line-height: 35px;
+}
+
+#write blockquote h1::before {
+    content: "Tips";
+    background-color: var(--main-color);
+    font-family: var(--title-font);
+    color: white;
+    font-size: var(--quote-tag-font-size);
+    border-radius: .3em;
+    padding: 3px 7px;
+    margin-right: 15px;
+}
+
+#write blockquote h2 {
+    font-weight: 200;
+    font-size: var(--quote-tag-font-size);
+    font-family: var(--base-font);
+    line-height: 35px;
+}
+
+#write blockquote h2::before {
+    content: "Warning";
+    background-color: rgb(207, 210, 16);
+    font-family: var(--title-font);
+    color: white;
+    font-size: var(--quote-tag-font-size);
+    border-radius: .3em;
+    padding: 3px 7px;
+    margin-right: 15px;
+}
+
+#write blockquote h3 {
+    font-weight: 200;
+    font-size: var(--quote-tag-font-size);
+    font-family: var(--base-font);
+    line-height: 35px;
+}
+
+#write blockquote h3::before {
+    content: "Error";
+    background-color: rgb(224, 66, 66);
+    font-family: var(--title-font);
+    color: white;
+    font-size: var(--quote-tag-font-size);
+    border-radius: .3em;
+    padding: 3px 7px;
+    margin-right: 15px;
+    float: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    vertical-align: baseline;
+    border-width: 0;
+}
+
+#write blockquote h4 {
+    font-weight: 200;
+    font-size: var(--quote-tag-font-size);
+    font-family: var(--base-font);
+    line-height: 35px;
+}
+
+#write blockquote h4::before {
+    content: "Remind";
+    background-color: var(--shadow-color);
+    font-family: var(--title-font);
+    color: white;
+    font-size: var(--quote-tag-font-size);
+    border-radius: .3em;
+    padding: 3px 7px;
+    margin-right: 15px;
+    float: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    vertical-align: baseline;
+    border-width: 0;
+}
+
+#write blockquote h5 {
+    font-weight: 200;
+    font-size: var(--quote-tag-font-size);
+    font-family: var(--base-font);
+    line-height: 35px;
+}
+
+#write blockquote h5::before {
+    content: "Remind";
+    background-color: var(--shadow-color);
+    font-family: var(--title-font);
+    color: white;
+    font-size: var(--quote-tag-font-size);
+    border-radius: .3em;
+    padding: 3px 7px;
+    margin-right: 15px;
+    float: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    vertical-align: baseline;
+    border-width: 0;
+}
+
+
+/* code block */
+#write pre.md-fences {
+	padding: 1rem 0.5rem 1rem;
+	display: block;
+	-webkit-overflow-scrolling: touch;
+	/* box-shadow: 0 0 6px 2px rgba(151, 151, 151, 0.9); */
+    /* border-top: rgb(51, 51, 51) solid 35px; */
+    border-top: rgb(244, 244, 244) solid 35px;
+    background-color: rgb(244, 244, 244);
+}
+
+
+pre.md-fences::before {
+	content: ' ';
+	background: var(--main-color);
+	box-shadow: 23px 0 rgb(128, 128, 128), 45px 0 gray;
+	border-radius: 50%;
+	margin-top: -2.3rem;
+	position: absolute;
+	left: 15px;
+	height: 12px;
+	width: 12px;
+}
+
+#write pre.md-fences {
+	line-height: 1.5rem;
+	font-size: .9rem;
+	font-weight: 300;
+	border-radius: .7em;
+    font-family: var(--monospace) !important;
+}
+
+/* inline code */
+code {
+    margin: 0 2px;
+    padding: 4px 6px;
+    color: #666363;
+    white-space: pre-wrap;
+    background: var(--light-color);
+    border-radius: 8px;
+}
+
+#write blockquote code {
+    margin: 0 2px;
+    padding: 4px 6px;
+    color: white;
+    white-space: pre-wrap;
+    background: var(--main-color);
+    border-radius: 8px;
+}
+
+kbd,
+samp,
+tt,
+var {
+	font-family: var(--monospace) !important;
+}
+
+
+/* YAML */
+pre.md-meta-block {
+    font-size: .8rem;
+    min-height: .8rem;
+    white-space: pre-wrap;
+    background: var(--main-color);
+    display: block;
+    overflow-x: hidden;
+    padding: 15px;
+    font-family: var(--monospace);
+    border-radius: 1.2em;
+    color: white;
+    caret-color: white;
+}
+
+
+/* Math */
+#math-inline-preview-content .MathJax {
+    color: white !important;
+}
+
+/* table */
+#write table
+{
+    width: 95%;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: var(--monospace);
+    margin: 20px;
+}
+#write table td, table th
+{
+    border: 1px solid transparent;
+    color: rgb(18, 18, 18);
+    height: 30px;
+    padding: 10px;
+    border-radius: .5em;
+    transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+}
+#write table td {
+    font-family: var(--title-font);
+}
+#write table thead th
+{
+    background-color: var(--shadow-color);
+    font-size: 20px;
+    color: white;
+    font-weight: bolder;
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+}
+table tr:nth-child(odd)
+{
+    background: white;
+}
+table tr:nth-child(even)
+{
+    background: var(--light-color);
+}
+table td:hover {
+  background-color: var(--shadow-color) !important;
+  color: white !important;
+  box-shadow: 0 0 10px 5px var(--shadow-color);
+  transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+}
+
+
+/* main element consisting of your text */
+p {
+    color: var(--font-color);
+    margin: 0 0 2em 0;  
+    font-weight: 500;
+    line-height: 1.6;
+    font-family: var(--base-font);
+}
+
+a {
+    color: var(--main-color);
+    font-weight: 500;
+    text-decoration: none;
+    text-decoration-style: none;
+    cursor: pointer;
+    padding: 0 3px 0 3px;
+}
+
+
+/* list */
+
+ol,
+ul {
+  padding-left: 2em;
+  line-height: 2;
+}
+
+ul>li>ul>li {
+    list-style-type: circle;
+  }
+  
+ul>li>ul>li>ul>li {
+    list-style-type: square;
+}
+
+
+iframe {
+    border-radius: 1.2em;
+    box-shadow: 0 0 8px 3px rgba(181, 181, 182, 0.9);
+}
+
+
+/* checkbox */
+.md-task-list-item:hover > input:before,
+input[type='checkbox']:hover:before {
+	opacity: 1;
+	transition: 0.3s;
+	background-color: var(--shadow-color);
+}
+
+.task-list-item input::before {
+    content: "";
+    display: inline-block;
+	border-radius: .3em;
+    vertical-align: middle;
+    border: 1.2px solid var(--main-color);
+    background-color: #ffffff;
+	width: 1.1rem;
+    height: 1.1rem;
+	margin-left: -0.1rem;
+    margin-right: 0.1rem;
+    margin-top: -0.68rem; 
+}
+
+.task-list-item input:checked::before {
+    padding-left: 0.125em;
+    content: '✔';
+    color:white;
+	background-color: var(--main-color);
+    font-size: 0.8rem;
+    line-height: 0.95rem;
+    margin-top: -0.68rem;
+	transition: background-color 200ms ease-in-out;
+}
+
+
+
+
+
+#footer-word-count-label {
+    font-family: var(--title-font) !important;
+    color: white;
+    padding: 1px 8px;
+    border-radius: 1.0em;
+    background-color: var(--main-color);
+}
+
+/* bg color when text is selected */
+div::selection {
+background: var(--main-color);
+color: white;
+}
+  
+div::-moz-selection {
+background: var(--main-color);
+color: white;
+}
+
+div::-webkit-selection {
+background: var(--main-color);
+color: white;
+}
+
+blockquote::selection {
+background: var(--main-color);
+color: white;
+}
+
+blockquote::-moz-selection {
+background: var(--main-color);
+color: white;
+}
+
+blockquote::-webkit-selection {
+background: var(--main-color);
+color: white;
+}
+
+p::selection {
+background: var(--main-color);
+color: white;
+}
+
+p::-moz-selection {
+background: var(--main-color);
+color: white;
+}
+
+p::-webkit-selection {
+background: var(--main-color);
+color: white;
+}
+
+label::selection {
+background: var(--main-color);
+color: white;
+}
+
+label::-moz-selection {
+background: var(--main-color);
+color: white;
+}
+
+label::-webkit-selection {
+background: var(--main-color);
+color: white;
+}
+
+span::selection {
+background: var(--main-color);
+color: white;
+}
+
+span::-moz-selection {
+background: var(--main-color);
+color: white;
+}
+
+span::-webkit-selection {
+background: var(--main-color);
+color: white;
+}
+
+h1::selection {
+background: var(--main-color);
+color: white;
+}
+
+h1::-moz-selection {
+background: var(--main-color);
+color: white;
+}
+
+h1::-webkit-selection {
+background: var(--main-color);
+color: white;
+}
+
+h2::selection {
+background: var(--main-color);
+color: white;
+}
+
+h2::-moz-selection {
+background: var(--main-color);
+color: white;
+}
+
+h2::-webkit-selection {
+background: var(--main-color);
+color: white;
+}
+
+h3::selection {
+background: var(--main-color);
+color: white;
+}
+
+h3::-moz-selection {
+background: var(--main-color);
+color: white;
+}
+
+h3::-webkit-selection {
+background: var(--main-color);
+color: white;
+}
+
+h4::selection {
+background: var(--main-color);
+color: white;
+}
+
+h4::-moz-selection {
+background: var(--main-color);
+color: white;
+}
+
+h4::-webkit-selection {
+background: var(--main-color);
+color: white;
+}
+
+h5::selection {
+background: var(--main-color);
+color: white;
+}
+
+h5::-moz-selection {
+background: var(--main-color);
+color: white;
+}
+
+h5::-webkit-selection {
+background: var(--main-color);
+color: white;
+}
+
+code::selection {
+background: var(--main-color);
+color: white;
+}
+
+code::-moz-selection {
+background: var(--main-color);
+color: white;
+}
+
+code::-webkit-selection {
+background: var(--main-color);
+color: white;
+}
+
+
+/* outside */
+
+
+#megamenu-content {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#megamenu-menu-panel {
+    font-family: var(--title-font);
+    padding: 10px;
+}
+
+.megamenu-menu-panel {
+    padding: 10px;
+}
+
+
+.megamenu-menu-header-title-menu {
+    color: var(--sidebar-font-color);
+}
+
+.megamenu-menu-header-title-back {
+    color: var(--sidebar-font-color);
+}
+
+
+/* sidebar */
+.megamenu-menu-header {
+    width: 60%;
+    text-align:center;
+    border-bottom: solid 3px var(--main-color);
+}
+#megamenu-menu-sidebar {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--sidebar-font-color);
+    box-shadow: 0 0 8px 4px rgb(100 100 100 / 80%);
+    margin-top: 3%;
+    height: 92%;
+    border-radius: 0 4em 4em 0;
+}
+#megamenu-back-btn {
+    border-radius: 1.2em;
+    color: var(--main-color);
+    transition: all linear .3s;
+    padding: 0 0 10px;
+}
+
+#megamenu-back-btn:hover {
+    background-color: var(--main-color);
+    color: white;
+    border: 2px solid white;
+    transition: all linear .3s;
+}
+
+#megamenu-menu-list > li {
+    transition: all linear .3s;
+}
+
+#megamenu-menu-list > li:hover {
+    transition: all linear .3s;
+    border-top-left-radius: 1.2em;
+    border-bottom-left-radius: 1.2em;
+}
+
+#megamenu-menu-list > li:focus {
+    transition: all linear .3s;
+    color : white;
+    background-color: var(--shadow-color);
+    width: fit-content;
+    border-top-right-radius: 1.2em;
+    border-bottom-right-radius: 1.2em;
+}
+
+.dropdown-menu .divider {
+    width: 30%;
+    color: var(--main-color);
+    background-color: var(--main-color);
+}
+.megamenu-menu-list li a {
+    transition: all linear .3s;
+    width: fit-content;
+    padding-right: 60px;
+}
+
+.megamenu-menu-list li a:hover {
+    transition: all linear .3s;
+    color: white !important;
+    background-color: var(--main-color) !important;
+    border-bottom-right-radius: 2em;
+    border-top-right-radius: 2em;
+}
+
+.megamenu-menu-list li a.active, .megamenu-menu-list:not(.saved) li a:hover {
+    color: white !important;
+    background-color: var(--main-color) !important;
+    border-bottom-right-radius: 2em;
+    border-top-right-radius: 2em;
+}
+
+
+/* open */
+#m-open-local,
+#m-import-local {
+    border-radius: 1.2em;
+}
+
+#m-open-local:hover,
+#m-import-local:hover {
+    border: 1px solid var(--shadow-color);
+}
+
+#recent-file-panel-search-input {
+    border-radius: 1.2em;
+    transition: all linear .3s;
+    font-family: var(--title-font);
+}
+#recent-file-panel-action-btn {
+    border-radius: 1.2em;  
+}
+
+#recent-file-panel-search-input:hover {
+    transition: all linear .3s;
+    box-shadow: 0 0 10px 3px var(--shadow-color);
+}
+
+#recent-file-panel-search-input:focus {
+    transition: all linear .3s;
+    color: white;
+    border: none;
+    background-color: var(--shadow-color);
+}
+
+/* side bar Ctrl Shift 2 */
+/* .typora-node.pin-outline:not(.megamenu-opened):not(.typora-sourceview-on) #typora-sidebar {
+    display: block;
+    left: 0;
+    transition: left .3s;
+    border-radius: 0em 3em 3em 0em;
+    box-shadow: 0 0 8px 3px rgb(100 100 100 / 80%);
+    margin-top: 20px;
+    margin-bottom: 5%;
+    height: 95%;
+    padding-right: 10px;
+} */
+
+.info-panel-tab-border {
+    color: var(--main-color) !important;
+    background-color: var(--main-color) !important;
+}
+
+.outline-content {
+    padding: 3px 18px 3px 0;
+}
+
+.outline-item {
+    margin-left: -20px;
+    margin-right: -20px;
+    border-left: 20px solid transparent;
+    border-right: 16px solid transparent;
+}
+
+.outline-item:hover {
+    background-color: var(--shadow-color);
+    color: white;
+}
+
+.active-tab-files  #info-panel-tab-file .info-panel-tab-title {
+    background-color: var(--main-color);
+    color: white;
+    padding: 5px 5px;
+    border-radius: 1.2em;
+    transition: all linear .3s;
+}
+
+.active-tab-outline #info-panel-tab-outline .info-panel-tab-title {
+    background-color: var(--main-color);
+    color: white;
+    padding: 5px 5px;
+    border-radius: 1.2em;
+    transition: all linear .3s;
+}
+
+.ty-show-search #info-panel-tab-search  .info-panel-tab-title {
+    background-color: var(--main-color);
+    color: white;
+    padding: 5px 5px;
+    border-radius: 1.2em;
+    transition: all linear .3s;
+}
+
+
+#file-library-search-input {
+    border-radius: .5em;
+}
+
+#file-library-search-input:focus {
+    border: 2px solid var(--main-color);
+}
+
+.info-panel-tab-border {
+    display: none;
+}
+div#file-library-list-children {
+    transition: all linear .3s;
+}
+
+.file-list-item.active {
+    border-top-right-radius: 2.2em;
+    border-bottom-right-radius: 2.2em;
+    width: fit-content;
+    background-color: var(--main-color) !important;
+    color: white;
+    transition: all linear .3s;
+}
+
+.outline-item-active {
+    border-top-right-radius: 2.2em;
+    border-bottom-right-radius: 2.2em;
+    width: fit-content;
+    background-color: var(--main-color) !important;
+    color: white;
+    transition: all linear .3s;
+}
+
+
+/* theme */
+.theme-preview-div.active, .theme-preview-div.active:hover {
+    border-color: var(--main-color);
+}
+#theme-preview-grid {
+    max-width: 100% !important;
+}
+#open-theme-folder-btn {
+    transition: all .3s;
+    border-radius: 2em;
+    border: none;
+    color: white !important;
+    background-color: var(--main-color);
+}
+#open-theme-folder-btn:hover {
+    transition: all .3s;
+    color: white !important;
+    background-color: var(--shadow-color);
+}
+
+/* export */
+.long-btn {
+    transition: all .3s;
+    border-radius: 2em;
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+}
+
+.long-btn:hover {
+    transition: all .3s;
+    color: white !important;
+    background-color: var(--main-color);
+}
+
+.long-btn-wrap {
+    padding: 10px;
+}
+
+.megamenu-section-export {
+    font-family: var(--title-font) !important;
+}
+
+
+.megamenu-menu-panel h1 {
+    padding-bottom: 10px;
+    width: fit-content !important;
+    border-bottom: var(--main-color) solid 3px;
+}
+
+.megamenu-menu-panel h2::before {
+    content: "H2";
+    border-radius: .3em;
+    font-size: 25px;
+    padding: 3px 7px;
+    margin: 5px 15px 5px 1px;
+    background-color: var(--main-color);
+    color: white;
+}
+
+
+/* modal exit dialog */
+.btn-primary {
+    transition: all .3 linear;
+    border-radius: 1.2em;
+    background-color: var(--main-color);
+}
+
+.btn-default {
+    transition: all .3 linear;
+    border-radius: 1.2em;
+    border: var(--main-color) 3px solid;
+    color: var(--main-color);
+    background-color: white;
+}   
+
+.btn-primary:hover,
+.btn-default:hover {
+    transition: all .3 linear;
+    color: white;
+    background-color: var(--shadow-color);  
+}
+
+.btn-primary:focus,
+.btn-default:focus {
+    transition: all .3 linear;
+    color: white;
+    background-color: var(--main-color);
+}
+
+.modal-content {
+    border-radius: 1.5em;
+    border: none;
+}
+
+.ImgCaption {
+    padding-top: 0;
+    margin-top: 0;
+    border-bottom: 2px solid var(--shadow-color);
+    width: fit-content;
+  }
+
+/* Perference */
+.nav-group-item-item:hover {
+    transition: all .3s;
+    border: 2px solid var(--main-color);
+}
+.nav-group-item.active {
+    color: white;
+    font-family: var(--title-font);
+    transition: all .3s;
+    border-radius: 1.5em;
+    padding: 6px 11px 6px 11px;
+}
+.nav-group-item {
+    transition: all .3s;
+    border-radius: 1.5em;
+    width: fit-content;
+    cursor: pointer;
+}
+.nav-group-item.active, .nav-group-item:active {
+    background-color: var(--main-color) !important;
+    color: white !important;
+}
+.pane-group {
+    font-family: var(--title-font);
+}
+
+input:not([type=range]):not([type=color]) {
+    outline: none;
+    border: 2px solid var(--main-color);
+    border-radius: .7em;
+    font-size: 16px;
+}
+
+input:not([type=range]):not([type=color]):focus {
+    border-radius: .7em;
+    color: white;
+    background-color: var(--main-color);
+    box-shadow: 0 0 6px 3px var(--shadow-color);
+    transition: all .3s linear;
+}
+
+.pane select,
+.pane .btn {
+    border-radius: 0.7em;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.pane .btn:hover {
+    color: white !important;
+    transition: all .3s linear;
+    background-color: var(--main-color);
+}
+
+.label-input-group td:hover {
+    box-shadow: none;
+}
+
+.label-input-group .row:hover {
+    color: black;
+    background-color: white;
+}
+
+#write.enable-diagrams>[mermaid-type=gantt].md-fences:not(.md-focus) {
+    width: inherit !important;
+    margin-left: inherit !important;
+}
+
+/* TODO fix the bug below */
+#footer-word-count-info table, #footer-word-count-info td, #footer-word-count-info tr {
+    border: none!important;
+    background: inherit !important;
+    font-size: 13.5px!important;
+    text-align: left!important;
+    padding: 0;
+    -webkit-user-select: initial;
+    user-select: initial;
+    margin: 0!important;
+    line-height: 1.8;
+}
+
+
+
+
+
+
+
+#write:after{
+    /* border: solid 0.1em #d00; */
+    /* border-bottom: solid; */
+    font-family: "Dancing script";
+    border-radius: 0.2em;
+    color: #d00;
+    content: 'USTC-irresistible' !important;
+    font-size: 50px !important;
+    font-weight: bold;
+    line-height: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    /* text-transform: uppercase; */
+    transform-origin: 50% 50%;
+    display: inline-block;
+    opacity: .05;
+    transform: rotate(-45deg) scale(1);
+    z-index: 0;
+}
+</style><title>Annual_Report</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><div style="background:linear-gradient(to left,#332cc2,#88fe33,#ff2477);height:2px; margin:2rem"></div><p><img src="C:\Users\NKU-LFY\Desktop\Annual.jpg" style="zoom:100%;" /></p><center><h1 style="font-size:2.2em">The year in review: wander and wonder</h1></center><center><em>©USTC-茶糜花开™</em></center><p style="text-align:right">Vendredi, 30 Décembre 2022<br>Printed in China</p><p><span>	</span><span>We usually take some time to conduct a scrutiny on life as we close out the year.</span></p><p><span>	</span><span>Frankly speaking, this year was not the year I expected. It was a year of doubt and confusion, a year of hope and loss, a year of self-adjust and discovery. I&#39;ve read quite a lot </span><strong><span>Year-In-Review</span></strong><span> written and shared by my fellow friends. It&#39;s notable that nearly all the reviews have used </span><em><strong><span>tough and bumpy</span></strong></em><span> as key words spontaneously and simultaneously to describe the year.</span></p><p><span>	</span><strong><span>Perhaps to some extents, complexity and perplexity is the best profile of this year.</span></strong></p><p><span>	</span><span>Even though the life in this year might be a chaos for most of us, yet what is no room for discussion is that the structure of this report shall be well-organized, consequently, we are listing a few bullet points below and that is the narrative structure that the rest of the paper will follow:</span></p><ul><li><span>2022 Award Ceremony</span></li><li><span>What didn&#39;t go well</span></li><li><span>What was harvested</span></li><li><span>New Year Annual Strategy</span></li></ul><div style="background:linear-gradient(to left,#332cc2,#88fe33,#ff2477);height:2px;"></div><p style="text-align:left;color: green; font-size:20px;font-weight:800">2022 Award Ceremony</p><blockquote><p><span>This section is to document some favorites in 2022 in my less humble opinion</span></p></blockquote><ol start='' ><li><p><strong><span>My favorite comedy in 2022</span></strong></p><p><span>This year&#39;s </span><strong><span>My favorite comedy</span></strong><span> will be awarded to </span><code>Young Sheldon</code><span> for the great happiness and humor it brings.</span></p><p><img src="https://tterp-filenode-sc.tongtool.com/u/pds/permanentImg/024594/all/20200921/06/024594-8d4c0f32-dc7e-40d6-ab92-5ea390d0d802.JPG" style="zoom:100%; width:50%"/></p></li><li><p><strong><span>My favorite speculative show in 2022</span></strong></p><p><span>This year&#39;s </span><strong><span>My favorite speculative show</span></strong><span> will be awarded to </span><code>Elementary</code><span> for its heart-pounding plot and sensible deduction.</span></p><p><img src="https://www.3ddayin.net/uploads/allimg/160118/09454a2K-0.jpg" style="zoom:100%; width:50%" /></p></li><li><p><strong><span>My favorite TV show in 2022</span></strong></p><p><span>This year&#39;s </span><strong><span>My favorite TV show</span></strong><span> will be awarded to the second season of </span><code>Twenty Your Life on</code><span> for it interprets the real life of contemporary youth and restores the contradictory points of in the real workplace.</span></p><p><img src="C:\Users\NKU-LFY\Desktop\twenty_your_life_on.jpg" style="zoom:100%;width:50%" /></p></li><li><p><strong><span>My most listened singer in 2022</span></strong></p><p><span>This year&#39;s </span><strong><span>My most listened singer</span></strong><span> will go to </span><code>陈卓璇</code><span> with a brand new record of 110h music listening</span></p><p><img src="C:\Users\NKU-LFY\Desktop\czx.jpg" style="zoom:100%; width:50%" /></p></li><li><p><strong><span>My beloved official account in 2022</span></strong></p><p><span>This year&#39;s </span><strong><span>My most beloved official account</span></strong><span> will go to </span><code>极简史</code><span> for it spreads weird but interesting historical knowledge in the form of comics</span></p><p><img src="C:\Users\NKU-LFY\Desktop\jjs.png" style="zoom:100%; width:50%" /></p></li><li><p><strong><span>My most liked Youtube channel in 2022</span></strong></p><p><span>This year&#39;s </span><strong><span>My most liked Youtube channel</span></strong><span> will be shared by </span><code>Oli barrette</code><span>,</span><code>Johnny</code><span> and </span><code>John.zch</code><span>. </span></p><p><span>This year The Barrettes has been embarking on a trip around the world, making videos of oddities and local customs, greatly enriched our knowledge of  humanity and geography. </span></p><p><span>The Johnny&#39;s videos have made an indelible contribution to improving our understanding of African countries and fostering national friendship. </span></p><p><span>John is a Chinese doing business in the Eastern Europe when Russian-Ukraine conflicts occurred, and he&#39;s making unretouched video reflecting the real life on the run and situations in Ukraine. </span></p><p><span>For some sensitive reasons as we know, we decide not to give any snapshot below in this subsection.</span></p></li><li><p><strong><span>My most appreciated bloggers in 2022</span></strong></p><p><span>This year&#39;s </span><strong><span>My most appreciated bloggers</span></strong><span> will be shared by </span><code>Hao Zhang</code><span> and </span><code>Corrain</code><span>.</span></p><p><span>Hao Zhang, master in progress in UESTC, has given a great help in my study of Quantum Mechanics, Primary.</span></p><p><span>Corrain, mater in progress in UCAS, willing to share his knowledge and experiences in Micro field which benefits a lot.</span></p></li><li><p><strong><span>POTY: Picture of The Year</span></strong></p><p><span>This year&#39;s </span><strong><span>POTY</span></strong><span> will be given to </span><code>a mysterious power that claims the suspicion of violating certain laws and regulation with no public details provided.</code></p><p><img src="C:\Users\NKU-LFY\Desktop\poty.png" style="zoom:100%; width:50%" /></p></li><li><p><strong><span>EOTY: Event of The Year</span></strong></p><p><span>This year&#39;s </span><strong><span>EOTY</span></strong><span> will go to </span><code>The Russia-Ukraine war</code></p><p><img src="https://tse1-mm.cn.bing.net/th/id/OIP-C.iqNWGUMhywgcUqRr4SPI8AHaDr?pid=ImgDet&rs=1" style="zoom:100%; width:50%" /></p></li><li><p><strong><span>TOTY: Team of The Year</span></strong></p><p><span>This year&#39;s </span><code>The Best 11 man squad</code><span> of </span><strong><span>TOTY</span></strong><span> will be as follows</span></p><ul><li><span>Left Winger(LW): Kylian Mbappé</span></li><li><span>Center Forward(CF): Erling Haaland</span></li><li><span>Right Winger(RW): Lionel Messi</span></li><li><span>Center Attack Mid-Fielder(CAM): Kevin De Bruyne</span></li><li><span>Center Defender Mid-Fielder(CDM): N&#39;Golo Kanté</span></li><li><span>Center Defender Mid-Fielder(CDM): Luka Modric</span></li><li><span>Left Back(LB): Theo Hernandez</span></li><li><span>Center Back(CB): Nicolás Hernán Gonzalo Otamendi</span></li><li><span>Center Back(CB): Josko Gvardiol </span></li><li><span>Right Back(RB): Reece James</span></li><li><span>Goalkeeper(GK): Gianluigi Donnarumma</span></li></ul><p><img src="C:\Users\NKU-LFY\Desktop\toty.jpg" style="zoom:100%; width:50%;%" /></p></li><li><p><strong><span>BOTY: Book of The Year</span></strong></p><p><span>This year&#39;s </span><strong><span>BOTY</span></strong><span> will be honored to </span><code>A PROMISED LAND</code><span> written by </span><em><strong><span>Barack Obama</span></strong></em><span>, </span><a href='https://www.britannica.com/topic/presidency-of-the-United-States-of-America'><span>44th president of the United States</span></a><span> for giving an honest rendering of his time as POTUS.</span></p><p><img src="https://www.bargainbooks.co.za/wp-content/uploads/2020/11/Blog-images-4-1080x675.jpg" style="zoom:100%; width:50%" /></p></li><li><p><strong><span>MOTY: Moment of The Year</span></strong></p><p><span>According to the Tencent Annual Report, this year&#39;s most welcome </span><strong><span>MOTY</span></strong><span> goes for </span><code>a snowman</code><span> photographed in Harbin.</span></p><p><img src="C:\Users\NKU-LFY\Desktop\harbin.jpeg" style="zoom:100%; width:50%" /></p></li><li><p><strong><span>SOTY: Science of The Year</span></strong></p><ol start='' ><li><p><em><u><strong><span>Annual Astronomical Achievement</span></strong></u></em></p><p><span>This year&#39;s </span><strong><span>Annual Astronomical Achievement</span></strong><span> will go to </span><code>The James Webb Space Telescope, JWST</code><span> for more than just providing </span><em><strong><span>A snapshot of the oldest baby universe ever created</span></strong></em><span>.</span></p><p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/mcrLqJvbDOplo2Iicg3ypWuO103d9eMbEH9JyxaYtd3AcBkiawklzGEJdgSzIfcN0tXJNSse8JCeaauWNLP2sfibA/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1" style="zoom:100%; width:50%" /></p></li><li><p><u><em><strong><span>Annual Particle Physics Achievement</span></strong></em></u></p><p><span>This year&#39;s </span><strong><span>Annual Particle Physics Achievement</span></strong><span> will be given to </span><code>Tetraneutron</code><span>, which means the discovery of a substance composed of four neutrons.</span></p></li><li><p><u><em><strong><span>Annual Attempt Achievement</span></strong></em></u></p><p><span>This year&#39;s </span><strong><span>Annual Attempt Achievement</span></strong><span> will be won by NASA for </span><code>Double Asteroid Redirection Test, DART</code><span>, this is the first full-scale demonstration of asteroid orbit deflection technology and the application of kinetic impact technology.</span></p><p><img src="https://mmbiz.qpic.cn/mmbiz_png/vbvnzfFFCKm87XRHfZocgSRSGGLLnQ3JXOpTmrKRBswwY2I1gLdDqoMFicvicaqMSnGiaSkWWgF5yiczia1Q1ltSwKA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" style="zoom:100%; width:50%" /></p></li><li><p><u><em><strong><span>Annual Medical Achievement</span></strong></em></u><span> </span></p><p><span>This year&#39;s </span><strong><span>Annal Medical Achievement</span></strong><span> will be awarded to </span><code>Allogeneic organ transplantation</code></p></li></ol></li><li><p><strong><span>FOTY: Friend of The Year</span></strong></p><p><span>This is the final prize of the 2022 Award Ceremony.</span></p><p><span>This year&#39;s </span><strong><span>Friend of The Year</span></strong><span> will be represented to:</span></p><ol start='' ><li><p><em><strong><span>Best Game Partner Award</span></strong></em></p><p><img src="C:\Users\NKU-LFY\Desktop\p1.png" style="zoom:25%;" /></p></li><li><p><em><strong><span>Best Task Driven Award</span></strong></em></p><p><img src="C:\Users\NKU-LFY\Desktop\p2.png" style="zoom:25%;" /></p></li><li><p><em><strong><span>Best Talkative Award</span></strong></em></p><p><img src="C:\Users\NKU-LFY\Desktop\p3.png" style="zoom:25%;" /></p></li><li><p><mark><strong><span>Annual Honorary Partner </span></strong></mark></p><p><img src="C:\Users\NKU-LFY\Desktop\p4.png" style="zoom: 25%;" /></p></li></ol></li></ol><p style="text-align:center;font-weight:800; color:red;font-size:20px;margin-top:50px">This is the end of the 2022 Award Ceremony</p><div style="page-break-after:always"> </div><div style="background:linear-gradient(to left,#00ff00,#0000ff,#ff0000);height:2px;"></div><p style="text-align:left;color: green; font-size:20px;font-weight:800">What didn't go well</p><blockquote><p><span>There are a few things I wanted to achieve and didn&#39;t get around to doing. It&#39;s important to acknowledge these gaps.</span></p></blockquote><p><span>	</span><span>On June 2rd(Jeudi, 2 Juin 2022) I scheduled to launch a project of building a nameplate wall, like a hall of fame, to document something important. Apparently the project has sunk to the bottom, partly because of some technical hurdles, and partly because of the risk of privacy leak, and so there&#39;s no anything substantial published this year.</span></p><p><span>	</span><span>Second, I wanted to escape the fence for a trip, probably it&#39;s our mutual common wish in this year. We had a cherry blossom spring, a dry and hot summer, and a dreary autumn, but never got our wish accomplished till the end of the year.</span></p><p><span>	</span><span>Third, we have fallen into the trap of sentimentality when negative messages piled up this year. We&#39;ve heard tremendous sensational things, we&#39;ve questioned the impartiality of the media countless times, we&#39;ve lost the analysis ability to deal with the source in a compartmentalized way. This takes away our position of political neutrality.</span></p><p><span>	</span><span>   Fourth, we have a strong sense of being dominated by life, which makes us lose our autonomy. Sometimes we have no idea on the reasons why we are going to do something. Fortunately, we quickly realized we are in an abnormal state, and that remains a silver lining for us to watch our life from outside as a dissociated observer, a more nuanced perspective to change and persist on living.</span></p><p><span>	</span><span>In a nutshell, we could summarize all these as endogenous abnormalities due to disturbances in the external environment. We realized this and so we could launch a renaissance.</span></p><div style="page-break-after:always"> </div><div style="background:linear-gradient(to left,#aaff00,#bbccdd,#ff00cc);height:2px;"></div><p style="text-align:left;color: green; font-size:20px;font-weight:800">What was harvested</p><blockquote><p><span>In this section, we&#39;re trying to figure out if there&#39;s something meaningful in this year</span></p></blockquote><p><span>	</span><span>When we look back at the passing year, we are eager to inspect and uncover the marks left in the year. We are trying to take stock of something worthwhile in chronological order.</span></p><ol start='' ><li><p><span>janvier</span></p><ul><li><p><span>On January 7th, we&#39;ve all finished our final exams and went for a potluck with roommates in downtown area. The only reason we went to downtown was the metro was open. Breathing in the fresh air outside and walking through the streets where the old meets the new was really at ease. The bad news was we were lockdown in school the next day as the outbreak of cov, sort of balance.</span></p></li><li><p><span>On January 11th, we&#39;ve arranged for a chilly test at 3:00 am, what a day.</span></p></li><li><p><span>On January 22th, </span><strong><span>See what the northern countries show: hundreds of leagues ice-bound go, thousands of leagues flies snow</span></strong><span>.</span></p><p><img src="C:\Users\NKU-LFY\Desktop\snow.jpg" style="zoom:100%; width:50%" /></p></li></ul></li><li><p><span>février</span></p><ul><li><p><span>On February 4th, The opening ceremony of 2022 Beijing Winter Olympics Games, since then, we use Bingdwendwen as nickname when we leave a message for the blogger we visit, and perhaps if you take Bingdwendwen as the key words in searching engine, you might get our ones.</span></p><p><img src="https://tse2-mm.cn.bing.net/th/id/OIP-C.kg3Wdo8zkAwEYgenB1BkbQHaEt?pid=ImgDet&rs=1" style="zoom:100%; width:50%" /></p></li><li><p><span>On February 13th, throughout the winter holidays, we&#39;ve composed 8 special columns:</span></p><ul><li><em><span>The First Three Minutes</span></em></li><li><em><span>Primordial Black Holes</span></em></li><li><em><span>Physical Equivalence</span></em></li><li><em><span>Leidenfrost Effect</span></em></li><li><em><span>Dimension Analysis</span></em></li><li><em><span>Nash Equilibrium</span></em></li><li><em><span>NSIR</span></em></li><li><em><span>The vacuum</span></em><span> </span></li></ul></li></ul></li><li><p><span>mars</span></p><ul><li><p><span>On March 6th, we&#39;ve written a commemorative paragraph for </span><u><em><strong><span>LEON IMAGE</span></strong></em></u><span>, author of the best-selling series book </span><em><strong><span>Charles IX</span></strong></em><span>.</span></p></li><li><p><span>On March 26th, we&#39;ve packed up every place we have travelled to till our current life stage and we made it a map, many old memories slowly emerge in our mind.</span></p><p><img src="C:\Users\NKU-LFY\Desktop\map.png" style="zoom:100%;width:50%" /></p></li></ul></li><li><p><span>avril</span></p><ul><li><p><span>On April 16th, while trekking on campus, we grasped a picture of rabbit, Jinnan grassland is quite a mysterious place.</span></p><p><img src="C:\Users\NKU-LFY\Desktop\rabbit.jpg" style="zoom:100%; width:50%" /></p></li></ul></li><li><p><span>mai</span></p><ul><li><p><span>On May 30th, we&#39;ve released a relative detailed report to summarize the last semester as a sohpomore, </span><a href='https://mp.weixin.qq.com/s/htoSaw5e8CHMDDZHG3HjoA'><span>夏日掠影：一些回忆与相识</span></a><span>, It&#39;s always good to have a staged summary.</span></p><p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/x6uvfDV2UyKwozkQSlE5iaVMiavlOIU3mxd4gfaPoO2S5tqfWN9TuBj9fJqwYB8NHnY210KplricRCyBspN934DJw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1" style="zoom:50%; width:30%" /></p></li></ul></li><li><p><span>juin</span></p><ul><li><p><span>On June 16th, we </span><strong><span>saw a smile in the air across the skyline, cutting through the silence with the dawn after the rain</span></strong><span>.</span></p><p><img src="C:\Users\NKU-LFY\Desktop\ranibow.jpg" style="zoom:100%; width:50%" /></p></li></ul></li><li><p><span>juillet</span></p><ul><li><span>From July 15th to 17th, we spent some days on a summer vacation journey. We climbed Mount. Emei and visited Leshan city, worth mentioning the tidbits is we were blocked by monkeys🐒.   </span></li></ul></li><li><p><span>août</span></p><ul><li><span>On August 27th, we started an arduous journey back to school.</span></li></ul></li><li><p><span>septembre</span></p><ul><li><span>On September 9th, we made our own Mid-Autumn Festival mooncakes</span></li><li><span>On September 15th, we celebrated our first anniversary of the </span><em><span>USTC-茶靡花开</span></em></li></ul></li><li><p><span>octobre</span></p><ul><li><span>From October 13th to 16th, we spent three days on the EDC with our fellow teammates. </span></li></ul></li><li><p><span>novembre</span></p><p><span>This is an uneventful month.</span></p></li><li><p><span>décembre </span></p><ul><li><span>Annual learning report from Duolingo shows we&#39;re top 6% worldwide in learning this year. We&#39;ve learned approximately 3000 this year, but we know that&#39;s not enough.</span></li></ul></li></ol><p><span>	</span><span>It seems quite clear that life in the first half is more fulfilling than the other, we attribute this to our strategic realignment. </span></p><p><span>	</span><span>The past year seems to have brought us some enlightenment, some gains, some insights, but we could hardly say anything easily when people suddenly ask how&#39;s your year going, </span><mark><span>we are wandering, as title said.</span></mark></p><p><span>	</span><span>This year we&#39;ve read some </span><strong><span>books</span></strong><span>:</span></p><ul><li><em><span>The Order of Time, Carlo Rovelli</span></em></li><li><em><span>A Promised Land, Barack Obama</span></em></li><li><em><span>One Minute Physics, Constitution of Physics, CAS</span></em></li><li><em><span>Adventure of Dr. Physics, Constitution of Physics, CAS</span></em></li><li><em><span>Exploring the world of mathematics, Brian Clegg</span></em></li></ul><p><span>	</span><span>Obviously we could count them on our fingers, so it&#39;s definitely a must for us to try reading more than this year.</span></p><p><span>	</span><span>This year, by following the official account of </span><strong><span>China National Geographic Magazine</span></strong></p><ul><li><p><span>It is picturesque, introducing mountains and rivers through pictures and videos to make people enchanted</span></p></li><li><p><span>It is knowledgeable, It does not only introduce geography, but also integrates history, humanities and science</span></p><p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/g55FlNiaVwO4OPjXUhhD4gF0aEfaGiaicHUUYkf4N0liaQlw2lIo2uy4Vzt3qUAFoFEadZgQGibmSQM4WVxG9u8RPicg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1" style="zoom:100%; width:50%" /></p></li></ul><p><span>	</span><span>This is the year, bland, wander and wonder, we are seeking for change, reform, revolution, revive and rebirth.</span></p><div style="page-break-after:always"> </div><div style="background:linear-gradient(to left,#eeff00,#df0adf,#f12f3c);height:2px;"></div><p><img src="C:\Users\NKU-LFY\Desktop\Annual.png" referrerpolicy="no-referrer"></p><p style="text-align:left;color: red; font-size:25px;font-weight:800; text-align:center">New year annual strategy</p><p><span>	</span><span>In the passing year we all face an extraordinarily complicated world, filled with a wide range of challenges. Due to some reasons, we feel our lives porous and vulnerable. These things make us have lost trust, faith and confidence in our future.</span></p><p><span>	</span><span>Nearly one year later, although serious challenges remain, we are surely have to chart a new and very different couse.</span></p><p><span>	</span><span>We will pursue this beautiful vision: having ability to rationally analyze and evaluate the dilemma we confront at any time, having confidence in the path we choose with absolutely no wavering, thriving side by side with our like-minded partners in enhancement, progress and prosperity. We shall focus more on ourselves and no longer dominated by life, we shall rely more on ourselves rather than illusion that people could help, and we shall all resolutely adhere to a neutrality attitude.</span></p><p><span>	</span><span>In pursuit of that future, we will look at the world with clear eyes and fresh thinking, we will promote a balance of development that favors us, we will never lose our own belief, criteria and values and capacity of inspire, uplift and renew.  </span></p><p><span>	</span><span>We shall be vigilant that do not bred complacency under no circumstance, self-sustaining won&#39;t always work, that spurs us on continuous learning from the external environment and staying humble. History has proved the greatest antidote to bewildered, scorn, arrogance is to do something with our hands, and that&#39;s when we will find what a wrong perception we&#39;ve had.</span></p><p><span>	</span><span>Competitions and rivalries are inevitable and are not passing trends or momentary problems, they will be there throughout our working life span. They are intertwined, long term challenges that demand our sustained attention, alert and commitment, and here comes our overall annually strategic points:</span></p><ul><li><span>Spotlight, we will refocus, the time we spend in caring about fruitless things will be put into things that do practical benefit for us. Before we wings are full, sparks won&#39;t lit the candle.     </span></li><li><span>Neutrality, we will not comment on any political affairs or issues and there will be no response for our views.</span></li><li><span>Solidarity, cooperation does good to anyone. </span></li><li><span>Community, the negative recognition has blindfolded us this year. We questioned the necessity in attending community events and now we know it&#39;s wrong. In the incoming year, we will restart our voluntary for a shared future. </span></li><li><span>Observation, silence is gold, so does observation. Information we gain from observation will have potential advantages.</span></li></ul><p><span>	</span><span>This strategy is a layout, a roadmap for the incoming year, instead of wandering, we are wondering. We know none if this will be easy or without setbacks, but that is our enduring vision.</span></p><p><span>	</span><span>Dear friends and fellows, on the occasion of the New Year, we sincerely wish you love and luck in the coming year.</span></p><p style="font-family:Dancing script;font-size:28px;text-align:right">USTC-irresistible<br>Co-founder of the USTC-茶糜花开™</p><div style="page-break-after:always"> </div><div style="background:linear-gradient(to left,#332cc2,#88fe33,#ff2477);height:2px; margin:2rem"></div><p><img src="C:\Users\NKU-LFY\Desktop\hny.png" referrerpolicy="no-referrer"></p><div style="background:linear-gradient(to left,#332cc2,#88fe33,#ff2477);height:2px; margin:2rem"></div><p>&nbsp;</p><p>&nbsp;</p></div></div>
+</body>
+</html>
