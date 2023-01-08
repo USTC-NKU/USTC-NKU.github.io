@@ -1329,6 +1329,104 @@ tabsFn.backToTop()
   <!-- 访客网络信息板块 -->
   
   <!-- 访客网络信息结束 -->
+  <!-- 新年倒计时开始 -->
+  
+    <div class="count-down-box">
+      <div class="count-down" id="newYear">
+          <p class="title"></p>
+          <div class="newYear-time"></div>
+          <div class="rabbit-shadow"></div>
+      </div>
+  </div>
+  <script>
+      function newYear() {
+          var t, e, n;
+          clearTimeout(null),
+          document.querySelector("#newYear") && (n = new Date("2023-01-22 00:00:00").getTime() / 1e3,
+          t = new Date,
+          (n = n - Math.round(t.getTime() / 1e3)) < 0 ? (document.querySelector("#newYear .title").innerHTML = "Happy New Year",
+          document.querySelector("#newYear .newYear-time").innerHTML = '<span class="happyNewYear">新年快乐</p>') : (document.querySelector("#newYear .title").innerHTML = "距2023年春节",
+          86400 < n ? document.querySelector("#newYear .newYear-time").innerHTML = '<span class="day">'.concat(Math.ceil(n / 86400), '<span class="unit">天</span></span>') : (t = Fluid.plugins.nol(parseInt(n / 3600)),
+          n %= 3600,
+          e = Fluid.plugins.nol(parseInt(n / 60)),
+          n %= 60,
+          n = Fluid.plugins.nol(n),
+          document.querySelector("#newYear .newYear-time").innerHTML = '<span class="time">'.concat(t, ":").concat(e, ":").concat(n, "</span></span>"),
+          setTimeout(time, 1e3))))
+      }
+      function judgescreen(){
+        var width = document.querySelector("html").offsetWidth;
+        if(width >= 768){
+          newYear();
+        }
+      }
+      judgescreen();
+  </script>
+  <style>
+    @media screen and (min-width: 768px) {
+      .count-down-box{
+        display: inline-flex;
+      }
+      .count-down {
+          position: fixed;
+          top: 20vh;
+          left: 15px;
+          z-index: 10;
+          width: 260px;
+          height: 260px;
+          background-image: url("https://npm.elemecdn.com/randompic_nianzhu@1.0.2/bgWebp/2023tu.png");
+          background-repeat: repeat-y;
+          background-position: left top;
+          background-size: cover;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          justify-content: center
+      }
+
+      .count-down .title {
+          font-size: small;
+          margin-top: 40px;
+          text-indent: 22px;
+          margin-bottom: 0;
+          transform: skew(10deg,356deg)
+      }
+
+      .count-down .newYear-time {
+          text-indent: 20px;
+          margin-top: -6px;
+          transform: skew(10deg,356deg)
+      }
+
+      .count-down .newYear-time .happyNewYear,.count-down .newYear-time .time {
+          font-size: 1.5rem
+      }
+
+      .count-down .newYear-time .day {
+          font-size: 2rem
+      }
+
+      .count-down .newYear-time .day .unit {
+          font-size: 1rem
+      }
+
+      .count-down .rabbit-shadow {
+          position: absolute;
+          width: 100px;
+          height: 20px;
+          background: #000;
+          border-radius: 100%;
+          bottom: 17px;
+          transform: skewX(281deg);
+          left: 80px;
+          filter: blur(4px);
+          opacity: .65;
+          transform: rotate3d(1,1,1,360deg)
+      }
+    }
+  </style>
+  
+  <!-- 新年倒计时结束 -->
   <!-- Breaking News --> 
   
   
