@@ -2573,28 +2573,44 @@ tabsFn.backToTop()
     
     
     
+        <script type="text/javascript" src="/js/snowfall.js" id="snowfall-js"></script>
+        <style>
+            /**spring**/
+            
+            .snowfall-flakes {
+                pointer-events: none;
+                animation: sakura 1s linear 0s infinite;
+            }
+            
+            .snowfall-flakes {
+                animation: sakura 1s linear 0s infinite;
+            }
+            
+            .night .snowfall-flakes {
+                background: transparent !important;
+            }
+            
+            @keyframes sakura {
+                0% {
+                    transform: rotate3d(0, 0, 0, 0deg);
+                }
+                25% {
+                    transform: rotate3d(1, 1, 0, 60deg);
+                }
+                50% {
+                    transform: rotate3d(1, 1, 0, 0deg);
+                }
+                75% {
+                    transform: rotate3d(1, 0, 0, 60deg);
+                }
+                100% {
+                    transform: rotate3d(1, 0, 0, 0deg);
+                }
+            }
+        </style>
+    
     
     <!-- 四季结束 -->
-    
-    <!-- 元宝动画 Start-->
-    <script src="https://cdn.wpon.cn/2022-sucai/Gold-ingot.js"></script>
-    <script type="text/javascript">
-    jQuery(document).ready(function ($) {
-    $('body').wpSuperSnow({
-        flakes: ['https://cdn.wpon.cn/2022-sucai/tu_1.png', 'https://cdn.wpon.cn/2022-sucai/tu_2.png',
-            'https://cdn.wpon.cn/2022-sucai/tu_3.png',
-            'https://cdn.wpon.cn/2022-sucai/tu_5.png',
-            'https://cdn.wpon.cn/2022-sucai/tu_4.png'
-        ],
-        totalFlakes: '100',
-        zIndex: '999999',
-        maxSize: '30',
-        maxDuration: '20',
-        useFlakeTrans: false
-    });
-    });
-    </script>
-    <!-- 2022 元宝动画 End-->
     
     </main>
     <!-- fancybox -->
