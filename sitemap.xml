@@ -11,15 +11,6 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/PGStatement.html</loc>
-    
-    <lastmod>2023-09-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.starysky.top/journey/index.html</loc>
     
     <lastmod>2023-09-24</lastmod>
@@ -914,14 +905,14 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Atomic-Optics-QAQ/</loc>
+    <loc>https://blog.starysky.top/tags/Thermodynamics/</loc>
     <lastmod>2023-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Thermodynamics/</loc>
+    <loc>https://blog.starysky.top/tags/Atomic-Optics-QAQ/</loc>
     <lastmod>2023-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -949,6 +940,13 @@
   </url>
   
   <url>
+    <loc>https://blog.starysky.top/tags/CS/</loc>
+    <lastmod>2023-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.starysky.top/tags/Complex-variable-function/</loc>
     <lastmod>2023-09-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -963,7 +961,7 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/CS/</loc>
+    <loc>https://blog.starysky.top/tags/Wave-optics/</loc>
     <lastmod>2023-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -977,7 +975,7 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Wave-optics/</loc>
+    <loc>https://blog.starysky.top/tags/Monobasic-Constant-Differential-Equation/</loc>
     <lastmod>2023-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -991,21 +989,7 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Monobasic-Constant-Differential-Equation/</loc>
-    <lastmod>2023-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.starysky.top/tags/Fluid-Dynamics/</loc>
-    <lastmod>2023-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.starysky.top/tags/Linear-algebra/</loc>
     <lastmod>2023-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1026,6 +1010,13 @@
   </url>
   
   <url>
+    <loc>https://blog.starysky.top/tags/Linear-algebra/</loc>
+    <lastmod>2023-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.starysky.top/tags/Mechanical-wave/</loc>
     <lastmod>2023-09-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -1040,13 +1031,6 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Semiconductor/</loc>
-    <lastmod>2023-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.starysky.top/tags/Rigid-body-mechanics/</loc>
     <lastmod>2023-09-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -1055,6 +1039,13 @@
   
   <url>
     <loc>https://blog.starysky.top/tags/Summary-of-PTMS/</loc>
+    <lastmod>2023-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.starysky.top/tags/Semiconductor/</loc>
     <lastmod>2023-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1131,6 +1122,13 @@
   </url>
   
   <url>
+    <loc>https://blog.starysky.top/tags/%E5%9F%BA%E6%9C%AC%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/</loc>
+    <lastmod>2023-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.starysky.top/tags/Solid-State/</loc>
     <lastmod>2023-09-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -1153,13 +1151,6 @@
   
   <url>
     <loc>https://blog.starysky.top/tags/%E6%AF%8F%E6%97%A5%E7%AE%80%E6%8A%A5/</loc>
-    <lastmod>2023-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.starysky.top/tags/%E5%9F%BA%E6%9C%AC%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/</loc>
     <lastmod>2023-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1231,6 +1222,13 @@
   </url>
   
   <url>
+    <loc>https://blog.starysky.top/categories/ComputerScience/</loc>
+    <lastmod>2023-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.starysky.top/categories/Mathematical-Methods-of-Physics/</loc>
     <lastmod>2023-09-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -1239,13 +1237,6 @@
   
   <url>
     <loc>https://blog.starysky.top/categories/Dream/</loc>
-    <lastmod>2023-09-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.starysky.top/categories/ComputerScience/</loc>
     <lastmod>2023-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
