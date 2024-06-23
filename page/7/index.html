@@ -1288,9 +1288,6 @@ tabsFn.backToTop()
 
 <!-- 新年烟花 -->
 
-  <canvas id="newyear" style="position: fixed;left: 0;top: 0;z-index: -1; pointer-events: none;"></canvas>
-  <script type="text/javascript" src="/js/newyear.js"></script>
-
 <body>
   <!-- fps id geo-location -->
   
@@ -2243,46 +2240,22 @@ tabsFn.backToTop()
     <!-- 四季气氛 -->
     
     
-        <script type="text/javascript" src="/js/sakura.js"></script>
     
     
+        <script src="https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/shuye.js"></script>
+        <script>
+            jQuery(document).ready(function($) {
+                $("body").wpSuperSnow({
+                    flakes: ["https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/007.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/006.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/004.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/005.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/001.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/003.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/002.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/008.png"],
+                    totalFlakes: "100",
+                    zIndex: "999999",
+                    maxSize: "30",
+                    maxDuration: "40",
+                    useFlakeTrans: false
+                })
+            });
+        </script>
     
-    
-        <script type="text/javascript" src="/js/snowfall.js" id="snowfall-js"></script>
-        <style>
-            /**spring**/
-            
-            .snowfall-flakes {
-                pointer-events: none;
-                animation: sakura 1s linear 0s infinite;
-            }
-            
-            .snowfall-flakes {
-                animation: sakura 1s linear 0s infinite;
-            }
-            
-            .night .snowfall-flakes {
-                background: transparent !important;
-            }
-            
-            @keyframes sakura {
-                0% {
-                    transform: rotate3d(0, 0, 0, 0deg);
-                }
-                25% {
-                    transform: rotate3d(1, 1, 0, 60deg);
-                }
-                50% {
-                    transform: rotate3d(1, 1, 0, 0deg);
-                }
-                75% {
-                    transform: rotate3d(1, 0, 0, 60deg);
-                }
-                100% {
-                    transform: rotate3d(1, 0, 0, 0deg);
-                }
-            }
-        </style>
     
     
     <!-- 四季结束 -->
