@@ -100,7 +100,10 @@ body .loader.is-loaded {
   display: table;
   width: 100%;
   height: 100vh;
-  background: url(../img/nobel_prize/Announcement_Hero_Gold.jpg) top center;
+  background: url(../img/nobel_prize/Announcement_Hero_Gold.jpg) rgba(0, 0, 0, 0.2) top center;
+  background-blend-mode: multiply;
+  filter:blur(16px);
+  filter: drop-shadow(1px 1px 1px gold);
   background-size: cover;
 }
 @media (min-width: 1024px) {
@@ -1118,8 +1121,11 @@ figure.effect-romeo:hover p {
   height: 60px;
   z-index: 997;
   transition: all 0.5s;
-  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0);
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+#header.currents{
+  background: #0084ff
 }
 #header .logo h1 {
   font-size: 28px;
@@ -1131,7 +1137,7 @@ figure.effect-romeo:hover p {
   transition: 1s;
 }
 #header .logo h1 a, #header .logo h1 a:hover {
-  color: #0084ff;
+  color: #ffffff;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -1147,7 +1153,7 @@ figure.effect-romeo:hover p {
 * Desktop Navigation 
 */
 .nav-div{
-  display: flex ;
+  display: none;
   align-items: center;
   justify-content: center;
 }
@@ -1170,9 +1176,9 @@ figure.effect-romeo:hover p {
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-family: "Roboto", sans-serif;
-  font-size: 13px;
-  font-weight: 500;
+  font-family: "Times New Roman" "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
   color: #ffffff;
   white-space: nowrap;
   transition: 0.3s;
@@ -1186,7 +1192,7 @@ figure.effect-romeo:hover p {
   margin-left: 5px;
 }
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #1bbca3;
+  color: var(--rose-doree);
 }
 .navbar .getstarted, .navbar .getstarted:focus {
   background: #1bbca3;
@@ -1603,6 +1609,9 @@ figure.effect-romeo:hover p {
   bottom: -20px;
   left: calc(50% - 20px);
 }
+.sciences .science-item img{
+  max-height: 320px;
+}
 .sciences .swiper-pagination {
   margin-top: 20px;
   position: relative;
@@ -1622,7 +1631,7 @@ figure.effect-romeo:hover p {
 --------------------------------------------------------------*/
 .aspiration {
   padding: 30px 0px 40px 0px;
-  background: rgba(227, 194, 247, 0.247);
+  background: url("../img/purity.avif") no-repeat;
 }
 .aspiration .section-title h1 {
   text-align: center;
@@ -1704,35 +1713,6 @@ figure.effect-romeo:hover p {
 }
 .aspiration .icon-box:hover .icon i {
   color: #1bbca3;
-}
-/*--------------------------------------------------------------
-# sciencematrix
---------------------------------------------------------------*/
-.sciencematrix {
-  padding-top: 20px;
-}
-.sciencematrix .swiper-slide img {
-  opacity: 0.5;
-  transition: 0.3s;
-  filter: grayscale(100);
-}
-.sciencematrix .swiper-slide img:hover {
-  filter: none;
-  opacity: 1;
-}
-.sciencematrix .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-.sciencematrix .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  opacity: 1;
-  background-color: #ddd;
-}
-.sciencematrix .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #ffc451;
 }
 /*--------------------------------------------------------------
 # labs
@@ -2024,6 +2004,11 @@ overflow:hidden;
   -ms-transform:rotate(360deg);
   transform:rotate(360deg);
 }
+#tool .tool-content .box img{
+  max-height: 64px;
+  max-width: 64px;
+  object-fit:contain;
+}
 #tool .tool-slider {
   z-index: 8;
   height: 60vh;
@@ -2050,13 +2035,13 @@ overflow:hidden;
 # Events
 --------------------------------------------------------------*/
 .events {
-  background: url(../img/events/events-bg.jpg) center center no-repeat;
+  background: url(../img/events/events-bg.avif) center center no-repeat;
   background-size: cover;
   position: relative;
 }
 .events::before {
   content: "";
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.4);
   position: absolute;
   top: 0;
   right: 0;
@@ -2134,18 +2119,20 @@ overflow:hidden;
 --------------------------------------------------------------*/
 .cta {
   
-  background: linear-gradient(45deg,rgba(0,0,0,0.2),rgba(11,22,33,0.3)) ,url("../img/future.jpg") fixed center center;
+  background: linear-gradient(45deg,rgba(0,0,0,0.3),rgba(22,33,44,0.4)) ,url("../img/future.jpg") fixed center center;
   background-size: cover;
   opacity: 1;
   padding: 60px 0;
 }
 .cta h1 {
   color: #fff;
-  font-size: 30px;
-  font-weight: 700;
+  font-size: 36px;
+  font-weight: 800;
 }
 .cta p {
   color: #fff;
+  font-size: 20px;
+  font-weight: 500;
 }
 .cta .cta-btn {
   font-family: "Poppins", sans-serif;
@@ -2411,7 +2398,8 @@ overflow:hidden;
   width: 100%;
   margin-bottom: 12px;
   font-weight: normal; 
-  color: #fa8355
+  color: #ffffff;
+  font-family: 'Times New Roman', serif;
 }
 .tua-common-comp.goBack .list.app .app-hover .item {
   width: 45%;

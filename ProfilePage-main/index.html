@@ -9,7 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster+Two|Open+Sans" rel="stylesheet">
     <title>STARRY·Flora·Sunsunrise</title>
     <!-- 灵雀监控中心 -->
-    <script src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous"></script> -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         new LingQue.Monitor().init({id:"JZVTdtaLoErnXrGM"});
     </script>
@@ -50,7 +51,8 @@
                 <div class="buttons">
                     <button class="button1" onclick="aboutMe()">关于我</button>
                     <button class="button1" title="前往博客" onclick="window.open('https://blog.starysky.top/','_self')">传送·主序星</button>
-                    <button class="button1" title="前往母站" onclick="window.open('https://blog.starysky.top/USTC-NKU/','_self')">传送·中央星系</button>
+                    <!-- <button class="button1" title="前往母站" onclick="window.open('https://blog.starysky.top/USTC-NKU/','_self')">传送·中央星系</button> -->
+                    <button class="button1" title="前往母站" onclick="swal('Info', 'This site is currently under maintenance', 'info');">传送·中央星系</button>
                     <button class="button1" title="个人网站" onclick="window.open('https://blog.starysky.top/Personal-main/','_self')">传送·前景星系</button> 
                 </div>
 

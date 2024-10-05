@@ -132,7 +132,165 @@ a{
 	        transform:translate(-50%, -50%);
 } */
 
+/*-- ========================================= --
+	1.1 Header
+/*-- ========================================= --*/ 
+@-webkit-keyframes header_in {
+	from {opacity: 0;top: -300px;}
+	to {opacity: 1;top: 0;}
+}
+@keyframes header_in {
+	from {opacity: 0;top: -300px;}
+	to {opacity: 1;top: 0;}
+}
+@-webkit-keyframes header_out {
+	from {opacity: 1;top: 0;}
+	to {opacity: 0;top: -300px;}
+}
+@keyframes header_out {
+	from {opacity: 1;top: 0;}
+	to {opacity: 0;top: -300px;}
+}
+@keyframes fix_out_hover{
+	from {opacity: 1}
+	to {opacity: 0; z-index: -1;}
+}
+.logo0 {
+	display: block;
+	width: 276px;
+	position: absolute;
+	left: 50%;
+	margin: 0 0 0 -138px;
+	z-index: 10;
+	-webkit-animation-name: header_in;
+	animation-name: header_in;
+	animation-duration: 1.2s;
+	-webkit-animation-duration: 1.2s;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-delay: .4s;
+	top: -300px;
+	animation-fill-mode: forwards;
+}
+.logo1 {
+	display: block;
+	margin: 9px auto 22px;
+	width: 108px;
+	transition: all ease-in-out .3s;
+	-ms-transition: all ease-in-out .3s;
+	-moz-transition: all ease-in-out .3s;
+	-webkit-transition: all ease-in-out .3s;
+	-o-transition: all ease-in-out .3s;
+}
+.logo2{
+	opacity: 1;
+	transition: all ease-in-out .3s;
+	-ms-transition: all ease-in-out .3s;
+	-moz-transition: all ease-in-out .3s;
+	-webkit-transition: all ease-in-out .3s;
+	-o-transition: all ease-in-out .3s;
+	position: relative;
+	margin-top: 0;
+}
+.logo0::before {
+	content: '';
+	display: block;
+	background: url(C://Users/NKU-LFY/Desktop/中国科学院大学_files/logo_in.svg) center no-repeat;
+	width: 90px;
+	height: 90px;
+	position: absolute;
+	top: 18px;
+	left: 50%;
+	margin: 0 0 0 -45px;
+	transition: 0.5s;
+	transform-origin: 50% 50%;
+	animation: rotate 25s linear infinite;
+	background-size: 100% 100%;
+}
+@keyframes rotate {
+  0% {transform: rotate(0);}
+  100% {transform: rotate(360deg);}
+}
+.header .bg {
+	display: block
+	;width: 300px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 0;/* overflow: hidden; */
+	z-index: 4;
+	-webkit-animation-name: header_in;
+	animation-name: header_in;
+	animation-duration: 1.2s;
+	-webkit-animation-duration: 1.2s;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-delay: .4s;top: -300px;
+	animation-fill-mode: forwards;
+}
+.header .bg::before {
+	content: '';
+	display: block;
+	width: 260px;
+	height: 135px;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	margin: 0 0 0 -130px;
+	background: #0d4a94;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
+	z-index: 4;
+}
+.fix_logo{position: fixed;left: calc(50% - 159px);top: -150px;width: 300px;background: url(../img/logo_fix_bg.svg) top center no-repeat;padding: 30px 10px 64px;z-index: 10;transition: all ease-in-out 1s;-ms-transition: all ease-in-out 1s;-moz-transition: all ease-in-out 1s;-webkit-transition: all ease-in-out 1s;-o-transition: all ease-in-out 1s;}
+.fix_logo img{display: block;margin: 0 auto;filter:brightness(1.75)}
 
+header.currents::after {
+	display: none; 
+	width: 100%;
+	/* -webkit-animation-name: scaleX2;
+	animation-name: scaleX2;
+	animation-duration: .4s;
+	-webkit-animation-duration: .4s;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-delay: 0s; */
+}
+header.currents .fix_logo{
+	-webkit-animation-name: fix_out_hover;
+	animation-name: fix_out_hover;
+	animation-duration:3s;
+	-webkit-animation-duration: 3s;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-delay: 0s;
+	animation-fill-mode: forwards;
+}
+/* @-webkit-keyframes scaleX2 {0% {width: 280px;}
+100% {width: 100%;}
+}
+@keyframes scaleX2 {0% {width: 280px;}
+100% {width: 100%;}
+} */
+header.currents .fix_logo{top: -4px;}
+header.currents .nav-div{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	-webkit-animation-name: header_in;
+	animation-name: header_in;
+	animation-duration: .8s;
+	-webkit-animation-duration: .8s;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-delay: 0s;
+	animation-fill-mode: forwards;
+	transition: all ease-in-out 1s
+}
+
+header.currents .bg,header.currents .logo0{-webkit-animation-name: header_out;animation-name: header_out;animation-duration: .8s;-webkit-animation-duration: .8s;animation-timing-function: ease-in-out;-webkit-animation-timing-function: ease-in-out;animation-delay: 0s;animation-fill-mode: forwards;}
+@media screen  and (max-width:1100px){
+	header.currents .fix_logo{display: none;}
+}
 /*-- ========================================= --
 	2.0 TYPOGRAPHY
 /*-- ========================================= --*/ 
@@ -673,14 +831,13 @@ label.loading::before{
 .countdown-container .dash{
 	position:relative;
 	display:inline-block;
-	margin-left:-4px;
 	width:auto;
 	height:auto;
 	background:none;
 	margin:0px -50% 0px 50%;
 	background: url("../img/triangle.png") no-repeat;
     width: 175px;
-    height: 177px;
+    height: 188px;
 }
 .countdown-container .dash .counter{
 	display:inline-block;
@@ -1653,6 +1810,7 @@ section .half-overlay.is-visible{
 	font-size: 30px;
 	font-weight: 700;
 	text-align: center;
+	font-family: 'Times New Roman', Times, serif;
 }
 .home-section .sub-title{
 	position:relative;

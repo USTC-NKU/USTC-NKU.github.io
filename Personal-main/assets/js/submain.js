@@ -57,7 +57,7 @@ TABLE OF CONTENTS
     * 4. YouTube video background
     * 5. Self hosted video background
     */
-    $.launch_date = [1, 1, 2024]; 										//-- launch date [d,m,yyyy], for example 7 September 2016 : [7,9,2016]
+    $.launch_date = [1, 1, 2025]; 										//-- launch date [d,m,yyyy], for example 7 September 2016 : [7,9,2016]
     $.bg_urls = ["", ""];
     $.youtube_url = ""; 												//-- just the last words after https://www.youtube.com/watch?v=
     $.self_host_video_path = ""; 									//-- self hosted video path
@@ -842,4 +842,24 @@ TABLE OF CONTENTS
         });
     });
     //-- end document.ready function
+
+    fixNav();
+    function fixNav() {
+        var sWSon = document.documentElement.clientWidth;
+        var sHeight = document.documentElement.clientHeight;
+        var bodyHeight = document.body.scrollHeight;
+        var x = $('header').next().offset().top;
+        if (bodyHeight > sHeight + 100 && sWSon > 1024) {
+            $(window).scroll(function () {
+                var scrollTop = $(window).scrollTop();
+                if (scrollTop > 100) {
+                    $('header').addClass('currents')
+                    $('body').css('padding-top', x)
+                } else {
+                    $('header').removeClass('currents')
+                    $('body').css('padding-top', 0)
+                }
+            });
+        }
+    }
 })(jQuery);

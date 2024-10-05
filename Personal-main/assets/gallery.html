@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="./css/gallery.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body>
+    <div class="jindicator"></div>
+
+    <div id="demo"></div>
+
+    <div class="jdetails" id="details-even">
+      <div class="place-box">
+        <div class="text">吉林省 延边市</div>
+      </div>
+      <div class="title-box-1"><div class="title-1">长白山天池</div></div>
+      <div class="title-box-2"><div class="title-2">中国最深最高的湖</div></div>
+      <div class="desc">
+        天东长白近蓬瀛，白衣仙人玉雪清。这里火山地貌与冰川遗迹同生共存，这里空中花园与莽莽丛林刚柔相济。在这里，灵秀与雄奇、蛮荒与恬适、巍峨与绮丽完美地融合在一起
+      </div>
+      <div class="cta">
+        <button class="bookmark">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <button class="discover" onclick="swal('Info', 'Thanks for your love', 'success')">Drop a Like</button>
+      </div>
+    </div>
+
+    <div class="jdetails" id="details-odd">
+      <div class="place-box">
+        <div class="text">江苏省 连云港市</div>
+      </div>
+      <div class="title-box-1"><div class="title-1">海滨公园</div></div>
+      <div class="title-box-2"><div class="title-2">秋水共长天一色</div></div>
+      <div class="desc">
+        晚霞如火焰般燃烧，天空被炫目的橙红色和深邃的紫色渲染成画。轻纱般飘逸的层层云朵，映衬着远处的山峦，静谧而神秘。水面如镜，倒映着这片天空的辉煌，波光粼粼，仿佛在低声吟唱着自然的赞歌
+      </div>
+      <div class="cta">
+        <button class="bookmark">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <button class="discover" onclick="swal('Info', 'Thanks for your love', 'success')">Drop a Like</button>
+      </div>
+    </div>
+
+    <div class="jpagination" id="pagination">
+      <div class="arrow arrow-left">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 19.5L8.25 12l7.5-7.5"
+          />
+        </svg>
+      </div>
+      <div class="arrow arrow-right">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+          />
+        </svg>
+      </div>
+      <div class="progress-sub-container" >
+        <div class="progress-sub-background" >
+            <div class="progress-sub-foreground" ></div>
+        </div>
+    </div>
+    <div class="slide-numbers" id="slide-numbers"></div>
+    </div>
+
+    <div class="cover" ></div>
+   
+
+   
+  </body>
+<!-- partial -->
+  <script src='./js/gsap.min.js'></script><script  src="./js/gallery.js"></script>
+  <script src="./js/sweetalert.min.js"></script
+
+</body>
+</html>

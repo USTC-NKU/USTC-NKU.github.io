@@ -355,6 +355,18 @@
        backDelay: 2000
      });
    }
+   const typed2 = select('.typed2')
+   if (typed2) {
+     let typed_strings2 = typed2.getAttribute('data-typed-items')
+     typed_strings2 = typed_strings2.split(',')
+     new Typed('.typed2', {
+       strings: typed_strings2,
+       loop: true,
+       typeSpeed: 100,
+       backSpeed: 50,
+       backDelay: 2000
+     });
+   }
 
   /**
    * Animation on scroll
