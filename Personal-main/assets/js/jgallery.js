@@ -58,7 +58,7 @@ const cardContents = data.map((i, index)=>`<div class="card-content" id="card-co
 
 
 const sildeNumbers = data.map((_, index)=>`<div class="item" id="slide-item-${index}" >${index+1}</div>`).join('')
-_('demo').innerHTML =  cards + cardContents
+_('demo').innerHTML = cards + cardContents
 _('slide-numbers').innerHTML =  sildeNumbers
 
 
@@ -360,3 +360,4 @@ try {
 }
 
 start()
+
