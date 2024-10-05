@@ -195,7 +195,7 @@ a{
 .logo0::before {
 	content: '';
 	display: block;
-	background: url(C://Users/NKU-LFY/Desktop/中国科学院大学_files/logo_in.svg) center no-repeat;
+	background: url(../img/logo_in.svg) center no-repeat;
 	width: 90px;
 	height: 90px;
 	position: absolute;
@@ -211,7 +211,7 @@ a{
   0% {transform: rotate(0);}
   100% {transform: rotate(360deg);}
 }
-.header .bg {
+header .bg {
 	display: block
 	;width: 300px;
 	position: absolute;
@@ -228,7 +228,7 @@ a{
 	animation-delay: .4s;top: -300px;
 	animation-fill-mode: forwards;
 }
-.header .bg::before {
+header .bg::before {
 	content: '';
 	display: block;
 	width: 260px;
@@ -237,7 +237,7 @@ a{
 	left: 50%;
 	top: 0;
 	margin: 0 0 0 -130px;
-	background: #0d4a94;
+	background:  rgba(239, 32, 32, 0.41) left center ;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
 	z-index: 4;
 }
@@ -258,11 +258,11 @@ header.currents::after {
 header.currents .fix_logo{
 	-webkit-animation-name: fix_out_hover;
 	animation-name: fix_out_hover;
-	animation-duration:3s;
-	-webkit-animation-duration: 3s;
+	animation-duration:3.3s;
+	-webkit-animation-duration: 3.3s;
 	animation-timing-function: ease-in-out;
 	-webkit-animation-timing-function: ease-in-out;
-	animation-delay: 0s;
+	animation-delay: 0.2s;
 	animation-fill-mode: forwards;
 }
 /* @-webkit-keyframes scaleX2 {0% {width: 280px;}
@@ -286,7 +286,6 @@ header.currents .nav-div{
 	animation-fill-mode: forwards;
 	transition: all ease-in-out 1s
 }
-
 header.currents .bg,header.currents .logo0{-webkit-animation-name: header_out;animation-name: header_out;animation-duration: .8s;-webkit-animation-duration: .8s;animation-timing-function: ease-in-out;-webkit-animation-timing-function: ease-in-out;animation-delay: 0s;animation-fill-mode: forwards;}
 @media screen  and (max-width:1100px){
 	header.currents .fix_logo{display: none;}

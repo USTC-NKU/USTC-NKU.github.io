@@ -912,13 +912,6 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Thermodynamics/</loc>
-    <lastmod>2024-10-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.starysky.top/tags/wave-optics/</loc>
     <lastmod>2024-10-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -926,7 +919,21 @@
   </url>
   
   <url>
+    <loc>https://blog.starysky.top/tags/Thermodynamics/</loc>
+    <lastmod>2024-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.starysky.top/tags/Complex-variable-function/</loc>
+    <lastmod>2024-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.starysky.top/tags/Data-processing-and-analysis/</loc>
     <lastmod>2024-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -941,13 +948,6 @@
   
   <url>
     <loc>https://blog.starysky.top/tags/CS/</loc>
-    <lastmod>2024-10-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.starysky.top/tags/Data-processing-and-analysis/</loc>
     <lastmod>2024-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -975,14 +975,14 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Geometrical-optics/</loc>
+    <loc>https://blog.starysky.top/tags/Fluid-Dynamics/</loc>
     <lastmod>2024-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Fluid-Dynamics/</loc>
+    <loc>https://blog.starysky.top/tags/Geometrical-optics/</loc>
     <lastmod>2024-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1038,14 +1038,14 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Rigid-body-mechanics/</loc>
+    <loc>https://blog.starysky.top/tags/Summary-of-PTMS/</loc>
     <lastmod>2024-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Summary-of-PTMS/</loc>
+    <loc>https://blog.starysky.top/tags/Rigid-body-mechanics/</loc>
     <lastmod>2024-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1129,13 +1129,6 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/The-Exterior-Derivative/</loc>
-    <lastmod>2024-10-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.starysky.top/tags/%E5%9F%BA%E6%9C%AC%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/</loc>
     <lastmod>2024-10-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -1144,6 +1137,13 @@
   
   <url>
     <loc>https://blog.starysky.top/tags/Commonsense/</loc>
+    <lastmod>2024-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.starysky.top/tags/The-Exterior-Derivative/</loc>
     <lastmod>2024-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1215,6 +1215,13 @@
   </url>
   
   <url>
+    <loc>https://blog.starysky.top/categories/Data-processing/</loc>
+    <lastmod>2024-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.starysky.top/categories/Math/</loc>
     <lastmod>2024-10-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -1223,13 +1230,6 @@
   
   <url>
     <loc>https://blog.starysky.top/categories/ComputerScience/</loc>
-    <lastmod>2024-10-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.starysky.top/categories/Data-processing/</loc>
     <lastmod>2024-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

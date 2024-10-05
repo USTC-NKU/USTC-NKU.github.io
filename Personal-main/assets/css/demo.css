@@ -2331,7 +2331,33 @@ overflow:hidden;
   font-size: 13px;
   color: #fff;
 }
-
+/* ------------------------------
+   Map
+--------------------------------*/ 
+.map-details{
+  background: url("../img/NationalSpring.jpg") center center no-repeat ;
+  background-size: cover;
+  position: relative;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+}
+.map-details::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.map-details .container{
+  position: relative;
+}
+.map-details .main-map{
+  width: 100%;
+  height: 100vh;
+}
 /* ------------------------------
    QRcode & to-top
 --------------------------------*/ 
