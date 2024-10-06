@@ -1630,8 +1630,9 @@ figure.effect-romeo:hover p {
 # Our aspiration
 --------------------------------------------------------------*/
 .aspiration {
-  padding: 30px 0px 40px 0px;
-  background: url("../img/purity.avif") no-repeat;
+  padding: 40px 0px 0px 0px;
+  background: url("../img/purity.avif")  no-repeat;
+  height: 100vh;
 }
 .aspiration .section-title h1 {
   text-align: center;
@@ -1693,19 +1694,25 @@ figure.effect-romeo:hover p {
   color: #fff;
 }
 .aspiration .title {
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 15px;
   font-size: 18px;
 }
 .aspiration .title a {
   color: #425451;
 }
-.aspiration .description {
+.aspiration .description{
   font-size: 15px;
   line-height: 28px;
   margin-bottom: 0;
 }
-.aspiration .icon-box:hover .title a, .aspiration .icon-box:hover .description {
+.aspiration .icon-box:hover ul li{
+  color: #fff;
+  font-family: 'Kaiti';
+  font-size: 16px;
+
+}
+.aspiration .icon-box:hover .title a, .aspiration .icon-box:hover .description{
   color: #fff;
 }
 .aspiration .icon-box:hover .icon {
