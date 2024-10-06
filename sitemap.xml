@@ -335,15 +335,6 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/analysis/index.html</loc>
-    
-    <lastmod>2022-04-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.starysky.top/2022/03/03/Dream/</loc>
     
     <lastmod>2022-04-07</lastmod>
@@ -913,6 +904,20 @@
   </url>
   
   <url>
+    <loc>https://blog.starysky.top/tags/Complex-variable-function/</loc>
+    <lastmod>2024-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.starysky.top/tags/Sentiment/</loc>
+    <lastmod>2024-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.starysky.top/tags/Data-processing-and-analysis/</loc>
     <lastmod>2024-10-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -927,7 +932,7 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Complex-variable-function/</loc>
+    <loc>https://blog.starysky.top/tags/Fluid-Dynamics/</loc>
     <lastmod>2024-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -941,13 +946,6 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Geometrical-optics/</loc>
-    <lastmod>2024-10-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.starysky.top/tags/Monobasic-Constant-Differential-Equation/</loc>
     <lastmod>2024-10-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -955,14 +953,7 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Sentiment/</loc>
-    <lastmod>2024-10-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.starysky.top/tags/Fluid-Dynamics/</loc>
+    <loc>https://blog.starysky.top/tags/Geometrical-optics/</loc>
     <lastmod>2024-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1018,6 +1009,13 @@
   </url>
   
   <url>
+    <loc>https://blog.starysky.top/tags/ProbabilityTheory/</loc>
+    <lastmod>2024-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.starysky.top/tags/Summary-of-PTMS/</loc>
     <lastmod>2024-10-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -1025,7 +1023,7 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/ProbabilityTheory/</loc>
+    <loc>https://blog.starysky.top/tags/Magnetic-field/</loc>
     <lastmod>2024-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1046,7 +1044,7 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/tags/Magnetic-field/</loc>
+    <loc>https://blog.starysky.top/tags/franccis/</loc>
     <lastmod>2024-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1054,13 +1052,6 @@
   
   <url>
     <loc>https://blog.starysky.top/tags/Statistical-physics/</loc>
-    <lastmod>2024-10-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.starysky.top/tags/franccis/</loc>
     <lastmod>2024-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1195,13 +1186,6 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/categories/Data-processing/</loc>
-    <lastmod>2024-10-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.starysky.top/categories/Mathematical-Methods-of-Physics/</loc>
     <lastmod>2024-10-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -1209,14 +1193,21 @@
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/categories/Differential-Equation/</loc>
+    <loc>https://blog.starysky.top/categories/Dream/</loc>
     <lastmod>2024-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.starysky.top/categories/Dream/</loc>
+    <loc>https://blog.starysky.top/categories/Data-processing/</loc>
+    <lastmod>2024-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.starysky.top/categories/Differential-Equation/</loc>
     <lastmod>2024-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
