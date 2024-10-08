@@ -367,6 +367,42 @@
        backDelay: 2000
      });
    }
+   const typed3 = select('.pre-typed')
+   if (typed3) {
+     let typed_strings3 = typed3.getAttribute('data-typed-items')
+     typed_strings3 = typed_strings3.split(';')
+     new Typed('.pre-typed', {
+       strings: typed_strings3,
+       loop: false,
+       typeSpeed: 35,
+       backSpeed: 25,
+       backDelay: 2000
+     });
+   }
+   const typed4 = select('.pre-typed2')
+   if (typed4) {
+     let typed_strings4 = typed4.getAttribute('data-typed-items')
+     typed_strings4 = typed_strings4.split(';')
+     new Typed('.pre-typed2', {
+       strings: typed_strings4,
+       loop: true,
+       typeSpeed: 35,
+       backSpeed: 25,
+       backDelay: 2500
+     });
+   }
+
+
+   var presentation_img_flag = false;
+   document.getElementById('presentation-actions').addEventListener('click', function(){
+    if(!presentation_img_flag){
+      document.getElementById('presentation-img').style.display="inline-block"
+      presentation_img_flag=true;
+    }else{
+      document.getElementById('presentation-img').style.display="none"
+      presentation_img_flag=false;
+    }
+   })
 
   /**
    * Animation on scroll

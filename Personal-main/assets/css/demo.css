@@ -173,8 +173,8 @@ body .loader.is-loaded {
   margin: 10px;
 }
 #welcome .btn-get-started {
-  background: #03C4EB;
-  border: 2px solid #03C4EB;
+  background: var(--bs-teal);
+  border: 2px solid var(--bs-teal);
   color: #fff;
 }
 #welcome .btn-get-started:hover {
@@ -1720,6 +1720,96 @@ figure.effect-romeo:hover p {
 }
 .aspiration .icon-box:hover .icon i {
   color: #1bbca3;
+}
+/*--------------------------------------------------------------
+# Presentation
+--------------------------------------------------------------*/
+#presentation {
+  display: table;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(black, blue) top center; 
+  /* url(../img/nobel_prize/Announcement_Hero_Gold.jpg)  */
+  /* background-blend-mode: multiply;
+  filter:blur(16px);
+  filter: drop-shadow(1px 1px 1px gold); */
+  background-size: cover;
+}
+@media (min-width: 1024px) {
+  #presentation {
+    background-attachment: fixed;
+  }
+}
+#presentation .presentation-logo {
+  margin: 20px;
+}
+#presentation .presentation-logo .presentation-img {
+  max-width: 100%;
+}
+#presentation .presentation-container {
+  background: rgba(0, 253, 223, 0.1);
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  text-align: center ;
+  vertical-align: middle ;
+}
+#presentation h1 {
+  margin: 30px 0 10px 0;
+  font-weight: 700;
+  line-height: 48px;
+  text-transform: uppercase;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  #presentation h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+#presentation h2 {
+  color: #ffffff;
+  margin-bottom: 50px;
+}
+#presentation h2 span {
+  color: #fff;
+  transition: 0.3s;
+  border-bottom: 2px solid #03C4EB;
+}
+@media (max-width: 768px) {
+  #presentation h2 {
+    font-size: 24px;
+    line-height: 26px;
+    margin-bottom: 30px;
+  }
+  #presentation h2 .rotating {
+    display: block;
+  }
+}
+#presentation .rotating > .animated {
+  display: inline-block;
+}
+#presentation .presentation-actions a {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: 0.5s;
+  margin: 10px;
+}
+#presentation .btn-get-started {
+  background: #03C4EB;
+  border: 2px solid #03C4EB;
+  color: #fff;
+}
+#presentation .btn-get-started:hover {
+  background: none;
+  border: 2px solid #fff;
+  color: #fff;
 }
 /*--------------------------------------------------------------
 # labs
