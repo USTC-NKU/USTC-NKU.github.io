@@ -392,18 +392,6 @@
      });
    }
 
-
-   var presentation_img_flag = false;
-   document.getElementById('presentation-actions').addEventListener('click', function(){
-    if(!presentation_img_flag){
-      document.getElementById('presentation-img').style.display="inline-block"
-      presentation_img_flag=true;
-    }else{
-      document.getElementById('presentation-img').style.display="none"
-      presentation_img_flag=false;
-    }
-   })
-
   /**
    * Animation on scroll
    */
