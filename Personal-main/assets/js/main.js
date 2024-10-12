@@ -330,14 +330,14 @@
   /**
  * Preloader
  */
-  let preloader = select('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        preloader.remove()
-      }, 100);
-    });
-  }
+  // let preloader = select('#preloader');
+  // if (preloader) {
+  //   window.addEventListener('load', () => {
+  //     setTimeout(() => {
+  //       preloader.remove()
+  //     }, 100);
+  //   });
+  // }
 
   
   /**
