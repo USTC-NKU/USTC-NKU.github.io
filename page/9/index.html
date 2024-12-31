@@ -126,7 +126,7 @@ new LingQue.Monitor().init({
         "rimageUrl": "https://api.lixingyong.com/api/images",
         "coverOpen": "",
         "meEmail": "",
-        "defaultTheme": "bg_7",
+        "defaultTheme": "bg_0",
         "defaultGroup": "",
     };
 </script>
@@ -217,7 +217,7 @@ new LingQue.Monitor().init({
             "id": "0",
             "name": "white",
             "desc": "默认是纯洁的白色~",
-            "url": "https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@main/Her_Majesty.png",
+            "url": "https://gcore.jsdelivr.net/gh/USTC-NKU/CDN@main/2025.jpg",
             "strategy": "cover",
             "isNight": ""
         },
@@ -439,11 +439,11 @@ new LingQue.Monitor().init({
     
     <meta name="theme-color" content="#2f4154">
     <meta name="description" content="科学之光，温暖世界">
-    <meta name="author" content="Flora-Sunsunrise">
-    <meta name="keywords" content="科学，Flora-茶糜花开，USTC-NKU">
+    <meta name="author" content="Floral-Sunsunrise">
+    <meta name="keywords" content="科学，Floral-茶糜花开，USTC-NKU">
     
     <title>
-    Flora-Sunsunrise
+    Floral-Sunsunrise
     </title>
     
 
@@ -529,7 +529,7 @@ s.parentNode.insertBefore(el, s);
     <script src="https://fastly.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="/live2d_models/autoload.js"></script>
     <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css" />
-<!-- hexo injector head_end start --><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@latest/tag_plugins1.css" media="defer" onload="this.media='all'"><script src="https://fastly.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/carousel-touch.min.js"></script><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Flora-Sunsunrise" type="application/atom+xml">
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@latest/tag_plugins1.css" media="defer" onload="this.media='all'"><script src="https://fastly.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/carousel-touch.min.js"></script><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/hexo-tag-plugins@latest/lib/mindmap.min.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Floral-Sunsunrise" type="application/atom+xml">
 </head>
 
 
@@ -1196,14 +1196,6 @@ tabsFn.backToTop()
 <body>
   <!-- fps id geo-location -->
   
-    <div id="fps" style="z-index:999;position:fixed;bottom:3px;right:3px;color:#FFF;font-size:10px;"></div> 
-        <!-- ping 测试组件 -->
-    
-        <!--web 弹窗弹层组件 经测试还是cdn好-->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/layer/3.5.1/layer.min.js"></script>
-        <!-- fps 函数组件 弹窗信息在fps.js文件里修改-->
-    <script type="text/javascript" src="/js/fps.js"></script>   
-  
   <!-- end -->
   
     <script type="text/javascript" src="/js/SAONotify.js"></script>
@@ -1239,6 +1231,101 @@ tabsFn.backToTop()
   
   <!-- 访客网络信息结束 -->
   <!-- 新年倒计时开始 -->
+  
+    <div class="count-down-box">
+      <div class="count-down" id="newYear">
+          <p class="title"></p>
+          <div class="newYear-time"></div>
+          <div class="rabbit-shadow"></div>
+      </div>
+  </div>
+  <script>
+      function newYear() {
+          var t, e, n;
+          clearTimeout(null),
+          document.querySelector("#newYear") && (n = new Date("2025-01-01 00:00:00").getTime() / 1e3,
+          t = new Date,
+          (n = n - Math.round(t.getTime() / 1e3)) < 0 ? (document.querySelector("#newYear .title").innerHTML = "Happy New Year",
+          document.querySelector("#newYear .newYear-time").innerHTML = '<span class="happyNewYear">新年快乐</p>') : (document.querySelector("#newYear .title").innerHTML = "距离2025年",
+          86400 < n ? document.querySelector("#newYear .newYear-time").innerHTML = '<span class="day">'.concat(Math.ceil(n / 86400), '<span class="unit">天</span></span>') : (t = Fluid.plugins.nol(parseInt(n / 3600)),
+          n %= 3600,
+          e = Fluid.plugins.nol(parseInt(n / 60)),
+          n %= 60,
+          n = Fluid.plugins.nol(n),
+          document.querySelector("#newYear .newYear-time").innerHTML = '<span class="time">'.concat(t, ":").concat(e, ":").concat(n, "</span></span>"),
+          setTimeout(time, 1e3))))
+      }
+      function judgescreen(){
+        var width = document.querySelector("html").offsetWidth;
+        if(width >= 768){
+          newYear();
+        }
+      }
+      judgescreen();
+  </script>
+  <style>
+    @media screen and (min-width: 768px) {
+      .count-down-box{
+        display: inline-flex;
+      }
+      .count-down {
+          position: fixed;
+          top: 20vh;
+          left: 15px;
+          z-index: 10;
+          width: 260px;
+          height: 260px;
+          background-image: url("https://npm.elemecdn.com/randompic_nianzhu@1.0.2/bgWebp/2023tu.png");
+          background-repeat: repeat-y;
+          background-position: left top;
+          background-size: cover;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          justify-content: center
+      }
+
+      .count-down .title {
+          font-size: small;
+          margin-top: 40px;
+          text-indent: 22px;
+          margin-bottom: 0;
+          transform: skew(10deg,356deg)
+      }
+
+      .count-down .newYear-time {
+          text-indent: 20px;
+          margin-top: -6px;
+          transform: skew(10deg,356deg)
+      }
+
+      .count-down .newYear-time .happyNewYear,.count-down .newYear-time .time {
+          font-size: 1.5rem
+      }
+
+      .count-down .newYear-time .day {
+          font-size: 2rem
+      }
+
+      .count-down .newYear-time .day .unit {
+          font-size: 1rem
+      }
+
+      .count-down .rabbit-shadow {
+          position: absolute;
+          width: 100px;
+          height: 20px;
+          background: #000;
+          border-radius: 100%;
+          bottom: 17px;
+          transform: skewX(281deg);
+          left: 80px;
+          filter: blur(4px);
+          opacity: .65;
+          transform: rotate3d(1,1,1,360deg)
+      }
+    }
+  </style>
   
   <!-- 新年倒计时结束 -->
   <!-- Breaking News --> 
@@ -1344,42 +1431,42 @@ tabsFn.backToTop()
       <div id="flip-box-1">
           <div>
             <div class="flip-box-1-1">
-              2024年诺奖圣殿即将揭晓啦！
+              2025年新年快乐呀
             </div>
           </div>
           <div>
               <div class="flip-box-1-1">
-                预祝中国军团巴黎奥运会取得更佳的战绩
+                2024年诺奖圣殿即将揭晓啦！
               </div>
           </div>
           <div>
               <div class="flip-box-1-2">
-                毕业啦~毕业啦~，撒花❀❀❀❀
+                预祝中国军团巴黎奥运会取得更佳的战绩
               </div>
           </div>
           <div>
               <div class="flip-box-1-3">
-                2024年秋季旅行地图更新啦
+                毕业啦~毕业啦~，撒花❀❀❀❀
               </div>
           </div>
           <div>
               <div class="flip-box-1-4">
-                国庆节到啦，祝福祖国繁荣昌盛😳
+                2024年秋季旅行地图更新啦
               </div>
           </div>
           <div>
               <div class="flip-box-1-5">
-                想起了小时候还有圣诞节，好想过圣诞节🎄
+                国庆节到啦，祝福祖国繁荣昌盛😳
               </div>
           </div>
           <div>
               <div class="flip-box-1-6">
-                这一次，你会勇敢地面对未知么
+                想起了小时候还有圣诞节，好想过圣诞节🎄
               </div>
           </div>
           <div>
               <div class="flip-box-1-1">
-                看到了许久未见的风景，甚是想念呢
+                这一次，你会勇敢地面对未知么
               </div>
           </div>
       </div>
@@ -1392,7 +1479,7 @@ tabsFn.backToTop()
       
     <div class="notice" style="margin-top:50px">
         <i class="fa fa-bell-o faa-burst animated faa-slow"></i>
-        <div class="notice-content">2024/10/29 恭喜罗德里荣膺2024年男子金球奖</div>
+        <div class="notice-content">2025·新年新起点</div>
     </div>
     
     
@@ -1905,20 +1992,6 @@ tabsFn.backToTop()
     
     
     
-    
-        <script src="https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/shuye.js"></script>
-        <script>
-            jQuery(document).ready(function($) {
-                $("body").wpSuperSnow({
-                    flakes: ["https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/007.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/006.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/004.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/005.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/001.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/003.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/002.png", "https://xn--e1t46na.xn--6qq986b3xl/usr/plugins/WenYu/assets/js/gyezi/images/008.png"],
-                    totalFlakes: "100",
-                    zIndex: "999999",
-                    maxSize: "30",
-                    maxDuration: "40",
-                    useFlakeTrans: false
-                })
-            });
-        </script>
     
     
     
@@ -3528,7 +3601,7 @@ tabsFn.backToTop()
         <i class="fas fa-cube"></i>
         <div class="blok"></div>
         <div class="text">
-            Flora-Sunsunrise
+            Floral-Sunsunrise
             <!-- <button class="option_custom-btn btn-16" onclick="window.location.href='/about'"></button> -->
             <div class="strip"></div>
         </div>

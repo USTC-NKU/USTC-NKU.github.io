@@ -13,7 +13,7 @@ html, body {
 body {
     /* background-image: url(https://api.yimian.xyz/img?type=moe&size=1920x1080); */
     /* background-image: url(https://gcore.jsdelivr.net/npm/ushio-api-img-moe@5.0.30/img_307_1920x1080_300_null_normal.jpg); */
-    background-image: url(https://fastly.jsdelivr.net/gh/USTC-NKU/CDN@main/20220803.png);
+    background-image: url(https://gcore.jsdelivr.net/gh/USTC-NKU/CDN@main/2025.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

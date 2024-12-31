@@ -57,7 +57,7 @@ TABLE OF CONTENTS
     * 4. YouTube video background
     * 5. Self hosted video background
     */
-    $.launch_date = [1, 1, 2025]; 										//-- launch date [d,m,yyyy], for example 7 September 2016 : [7,9,2016]
+    $.launch_date = [1, 1, 2026]; 										//-- launch date [d,m,yyyy], for example 7 September 2016 : [7,9,2016]
     $.bg_urls = ["", ""];
     $.youtube_url = ""; 												//-- just the last words after https://www.youtube.com/watch?v=
     $.self_host_video_path = ""; 									//-- self hosted video path

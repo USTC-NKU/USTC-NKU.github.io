@@ -237,7 +237,7 @@ header .bg::before {
 	left: 50%;
 	top: 0;
 	margin: 0 0 0 -130px;
-	background:  #F667AB left center ;
+	background:  #BE3455 left center ;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
 	z-index: 4;
 }
