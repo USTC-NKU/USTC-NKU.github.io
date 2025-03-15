@@ -1,5 +1,5 @@
 $(".type-wrap span:last").typed({
-	strings: ["<strong>^1000 Welcome to 2024, HAPPY NEW YEAR!</strong>"],
+	strings: ["<strong>^1000 Welcome to 2025, HAPPY NEW YEAR!</strong>"],
 	typeSpeed: 100,
 	loop: true,
 	contentType: 'html'
