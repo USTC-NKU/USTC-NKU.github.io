@@ -409,6 +409,7 @@ var BJData = [
     [{name:'北京市'}, {name:'贵阳市'}],
     [{name:'北京市'}, {name:'南昌市'}],
     [{name:'北京市'}, {name:'桂林市'}],
+    [{name:'北京市'}, {name:'惠州市'}],
 ];
 
 var convertData = function (data) {
