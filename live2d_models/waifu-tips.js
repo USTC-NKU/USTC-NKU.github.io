@@ -30,7 +30,7 @@ function loadWidget(config) {
 				<span class="fa fa-lg fa-times"></span>
 			</div>
 		</div>`);
-	// https://stackoverflow.com/questions/24148403/trigger-css-transition-on-appended-element
+	//https://stackoverflow.com/questions/24148403/trigger-css-transition-on-appended-element
 	setTimeout(() => {
 		document.getElementById("waifu").style.bottom = 0;
 	}, 0);
